@@ -11,7 +11,10 @@ config_version=5
 [application]
 
 config/name="beyond-the-ice"
+
 run/main_scene="uid://db51o88uxdxf7"
+
+
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
