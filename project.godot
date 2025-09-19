@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="beyond-the-ice"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="uid://db51o88uxdxf7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://cw1wlsxrce5fw"
+
+[autoload]
+
+scene_manager="*res://scene_manager.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [dotnet]
 
