@@ -21,8 +21,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		can_place = false
 		instance.placed()
 		item_list.deselect_all()
+		
+	if event.is_action_pressed("r") and instance:
+		var rot = instance.rotation_degrees
+		rot.y -= 90
+		instance.rotation_degrees = rot
 
-	
+
+
 func _process(delta: float) -> void:
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
