@@ -15,6 +15,10 @@ run/main_scene="uid://db51o88uxdxf7"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="beyond-the-ice"

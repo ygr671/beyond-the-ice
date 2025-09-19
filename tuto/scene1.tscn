@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7hyhf6kuibb1"]
+
+[sub_resource type="Gradient" id="Gradient_i5ff3"]
+offsets = PackedFloat32Array(0.9166667)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bvlox"]
+gradient = SubResource("Gradient_i5ff3")
+
+[sub_resource type="SystemFont" id="SystemFont_bvlox"]
+
+[sub_resource type="FontVariation" id="FontVariation_8flpx"]
+base_font = SubResource("SystemFont_bvlox")
+
+[sub_resource type="SystemFont" id="SystemFont_i5ff3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8flpx"]
+font = SubResource("SystemFont_i5ff3")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5ff3"]
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5ff3"]
+bg_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvlox"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8flpx"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="scene1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scene1_tuto" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_bvlox")
+
+[node name="titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -415.0
+offset_top = 171.00002
+offset_right = 435.0
+offset_bottom = 226.00002
+grow_horizontal = 2
+scale = Vector2(0.9982238, 1.0635657)
+theme_override_fonts/font = SubResource("FontVariation_8flpx")
+text = "BIENVENUE EN ANTARCTIQUE, ARCHITECTE !"
+label_settings = SubResource("LabelSettings_8flpx")
+
+[node name="mission" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = -68.0
+offset_right = 211.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "votre mission : aménager la station Concordia 
+afin de faciliter la survie des scientifiques présents"
+label_settings = SubResource("LabelSettings_i5ff3")
+
+[node name="suivant" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -410.0
+offset_top = 92.0
+offset_right = -182.0
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_i5ff3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bvlox")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8flpx")
+text = "SUIVANT"
