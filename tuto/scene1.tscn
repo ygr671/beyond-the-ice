@@ -1,4 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7hyhf6kuibb1"]
+[gd_scene load_steps=13 format=3 uid="uid://c7hyhf6kuibb1"]
+
+[ext_resource type="Script" uid="uid://dx54nk45dy7jr" path="res://tuto/scene_1.gd" id="1_8flpx"]
+[ext_resource type="Script" uid="uid://12j33nrrg58o" path="res://tuto/suivant.gd" id="2_k7i5f"]
 
 [sub_resource type="Gradient" id="Gradient_i5ff3"]
 offsets = PackedFloat32Array(0.9166667)
@@ -7,15 +10,17 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bvlox"]
 gradient = SubResource("Gradient_i5ff3")
 
-[sub_resource type="SystemFont" id="SystemFont_bvlox"]
+[sub_resource type="SystemFont" id="SystemFont_pj80m"]
+subpixel_positioning = 0
 
 [sub_resource type="FontVariation" id="FontVariation_8flpx"]
-base_font = SubResource("SystemFont_bvlox")
+base_font = SubResource("SystemFont_pj80m")
 
-[sub_resource type="SystemFont" id="SystemFont_i5ff3"]
+[sub_resource type="SystemFont" id="SystemFont_qirrh"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_8flpx"]
-font = SubResource("SystemFont_i5ff3")
+font = SubResource("SystemFont_qirrh")
 font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_i5ff3"]
@@ -60,8 +65,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8flpx")
 
-[node name="scene1_tuto" type="TextureRect" parent="."]
+[node name="scene1_bg" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,15 +116,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -410.0
-offset_top = 92.0
-offset_right = -182.0
-offset_bottom = 157.0
+offset_left = -406.0
+offset_top = 48.0
+offset_right = -302.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_i5ff3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bvlox")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8flpx")
 text = "SUIVANT"
+script = ExtResource("2_k7i5f")
+
+[connection signal="button_down" from="suivant" to="." method="_on_suivant_button_down"]

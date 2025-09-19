@@ -1,0 +1,187 @@
+[gd_scene load_steps=16 format=3 uid="uid://ike8cifxotvu"]
+
+[ext_resource type="Script" uid="uid://do0fan7dgrssx" path="res://tuto/scene_2.gd" id="1_tp5fg"]
+[ext_resource type="Script" uid="uid://12j33nrrg58o" path="res://tuto/suivant.gd" id="2_blj7p"]
+
+[sub_resource type="Gradient" id="Gradient_blj7p"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tbf6i"]
+gradient = SubResource("Gradient_blj7p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crhht"]
+bg_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sqk7"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uclrj"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbf6i"]
+bg_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.3372549, 0.50980395, 0.69411767, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs8rc"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnlas"]
+bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_vs8rc"]
+font_size = 25
+
+[sub_resource type="SystemFont" id="SystemFont_bvlox"]
+subpixel_positioning = 0
+
+[sub_resource type="FontVariation" id="FontVariation_cnlas"]
+base_font = SubResource("SystemFont_bvlox")
+
+[sub_resource type="SystemFont" id="SystemFont_i5ff3"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvuax"]
+font = SubResource("SystemFont_i5ff3")
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tp5fg")
+
+[node name="scene2_bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_tbf6i")
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = 75.0
+offset_right = -190.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_crhht")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8sqk7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uclrj")
+text = "START"
+
+[node name="precedant" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.0
+offset_top = 74.0
+offset_right = -300.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbf6i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vs8rc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnlas")
+text = "PRECEDANT"
+script = ExtResource("2_blj7p")
+
+[node name="mission" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -84.0
+offset_right = 373.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Colorez, aménagez, optimisez, 
+votre but : atteindre un taux de satisfaction le plus élevé possible 
+auprès des scientifiques présents"
+label_settings = SubResource("LabelSettings_vs8rc")
+
+[node name="titre" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_top = 165.00002
+offset_right = 430.0
+offset_bottom = 220.00002
+grow_horizontal = 2
+scale = Vector2(0.9982238, 1.0635657)
+theme_override_fonts/font = SubResource("FontVariation_cnlas")
+text = "COMMENT VOUS Y PRENDRE ?"
+label_settings = SubResource("LabelSettings_rvuax")
+
+[connection signal="button_down" from="start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="precedant" to="." method="_on_precedant_button_down"]
