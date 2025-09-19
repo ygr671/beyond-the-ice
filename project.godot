@@ -13,7 +13,7 @@ config_version=5
 config/name="beyond-the-ice"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cw1wlsxrce5fw"
 
 [dotnet]
 
