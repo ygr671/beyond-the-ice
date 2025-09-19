@@ -1,8 +1,8 @@
 extends Control
 
-@onready var litSimple = preload("res://litSimple.tscn")
-@onready var litDouble = preload("res://litDouble.tscn")
-@onready var litSuperpose = preload("res://litSuperpose.tscn")
+@onready var litSimple = preload("res://Meshes/litSimple.tscn")
+@onready var litDouble = preload("res://Meshes/litDouble.tscn")
+@onready var litSuperpose = preload("res://Meshes/litSuperpose.tscn")
 
 var camera
 var instance
