@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="beyond-the-ice"
-<<<<<<< HEAD
-=======
 run/main_scene="uid://db51o88uxdxf7"
->>>>>>> c1ec6cb2d64a670c2e9c9fb54325665f710dbbe4
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+scene_manager="*res://scene_manager.gd"
 
 [display]
 
