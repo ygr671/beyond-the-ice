@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://vy68o6b7ni3t"]
+
+[ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r150o"]
+size = Vector2(10, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r150o"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Ground" type="Node3D"]
+
+[node name="UIobjects" parent="." instance=ExtResource("1_r150o")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_r150o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_r150o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.596536, -0.52966344, 0.60299385, -0.014752366, 0.7439501, 0.66807234, -0.80245084, -0.40742472, 0.4359792, 5.059829, 2.7869568, 4.993975)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
