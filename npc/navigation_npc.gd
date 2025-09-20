@@ -1,14 +1,16 @@
 extends CharacterBody3D
+
+class_name NavigationNPC 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
 
-var Prénom: String = "Yanis"
-var Nom : String = "SALMANE"
+@export var npc_name: String = "NPC"
+@export var dialogue: String = "Bonjour !"
 
 
 
 func _display() ->String:
-	return "Je m'appelle " + Prénom +" " + Nom
+	return "Je m'appelle " + npc_name +" " + dialogue
 
 
 
