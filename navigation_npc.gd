@@ -5,9 +5,7 @@ var stuck_timer: float = 0.0
 var STUCK_THRESHOLD: float = 1.0
 var SPEED: float = 2.0
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		_set_new_random_destination()
+
 
 func _physics_process(delta: float) -> void:
 	var destination = navigation_agent_3d.get_next_path_position()
