@@ -3,7 +3,7 @@ extends Camera3D
 var mouse = Vector2()
 var target: Node3D = null
 var move_speed = 5.0
-@onready var ui_label: Label = $"../Label"
+@onready var ui_label: Label = $"../CanvasLayer/Label"
 var normal_rotation: Basis
 var target_rotation: Basis
 var normal_position: Vector3
@@ -43,7 +43,9 @@ func select_npc():
 			ui_label.text = target._display()
 			ui_label.visible = true
 			target._set_destination_null()
-			
+
+		
+		
 	
 
 func _process(delta: float) -> void:
