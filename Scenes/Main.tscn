@@ -21,7 +21,9 @@ mesh = SubResource("PlaneMesh_r150o")
 shape = SubResource("BoxShape3D_r150o")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.64699066, -0.5781383, 0.49715114, -0.01643799, 0.64127624, 0.7671341, -0.7623208, -0.5045007, 0.4053963, 5.059829, 6.1031313, 4.993975)
+transform = Transform3D(0.7087824, -0.46354213, 0.5317484, -0.01468307, 0.7439387, 0.66808665, -0.7052745, -0.48133567, 0.52048427, 5.059829, 6.1031313, 4.993975)
+projection = 1
+size = 7.91
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
