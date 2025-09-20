@@ -8,6 +8,7 @@ var normal_rotation: Basis
 var target_rotation: Basis
 var normal_position: Vector3
 
+@onready var navigation_npc: CharacterBody3D = $"../NavigationNPC"
 
 
 func _input(event: InputEvent) -> void:
@@ -31,15 +32,18 @@ func select_npc():
 	query.from = from #debut
 	query.to = to # fin du rayon
 	var result = space_state.intersect_ray(query) #result contient les info sur l'objet toucché
-	if result and result.has("collider") and result.collider is Node3D:
+	if result and result.has("collider") and result.collider is CharacterBody3D:
 		if target == result.collider:
 			# si on reclique sur le même NPC, on retourne à la caméra normale
+			target.speed_boost()
 			target = null
 			ui_label.visible = false
 		else:
 			target = result.collider
-			ui_label.text = "Vous avez sélectionné : " + target.name
+			ui_label.text = target._display()
 			ui_label.visible = true
+			target._set_destination_null()
+			
 	
 
 func _process(delta: float) -> void:
