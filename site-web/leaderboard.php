@@ -1,3 +1,8 @@
+<?php 
+  // Including bdd.php
+  require_once("bdd.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,20 @@
 <body>
     <?php
       // implement leaderboard logic there
-      
+      $check = $registered_players->execute();
+
+      if (!$check)
+      {
+        echo "Aucun score n'a été enregistré.";
+        exit;
+      }
+
+      foreach ($registered_players as $row)
+      {
+        $last_name = $row["last_name"];
+        $score = $row["score"];
+        echo "$last_name : $score<br>";
+      }
     ?>
 </body>
 </html>
