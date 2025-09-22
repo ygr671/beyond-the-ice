@@ -26,6 +26,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		var rot = instance.rotation_degrees
 		rot.y -= 90
 		instance.rotation_degrees = rot
+		
+	if event.is_action_pressed('escape') and can_place:
+		can_place = false
+		placing = false
+		item_list.deselect_all()
+		if instance:
+			instance.queue_free()
+			instance = null
+		
 
 
 
