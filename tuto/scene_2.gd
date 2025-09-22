@@ -1,6 +1,6 @@
 extends Control
 
-@onready var gamePlay:String = "res://main_scene.tscn"
+@onready var gamePlay:String = "res://Scenes/main_scene.tscn"
 
 
 func _on_start_button_down() -> void:
