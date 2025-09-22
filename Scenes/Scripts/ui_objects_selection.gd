@@ -4,6 +4,8 @@ extends Control
 @onready var litDouble = preload("res://Meshes/litDouble.tscn")
 @onready var litSuperpose = preload("res://Meshes/litSuperpose.tscn")
 
+@onready var placedObjects = get_tree().get_current_scene().get_node("PlacedObjects")
+
 var camera
 var instance
 var placing = false
@@ -34,8 +36,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if instance:
 			instance.queue_free()
 			instance = null
-		
-
+	if event.is_action_pressed("undo"):
+		if placedObjects.get_child_count() > 0:
+			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
+			lastObject.queue_free()
+	
 
 
 func _process(delta: float) -> void:
@@ -61,4 +66,4 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = litDouble.instantiate()
 	
 	placing = true
-	get_parent().add_child(instance)
+	placedObjects.add_child(instance)
