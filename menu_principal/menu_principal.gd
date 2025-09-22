@@ -1,6 +1,6 @@
 extends Control
 
-@onready var SceneACharger:String = "res://Scenes/Main.tscn" #"res://Scenes/Main.tscn" --> charge la scene ou on peut poser les objets
+@onready var SceneACharger:String = "res://main_scene.tscn" #"res://Scenes/Main.tscn" --> charge la scene ou on peut poser les objets
 	
 
 func _on_start_btn_button_down() -> void:
