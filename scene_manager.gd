@@ -1,7 +1,6 @@
 extends Node
 
 # Pile pour stocker les chemins des scènes précédentes
-# Pile pour stocker les chemins des scènes précédentes
 var scene_stack : Array = []
 
 # Aller vers une nouvelle scène
