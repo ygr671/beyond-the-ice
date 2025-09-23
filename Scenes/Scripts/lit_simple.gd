@@ -5,6 +5,7 @@ extends Node3D
 @onready var area = $Mesh/Area3D
 @onready var green_mat = preload("res://materials/greenPlacement.tres")
 @onready var red_mat = preload("res://materials/redPlacement.tres")
+@export var price = 100
 
 func check_placement() -> bool:
 	for ray in raycasts:
