@@ -13,8 +13,11 @@
     exit;
   }
 
-  // fetch the registered users and their score
+  // select registered players and their score
   $registered_players = $pdo->prepare("SELECT * FROM players");
+
+  // select the 3 first registered players, their score and order them by the score
+  $podium_players = $pdo->prepare("SELECT * FROM players ORDER BY score DESC LIMIT 3");
 
   // check if player is already in the database
   $presence_check = $pdo->prepare("SELECT COUNT(last_name) FROM players WHERE last_name = :last_name");
