@@ -41,8 +41,8 @@ size = Vector3(1, 1, 2.4811249)
 
 [node name="NavigationNPC" parent="." instance=ExtResource("1_i7ajm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-npc_name = "Yanis"
-dialogue = "je suis un GOAT "
+npc_name = "Ayoub"
+dialogue = "euuuuuuhhhhhhhhhhhhhhhhhH"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
