@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://cohahvbwoqysr"]
+[gd_scene load_steps=6 format=4 uid="uid://bbos0e0obf7ou"]
 
-[ext_resource type="Script" uid="uid://dhbv4anv2hqiw" path="res://Scenes/Scripts/lit_superpose.gd" id="1_7v7h5"]
+[ext_resource type="Script" uid="uid://6bglgfneauwk" path="res://Scripts/Object.gd" id="1_ww6pi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ov6fe"]
 resource_name = "mat0"
@@ -44,9 +44,8 @@ shadow_mesh = SubResource("ArrayMesh_a2cmj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wk73k"]
 size = Vector3(1.3695221, 1.1386108, 0.8448334)
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("meshes")]
-script = ExtResource("1_7v7h5")
-meshes = [NodePath("Mesh")]
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ww6pi")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.9996631, 0, 0.025954114, 0, 1, 0, -0.025954114, 0, -0.9996631, 0, 0, 0)
