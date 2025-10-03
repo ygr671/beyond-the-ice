@@ -1,7 +1,7 @@
 <?php
   $db_filename = "db.sqlite";
 
-  $SQL_DSN = "sqlite:/home/yzd/Documents/BUT/s3/t3/beyond-the-ice/site-web/api/$db_filename";
+  $SQL_DSN = "sqlite:" . __DIR__ ."/api/$db_filename";
 
   try
   {
@@ -17,7 +17,7 @@
   $registered_players = $pdo->prepare("SELECT * FROM players");
 
   // select the 3 first registered players, their score and order them by the score
-  $podium_players = $pdo->prepare("SELECT * FROM players ORDER BY score DESC LIMIT 3");
+  $podium_players = $pdo->prepare("SELECT * FROM players ORDER BY score DESC LIMIT 5");
 
   // check if player is already in the database
   $presence_check = $pdo->prepare("SELECT COUNT(last_name) FROM players WHERE last_name = :last_name");
