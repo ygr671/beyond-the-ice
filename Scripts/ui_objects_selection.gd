@@ -7,13 +7,14 @@ extends Control
 @onready var placedObjects = get_tree().get_current_scene().get_node("PlacedObjects")
 @onready var infoBubble = $InfoBubble
 
+
 var camera
 var instance
 var placing = false
 var can_place = false
 var money:int = 1000
 var lastExpenses: Array[int]
-
+var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
 @onready var labelMoney = $Label
 
@@ -29,11 +30,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			can_place = false
 			instance.placed()
 			item_list.deselect_all()
+			instance.show_depense(instance.price)
 		else:
 			show_info_bubble()
 
 
-	if event.is_action_pressed("r") and instance and placing:
+	if event.is_action_pressed("r") and instance and placing and !rotating:
+		rotating = true
 		var startRotation = instance.rotation_degrees
 		var targetRotation = startRotation
 		targetRotation.y -= 90 
@@ -41,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		var tween = create_tween()
 		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		
+		tween.finished.connect(func(): rotating = false)
 		
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click") )and can_place:
 		can_place = false
@@ -51,11 +54,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			instance.queue_free()
 			instance = null
 	if event.is_action_pressed("undo") and !placing:
-		if placedObjects.get_child_count() > 0:
+		if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
 			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			lastObject.queue_free()
+			
+			lastObject.get_node("Mesh").visible = false
+			lastObject.show_gain(lastExpenses.back())
 			set_money(lastExpenses.pop_back())
-	
+			await get_tree().create_timer(1.0).timeout
+			
+			lastObject.queue_free()
 
 
 func _process(_delta: float) -> void:

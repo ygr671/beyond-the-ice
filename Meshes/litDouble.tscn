@@ -82,3 +82,7 @@ transform = Transform3D(0.0064874394, 0, 0.9549779, 0, 0.955, 0, -0.9549779, 0, 
 billboard = 1
 text = "	"
 font_size = 42
+
+[node name="FloatingLabel" type="Label3D" parent="."]
+billboard = 1
+font_size = 42
