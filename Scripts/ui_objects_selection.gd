@@ -30,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			can_place = false
 			instance.placed()
 			item_list.deselect_all()
-			instance.show_depense(instance.price)
+			show_floating_text(-instance.price, instance.global_transform.origin, get_tree().current_scene)
 		else:
 			show_info_bubble()
 
@@ -43,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		targetRotation.y = round(targetRotation.y / 90) * 90 #pour rester sur des multiple de 90° sinon c'est buggger a mort
 		
 		var tween = create_tween()
-		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tween.finished.connect(func(): rotating = false)
 		
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click") )and can_place:
@@ -56,14 +56,36 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("undo") and !placing:
 		if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
 			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			
-			lastObject.get_node("Mesh").visible = false
-			lastObject.show_gain(lastExpenses.back())
+			var sum = lastObject.price
 			set_money(lastExpenses.pop_back())
-			await get_tree().create_timer(1.0).timeout
-			
+			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
 			lastObject.queue_free()
 
+func show_floating_text(montant: int, pos: Vector3, parent: Node):
+	var label = Label3D.new()
+	label.text = ("+" + str(montant) if montant >= 0 else str(montant)) + " $"
+	label.modulate = Color(0,1,0,1) if montant >= 0 else Color(1,0,0,1)
+	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
+	label.position = pos + Vector3(0,2,0)
+	label.scale = Vector3(0,0,0)
+	parent.add_child(label)
+
+	var tween = label.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(label, "scale", Vector3(1.2,1.2,1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "scale", Vector3(1,1,1), 0.1).set_delay(0.2)
+	tween.tween_property(label, "position", label.position + Vector3(0,1,0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.finished.connect(func(): label.queue_free())
+
+	# Tween pour animation pop + montée + fade
+	tween = label.create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(label, "scale", Vector3(1.2,1.2,1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "scale", Vector3(1,1,1), 0.1).set_delay(0.2)
+	tween.tween_property(label, "position", label.position + Vector3(0,1,0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.finished.connect(func(): label.queue_free())
 
 func _process(_delta: float) -> void:
 	if placing:
