@@ -76,3 +76,9 @@ target_position = Vector3(0, -0.23, 0)
 [node name="ray4" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(0.955, 0, 8.348875e-08, 0, 0.955, 0, -8.348875e-08, 0, 0.955, 0.59307784, 0.20710462, -0.6901482)
 target_position = Vector3(0, -0.23, 0)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.0064874394, 0, 0.9549779, 0, 0.955, 0, -0.9549779, 0, 0.0064874394, -0.013392508, 1.6357358, 0.002962172)
+billboard = 1
+text = "	"
+font_size = 42

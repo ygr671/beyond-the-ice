@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var raycasts = [$Mesh/ray1, $Mesh/ray2, $Mesh/ray3, $Mesh/ray4]
+@onready var labelPrix = $Label3D
 @export var meshes: Array[MeshInstance3D]
 @onready var area = $Mesh/Area3D
 @onready var green_mat = preload("res://materials/greenPlacement.tres")
@@ -15,6 +16,7 @@ func _ready() -> void:
 			meshes.append(child)
 		elif child.get_child_count() > 0:
 			meshes += _get_meshes_recursive(child)
+	labelPrix.text = str(price) + "$"
 
 
 func _get_meshes_recursive(node: Node) -> Array:
@@ -44,6 +46,7 @@ func placed() ->void:
 		mesh.material_override = null
 	for ray in raycasts:
 		ray.queue_free()
+	labelPrix.visible = false
 
 
 func placement_red() ->void:
