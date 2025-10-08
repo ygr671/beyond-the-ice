@@ -5,7 +5,7 @@ extends Node3D
 @onready var area = $Mesh/Area3D
 @onready var green_mat = preload("res://materials/greenPlacement.tres")
 @onready var red_mat = preload("res://materials/redPlacement.tres")
-@export var price = 150
+@export var price = 0
 var angle: float = 0
 
 func _ready() -> void:

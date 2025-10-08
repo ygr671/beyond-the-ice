@@ -44,8 +44,10 @@ shadow_mesh = SubResource("ArrayMesh_tr33s")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mu15e"]
 size = Vector3(1.255, 0.35669923, 1.44)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_poy0e")
+meshes = [NodePath("Mesh")]
+price = 200
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
