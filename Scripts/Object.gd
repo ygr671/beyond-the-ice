@@ -6,6 +6,7 @@ extends Node3D
 @onready var area = $Mesh/Area3D
 @onready var green_mat = preload("res://materials/greenPlacement.tres")
 @onready var red_mat = preload("res://materials/redPlacement.tres")
+@onready var floatingLabel = $FloatingLabel
 @export var price = 0
 var angle: float = 0
 
@@ -56,4 +57,34 @@ func placement_red() ->void:
 func placement_green() ->void:
 	for mesh in meshes:
 		mesh.material_override = green_mat 
-		
+
+func show_depense(montant: int): #Fonction qui affiche une anim lors de l'achat d'un objet
+	
+	floatingLabel.text = "-" + str(montant) + " $"
+	floatingLabel.modulate = Color(1, 0, 0, 1)  
+	floatingLabel.visible = true
+	floatingLabel.position = Vector3(0, 2, 0)  
+	floatingLabel.scale = Vector3(0, 0, 0)     
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(floatingLabel, "scale", Vector3(1.2, 1.2, 1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(floatingLabel, "scale", Vector3(1, 1, 1), 0.1).set_delay(0.2)
+	tween.tween_property(floatingLabel, "position", floatingLabel.position + Vector3(0, 1, 0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(floatingLabel, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.finished.connect(func(): floatingLabel.visible = false)
+
+func show_gain(montant: int): #Fonction qui affiche une anim lors de l'achat d'un objet
+	floatingLabel.text = "+" + str(montant) + " $"
+	floatingLabel.modulate = Color(0, 1, 0, 1)  
+	floatingLabel.visible = true
+	floatingLabel.position = Vector3(0, 2, 0)  
+	floatingLabel.scale = Vector3(0, 0, 0)     
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(floatingLabel, "scale", Vector3(1.2, 1.2, 1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_property(floatingLabel, "scale", Vector3(1, 1, 1), 0.1).set_delay(0.2)
+	tween.tween_property(floatingLabel, "position", floatingLabel.position + Vector3(0, 1, 0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(floatingLabel, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.finished.connect(func(): floatingLabel.visible = false)
