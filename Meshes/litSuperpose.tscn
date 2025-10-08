@@ -46,6 +46,7 @@ size = Vector3(1.3695221, 1.1386108, 0.8448334)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ww6pi")
+price = 100
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.9996631, 0, 0.025954114, 0, 1, 0, -0.025954114, 0, -0.9996631, 0, 0, 0)
