@@ -34,9 +34,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 	if event.is_action_pressed("r") and instance and placing:
-		var rot = instance.rotation_degrees
-		rot.y -= 90
-		instance.rotation_degrees = rot
+		var startRotation = instance.rotation_degrees
+		var targetRotation = startRotation
+		targetRotation.y -= 90 
+		targetRotation.y = round(targetRotation.y / 90) * 90 #pour rester sur des multiple de 90° sinon c'est buggger a mort
+		
+		var tween = create_tween()
+		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		
 		
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click") )and can_place:
