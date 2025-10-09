@@ -61,7 +61,7 @@ mesh = SubResource("PlaneMesh_r150o")
 shape = SubResource("BoxShape3D_r150o")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.7087824, -0.46354204, 0.5317484, -0.014683067, 0.7439386, 0.66808665, -0.7052744, -0.48133567, 0.52048445, 4.779346, 6.103131, 4.554502)
+transform = Transform3D(0.7071068, -0.40860704, 0.57709646, 0, 0.8161376, 0.5778577, -0.7071068, -0.40860704, 0.57709646, 5.9925523, 6.103131, 5.947125)
 projection = 1
 size = 7.91
 
