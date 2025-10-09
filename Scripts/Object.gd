@@ -48,6 +48,26 @@ func placed() ->void:
 	for ray in raycasts:
 		ray.queue_free()
 	labelPrix.visible = false
+	create_collision()
+
+func create_collision():
+	# Créer le StaticBody3D
+	var static_body = StaticBody3D.new()
+	
+	# Créer le CollisionShape3D
+	var collision_shape = CollisionShape3D.new()
+	
+	# Copier la forme de collision de l'Area3D
+	var area_collision = area.get_child(0)  # Le premier enfant de l'Area3D
+	if area_collision is CollisionShape3D:
+		collision_shape.shape = area_collision.shape.duplicate()
+	
+	# Assembler la hiérarchie
+	static_body.add_child(collision_shape)
+	add_child(static_body)
+	
+	# Positionner au même endroit que l'objet
+	static_body.global_transform = global_transform
 
 
 func placement_red() ->void:
