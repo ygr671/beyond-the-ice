@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=6 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l7je"]
+bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
+corner_radius_top_left = 57
+corner_radius_top_right = 57
+corner_radius_bottom_right = 57
+corner_radius_bottom_left = 50
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_r150o"]
 size = Vector2(10, 10)
@@ -12,6 +20,38 @@ size = Vector3(10, 0.1, 10)
 
 [node name="UIobjects" parent="." instance=ExtResource("1_r150o")]
 
+[node name="InfoBubble" type="Panel" parent="UIobjects"]
+visible = false
+layout_mode = 0
+offset_left = 857.0
+offset_top = 447.0
+offset_right = 1049.0
+offset_bottom = 482.0
+
+[node name="Label" type="Label" parent="UIobjects/InfoBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pas assez d'argent !"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="UIobjects"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 720.0
+offset_right = 106.29166
+offset_bottom = 771.0
+scale = Vector2(0.9600003, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6l7je")
+icon = ExtResource("2_6l7je")
+icon_alignment = 1
+expand_icon = true
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_r150o")
 
@@ -21,9 +61,13 @@ mesh = SubResource("PlaneMesh_r150o")
 shape = SubResource("BoxShape3D_r150o")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.7087824, -0.46354213, 0.5317484, -0.01468307, 0.7439387, 0.66808665, -0.7052745, -0.48133567, 0.52048427, 5.059829, 6.1031313, 4.993975)
+transform = Transform3D(0.7071068, -0.40860704, 0.57709646, 0, 0.8161376, 0.5778577, -0.7071068, -0.40860704, 0.57709646, 5.9925523, 6.103131, 5.947125)
 projection = 1
 size = 7.91
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+
+[node name="PlacedObjects" type="Node3D" parent="."]
+
+[connection signal="pressed" from="UIobjects/Button" to="UIobjects" method="_on_button_pressed"]
