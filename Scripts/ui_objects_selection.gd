@@ -136,7 +136,9 @@ func show_info_bubble() -> void:
 
 func _on_button_pressed() -> void:
 	if !placing:
-		if placedObjects.get_child_count() > 0:
+		if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
 			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			lastObject.queue_free()
+			var sum = lastObject.price
 			set_money(lastExpenses.pop_back())
+			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
+			lastObject.queue_free()
