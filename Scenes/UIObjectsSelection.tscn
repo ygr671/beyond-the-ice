@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=11 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
 [ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccfxskfsmevt5" path="res://Import/Icon/litDouble.png" id="3_sbbsm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fyeh"]
-bg_color = Color(0.89411765, 0.89411765, 0.89411765, 1)
+bg_color = Color(0.65882355, 0.84705883, 0.91764706, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -18,23 +18,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 corner_detail = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea02u"]
-bg_color = Color(0, 0, 0, 0)
-border_width_left = 5
-border_width_right = 5
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vsoc"]
-bg_color = Color(0.27, 0.27, 0.27, 1)
-border_width_left = 5
-border_width_right = 5
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xx6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3gva"]
 bg_color = Color(0.68235296, 0.8784314, 1, 1)
@@ -53,6 +37,24 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea02u"]
+bg_color = Color(18.892157, 0, 0, 1)
+border_width_left = 5
+border_width_right = 5
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vsoc"]
+bg_color = Color(0.27, 0.27, 0.27, 1)
+border_width_left = 5
+border_width_right = 5
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="UIobjects" type="Control"]
 layout_mode = 3
@@ -116,8 +118,7 @@ layout_mode = 2
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6xx6k")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Salon
