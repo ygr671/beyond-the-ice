@@ -9,8 +9,8 @@ class_name NavigationNPC
 
 
 
-func _display() ->String:
-	return "Je m'appelle " + npc_name +" " + dialogue
+func _display() -> String:
+	return "Je m'appelle " + npc_name + " " + dialogue
 
 
 
