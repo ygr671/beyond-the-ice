@@ -56,7 +56,7 @@ skeleton = NodePath("")
 [node name="Area3D" type="Area3D" parent="Mesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D"]
-transform = Transform3D(1.000039, 0, 4.991889e-07, 0, 1, 0, -4.991889e-07, 0, 1.000039, 0.008660377, 0.73428345, -0.021980768)
+transform = Transform3D(1.0781702, 0, 5.2014366e-07, 0, 1, 0, -5.620532e-07, 0, 0.999393, 0.008660374, 0.73428345, -0.02198078)
 shape = SubResource("BoxShape3D_wk73k")
 
 [node name="ray1" type="RayCast3D" parent="Mesh"]
