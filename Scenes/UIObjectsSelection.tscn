@@ -68,17 +68,16 @@ script = ExtResource("1_ea02u")
 
 [node name="ItemList" type="ItemList" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -183.0
-offset_top = -55.5
+offset_top = -111.0
 offset_right = 183.0
-offset_bottom = 55.5
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 item_count = 3
 max_columns = 3
 icon_scale = 0.18

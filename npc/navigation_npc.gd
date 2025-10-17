@@ -2,37 +2,13 @@ extends CharacterBody3D
 
 class_name NavigationNPC 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
-
+@onready var model = $Nils
 
 @export var npc_name: String = "NPC"
 @export var dialogue: String = "Bonjour !"
 
-
-
 func _display() ->String:
 	return "Je m'appelle " + npc_name +" " + dialogue
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var stuck_timer: float = 0.0
 var STUCK_THRESHOLD: float = 1.0
@@ -58,6 +34,10 @@ func _physics_process(delta: float) -> void:
 			stuck_timer = 0.0
 	else:
 		stuck_timer = 0.0  # réinitialise si le NPC bouge
+		var target_ratotion = atan2(direction.x, direction.z)
+		var current_rotation = model.rotation.y
+		var new_rotation = lerp_angle(current_rotation, target_ratotion, 5.0 * delta)
+		model.rotation = Vector3(0, new_rotation, 0)
 
 func _set_new_random_destination() -> void:
 	Move = true
