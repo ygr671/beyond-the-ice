@@ -41,8 +41,13 @@ size = Vector3(1, 1, 2.4811249)
 
 [node name="NavigationNPC" parent="." instance=ExtResource("1_i7ajm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-npc_name = "Ayoub"
-dialogue = "euuuuuuhhhhhhhhhhhhhhhhhH"
+npc_name = "Raphael"
+dialogue = " et je suis à perte"
+
+[node name="NavigationNPC" parent="NavigationNPC" instance=ExtResource("1_i7ajm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003525734, 1.8457)
+npc_name = "Muhammed"
+dialogue = " et je suis à perte aussi"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=9 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://dhb0rh6musbex" path="res://npc/navigation_npc.tscn" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://bonlbe4emw7ek" path="res://Scenes/camera_3d.gd" id="4_x6ack"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l7je"]
 bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
@@ -66,7 +67,8 @@ mesh = SubResource("PlaneMesh_r150o")
 shape = SubResource("BoxShape3D_r150o")
 
 [node name="NavigationNPC" parent="MeshInstance3D" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81829, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0267668, 0)
+npc_name = "Yanis"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4041971, 0)
@@ -77,10 +79,22 @@ transform = Transform3D(0.7071068, -0.40860704, 0.57709646, 0, 0.8161376, 0.5778
 projection = 1
 current = true
 size = 7.91
+script = ExtResource("4_x6ack")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 
 [node name="PlacedObjects" type="Node3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 158.0
+offset_top = 731.0
+offset_right = 1753.0
+offset_bottom = 922.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="UIobjects/Button" to="UIobjects" method="_on_button_pressed"]

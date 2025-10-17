@@ -6,39 +6,14 @@ class_name NavigationNPC
 
 @export var npc_name: String = "NPC"
 @export var dialogue: String = "Bonjour !"
-
-
-
-func _display() ->String:
-	return "Je m'appelle " + npc_name +" " + dialogue
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var stuck_timer: float = 0.0
 var STUCK_THRESHOLD: float = 1.0
 var SPEED: float = 2.0
 var Move: bool = true
 
+
+func _display() ->String:
+	return "Je m'appelle " + npc_name +" " + dialogue
 
 
 

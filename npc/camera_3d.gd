@@ -49,7 +49,8 @@ func select_npc():
 	
 
 func _process(delta: float) -> void:
-	if target:
+	if target:ctuel**, donc on le passe depuis le bouton
+	scene_stack.append(new_scene_path) # on stocke le chemin qu'on quitte
 		var target_position = target.global_position + Vector3(0, 2, 5)
 		global_position = global_position.move_toward(target_position, move_speed * delta)
 		
