@@ -24,7 +24,3 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.44548887, 0)
 shape = SubResource("CylinderShape3D_da7jf")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
-
-[node name="Nils" parent="." instance=ExtResource("2_da7jf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6719786, 0)
