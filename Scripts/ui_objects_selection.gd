@@ -78,15 +78,6 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	tween.tween_property(label, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.finished.connect(func(): label.queue_free())
 
-	# Tween pour animation pop + montée + fade
-	tween = label.create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(label, "scale", Vector3(1.2,1.2,1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(label, "scale", Vector3(1,1,1), 0.1).set_delay(0.2)
-	tween.tween_property(label, "position", label.position + Vector3(0,1,0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(label, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.finished.connect(func(): label.queue_free())
-
 func _process(_delta: float) -> void:
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
