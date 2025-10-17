@@ -35,7 +35,7 @@ func _display() -> String:
 
 
 var stuck_timer: float = 0.0
-var STUCK_THRESHOLD: float = 1.0
+var STUCK_THRESHOLD: float = 0.0
 var SPEED: float = 2.0
 var Move: bool = true
 
