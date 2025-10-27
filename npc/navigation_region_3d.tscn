@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://ujiaswmvmrfu"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_khqy5"]
+vertices = PackedVector3Array(5, 4.484375, -5.085973, 5.5, 4.484375, 4.414027, 5.5, 4.484375, -5.335973, -4.5, 4.484375, -5.335973, -4.5, 0.484375, -4.085973, -4.5, 0.484375, 4.414027, 4.25, 0.484375, 4.414027, 4.25, 0.484375, -4.085973)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+
+[node name="NavigationNPC3D" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_khqy5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.37389907, 0.33196312, 0, 0.6639262, 0.7477981, -0.50000006, 0.64761215, -0.5749769, 0, 6.01389, 0)
+light_energy = 2.208
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -200.0
+offset_right = 1.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.462205, 1.5336914, -0.42022407)
+use_collision = true
+size = Vector3(1, 5.098633, 10.831497)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.00902323, 0, 0.9999593, 0, 1, 0, -0.9999593, 0, -0.00902323, 0.4772067, 1.5431824, -5.2443867)
+use_collision = true
+size = Vector3(1, 5.0671997, 10.900202)

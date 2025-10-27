@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhb0rh6musbex"]
+[gd_scene load_steps=4 format=3 uid="uid://dhb0rh6musbex"]
 
 [ext_resource type="Script" uid="uid://xxp86afck0ka" path="res://npc/navigation_npc.gd" id="1_jlvxn"]
-[ext_resource type="PackedScene" uid="uid://bucodnkauoxb" path="res://Import/Models/Nils.fbx" id="2_da7jf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_da7jf"]
 
