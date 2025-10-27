@@ -20,12 +20,12 @@ var rotating = false # Pour l'anim sinon on peut spam
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	labelMoney.text = "Money : " + str(money)
+	set_money(money);
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
 		if enough_money(instance.price):
-			set_money(-lastExpenses[lastExpenses.size()-1])
+			add_money(-lastExpenses[lastExpenses.size()-1])
 			placing = false
 			can_place = false
 			instance.placed()
@@ -54,12 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			instance.queue_free()
 			instance = null
 	if event.is_action_pressed("undo") and !placing:
-		if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
-			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			var sum = lastObject.price
-			set_money(lastExpenses.pop_back())
-			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
-			lastObject.queue_free()
+		undo_placement()
 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	var label = Label3D.new()
@@ -71,15 +66,6 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	parent.add_child(label)
 
 	var tween = label.create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(label, "scale", Vector3(1.2,1.2,1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(label, "scale", Vector3(1,1,1), 0.1).set_delay(0.2)
-	tween.tween_property(label, "position", label.position + Vector3(0,1,0), 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(label, "modulate:a", 0.0, 0.7).set_delay(0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.finished.connect(func(): label.queue_free())
-
-	# Tween pour animation pop + montée + fade
-	tween = label.create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(label, "scale", Vector3(1.2,1.2,1.2), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label, "scale", Vector3(1,1,1), 0.1).set_delay(0.2)
@@ -117,10 +103,13 @@ func _on_item_list_item_selected(index: int) -> void:
 	
 	placing = true
 	placedObjects.add_child(instance)
-	
+
 func set_money(value: int):
+	labelMoney.text = "Money : " + str(value)
+
+func add_money(value: int):
 	money += value
-	labelMoney.text = "Money : " + str(money)
+	set_money(money)
 
 func enough_money(price: int) -> bool:
 	if (money - price) >= 0:
@@ -132,13 +121,16 @@ func show_info_bubble() -> void:
 	infoBubble.visible = true
 	await get_tree().create_timer(3).timeout
 	infoBubble.visible = false
+	
+func undo_placement() -> void:
+	if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
+			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
+			var sum = lastObject.price
+			add_money(lastExpenses.pop_back())
+			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
+			lastObject.queue_free()
 
 
 func _on_button_pressed() -> void:
 	if !placing:
-		if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
-			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			var sum = lastObject.price
-			set_money(lastExpenses.pop_back())
-			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
-			lastObject.queue_free()
+		undo_placement()

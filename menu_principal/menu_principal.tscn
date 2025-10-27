@@ -161,7 +161,7 @@ scale = Vector2(1, 1.0799999)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="startBtn" type="Button" parent="VBoxContainer"]
+[node name="start_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -181,7 +181,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kbxwo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x57wl")
 text = "TUTORIEL"
 
-[node name="quitBtn" type="Button" parent="VBoxContainer"]
+[node name="quit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -191,6 +191,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_g85l6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_80s3h")
 text = "QUIT"
 
-[connection signal="button_down" from="VBoxContainer/startBtn" to="." method="_on_start_btn_button_down"]
+[connection signal="button_down" from="VBoxContainer/start_btn" to="." method="_on_start_btn_button_down"]
 [connection signal="button_down" from="VBoxContainer/tutorial" to="." method="_on_tutorial_button_down"]
-[connection signal="button_down" from="VBoxContainer/quitBtn" to="." method="_on_quit_btn_button_down"]
+[connection signal="button_down" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_button_down"]
