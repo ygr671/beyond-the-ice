@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=6 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://dhb0rh6musbex" path="res://npc/navigation_npc.tscn" id="3_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://dkmy3eentrrtx" path="res://salle_modele.glb" id="4_x6ack"]
+[ext_resource type="PackedScene" uid="uid://ujiaswmvmrfu" path="res://npc/navigation_region_3d.tscn" id="3_x6ack"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l7je"]
 bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
@@ -11,10 +11,6 @@ corner_radius_top_left = 57
 corner_radius_top_right = 57
 corner_radius_bottom_right = 57
 corner_radius_bottom_left = 50
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_jv6wh"]
-vertices = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, -5)
-polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(1, 3, 2)]
 
 [node name="Ground" type="Node3D"]
 
@@ -53,29 +49,21 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.683327, -0.35853633, 0.6360156, 0.023806922, 0.8815986, 0.47139916, -0.7297242, -0.3069782, 0.6109558, 5.2820444, 4.3782415, 5.3889327)
+transform = Transform3D(0.68671054, 0.3282641, -0.6485919, 0.023806928, 0.88159865, 0.4713991, 0.7265411, -0.3391557, 0.59758806, -9.033381, 8.402146, 8.628708)
 projection = 1
 current = true
-size = 7.91
+size = 12.674621
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 
 [node name="PlacedObjects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04453449, 0)
 
-[node name="salle_modele" parent="." instance=ExtResource("4_x6ack")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3073955, 0.09487939, 0.41434598)
+[node name="NavigationNPC3D" parent="." instance=ExtResource("3_x6ack")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="salle_modele"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="salle_modele/StaticBody3D"]
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="salle_modele"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901083, 0.48768055, -0.96823764)
-navigation_mesh = SubResource("NavigationMesh_jv6wh")
-
-[node name="NavigationNPC" parent="salle_modele" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3073955, 0.7234106, -0.41434598)
+[node name="NavigationNPC2" parent="NavigationNPC3D" instance=ExtResource("3_jv6wh")]
+transform = Transform3D(0.91913533, 0, 0.3939419, 0, 1, 0, -0.3939419, 0, 0.91913533, 0, 1.0037963, 0)
 input_ray_pickable = false
 
 [connection signal="pressed" from="UIobjects/Button" to="UIobjects" method="_on_button_pressed"]
