@@ -69,10 +69,10 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 8, 8, 8)
+transform = Transform3D(0.70710677, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.70710677, -0.4055798, 0.579228, 8, 10, 8)
 projection = 1
 current = true
-size = 7.91
+size = 13.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189896, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -82,11 +82,13 @@ transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323
 [node name="Salle" type="Node3D" parent="."]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salle"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.16522157, 0.016869187)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035, 0.016869187)
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/NavigationRegion3D"]
+
 [node name="NavigationNPC" parent="Salle" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3073955, 0.7234106, -0.41434598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.307, 0.1, -0.414)
 input_ray_pickable = false
 
 [node name="Nils" parent="Salle/NavigationNPC" instance=ExtResource("5_iacmt")]
