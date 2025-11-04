@@ -82,7 +82,7 @@ transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323
 [node name="Salle" type="Node3D" parent="."]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salle"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035, 0.016869187)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 1.2478706, 0.016869187)
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/NavigationRegion3D"]
