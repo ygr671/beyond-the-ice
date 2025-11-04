@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=14 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
@@ -16,6 +16,10 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="BoxMesh" id="BoxMesh_iacmt"]
 size = Vector3(10, 0.1, 10)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_iacmt"]
+vertices = PackedVector3Array(-5, 0.05, 5, 5, 0.05, -5, 5, 0.05, 5, -5, 0.05, -5, -5, -0.05, 5, 5, -0.05, -5, 5, -0.05, 5, -5, -0.05, -5, 5, 0.05, 5, -5, 0.05, -5, 5, 0.05, -5, -5, 0.05, 5, 5, -0.05, 5, -5, -0.05, -5, 5, -0.05, -5, -5, -0.05, 5, 5, 0.05, 5, -5, -0.05, 5, -5, 0.05, 5, 5, -0.05, 5, 5, 0.05, -5, -5, -0.05, -5, -5, 0.05, -5, 5, -0.05, -5)
+polygons = [PackedInt32Array(0, 2, 4), PackedInt32Array(2, 6, 4), PackedInt32Array(1, 3, 5), PackedInt32Array(3, 7, 5), PackedInt32Array(8, 10, 12), PackedInt32Array(10, 14, 12), PackedInt32Array(9, 11, 13), PackedInt32Array(11, 15, 13), PackedInt32Array(16, 18, 20), PackedInt32Array(18, 22, 20), PackedInt32Array(17, 19, 21), PackedInt32Array(19, 23, 21)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ev3c"]
 size = Vector3(10, 0.1, 10)
@@ -97,6 +101,9 @@ input_ray_pickable = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Sol"]
 mesh = SubResource("BoxMesh_iacmt")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salle/Sol/MeshInstance3D"]
+navigation_mesh = SubResource("NavigationMesh_iacmt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
