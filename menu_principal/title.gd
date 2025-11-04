@@ -14,4 +14,4 @@ func _ready():
 @warning_ignore("unused_parameter")
 func _process(delta: float):
 	var current_time = Time.get_ticks_msec()
-	position.y = base_position.y + sin(current_time * speed * 0.001) * amplitude * tan(current_time * speed * 0.001)
+	position.y = base_position.y + sin(current_time * speed * 0.001) * amplitude * sin(current_time * speed * 0.001)
