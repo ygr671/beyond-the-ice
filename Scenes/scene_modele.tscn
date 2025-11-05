@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://pirhygjro176"]
+[gd_scene load_steps=10 format=3 uid="uid://pirhygjro176"]
 
 [ext_resource type="PackedScene" uid="uid://vy68o6b7ni3t" path="res://Scenes/main_scene.tscn" id="1_6mk8y"]
 [ext_resource type="PackedScene" uid="uid://dhb0rh6musbex" path="res://npc/navigation_npc.tscn" id="2_7s2c2"]
-[ext_resource type="PackedScene" uid="uid://bucodnkauoxb" path="res://Import/Models/Nils.fbx" id="3_vjshh"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_jv6wh"]
 
@@ -43,8 +42,6 @@ input_ray_pickable = false
 [node name="Mur droit2" type="StaticBody3D" parent="Salle" index="3"]
 
 [node name="Mur gauche2" type="StaticBody3D" parent="Salle" index="4"]
-
-[node name="Nils2" parent="Salle/NavigationNPC" index="3" instance=ExtResource("3_vjshh")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Salle/Sol" index="0"]
 mesh = SubResource("BoxMesh_6mk8y")
