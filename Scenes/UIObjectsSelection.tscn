@@ -82,16 +82,6 @@ item_0/icon = ExtResource("1_uhs4y")
 item_1/icon = ExtResource("2_lkon2")
 item_2/icon = ExtResource("3_sbbsm")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 239.74365
-offset_bottom = 130.72818
-theme_override_font_sizes/font_size = 48
-text = "Money : -1"
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
