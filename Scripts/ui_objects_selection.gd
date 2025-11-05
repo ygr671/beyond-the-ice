@@ -7,33 +7,25 @@ extends Control
 @onready var placedObjects = get_tree().get_current_scene().get_node("PlacedObjects")
 @onready var infoBubble = $InfoBubble
 
-
 var camera
 var instance
 var placing = false
 var can_place = false
-var money:int = 1000
 var lastExpenses: Array[int]
 var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
-@onready var labelMoney = $Label
+
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	set_money(money);
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
-		if enough_money(instance.price):
-			add_money(-lastExpenses[lastExpenses.size()-1])
-			placing = false
-			can_place = false
-			instance.placed()
-			item_list.deselect_all()
-			show_floating_text(-instance.price, instance.global_transform.origin, get_tree().current_scene)
-		else:
-			show_info_bubble()
-
+		placing = false
+		can_place = false
+		instance.placed()
+		item_list.deselect_all()
 
 	if event.is_action_pressed("r") and instance and placing and !rotating:
 		rotating = true
@@ -103,30 +95,12 @@ func _on_item_list_item_selected(index: int) -> void:
 	
 	placing = true
 	placedObjects.add_child(instance)
-
-func set_money(value: int):
-	labelMoney.text = "Money : " + str(value)
-
-func add_money(value: int):
-	money += value
-	set_money(money)
-
-func enough_money(price: int) -> bool:
-	if (money - price) >= 0:
-		lastExpenses.append(price)
-		return true
-	return false
 	
-func show_info_bubble() -> void:
-	infoBubble.visible = true
-	await get_tree().create_timer(3).timeout
-	infoBubble.visible = false
-	
+
 func undo_placement() -> void:
 	if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
 			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
 			var sum = lastObject.price
-			add_money(lastExpenses.pop_back())
 			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
 			lastObject.queue_free()
 
