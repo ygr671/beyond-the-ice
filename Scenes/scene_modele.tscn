@@ -30,45 +30,42 @@ size = Vector3(0.1, 5, 10)
 transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 8, 8)
 size = 5.989
 
-[node name="salle" parent="." index="4"]
-visible = false
-
-[node name="Salle" type="Node3D" parent="." index="5"]
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salle" index="0"]
+[node name="NavigationRegion3D2" type="NavigationRegion3D" parent="Salle" index="0"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.16522157, 0.016869187)
 navigation_mesh = SubResource("NavigationMesh_jv6wh")
 
-[node name="NavigationNPC" parent="Salle" index="1" instance=ExtResource("2_7s2c2")]
+[node name="NavigationNPC2" parent="Salle" index="1" instance=ExtResource("2_7s2c2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3073955, 0.7234106, -0.41434598)
 input_ray_pickable = false
 
-[node name="Nils" parent="Salle/NavigationNPC" index="3" instance=ExtResource("3_vjshh")]
+[node name="Sol2" type="StaticBody3D" parent="Salle" index="2"]
 
-[node name="Sol" type="StaticBody3D" parent="Salle" index="2"]
+[node name="Mur droit2" type="StaticBody3D" parent="Salle" index="3"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Sol" index="0"]
+[node name="Mur gauche2" type="StaticBody3D" parent="Salle" index="4"]
+
+[node name="Nils2" parent="Salle/NavigationNPC" index="3" instance=ExtResource("3_vjshh")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Salle/Sol" index="0"]
 mesh = SubResource("BoxMesh_6mk8y")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Sol" index="1"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Salle/Sol" index="1"]
 shape = SubResource("BoxShape3D_vb435")
 
-[node name="Mur droit" type="StaticBody3D" parent="Salle" index="3"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur droit" index="0"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Salle/Mur droit" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_7s2c2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur droit" index="1"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Salle/Mur droit" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_vjshh")
 
-[node name="Mur gauche" type="StaticBody3D" parent="Salle" index="4"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/Mur gauche" index="0"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Salle/Mur gauche" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 mesh = SubResource("BoxMesh_vpkbj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Salle/Mur gauche" index="1"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Salle/Mur gauche" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_uidsk")
+
+[node name="Salle2" type="Node3D" parent="." index="5"]

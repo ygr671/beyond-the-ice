@@ -92,7 +92,7 @@ navigation_mesh = SubResource("NavigationMesh_x6ack")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/NavigationRegion3D"]
 
 [node name="NavigationNPC" parent="Salle" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.307, 0.1, -0.414)
+transform = Transform3D(1, -7.188646e-09, 9.778887e-09, -7.2759576e-09, 1, 0, 5.5879354e-09, 7.450581e-09, 1, -1.2694951, 0.053144097, -0.5903702)
 input_ray_pickable = false
 
 [node name="Nils" parent="Salle/NavigationNPC" instance=ExtResource("5_iacmt")]
