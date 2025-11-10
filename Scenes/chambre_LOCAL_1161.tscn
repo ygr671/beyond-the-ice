@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfu1erasv0ed7"]
+[gd_scene load_steps=4 format=3 uid="uid://cr7ufrtdix8rp"]
 
 [ext_resource type="PackedScene" uid="uid://dsc1m3ldu2vve" path="res://Scenes/UI_Chambre.tscn" id="1_jbwqq"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_ikf3b"]
