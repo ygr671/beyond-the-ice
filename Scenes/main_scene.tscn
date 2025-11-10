@@ -13,6 +13,8 @@ corner_radius_bottom_right = 57
 corner_radius_bottom_left = 50
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
+vertices = PackedVector3Array(-7.3586483, -2.095741, -9.3837385, -7.3586483, -2.095741, 9.3662615, 11.391352, -2.095741, 9.3662615, 11.391352, -2.095741, -9.3837385)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iacmt"]
 size = Vector3(10, 0.1, 10)
