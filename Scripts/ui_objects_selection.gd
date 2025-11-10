@@ -4,10 +4,16 @@ extends Control
 @onready var litDouble = preload("res://Meshes/litDouble.tscn")
 @onready var litSuperpose = preload("res://Meshes/litSuperpose.tscn")
 
-@onready var placedObjects = get_tree().get_current_scene().get_node("PlacedObjects")
+# @onready var salles = get_tree().current_scene.get_node("Salles")
+
+@onready var salles = get_tree().get_current_scene().get_children() 
+
+@onready var salon = salles[0]
+@onready var salle_de_bain = salles[1]
+
 @onready var infoBubble = $InfoBubble
 
-
+var current_salle = 0
 var camera
 var instance
 var placing = false
@@ -18,10 +24,15 @@ var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
 @onready var labelMoney = $Label
 
+func get_current_room():
+	for room in get_tree().get_current_scene().get_children():
+		if room.visible:
+			return room
+	return null
+
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	set_money(money);
-	
+	set_money(money);	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -103,7 +114,8 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = litDouble.instantiate()
 	
 	placing = true
-	placedObjects.add_child(instance)
+	
+	salles[current_salle].get_node("PlacedObjects").add_child(instance)
 
 func set_money(value: int):
 	labelMoney.text = "Money : " + str(value)
@@ -124,33 +136,53 @@ func show_info_bubble() -> void:
 	infoBubble.visible = false
 	
 func undo_placement() -> void:
-	if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
-			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			var sum = lastObject.price
-			add_money(lastExpenses.pop_back())
-			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
-			lastObject.queue_free()
+	var placed = salles[current_salle].get_node("PlacedObjects")
+	if placed.get_child_count() == 0:
+		return
+	if lastExpenses.size() == 0:
+		return
+
+	var lastObject = salles[current_salle].get_node("PlacedObjects").get_child(salles[current_salle].get_node("PlacedObjects").get_child_count() - 1)
+	var sum = lastObject.price
+	add_money(lastExpenses.pop_back())
+	show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
+	lastObject.queue_free()
 
 
 func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
 
+func selection_salle(index: int) -> void:
+	for i in range(0, salles.size()):
+		salles[i].set_process(false)
+		salles[i].visible = false
+		
+		if i == current_salle:
+			salles[i].set_process(true)
+			salles[i].visible = true
 	
 func _on_salon_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	# On set "l'index" de la salle
+	current_salle = 0
+	selection_salle(current_salle)
 
 func _on_salle_de_bain_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/salle_de_bain.tscn")
-
+	current_salle = 1
+	selection_salle(current_salle)
+	
 func _on_chambre_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/chambre.tscn")
+	current_salle = 2
+	selection_salle(current_salle)
 
 func _on_cuisine_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/cuisine.tscn")
+	current_salle = 3
+	selection_salle(current_salle)
 
 func _on_laboratoire_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/laboratoire.tscn")
+	current_salle = 4
+	selection_salle(current_salle)
 
 func _on_stockage_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/stockage.tscn")
+	current_salle = 5
+	selection_salle(current_salle)
