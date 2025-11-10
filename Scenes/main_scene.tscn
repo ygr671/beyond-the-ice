@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=13 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
-[ext_resource type="PackedScene" uid="uid://dhb0rh6musbex" path="res://npc/navigation_npc.tscn" id="3_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://bucodnkauoxb" path="res://Import/Models/Nils.fbx" id="5_iacmt"]
+[ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scenes/salle_npc_creation.gd" id="3_jv6wh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6l7je"]
 bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
@@ -86,18 +85,13 @@ transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323
 [node name="PlacedObjects" type="Node3D" parent="."]
 
 [node name="Salle" type="Node3D" parent="."]
+script = ExtResource("3_jv6wh")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salle"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035, 0.016869187)
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salle/NavigationRegion3D"]
-
-[node name="NavigationNPC" parent="Salle" instance=ExtResource("3_jv6wh")]
-transform = Transform3D(1, -7.188646e-09, 9.778887e-09, -7.2759576e-09, 1, 0, 5.5879354e-09, 7.450581e-09, 1, -1.2694951, 0.053144097, -0.5903702)
-input_ray_pickable = false
-
-[node name="Nils" parent="Salle/NavigationNPC" instance=ExtResource("5_iacmt")]
 
 [node name="Sol" type="StaticBody3D" parent="Salle"]
 
