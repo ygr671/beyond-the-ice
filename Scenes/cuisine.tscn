@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://bf88hmcfb1kf5"]
+[gd_scene load_steps=4 format=3 uid="uid://bf88hmcfb1kf5"]
+
+[ext_resource type="PackedScene" uid="uid://2sfvgg5vjgdw" path="res://Scenes/UI_Cuisine.tscn" id="1_aev6r"]
+[ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_3xoxd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffpg0"]
+bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
+corner_radius_top_left = 57
+corner_radius_top_right = 57
+corner_radius_bottom_right = 57
+corner_radius_bottom_left = 50
 
 [node name="Cuisine" type="Node3D"]
+
+[node name="UIobjects" parent="." instance=ExtResource("1_aev6r")]
+
+[node name="InfoBubble" type="Panel" parent="UIobjects"]
+visible = false
+layout_mode = 0
+offset_left = 857.0
+offset_top = 447.0
+offset_right = 1049.0
+offset_bottom = 482.0
+
+[node name="Label" type="Label" parent="UIobjects/InfoBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pas assez d'argent !"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="UIobjects"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 720.0
+offset_right = 106.29166
+offset_bottom = 771.0
+scale = Vector2(0.9600003, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ffpg0")
+icon = ExtResource("2_3xoxd")
+icon_alignment = 1
+expand_icon = true

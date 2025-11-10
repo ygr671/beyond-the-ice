@@ -62,10 +62,10 @@ uppercase = true
 
 [node name="Button" type="Button" parent="UIobjects"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 720.0
-offset_right = 106.29166
-offset_bottom = 771.0
+offset_left = 45.0
+offset_top = 718.0
+offset_right = 102.29166
+offset_bottom = 769.0
 scale = Vector2(0.9600003, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_6l7je")
 icon = ExtResource("2_6l7je")
