@@ -6,7 +6,7 @@ func _ready() -> void:
 	for i in range(4):
 		
 		var npc = npc_scene.instantiate() as NavigationNPC
-		npc._init("Nils", "Bienvenue à la base Concordia !", "Nils")
+		npc.setup("Nils", "Bienvenue à la base Concordia !", "Nils")
 		
 		var random_x = randf_range(0.0, 5.0)
 		var random_z = randf_range(0.0, 5.0)
