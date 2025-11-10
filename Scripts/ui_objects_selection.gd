@@ -21,6 +21,7 @@ var rotating = false # Pour l'anim sinon on peut spam
 func _ready():
 	camera = get_viewport().get_camera_3d()
 	set_money(money);
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -135,9 +136,9 @@ func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
 
-
+	
 func _on_salon_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/salon.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 
 func _on_salle_de_bain_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/salle_de_bain.tscn")
