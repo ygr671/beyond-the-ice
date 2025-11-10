@@ -1,10 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=22 format=3 uid="uid://vy68o6b7ni3t"]
 
-[ext_resource type="Script" uid="uid://becamok3qmlgm" path="res://Scenes/salon.gd" id="1_28kpt"]
-[ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
-[ext_resource type="Script" uid="uid://e0cj8wakajg0" path="res://Scenes/salle_de_bain.gd" id="3_026xh"]
+[ext_resource type="PackedScene" uid="uid://b8e283gttqrq7" path="res://Scenes/UI_salle_de_bain.tscn" id="2_iacmt"]
+[ext_resource type="Script" uid="uid://y5n0yqq5olvb" path="res://Scripts/ui_salle_de_bain.gd" id="3_6ev3c"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scenes/salle_npc_creation.gd" id="3_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://2sfvgg5vjgdw" path="res://Scenes/UI_Cuisine.tscn" id="5_maf8m"]
+[ext_resource type="Script" uid="uid://lxukxvxyp8g" path="res://Scripts/ui_cuisine.gd" id="6_huasi"]
+[ext_resource type="PackedScene" uid="uid://dsc1m3ldu2vve" path="res://Scenes/UI_Chambre.tscn" id="7_m1efj"]
+[ext_resource type="Script" uid="uid://bs15fqmtuio46" path="res://Scripts/ui_chambre.gd" id="8_mai8y"]
+[ext_resource type="PackedScene" uid="uid://igjoscphq21a" path="res://Scenes/UI_Laboratoire.tscn" id="9_76v2p"]
+[ext_resource type="Script" uid="uid://wj10wbt48n8r" path="res://Scripts/ui_laboratoire.gd" id="10_drdnd"]
+[ext_resource type="PackedScene" uid="uid://0vmqpqctdcdy" path="res://Scenes/UI_Stockage.tscn" id="11_ioaeq"]
+[ext_resource type="Script" uid="uid://cign0q1jrifx1" path="res://Scripts/ui_stockage.gd" id="12_7ewk0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
 vertices = PackedVector3Array(-7.3586483, -2.095741, -9.3837385, -7.3586483, -2.095741, 9.3662615, 11.391352, -2.095741, 9.3662615, 11.391352, -2.095741, -9.3837385)
@@ -42,7 +49,6 @@ corner_radius_bottom_left = 50
 [node name="Salles" type="Node3D"]
 
 [node name="salon" type="Node3D" parent="."]
-script = ExtResource("1_28kpt")
 
 [node name="Camera3D" type="Camera3D" parent="salon"]
 transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
@@ -97,11 +103,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="salle_de_bain" type="Node3D" parent="."]
 visible = false
-script = ExtResource("3_026xh")
 
-[node name="UIobjects" parent="salle_de_bain" instance=ExtResource("1_r150o")]
+[node name="UI_salle_de_bain" parent="salle_de_bain" instance=ExtResource("2_iacmt")]
+script = ExtResource("3_6ev3c")
 
-[node name="InfoBubble" type="Panel" parent="salle_de_bain/UIobjects"]
+[node name="InfoBubble" type="Panel" parent="salle_de_bain/UI_salle_de_bain"]
 visible = false
 layout_mode = 0
 offset_left = 857.0
@@ -109,7 +115,7 @@ offset_top = 447.0
 offset_right = 1049.0
 offset_bottom = 482.0
 
-[node name="Label" type="Label" parent="salle_de_bain/UIobjects/InfoBubble"]
+[node name="Label" type="Label" parent="salle_de_bain/UI_salle_de_bain/InfoBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -121,7 +127,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="salle_de_bain/UIobjects"]
+[node name="Button" type="Button" parent="salle_de_bain/UI_salle_de_bain"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 718.0
@@ -186,11 +192,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="cuisine" type="Node3D" parent="."]
 visible = false
-script = ExtResource("3_026xh")
 
-[node name="UIobjects" parent="cuisine" instance=ExtResource("1_r150o")]
+[node name="UI_cuisine" parent="cuisine" instance=ExtResource("5_maf8m")]
+script = ExtResource("6_huasi")
 
-[node name="InfoBubble" type="Panel" parent="cuisine/UIobjects"]
+[node name="InfoBubble" type="Panel" parent="cuisine/UI_cuisine"]
 visible = false
 layout_mode = 0
 offset_left = 857.0
@@ -198,7 +204,7 @@ offset_top = 447.0
 offset_right = 1049.0
 offset_bottom = 482.0
 
-[node name="Label" type="Label" parent="cuisine/UIobjects/InfoBubble"]
+[node name="Label" type="Label" parent="cuisine/UI_cuisine/InfoBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,11 +216,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="cuisine/UIobjects"]
+[node name="Button" type="Button" parent="cuisine/UI_cuisine"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 718.0
-offset_right = 102.29166
+offset_right = 102.291626
 offset_bottom = 769.0
 scale = Vector2(0.9600003, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_6l7je")
@@ -275,11 +281,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="chambre" type="Node3D" parent="."]
 visible = false
-script = ExtResource("3_026xh")
 
-[node name="UIobjects" parent="chambre" instance=ExtResource("1_r150o")]
+[node name="UI_chambre" parent="chambre" instance=ExtResource("7_m1efj")]
+script = ExtResource("8_mai8y")
 
-[node name="InfoBubble" type="Panel" parent="chambre/UIobjects"]
+[node name="InfoBubble" type="Panel" parent="chambre/UI_chambre"]
 visible = false
 layout_mode = 0
 offset_left = 857.0
@@ -287,7 +293,7 @@ offset_top = 447.0
 offset_right = 1049.0
 offset_bottom = 482.0
 
-[node name="Label" type="Label" parent="chambre/UIobjects/InfoBubble"]
+[node name="Label" type="Label" parent="chambre/UI_chambre/InfoBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -299,7 +305,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="chambre/UIobjects"]
+[node name="Button" type="Button" parent="chambre/UI_chambre"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 718.0
@@ -364,11 +370,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="laboratoire" type="Node3D" parent="."]
 visible = false
-script = ExtResource("3_026xh")
 
-[node name="UIobjects" parent="laboratoire" instance=ExtResource("1_r150o")]
+[node name="UI_laboratoire" parent="laboratoire" instance=ExtResource("9_76v2p")]
+script = ExtResource("10_drdnd")
 
-[node name="InfoBubble" type="Panel" parent="laboratoire/UIobjects"]
+[node name="InfoBubble" type="Panel" parent="laboratoire/UI_laboratoire"]
 visible = false
 layout_mode = 0
 offset_left = 857.0
@@ -376,7 +382,7 @@ offset_top = 447.0
 offset_right = 1049.0
 offset_bottom = 482.0
 
-[node name="Label" type="Label" parent="laboratoire/UIobjects/InfoBubble"]
+[node name="Label" type="Label" parent="laboratoire/UI_laboratoire/InfoBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,7 +394,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="laboratoire/UIobjects"]
+[node name="Button" type="Button" parent="laboratoire/UI_laboratoire"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 718.0
@@ -453,11 +459,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="stockage" type="Node3D" parent="."]
 visible = false
-script = ExtResource("3_026xh")
 
-[node name="UIobjects" parent="stockage" instance=ExtResource("1_r150o")]
+[node name="UI_stockage" parent="stockage" instance=ExtResource("11_ioaeq")]
+script = ExtResource("12_7ewk0")
 
-[node name="InfoBubble" type="Panel" parent="stockage/UIobjects"]
+[node name="InfoBubble" type="Panel" parent="stockage/UI_stockage"]
 visible = false
 layout_mode = 0
 offset_left = 857.0
@@ -465,7 +471,7 @@ offset_top = 447.0
 offset_right = 1049.0
 offset_bottom = 482.0
 
-[node name="Label" type="Label" parent="stockage/UIobjects/InfoBubble"]
+[node name="Label" type="Label" parent="stockage/UI_stockage/InfoBubble"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -477,7 +483,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="stockage/UIobjects"]
+[node name="Button" type="Button" parent="stockage/UI_stockage"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 718.0
@@ -539,44 +545,3 @@ mesh = SubResource("BoxMesh_m1efj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
-
-[node name="UIobjects" parent="." instance=ExtResource("1_r150o")]
-
-[node name="InfoBubble" type="Panel" parent="UIobjects"]
-visible = false
-layout_mode = 0
-offset_left = 857.0
-offset_top = 447.0
-offset_right = 1049.0
-offset_bottom = 482.0
-
-[node name="Label" type="Label" parent="UIobjects/InfoBubble"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Pas assez d'argent !"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Button" type="Button" parent="UIobjects"]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 718.0
-offset_right = 102.29166
-offset_bottom = 769.0
-scale = Vector2(0.9600003, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_6l7je")
-icon = ExtResource("2_6l7je")
-icon_alignment = 1
-expand_icon = true
-
-[connection signal="pressed" from="salle_de_bain/UIobjects/Button" to="salle_de_bain/UIobjects" method="_on_button_pressed"]
-[connection signal="pressed" from="cuisine/UIobjects/Button" to="cuisine/UIobjects" method="_on_button_pressed"]
-[connection signal="pressed" from="chambre/UIobjects/Button" to="chambre/UIobjects" method="_on_button_pressed"]
-[connection signal="pressed" from="laboratoire/UIobjects/Button" to="laboratoire/UIobjects" method="_on_button_pressed"]
-[connection signal="pressed" from="stockage/UIobjects/Button" to="stockage/UIobjects" method="_on_button_pressed"]
-[connection signal="pressed" from="UIobjects/Button" to="UIobjects" method="_on_button_pressed"]
