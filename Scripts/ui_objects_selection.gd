@@ -13,7 +13,7 @@ extends Control
 
 @onready var infoBubble = $InfoBubble
 
-var current_salle = 0
+var current_room = 0
 var camera
 var instance
 var placing = false
@@ -31,6 +31,7 @@ func get_current_room():
 	return null
 
 func _ready():
+	lastExpenses = []
 	camera = get_viewport().get_camera_3d()
 	set_money(money);	
 
@@ -115,7 +116,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	
 	placing = true
 	
-	salles[current_salle].get_node("PlacedObjects").add_child(instance)
+	salles[current_room].get_node("PlacedObjects").add_child(instance)
 
 func set_money(value: int):
 	labelMoney.text = "Money : " + str(value)
@@ -136,14 +137,16 @@ func show_info_bubble() -> void:
 	infoBubble.visible = false
 	
 func undo_placement() -> void:
-	var placed = salles[current_salle].get_node("PlacedObjects")
+	var placed = salles[current_room].get_node("PlacedObjects")
+
 	if placed.get_child_count() == 0:
 		return
 	if lastExpenses.size() == 0:
 		return
-
-	var lastObject = salles[current_salle].get_node("PlacedObjects").get_child(salles[current_salle].get_node("PlacedObjects").get_child_count() - 1)
+	
+	var lastObject = placed.get_child(placed.get_child_count() - 1)
 	var sum = lastObject.price
+
 	add_money(lastExpenses.pop_back())
 	show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
 	lastObject.queue_free()
@@ -153,36 +156,48 @@ func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
 
-func selection_salle(index: int) -> void:
-	for i in range(0, salles.size()):
-		salles[i].set_process(false)
-		salles[i].visible = false
+func set_room_collision_active(room, active: bool):
+	for node in room.get_children():
+		if node is CollisionObject3D:
+			node.collision_layer = 1 if active else 0
+			node.collision_mask = 1 if active else 0
 		
-		if i == current_salle:
-			salles[i].set_process(true)
-			salles[i].visible = true
+		# Récursion pour enfants plus profonds
+		if node.get_child_count() > 0:
+			set_room_collision_active(node, active)
+			
+
+func room_selection(index: int) -> void:
+	for i in range(salles.size()):
+		var active = (i == index)
+		salles[i].visible = active
+		salles[i].set_process(active)
+		
+		set_room_collision_active(salles[i], active)
+
+	await get_tree().process_frame
 	
 func _on_salon_pressed() -> void:
 	# On set "l'index" de la salle
-	current_salle = 0
-	selection_salle(current_salle)
+	current_room = 0
+	room_selection(current_room)
 
 func _on_salle_de_bain_pressed() -> void:
-	current_salle = 1
-	selection_salle(current_salle)
+	current_room = 1
+	room_selection(current_room)
 	
 func _on_chambre_pressed() -> void:
-	current_salle = 2
-	selection_salle(current_salle)
+	current_room = 2
+	room_selection(current_room)
 
 func _on_cuisine_pressed() -> void:
-	current_salle = 3
-	selection_salle(current_salle)
+	current_room = 3
+	room_selection(current_room)
 
 func _on_laboratoire_pressed() -> void:
-	current_salle = 4
-	selection_salle(current_salle)
+	current_room = 4
+	room_selection(current_room)
 
 func _on_stockage_pressed() -> void:
-	current_salle = 5
-	selection_salle(current_salle)
+	current_room = 5
+	room_selection(current_room)
