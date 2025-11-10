@@ -134,3 +134,22 @@ func undo_placement() -> void:
 func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
+
+
+func _on_salon_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/salon.tscn")
+
+func _on_salle_de_bain_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/salle_de_bain.tscn")
+
+func _on_chambre_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/chambre.tscn")
+
+func _on_cuisine_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/cuisine.tscn")
+
+func _on_laboratoire_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/laboratoire.tscn")
+
+func _on_stockage_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/stockage.tscn")
