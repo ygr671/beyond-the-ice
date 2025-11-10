@@ -155,6 +155,24 @@ func undo_placement() -> void:
 func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
+		
+var current_scene : Node = null
+var scenes = {}  # dictionnaire pour stocker les instances déjà créées
+
+func _load_scene(path: String) -> void:
+	# Cacher l'ancienne scène
+	if current_scene:
+		current_scene.hide()
+
+	# Si la scène n’a pas encore été instanciée, on la crée
+	if not scenes.has(path):
+		var scene_instance = load(path).instantiate()
+		add_child(scene_instance)
+		scenes[path] = scene_instance
+
+	# Afficher la scène demandée
+	current_scene = scenes[path]
+	current_scene.show()
 
 func set_room_collision_active(room, active: bool):
 	for node in room.get_children():
