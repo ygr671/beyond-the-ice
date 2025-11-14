@@ -32,7 +32,7 @@ func get_current_room():
 func _ready():
 	lastExpenses = []
 	camera = get_viewport().get_camera_3d()
-	set_money(money);	
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -110,19 +110,6 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
-
-func set_money(value: int):
-	labelMoney.text = "Money : " + str(value)
-
-func add_money(value: int):
-	money += value
-	set_money(money)
-
-func enough_money(price: int) -> bool:
-	if (money - price) >= 0:
-		lastExpenses.append(price)
-		return true
-	return false
 	
 func show_info_bubble() -> void:
 	infoBubble.visible = true
@@ -141,8 +128,7 @@ func undo_placement() -> void:
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
 	var sum = lastObject.price
 
-	add_money(lastExpenses.pop_back())
-	show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
+
 	lastObject.queue_free()
 
 
