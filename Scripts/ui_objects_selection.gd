@@ -4,9 +4,16 @@ extends Control
 @onready var litDouble = preload("res://Meshes/litDouble.tscn")
 @onready var litSuperpose = preload("res://Meshes/litSuperpose.tscn")
 
-@onready var placedObjects = get_tree().get_current_scene().get_node("PlacedObjects")
+# @onready var salles = get_tree().current_scene.get_node("Salles")
+
+@onready var salles = get_tree().get_current_scene().get_children() 
+
+@onready var salon = salles[0]
+@onready var salle_de_bain = salles[1]
+
 @onready var infoBubble = $InfoBubble
 
+var current_room = 0
 var camera
 var instance
 var placing = false
@@ -16,9 +23,16 @@ var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
 
 
-func _ready():
-	camera = get_viewport().get_camera_3d()
+func get_current_room():
+	for room in get_tree().get_current_scene().get_children():
+		if room.visible:
+			return room
+	return null
 
+func _ready():
+	lastExpenses = []
+	camera = get_viewport().get_camera_3d()
+	set_money(money);	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -94,17 +108,108 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = litDouble.instantiate()
 	
 	placing = true
-	placedObjects.add_child(instance)
+	
+	salles[current_room].get_node("PlacedObjects").add_child(instance)
+
+func set_money(value: int):
+	labelMoney.text = "Money : " + str(value)
+
+func add_money(value: int):
+	money += value
+	set_money(money)
+
+func enough_money(price: int) -> bool:
+	if (money - price) >= 0:
+		lastExpenses.append(price)
+		return true
+	return false
+	
+func show_info_bubble() -> void:
+	infoBubble.visible = true
+	await get_tree().create_timer(3).timeout
+	infoBubble.visible = false
 	
 
 func undo_placement() -> void:
-	if placedObjects.get_child_count() > 0 and lastExpenses.size() > 0:
-			var lastObject = placedObjects.get_child(placedObjects.get_child_count() - 1)
-			var sum = lastObject.price
-			show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
-			lastObject.queue_free()
+	var placed = salles[current_room].get_node("PlacedObjects")
+
+	if placed.get_child_count() == 0:
+		return
+	if lastExpenses.size() == 0:
+		return
+	
+	var lastObject = placed.get_child(placed.get_child_count() - 1)
+	var sum = lastObject.price
+
+	add_money(lastExpenses.pop_back())
+	show_floating_text(sum, lastObject.global_transform.origin, get_tree().current_scene)
+	lastObject.queue_free()
 
 
 func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
+		
+var current_scene : Node = null
+var scenes = {}  # dictionnaire pour stocker les instances déjà créées
+
+func _load_scene(path: String) -> void:
+	# Cacher l'ancienne scène
+	if current_scene:
+		current_scene.hide()
+
+	# Si la scène n’a pas encore été instanciée, on la crée
+	if not scenes.has(path):
+		var scene_instance = load(path).instantiate()
+		add_child(scene_instance)
+		scenes[path] = scene_instance
+
+	# Afficher la scène demandée
+	current_scene = scenes[path]
+	current_scene.show()
+
+func set_room_collision_active(room, active: bool):
+	for node in room.get_children():
+		if node is CollisionObject3D:
+			node.collision_layer = 1 if active else 0
+			node.collision_mask = 1 if active else 0
+		
+		# Récursion pour enfants plus profonds
+		if node.get_child_count() > 0:
+			set_room_collision_active(node, active)
+			
+
+func room_selection(index: int) -> void:
+	for i in range(salles.size()):
+		var active = (i == index)
+		salles[i].visible = active
+		salles[i].set_process(active)
+		
+		set_room_collision_active(salles[i], active)
+
+	await get_tree().process_frame
+	
+func _on_salon_pressed() -> void:
+	# On set "l'index" de la salle
+	current_room = 0
+	room_selection(current_room)
+
+func _on_salle_de_bain_pressed() -> void:
+	current_room = 1
+	room_selection(current_room)
+	
+func _on_chambre_pressed() -> void:
+	current_room = 2
+	room_selection(current_room)
+
+func _on_cuisine_pressed() -> void:
+	current_room = 3
+	room_selection(current_room)
+
+func _on_laboratoire_pressed() -> void:
+	current_room = 4
+	room_selection(current_room)
+
+func _on_stockage_pressed() -> void:
+	current_room = 5
+	room_selection(current_room)
