@@ -122,7 +122,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Salle de bain"
 flat = true
 
-[node name="Divertissement" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Cuisine" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -130,7 +130,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
-text = "Divertissement"
+text = "Cuisine"
 flat = true
 
 [node name="Chambre" type="Button" parent="PanelContainer/HBoxContainer"]
@@ -144,7 +144,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Chambre"
 flat = true
 
-[node name="Elecrtomenager" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Laboratoire" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -152,10 +152,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
-text = "Electromenager"
+text = "Laboratoire"
 flat = true
 
-[node name="Décorations" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Stockage" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -163,7 +163,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
-text = "Décorations"
+text = "Stockage"
 flat = true
 
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Cuisine" to="." method="_on_cuisine_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Chambre" to="." method="_on_chambre_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Laboratoire" to="." method="_on_laboratoire_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Stockage" to="." method="_on_stockage_pressed"]
