@@ -7,5 +7,5 @@ Nous les remercions chaleureusement pour leur travail.
 
 ### Pack d'assets "Furniture Set"
 * **Créateur :** SuperScriptDEV
-* **Source :** [https://lien.vers.le.pack.d-assets.com](https://skfb.ly/pzGCP)
-* **Licence :** CC BY 4.0 ([https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/))
+* **Source :** [pack d'asset](https://skfb.ly/pzGCP)
+* **Licence :** ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))
