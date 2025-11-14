@@ -15,8 +15,9 @@ var STUCK_THRESHOLD: float = 1.0
 var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
+
 # Setup
-func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils") -> void:
+func setup(name: String, dialogue_text: String = "Bonjour !", model_name: String = "Nils") -> void:
 	self.npc_name = name
 	self.dialogue = dialogue_text
 	var path = "res://Import/Models/%s.fbx" % model_name
@@ -29,7 +30,7 @@ func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", mo
 			push_warning("Le fichier %s n'est pas une scène valide." % path)
 	else:
 		push_warning("Modèle %s introuvable dans Import/Models/" % model_name)
-	print("[DEBUG] NPC setup :", name, "-", dialogue_text, "(modèle:", model_name, ")")
+	print("[DEBUG] NPC setup : ", name, " - ", dialogue_text, " (modèle : ", model_name, ")")
 
 
 # Mouvement
