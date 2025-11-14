@@ -6,6 +6,12 @@ class_name NavigationNPC
 
 @export var npc_name: String = "NPC"
 @export var dialogue: String = "Bonjour !"
+@export var emoji: String = "😁"
+
+@onready var label := $Sprite3D/SubViewport/Label
+
+
+
 
 func _display() -> String:
 	return "Je m'appelle " + npc_name + " " + dialogue
@@ -16,9 +22,10 @@ var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
 # Setup
-func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils") -> void:
+func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
 	self.npc_name = name
 	self.dialogue = dialogue_text
+	self.label.text = em
 	var path = "res://Import/Models/%s.fbx" % model_name
 	if ResourceLoader.exists(path):
 		var scene = load(path)
