@@ -22,11 +22,16 @@ var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
 
+func setemotion(e: String) -> void:
+	self.label.text = e
+	
+
 
 func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
 	self.npc_name = name
 	self.dialogue = dialogue_text
 	self.label.text = em
+	$Sprite3D.visible = false
 	var path = "res://Import/Models/%s.fbx" % model_name
 	if ResourceLoader.exists(path):
 		var scene = load(path)

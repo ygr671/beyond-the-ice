@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhb0rh6musbex"]
+[gd_scene load_steps=7 format=3 uid="uid://dhb0rh6musbex"]
 
 [ext_resource type="Script" uid="uid://xxp86afck0ka" path="res://npc/navigation_npc.gd" id="1_jlvxn"]
 [ext_resource type="Script" uid="uid://wtn7ck1qcwfm" path="res://npc/sub_viewport.gd" id="2_da7jf"]
+[ext_resource type="FontFile" uid="uid://cu2rdqabhwe5h" path="res://Import/Fonts/NotoColorEmoji-Regular.ttf" id="3_ldes2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_da7jf"]
 
@@ -47,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ldes2")
 theme_override_font_sizes/font_size = 50
 text = "Salut"
 horizontal_alignment = 1
