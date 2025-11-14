@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b8e283gttqrq7" path="res://Scenes/UI_salle_de_bain.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://y5n0yqq5olvb" path="res://Scripts/ui_salle_de_bain.gd" id="3_6ev3c"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
-[ext_resource type="Script" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://2sfvgg5vjgdw" path="res://Scenes/UI_Cuisine.tscn" id="5_maf8m"]
 [ext_resource type="Script" uid="uid://lxukxvxyp8g" path="res://Scripts/ui_cuisine.gd" id="6_huasi"]
 [ext_resource type="PackedScene" uid="uid://dsc1m3ldu2vve" path="res://Scenes/UI_Chambre.tscn" id="7_m1efj"]
