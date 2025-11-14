@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 class_name NavigationNPC 
 
+
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var model = $MeshInstance3D
 
@@ -9,14 +10,19 @@ class_name NavigationNPC
 @export var dialogue: String = "Bonjour !"
 @export var emoji: String = "😁"
 
+
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
 var satisfaction = 50
+var room_index: int = 0
+
 
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
 
 func _on_environment_changed(change_type, data):
+	if player_controller.current_room != room_index:
+		return
 	match change_type:
 		"color_changed":
 			match data:   # data = Color
