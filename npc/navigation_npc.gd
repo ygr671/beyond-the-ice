@@ -11,11 +11,28 @@ class_name NavigationNPC
 
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
+var satisfaction = 50
 
 func _ready():
-	# Plus d'emoji permanent, on ne fait rien de spécial
-	pass
+	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
 
+func _on_environment_changed(change_type, data):
+	match change_type:
+		"color_changed":
+			match data:   # data = Color
+				Color.ORANGE:
+					satisfaction += 3
+				Color.RED:
+					satisfaction -= 2
+				Color.GREEN:
+					satisfaction += 5
+				_:
+					satisfaction += 1  # par défaut
+
+		"furniture_placed":
+			satisfaction += 5
+			print("satisfaction : ", satisfaction)
+		
 func _display() -> String:
 	return "Je m'appelle " + npc_name + " " + dialogue
 

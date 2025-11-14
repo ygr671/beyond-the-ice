@@ -107,6 +107,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
+	player_controller.emit_signal("environment_changed", "furniture_placed", instance)
 	
 func show_info_bubble() -> void:
 	infoBubble.visible = true
