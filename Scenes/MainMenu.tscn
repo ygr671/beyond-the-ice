@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://db51o88uxdxf7"]
 
-[ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://menu_principal/menu_principal.gd" id="1_bj1uy"]
-[ext_resource type="Script" uid="uid://bahgxce5lcc2" path="res://menu_principal/title.gd" id="2_liwpa"]
+[ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://Scripts/menu_principal.gd" id="1_853f1"]
+[ext_resource type="Script" uid="uid://bahgxce5lcc2" path="res://Scripts/title.gd" id="2_8saeu"]
 
 [sub_resource type="Gradient" id="Gradient_gmcsc"]
 offsets = PackedFloat32Array(0.89880955)
@@ -107,14 +107,14 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="menu_principal" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bj1uy")
+script = ExtResource("1_853f1")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -142,7 +142,7 @@ theme_override_font_sizes/font_size = 50
 text = "BEYOND THE ICE"
 label_settings = SubResource("LabelSettings_ns3he")
 horizontal_alignment = 1
-script = ExtResource("2_liwpa")
+script = ExtResource("2_8saeu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
