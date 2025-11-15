@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7hhts0h0lo5f"]
+[gd_scene load_steps=5 format=3 uid="uid://b7hhts0h0lo5f"]
 
 [ext_resource type="Script" uid="uid://l1j3n25h5iu3" path="res://Scripts/EulaScreen.gd" id="1_fdeq5"]
+[ext_resource type="FontFile" uid="uid://ddnha0ehnjevw" path="res://Import/Fonts/Roboto-Regular.ttf" id="2_1tn6o"]
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="3_ufspj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdeq5"]
 bg_color = Color(0, 0, 0, 0.5882353)
@@ -55,6 +57,10 @@ size_flags_vertical = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_1tn6o")
+theme_override_fonts/bold_font = ExtResource("3_ufspj")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "Texte de la licence EULA"
 fit_content = true
