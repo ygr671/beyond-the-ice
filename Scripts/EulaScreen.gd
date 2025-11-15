@@ -27,11 +27,8 @@ func _ready():
 func _on_checkbox_toggled(is_checked):
 	accept_button.disabled = not is_checked
 
-
 func _on_quit_pressed():
 	get_tree().quit()
-
-
 
 func _on_accept_pressed():
 	var config = ConfigFile.new()
