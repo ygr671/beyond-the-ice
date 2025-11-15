@@ -18,7 +18,7 @@ func _ready():
 	# 3. Décider où aller
 	if not eula_accepted:
 		# L'EULA n'a jamais été accepté -> Aller à l'écran EULA
-		get_tree().change_scene_to_file(EULA_SCENE)
+		get_tree().call_deferred("change_scene_to_file", EULA_SCENE)
 	else:
 		# L'EULA a déjà été accepté -> Aller au menu principal
-		get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+		get_tree().call_deferred("change_scene_to_file", MAIN_MENU_SCENE)
