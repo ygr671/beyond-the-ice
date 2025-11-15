@@ -1,70 +1,64 @@
-EULA – Accord de Licence Utilisateur Final
+[center][b]EULA – Accord de Licence Utilisateur Final[/b][/center]
+[center]Version 1.0[/center]
 
-Version 1.0
+[b][u]1. Introduction[/u][/b]
 
-1. Introduction
-
-Cet Accord de Licence Utilisateur Final (“EULA”) constitue un contrat entre vous (“l’Utilisateur”) et le développeur du logiciel (“le Développeur”) concernant l’utilisation du jeu vidéo Beyond The Ice (“le Jeu”).
+Cet Accord de Licence Utilisateur Final ([b]“EULA”[/b]) constitue un contrat entre vous ([b]“l’Utilisateur”[/b]) et le développeur du logiciel ([b]“le Développeur”[/b]) concernant l’utilisation du jeu vidéo Beyond The Ice ([b]“le Jeu”[/b]).
 En installant ou en utilisant le Jeu, vous acceptez les termes du présent EULA.
 
-2. Licence accordée
+[b][u]2. Licence accordée[/u][/b]
 
 Le Développeur vous accorde une licence limitée, non exclusive, non transférable et révocable vous permettant d’installer et d’utiliser le Jeu exclusivement à des fins personnelles et non commerciales.
 
-3. Restrictions d’utilisation
+[b][u]3. Restrictions d’utilisation[/u][/b]
 
 Vous vous engagez à ne pas :
 
-copier, distribuer ou revendre le Jeu ;
+[indent]- copier, distribuer ou revendre le Jeu ;[/indent]
+[indent]- modifier, décompiler, désassembler ou tenter d’accéder au code source ;[/indent]
+[indent]- contourner les protections techniques, systèmes d’authentification ou mécanismes anti-triche ;[/indent]
+[indent]- utiliser le Jeu d’une manière qui viole la loi ou qui nuise au fonctionnement des serveurs du Développeur.[/indent]
 
-modifier, décompiler, désassembler ou tenter d’accéder au code source ;
-
-contourner les protections techniques, systèmes d’authentification ou mécanismes anti-triche ;
-
-utiliser le Jeu d’une manière qui viole la loi ou qui nuise au fonctionnement des serveurs du Développeur.
-
-4. Propriété intellectuelle
+[b][u]4. Propriété intellectuelle[/u][/b]
 
 Le Jeu et tous ses éléments (graphismes, sons, code, textes, musiques…) sont protégés par les lois sur la propriété intellectuelle.
 Aucun droit de propriété n’est transféré à l’Utilisateur : seule une licence d’usage est accordée.
 
-5. Services en ligne (si applicable)
+[b][u]5. Services en ligne (si applicable)[/u][/b]
 
 Si le Jeu inclut des fonctionnalités multijoueur ou en ligne, le Développeur peut :
 
-suspendre l’accès en cas d’abus, triche ou comportement nuisible ;
+[indent]- suspendre l’accès en cas d’abus, triche ou comportement nuisible ;[/indent]
+[indent]- modifier ou retirer des fonctionnalités sans préavis.[/indent]
 
-modifier ou retirer des fonctionnalités sans préavis.
-
-6. Collecte et utilisation des données
+[b][u]6. Collecte et utilisation des données[/u][/b]
 
 Le Jeu peut collecter des données techniques (erreurs, logs système, statistiques) dans le but d’améliorer la stabilité du logiciel.
 Aucune donnée personnelle n’est vendue ou partagée avec des tiers.
 
-7. Garanties et exclusions
+[b][u]7. Garanties et exclusions[/u][/b]
 
-Le Jeu est fourni “tel quel”, sans garantie d’aucune sorte.
+Le Jeu est fourni [i]“tel quel”[/i], sans garantie d’aucune sorte.
 Le Développeur ne garantit pas :
 
-que le Jeu fonctionnera sans erreur ou sans interruption ;
-
-qu’il sera compatible avec tout matériel ou système.
+[indent]- que le Jeu fonctionnera sans erreur ou sans interruption ;[/indent]
+[indent]- qu’il sera compatible avec tout matériel ou système.[/indent]
 Vous utilisez le Jeu à vos propres risques.
 
-8. Limitation de responsabilité
+[b][u]8. Limitation de responsabilité[/u][/b]
 
 Dans la mesure maximum permise par la loi, le Développeur ne pourra être tenu responsable de dommages directs, indirects, accidentels ou consécutifs liés à l’utilisation ou à l’impossibilité d’utiliser le Jeu.
 
-9. Résiliation
+[b][u]9. Résiliation[/u][/b]
 
 Le présent EULA reste en vigueur tant que le Jeu est installé ou utilisé.
 Il peut être résilié automatiquement si vous enfreignez l’une de ses clauses.
 En cas de résiliation, vous devez désinstaller et cesser toute utilisation du Jeu.
 
-10. Mises à jour de l’EULA
+[b][u]10. Mises à jour de l’EULA[/u][/b]
 
 Le Développeur peut modifier le présent EULA. La poursuite de l’utilisation du Jeu vaut acceptation du nouvel accord.
 
-11. Acceptation
+[b][u]11. Acceptation[/u][/b]
 
-En installant le Jeu, vous reconnaissez avoir compris et accepté l’intégralité des termes de cet EULA.	
+[b]En installant le Jeu, vous reconnaissez avoir compris et accepté l’intégralité des termes de cet EULA.[/b]
