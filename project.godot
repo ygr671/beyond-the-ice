@@ -18,6 +18,7 @@ config/icon="uid://cw1wlsxrce5fw"
 [autoload]
 
 scene_manager="*res://Scripts/scene_manager.gd"
+player_controller="*res://Scripts/player_controller.gd"
 
 [display]
 

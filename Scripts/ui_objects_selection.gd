@@ -18,7 +18,6 @@ var camera
 var instance
 var placing = false
 var can_place = false
-var lastExpenses: Array[int]
 var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
 
@@ -30,7 +29,6 @@ func get_current_room():
 	return null
 
 func _ready():
-	lastExpenses = []
 	camera = get_viewport().get_camera_3d()
 	
 
@@ -62,6 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("undo") and !placing:
 		undo_placement()
 
+# Note : utiliser ça pour l'émoji ou une réction instantée d'un NPC dans son code ? 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	var label = Label3D.new()
 	label.text = ("+" + str(montant) if montant >= 0 else str(montant)) + " $"
@@ -96,11 +95,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
-	
-	
 	if placing:
 		instance.queue_free()
-	if  index == 0: 
+	if index == 0: 
 		instance = litSuperpose.instantiate()
 	if index == 1:
 		instance = litSimple.instantiate()
@@ -110,6 +107,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
+	player_controller.emit_signal("environment_changed", "furniture_placed", instance)
 	
 func show_info_bubble() -> void:
 	infoBubble.visible = true
@@ -122,13 +120,9 @@ func undo_placement() -> void:
 
 	if placed.get_child_count() == 0:
 		return
-	if lastExpenses.size() == 0:
-		return
 	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
-	var sum = lastObject.price
-
-
+	
 	lastObject.queue_free()
 
 
@@ -166,6 +160,7 @@ func set_room_collision_active(room, active: bool):
 			
 
 func room_selection(index: int) -> void:
+	player_controller.current_room = index
 	for i in range(salles.size()):
 		var active = (i == index)
 		salles[i].visible = active
