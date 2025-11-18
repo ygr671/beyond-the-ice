@@ -15,6 +15,7 @@ class_name NavigationNPC
 var current_emoji: Label3D = null
 var satisfaction = 50
 var room_index: int = 0
+var nblits = 1
 
 
 func _ready():
@@ -36,8 +37,29 @@ func _on_environment_changed(change_type, data):
 					satisfaction += 1  # par défaut
 
 		"furniture_placed":
-			satisfaction += 5
-			print("satisfaction : ", satisfaction)
+			match data:
+				"lit_superpose":
+					if player_controller.current_room == 3:
+						nblits += 1
+						if nblits == 2:
+							satisfaction += 15
+						else:
+							satisfaction -= 15	
+					else:
+						satisfaction -= 15
+					print("satisfaction : ", satisfaction)	
+		"furniture_removed":
+			match data:
+				"lit_superpose":
+					if player_controller.current_room == 3:
+						nblits -= 1
+						if nblits >= 2:
+							satisfaction += 15
+						else:
+							satisfaction-=15; 
+					else:
+						satisfaction+=15
+		
 		
 func _display() -> String:
 	return "Je m'appelle " + npc_name + " " + dialogue
