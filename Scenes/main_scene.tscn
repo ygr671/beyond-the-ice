@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=24 format=3 uid="uid://vy68o6b7ni3t"]
 
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://b8e283gttqrq7" path="res://Scenes/UI_salle_de_bain.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://y5n0yqq5olvb" path="res://Scripts/ui_salle_de_bain.gd" id="3_6ev3c"]
+[ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://2sfvgg5vjgdw" path="res://Scenes/UI_Cuisine.tscn" id="5_maf8m"]
 [ext_resource type="Script" uid="uid://lxukxvxyp8g" path="res://Scripts/ui_cuisine.gd" id="6_huasi"]
@@ -55,6 +57,7 @@ transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.573576
 projection = 1
 current = true
 size = 13.0
+script = ExtResource("1_ioaeq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -82,6 +85,7 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Mur droit" type="StaticBody3D" parent="salon/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="salon/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -92,6 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
 [node name="Mur gauche" type="StaticBody3D" parent="salon/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="salon/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
@@ -260,6 +265,7 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Mur droit" type="StaticBody3D" parent="cuisine/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -270,6 +276,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
 [node name="Mur gauche" type="StaticBody3D" parent="cuisine/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
@@ -349,6 +356,7 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Mur droit" type="StaticBody3D" parent="chambre/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -359,6 +367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
 [node name="Mur gauche" type="StaticBody3D" parent="chambre/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
@@ -438,6 +447,7 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Mur droit" type="StaticBody3D" parent="laboratoire/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -448,6 +458,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
 [node name="Mur gauche" type="StaticBody3D" parent="laboratoire/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
@@ -527,6 +538,7 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="Mur droit" type="StaticBody3D" parent="stockage/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -537,6 +549,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
 [node name="Mur gauche" type="StaticBody3D" parent="stockage/Salle"]
+script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
