@@ -1,0 +1,32 @@
+[center][b][u]Développement[/u][/b][/center]
+
+[b]Moteur de jeu :[/b] Godot Engine
+[b]Licence :[/b] MIT
+[b]Site officiel :[/b] [url=https://godotengine.org]https://godotengine.org[/url]
+
+[center][b][u]Design & Programmation[/u][/b][/center]
+
+[b]Développeur :[/b]
+	- Roche Raphaël
+	- Klausnitzer Jules
+	- Salmane Yanis
+	- Erdal Muhammed
+
+[center][b][u]Assets & Ressources Externes[/u][/b][/center]
+
+[b]Pack d'assets :[/b] “Furniture Set”
+[b]Créateur :[/b] SuperScriptDEV
+[b]Source :[/b] [url=https://sketchfab.com/3d-models/furniture-set-free-99f07a79d90848dd8548ac70ae70fcfc]https://sketchfab.com/3d-models/furniture-set-free-99f07a79d90848dd8548ac70ae70fcfc[/url]
+[b]Licence :[/b] Creative Commons CC BY 4.0
+
+[b]Police d'écriture :[/b] "Roboto"
+[b]Créateur :[/b] Christian Robertson
+[b]Source :[/b] [url=https://fonts.google.com/specimen/Roboto]https://fonts.google.com/specimen/Roboto[/url]
+[b]Licence :[/b] SIL Open Font Licence, v1.1
+
+[b]Beyond The Ice[/b]
+[b]Licence :[/b] EULA
+
+[center][b][u]Remerciements[/u][/b][/center]
+
+[center][i]Merci à tous les créateurs et membres de la communauté Godot dont le travail et l’inspiration ont contribué à ce projet.[/i][/center]
