@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://vy68o6b7ni3t"]
 
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
+[ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://b8e283gttqrq7" path="res://Scenes/UI_salle_de_bain.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://y5n0yqq5olvb" path="res://Scripts/ui_salle_de_bain.gd" id="3_6ev3c"]
