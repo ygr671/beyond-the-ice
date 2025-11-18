@@ -14,6 +14,7 @@ extends Control
 @onready var infoBubble = $InfoBubble
 
 var current_room = 0
+var furniture_type
 var camera
 var instance
 var placing = false
@@ -99,15 +100,18 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance.queue_free()
 	if index == 0: 
 		instance = litSuperpose.instantiate()
+		furniture_type = "lit_superpose"
 	if index == 1:
 		instance = litSimple.instantiate()
 	if index == 2: 
 		instance = litDouble.instantiate()
+		
+	instance.set_meta("furniture_type", furniture_type)	
 	
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
-	player_controller.emit_signal("environment_changed", "furniture_placed", instance)
+	player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 	
 func show_info_bubble() -> void:
 	infoBubble.visible = true
@@ -123,6 +127,8 @@ func undo_placement() -> void:
 	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
 	
+	furniture_type = lastObject.get_meta("furniture_type")
+	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
 	lastObject.queue_free()
 
 
@@ -179,14 +185,14 @@ func _on_salle_de_bain_pressed() -> void:
 	current_room = 1
 	room_selection(current_room)
 	
-func _on_chambre_pressed() -> void:
+func _on_cuisine_pressed() -> void:
 	current_room = 2
 	room_selection(current_room)
-
-func _on_cuisine_pressed() -> void:
+	
+func _on_chambre_pressed() -> void:
 	current_room = 3
 	room_selection(current_room)
-
+	
 func _on_laboratoire_pressed() -> void:
 	current_room = 4
 	room_selection(current_room)
