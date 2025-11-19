@@ -15,4 +15,3 @@ func _ready() -> void:
 		var random_z = randf_range(0.0, 5.0)
 		# Position aléatoire dans la salle lors de l'apparition
 		npc.global_position = global_position + Vector3(random_x, 0, random_z)
-		add_child(npc)

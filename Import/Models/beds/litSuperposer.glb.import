@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dmirjmyjoty6w"
-path="res://.godot/imported/litSuperposer.glb-53913f2ab2e1591b7fb22dafc3b060fd.scn"
+path="res://.godot/imported/litSuperposer.glb-4526bfe26fd0d1df128ec0e35ee919db.scn"
 
 [deps]
 
-source_file="res://Import/Models/litSuperposer.glb"
-dest_files=["res://.godot/imported/litSuperposer.glb-53913f2ab2e1591b7fb22dafc3b060fd.scn"]
+source_file="res://Import/Models/beds/litSuperposer.glb"
+dest_files=["res://.godot/imported/litSuperposer.glb-4526bfe26fd0d1df128ec0e35ee919db.scn"]
 
 [params]
 

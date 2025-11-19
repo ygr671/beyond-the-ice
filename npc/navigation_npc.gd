@@ -124,12 +124,12 @@ var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
 
-func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
-	self.npc_name = name
+func setup(NPC_name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
+	self.npc_name = NPC_name
 	self.dialogue = dialogue_text
 	self.emoji = em
 	
-	var path = "res://Import/Models/%s.fbx" % model_name
+	var path = "res://Import/Models/NPC/%s.fbx" % model_name
 	if ResourceLoader.exists(path):
 		var scene = load(path)
 		if scene is PackedScene:
@@ -138,7 +138,7 @@ func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", mo
 		else:
 			push_warning("Le fichier %s n'est pas une scène valide." % path)
 	else:
-		push_warning("Modèle %s introuvable dans Import/Models/" % model_name)
+		push_warning("Modèle %s introuvable dans Import/Models/NPC/" % model_name)
 	
 	print("[DEBUG] NPC setup : ", name, " - ", dialogue_text, " (modèle : ", model_name, ")")
 

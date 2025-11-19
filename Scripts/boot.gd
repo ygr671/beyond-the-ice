@@ -1,6 +1,6 @@
 extends Node
 
-const SETTINGS_PATH = "user://game_settings"
+const SETTINGS_PATH = "user://game_settings.cfg"
 const EULA_SCENE = "res://Scenes/EulaScreen.tscn"
 const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
 

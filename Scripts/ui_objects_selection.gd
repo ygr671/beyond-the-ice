@@ -1,8 +1,10 @@
 extends Control
 
-@onready var litSimple = preload("res://Meshes/litSimple.tscn")
-@onready var litDouble = preload("res://Meshes/litDouble.tscn")
-@onready var litSuperpose = preload("res://Meshes/litSuperpose.tscn")
+@onready var bed = preload("res://Meshes/beds/bed.tscn")
+@onready var large_bed = preload("res://Meshes/beds/large_bed.tscn")
+@onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
+
+@onready var chair = preload("res://Meshes/living_room/chair.tscn")
 
 # @onready var salles = get_tree().current_scene.get_node("Salles")
 
@@ -99,12 +101,12 @@ func _on_item_list_item_selected(index: int) -> void:
 	if placing:
 		instance.queue_free()
 	if index == 0: 
-		instance = litSuperpose.instantiate()
+		instance = bunk_bed.instantiate()
 		furniture_type = "lit_superpose"
 	if index == 1:
-		instance = litSimple.instantiate()
+		instance = bed.instantiate()
 	if index == 2: 
-		instance = litDouble.instantiate()
+		instance = chair.instantiate()
 		
 	instance.set_meta("furniture_type", furniture_type)	
 	
