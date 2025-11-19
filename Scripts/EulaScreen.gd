@@ -31,8 +31,4 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_accept_pressed():
-	var config = ConfigFile.new()
-	config.load(SETTINGS_PATH) 
-	config.set_value("legal", "eula_accepted", true)
-	config.save(SETTINGS_PATH)
-	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
+	return;

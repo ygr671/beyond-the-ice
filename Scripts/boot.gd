@@ -10,6 +10,10 @@ func _ready():
 	var eula_accepted = false
 	if err == OK:
 		eula_accepted = config.get_value("legal", "eula_accepted", false)
+	if err != OK:
+		print("ERREUR DE LECTURE : Le chargement du fichier a échoué. Code:", err)
+		if err == 3:
+			print("--> Code 3 (FILE_NOT_FOUND) : Le chemin est incorrect ou le nom de l'application a changé.")
 
 	if not eula_accepted:
 		call_deferred("_go_to_eula")

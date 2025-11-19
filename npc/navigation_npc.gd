@@ -124,8 +124,8 @@ var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
 
-func setup(name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
-	self.npc_name = name
+func setup(NPCname: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
+	self.npc_name = NPCname
 	self.dialogue = dialogue_text
 	self.emoji = em
 	
