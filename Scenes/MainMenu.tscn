@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://Scripts/menu_principal.gd" id="1_853f1"]
 [ext_resource type="Script" uid="uid://bahgxce5lcc2" path="res://Scripts/title.gd" id="2_8saeu"]
 [ext_resource type="Texture2D" uid="uid://cnlh0pa7fxnuq" path="res://Import/Icon/Background_image.png" id="2_ghw46"]
+[ext_resource type="Texture2D" uid="uid://bgrnqam85e464" path="res://Import/Icon/image bien.png" id="2_853f1"]
 
 [sub_resource type="SystemFont" id="SystemFont_n806c"]
 
@@ -13,8 +14,7 @@ base_font = SubResource("SystemFont_n806c")
 font = SubResource("FontVariation_liwpa")
 font_size = 50
 
-[ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://Scripts/menu_principal.gd" id="1_853f1"]
-[ext_resource type="Texture2D" uid="uid://bgrnqam85e464" path="res://Import/Icon/image bien.png" id="2_853f1"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n806c"]
 bg_color = Color(0.79607844, 0.85882354, 0.972549, 0.4745098)
@@ -118,40 +118,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-<<<<<<< HEAD
-offset_left = -46.0
-offset_top = -52.0
-offset_right = 57.0
-offset_bottom = 251.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_ghw46")
-stretch_mode = 5
-
-[node name="title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -488.0
-offset_top = 184.0
-offset_right = 499.0
-offset_bottom = 300.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.9062946, 0.9030634, 0.8064097, 1)
-theme_override_font_sizes/font_size = 50
-text = "BEYOND THE ICE"
-label_settings = SubResource("LabelSettings_ns3he")
-horizontal_alignment = 1
-script = ExtResource("2_8saeu")
-=======
 offset_top = 3.0
 offset_right = 8.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_853f1")
->>>>>>> 7b5f8a2daedbeda5a07f77e0c72c2d9ca7cd16ba
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

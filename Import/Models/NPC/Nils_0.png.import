@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo1bfx2jf2wnw"
-path.s3tc="res://.godot/imported/Nils_0.png-ebdf32b81ec338c7382d5d811163f46d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Nils_0.png-5acc9eb815b8de9a2f025135a5c79019.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Import/Models/Nils_0.png"
-dest_files=["res://.godot/imported/Nils_0.png-ebdf32b81ec338c7382d5d811163f46d.s3tc.ctex"]
+source_file="res://Import/Models/NPC/Nils_0.png"
+dest_files=["res://.godot/imported/Nils_0.png-5acc9eb815b8de9a2f025135a5c79019.s3tc.ctex"]
 
 [params]
 

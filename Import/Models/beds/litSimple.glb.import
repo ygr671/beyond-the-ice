@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dl0xup8g3rtuq"
-path="res://.godot/imported/litDouble.glb-cc7bf1abb695dec7bc58e3aa14505bd7.scn"
+uid="uid://dfsh4o6po2udh"
+path="res://.godot/imported/litSimple.glb-4c01f1656794031be307cda4e03591d4.scn"
 
 [deps]
 
-source_file="res://Import/Models/litDouble.glb"
-dest_files=["res://.godot/imported/litDouble.glb-cc7bf1abb695dec7bc58e3aa14505bd7.scn"]
+source_file="res://Import/Models/beds/litSimple.glb"
+dest_files=["res://.godot/imported/litSimple.glb-4c01f1656794031be307cda4e03591d4.scn"]
 
 [params]
 
