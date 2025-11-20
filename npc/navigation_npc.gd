@@ -16,10 +16,36 @@ var current_emoji: Label3D = null
 var satisfaction = 50
 var room_index: int = 0
 var nblits = 1
+var emoji_timer: Timer
+
 
 
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
+	# === Timer pour lancer emoji automatiquement ===
+	emoji_timer = Timer.new()
+	emoji_timer.wait_time = 10.0
+	emoji_timer.autostart = true
+	emoji_timer.one_shot = false
+	add_child(emoji_timer)
+	emoji_timer.timeout.connect(_on_emoji_timer_timeout)
+	
+	# Optionnel: Délai avant le premier emoji
+	await get_tree().create_timer(2.0).timeout
+	show_emoji_animated()
+
+func _on_emoji_timer_timeout():
+	# Choisir l'emoji selon la satisfaction
+	var current_emoji_text = emoji
+	if satisfaction >= 70:
+		current_emoji_text = "😊"
+	elif satisfaction >= 40:
+		current_emoji_text = "😐"
+	else:
+		current_emoji_text = "😠"
+	
+	show_animated_emoji(current_emoji_text, self)
+
 
 func _on_environment_changed(change_type, data):
 	if player_controller.current_room != room_index:
@@ -65,11 +91,11 @@ func _display() -> String:
 	return "Je m'appelle " + npc_name + " " + dialogue
 
 func show_emoji_animated():
-	# Supprime l'emoji existant s'il y en a un
 	if current_emoji and is_instance_valid(current_emoji):
 		current_emoji.queue_free()
 		current_emoji = null
 	
+	# Utilise l'emoji de base
 	show_animated_emoji(emoji, self)
 
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
