@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=13 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
 [ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
-[ext_resource type="Texture2D" uid="uid://fu6ebya3n465" path="res://Import/Icon/litSimple.png" id="2_lkon2"]
+[ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_ea02u"]
 [ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_ea02u"]
+[ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fyeh"]
 bg_color = Color(0.65882355, 0.84705883, 0.91764706, 1)
@@ -56,6 +57,13 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1sb8"]
+bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
+corner_radius_top_left = 57
+corner_radius_top_right = 57
+corner_radius_bottom_right = 57
+corner_radius_bottom_left = 50
+
 [node name="UIobjects" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -79,7 +87,7 @@ item_count = 3
 max_columns = 3
 icon_scale = 0.18
 item_0/icon = ExtResource("1_uhs4y")
-item_1/icon = ExtResource("2_lkon2")
+item_1/icon = ExtResource("3_ea02u")
 item_2/icon = ExtResource("4_ea02u")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -166,6 +174,18 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Stockage"
 flat = true
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 718.0
+offset_right = 102.29166
+offset_bottom = 769.0
+scale = Vector2(0.9600003, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1sb8")
+icon = ExtResource("5_7vsoc")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
@@ -173,3 +193,4 @@ flat = true
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Chambre" to="." method="_on_chambre_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Laboratoire" to="." method="_on_laboratoire_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Stockage" to="." method="_on_stockage_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

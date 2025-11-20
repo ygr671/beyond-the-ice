@@ -5,6 +5,7 @@ extends Control
 @onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
 
 @onready var chair = preload("res://Meshes/living_room/chair.tscn")
+@onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
 
 # @onready var salles = get_tree().current_scene.get_node("Salles")
 
@@ -12,8 +13,6 @@ extends Control
 
 @onready var salon = salles[0]
 @onready var salle_de_bain = salles[1]
-
-@onready var infoBubble = $InfoBubble
 
 var current_room = 0
 var furniture_type
@@ -91,10 +90,6 @@ func _process(_delta: float) -> void:
 		if colision:
 			instance.transform.origin = colision.position
 			can_place = instance.check_placement()
-	
-	if infoBubble.visible:
-		var mouse_pos = get_viewport().get_mouse_position()
-		infoBubble.position = mouse_pos + Vector2(-192, -35)
 
 
 func _on_item_list_item_selected(index: int) -> void:
@@ -104,9 +99,11 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = bunk_bed.instantiate()
 		furniture_type = "lit_superpose"
 	if index == 1:
-		instance = bed.instantiate()
+		instance = pc_setup.instantiate()
+		furniture_type = "pc_gaming"
 	if index == 2: 
 		instance = chair.instantiate()
+		furniture_type = "chaise"
 		
 	instance.set_meta("furniture_type", furniture_type)	
 	
@@ -115,10 +112,6 @@ func _on_item_list_item_selected(index: int) -> void:
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
 	player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 	
-func show_info_bubble() -> void:
-	infoBubble.visible = true
-	await get_tree().create_timer(3).timeout
-	infoBubble.visible = false
 	
 
 func undo_placement() -> void:
