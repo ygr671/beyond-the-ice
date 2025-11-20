@@ -29,7 +29,8 @@ func check_npc_hover():
 		
 		if current_hovered_npc != npc:
 			current_hovered_npc = npc
-			npc.show_emoji_animated()  # Déclenche l'animation
+			# fonction à mettre 
+			# elle se lance lorsque la souris est sur un npc
 			hover_timer = HOVER_DURATION
 		else:
 			hover_timer = HOVER_DURATION
