@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://bm0hynnnwqnwb"]
 
-[ext_resource type="Script" uid="uid://6bglgfneauwk" path="res://Scripts/Object.gd" id="1_lo12u"]
+[ext_resource type="Script" uid="uid://dvbgcxo0o0i3f" path="res://Scripts/object.gd" id="1_vduk6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj85v"]
 resource_name = "mat0"
@@ -45,8 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_05xlb")
 size = Vector3(0.9030078, 0.5261524, 1.73542)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_lo12u")
-price = 150
+script = ExtResource("1_vduk6")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)

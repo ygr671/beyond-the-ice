@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dl0xup8g3rtuq"
-path="res://.godot/imported/litDouble.glb-3416f388c7b0c1b35880ba694b9aa8ff.scn"
+uid="uid://fnh02xlsskyv"
+path="res://.godot/imported/closet.glb-f5157142fe5ee58e6cc5c1d5585bc519.scn"
 
 [deps]
 
-source_file="res://Import/Models/beds/litDouble.glb"
-dest_files=["res://.godot/imported/litDouble.glb-3416f388c7b0c1b35880ba694b9aa8ff.scn"]
+source_file="res://Import/Models/bedroom/closet.glb"
+dest_files=["res://.godot/imported/closet.glb-f5157142fe5ee58e6cc5c1d5585bc519.scn"]
 
 [params]
 
