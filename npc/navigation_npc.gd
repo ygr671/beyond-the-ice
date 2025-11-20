@@ -50,7 +50,7 @@ func _on_environment_changed(change_type, data):
 					print("satisfaction : ", satisfaction)	
 		"furniture_removed":
 			match data:
-				"lit_superpose":
+				"bunk_bed":
 					if player_controller.current_room == 3:
 						nblits -= 1
 						if nblits >= 2:

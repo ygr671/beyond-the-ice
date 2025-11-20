@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dfsh4o6po2udh"
-path="res://.godot/imported/litSimple.glb-4c01f1656794031be307cda4e03591d4.scn"
+path="res://.godot/imported/litSimple.glb-1ec99b011f4c81f1f0c1a269383b39b4.scn"
 
 [deps]
 
-source_file="res://Import/Models/beds/litSimple.glb"
-dest_files=["res://.godot/imported/litSimple.glb-4c01f1656794031be307cda4e03591d4.scn"]
+source_file="res://Import/Models/bedroom/litSimple.glb"
+dest_files=["res://.godot/imported/litSimple.glb-1ec99b011f4c81f1f0c1a269383b39b4.scn"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://crtc6ccmcvixj"]
 
-[ext_resource type="Script" uid="uid://6bglgfneauwk" path="res://Scripts/Object.gd" id="1_poy0e"]
+[ext_resource type="Script" uid="uid://dvbgcxo0o0i3f" path="res://Scripts/object.gd" id="1_ykoq3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4otl6"]
 resource_name = "mat0"
@@ -44,10 +44,8 @@ shadow_mesh = SubResource("ArrayMesh_tr33s")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mu15e"]
 size = Vector3(1.3130176, 0.50757325, 1.44)
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("meshes")]
-script = ExtResource("1_poy0e")
-meshes = [NodePath("Mesh")]
-price = 200
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ykoq3")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
@@ -76,13 +74,3 @@ target_position = Vector3(0, -0.23, 0)
 [node name="ray4" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(0.955, 0, 8.348875e-08, 0, 0.955, 0, -8.348875e-08, 0, 0.955, 0.59307784, 0.20710462, -0.6901482)
 target_position = Vector3(0, -0.23, 0)
-
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(0.0064874394, 0, 0.9549779, 0, 0.955, 0, -0.9549779, 0, 0.0064874394, -0.013392508, 1.6357358, 0.002962172)
-billboard = 1
-text = "	"
-font_size = 42
-
-[node name="FloatingLabel" type="Label3D" parent="."]
-billboard = 1
-font_size = 42

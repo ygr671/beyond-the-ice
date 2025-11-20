@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmirjmyjoty6w"
-path="res://.godot/imported/litSuperposer.glb-4526bfe26fd0d1df128ec0e35ee919db.scn"
+uid="uid://bkxa64dsl4cih"
+path="res://.godot/imported/washing_machine.glb-58ed7a6d1fbfe702c8ead9c875f9150f.scn"
 
 [deps]
 
-source_file="res://Import/Models/beds/litSuperposer.glb"
-dest_files=["res://.godot/imported/litSuperposer.glb-4526bfe26fd0d1df128ec0e35ee919db.scn"]
+source_file="res://Import/Models/Bathroom/washing_machine.glb"
+dest_files=["res://.godot/imported/washing_machine.glb-58ed7a6d1fbfe702c8ead9c875f9150f.scn"]
 
 [params]
 
