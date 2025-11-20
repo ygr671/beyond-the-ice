@@ -1,25 +1,52 @@
-[gd_scene load_steps=13 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=17 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
 [ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
 [ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_ea02u"]
 [ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_ea02u"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="5_p3gva"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fyeh"]
-bg_color = Color(0.65882355, 0.84705883, 0.91764706, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.7372549, 0.7372549, 0.7372549, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-corner_detail = 16
+bg_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(7.70092e-07, 0.425895, 0.52962744, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6xx6k"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3s2ub"]
+bg_color = Color(0.2901961, 0.39607844, 0.4862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giusn"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3yfk"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+
+[sub_resource type="Theme" id="Theme_lrvnr"]
+Button/colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+Button/colors/font_hover_color = Color(0.36, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("5_p3gva")
+Button/styles/hover = SubResource("StyleBoxFlat_3s2ub")
+Button/styles/normal = SubResource("StyleBoxFlat_giusn")
+Button/styles/pressed = SubResource("StyleBoxFlat_p3yfk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vsoc"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k73ly"]
+bg_color = Color(0.2901961, 0.39607844, 0.4862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3gva"]
 bg_color = Color(0.68235296, 0.8784314, 1, 1)
@@ -38,24 +65,6 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea02u"]
-bg_color = Color(18.892157, 0, 0, 1)
-border_width_left = 5
-border_width_right = 5
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vsoc"]
-bg_color = Color(0.27, 0.27, 0.27, 1)
-border_width_left = 5
-border_width_right = 5
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1sb8"]
 bg_color = Color(0.547312, 0.5998718, 0.720781, 1)
@@ -97,24 +106,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -65.0
-offset_right = 140.0
-offset_bottom = -25.0
+offset_left = -377.5
+offset_top = -80.0
+offset_right = 377.5
+offset_bottom = -40.002197
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3fyeh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+theme = SubResource("Theme_lrvnr")
+theme_override_constants/separation = 30
 
 [node name="Salon" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_6xx6k")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Salon
 "
 flat = true
@@ -122,20 +129,15 @@ flat = true
 [node name="Salle de bain" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Salle de bain"
 flat = true
 
 [node name="Cuisine" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vsoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k73ly")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Cuisine"
@@ -144,9 +146,9 @@ flat = true
 [node name="Chambre" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vsoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k73ly")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Chambre"
@@ -155,9 +157,9 @@ flat = true
 [node name="Laboratoire" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vsoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k73ly")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Laboratoire"
@@ -166,9 +168,9 @@ flat = true
 [node name="Stockage" type="Button" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_ea02u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vsoc")
+theme_override_colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vsoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k73ly")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_p3gva")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gngrj")
 text = "Stockage"

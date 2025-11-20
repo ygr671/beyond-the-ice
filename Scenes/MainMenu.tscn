@@ -1,20 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://db51o88uxdxf7"]
+[gd_scene load_steps=13 format=3 uid="uid://db51o88uxdxf7"]
 
 [ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://Scripts/menu_principal.gd" id="1_853f1"]
-[ext_resource type="Script" uid="uid://bahgxce5lcc2" path="res://Scripts/title.gd" id="2_8saeu"]
 [ext_resource type="Texture2D" uid="uid://cnlh0pa7fxnuq" path="res://Import/Icon/Background_image.png" id="2_ghw46"]
-[ext_resource type="Texture2D" uid="uid://bgrnqam85e464" path="res://Import/Icon/image bien.png" id="2_853f1"]
-
-[sub_resource type="SystemFont" id="SystemFont_n806c"]
-
-[sub_resource type="FontVariation" id="FontVariation_liwpa"]
-base_font = SubResource("SystemFont_n806c")
-
-[sub_resource type="LabelSettings" id="LabelSettings_ns3he"]
-font = SubResource("FontVariation_liwpa")
-font_size = 50
-
-
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="3_8saeu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n806c"]
 bg_color = Color(0.79607844, 0.85882354, 0.972549, 0.4745098)
@@ -123,7 +111,7 @@ offset_right = 8.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_853f1")
+texture = ExtResource("2_ghw46")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -146,7 +134,8 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
-theme_override_colors/font_color = Color(0.22745098, 0.41568628, 0.5019608, 1)
+theme_override_colors/font_color = Color(0.1575, 0.28904167, 0.35, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_n806c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_liwpa")
@@ -157,7 +146,8 @@ text = "START"
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
-theme_override_colors/font_color = Color(0.22745098, 0.41568628, 0.5019608, 1)
+theme_override_colors/font_color = Color(0.15686275, 0.2901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_h33ay")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kbxwo")
@@ -168,7 +158,8 @@ text = "TUTORIEL"
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
-theme_override_colors/font_color = Color(0.22745098, 0.41568628, 0.5019608, 1)
+theme_override_colors/font_color = Color(0.15686275, 0.2901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_ll0w1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_g85l6")
@@ -188,6 +179,21 @@ grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 24
 text = "Crédits"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -442.0
+offset_top = 128.0
+offset_right = 442.0
+offset_bottom = 279.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.62, 0.962, 1, 1)
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 128
+text = "Beyond The Ice"
 
 [connection signal="button_down" from="VBoxContainer/start_btn" to="." method="_on_start_btn_button_down"]
 [connection signal="button_down" from="VBoxContainer/tutorial" to="." method="_on_tutorial_button_down"]

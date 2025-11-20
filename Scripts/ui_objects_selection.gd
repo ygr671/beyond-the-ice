@@ -32,7 +32,7 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	
+	set_room_collision_active(salon, true)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -59,8 +59,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		if instance:
 			instance.queue_free()
 			instance = null
+
 	if event.is_action_pressed("undo") and !placing:
-		undo_placement()
+		if event is InputEventKey:
+			if event.echo:
+				return;
+			undo_placement()
 
 # Note : utiliser ça pour l'émoji ou une réction instantée d'un NPC dans son code ? 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
@@ -131,6 +135,7 @@ func _on_button_pressed() -> void:
 	if !placing:
 		undo_placement()
 		
+
 var current_scene : Node = null
 var scenes = {}  # dictionnaire pour stocker les instances déjà créées
 
