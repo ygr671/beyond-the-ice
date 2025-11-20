@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhb0rh6musbex"]
 
 [ext_resource type="Script" uid="uid://xxp86afck0ka" path="res://npc/navigation_npc.gd" id="1_jlvxn"]
-[ext_resource type="Script" path="res://npc/sub_viewport.gd" id="2_da7jf"]
+[ext_resource type="Script" uid="uid://wtn7ck1qcwfm" path="res://npc/sub_viewport.gd" id="2_da7jf"]
 [ext_resource type="FontFile" uid="uid://cu2rdqabhwe5h" path="res://Import/Fonts/NotoColorEmoji-Regular.ttf" id="3_ldes2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_da7jf"]
@@ -32,6 +32,7 @@ shape = SubResource("CylinderShape3D_da7jf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2777872, 0)
+pixel_size = 0.001
 billboard = 1
 shaded = true
 texture = SubResource("ViewportTexture_da7jf")
