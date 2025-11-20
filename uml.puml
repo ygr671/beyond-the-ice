@@ -1,0 +1,56 @@
+@startuml
+title Architecture du projet Godot - Salles 3D
+
+package "Main Scene" {
+    class Salles
+}
+
+package Salles {
+
+package "Scenes de pièces" {
+    class Salon
+    class SalleDeBain
+    class Cuisine
+    class Chambre
+    class Laboratoire
+    class Stockage
+}
+
+
+Salle..> SalleDeBain : <<instantiate>>
+Salle..> Salon : <<instantiate>>
+Salle..> Cuisine : <<instantiate>>
+Salle..> Chambre : <<instantiate>>
+Salle..> Laboratoire : <<instantiate>>
+Salle..> Stockage : <<instantiate>>
+
+package Salle {
+    class Camera3D
+    class DirectionalLight3D
+    class PlacedObjects
+
+    class Salle {
+        NavigationRegion3D
+        Sol
+        MurGauche:
+        --> MeshInstance3D
+        --> CollisionShape3D
+        MurDroit:
+        --> MeshInstance3D
+        --> CollisionShape3D
+        Sol:
+        --> MeshInstance3D
+        --> CollisionShape3D
+        --> NavigationRegion3D
+    }
+}
+
+}
+
+
+
+
+
+
+
+@enduml
