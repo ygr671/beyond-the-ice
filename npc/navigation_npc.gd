@@ -14,6 +14,7 @@ class_name NavigationNPC
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
 var satisfaction = 50
+var real_satisfaction = satisfaction
 var room_index: int = 0
 var nblits = 1
 var emoji_timer: Timer
@@ -33,32 +34,50 @@ func _ready():
 
 func _on_emoji_timer_timeout():
 	# Choisir l'emoji selon la satisfaction
-	print("Satisfaction : ", satisfaction)
+	
 	var current_emoji_text = emoji
-	if satisfaction >= 60:
+	if satisfaction >= 80:
+		current_emoji_text = "😇"
+	elif satisfaction >= 60:
 		current_emoji_text = "😊"
 	elif satisfaction >= 40:
 		current_emoji_text = "😐"
+	elif satisfaction >=20:
+		current_emoji_text = "😟"
 	else:
-		current_emoji_text = "🍌"
-	
+		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
 
+func changeSatisfaction(valeur: int):
+	real_satisfaction += valeur
+	if real_satisfaction >= 0 && real_satisfaction <= 100:
+		satisfaction = real_satisfaction
+	elif real_satisfaction <= 0:
+		satisfaction = 0
+	else:
+		satisfaction = 100
+	
+	
 
 func _on_environment_changed(change_type, data):
 	if player_controller.current_room != room_index:
 		return
+	print("room index  ", room_index)
 	match change_type:
 		"color_changed":
 			match data:   # data = Color
 				Color.ORANGE:
-					satisfaction += 3
+					changeSatisfaction(10)
 				Color.RED:
-					satisfaction -= 2
+					changeSatisfaction(-10)
+				Color.GRAY:
+					changeSatisfaction(-8)
+				Color.WHITE:
+					changeSatisfaction(-15)
+				Color.BLACK:
+					changeSatisfaction(-8)
 				Color.GREEN:
-					satisfaction += 5
-				_:
-					satisfaction += 1  # par défaut
+					changeSatisfaction(10)
 
 		"furniture_placed":
 			match data:
@@ -68,11 +87,11 @@ func _on_environment_changed(change_type, data):
 						print("nbr de lits " , nblits)
 						if nblits == 2:
 							print("assez de lit")
-							satisfaction += 15
+							changeSatisfaction(15)
 						else:
-							satisfaction -= 15
+							changeSatisfaction(-15)
 					else:
-						satisfaction -= 15
+						changeSatisfaction(-15)
 					print("satisfaction : ", satisfaction)	
 		"furniture_removed":
 			match data:
@@ -81,11 +100,11 @@ func _on_environment_changed(change_type, data):
 						
 						nblits -= 1
 						if nblits >= 2:
-							satisfaction += 15
+							changeSatisfaction(15)
 						else:
-							satisfaction-=15; 
+							changeSatisfaction(-15) 
 					else:
-						satisfaction+=15
+						changeSatisfaction(15)
 					print("lit retiré")
 					print("satisfaction : ", satisfaction)
 		
