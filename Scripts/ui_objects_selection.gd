@@ -32,7 +32,7 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	set_room_collision_active(salon, true)
+	set_room_collision_active(salles[0], true)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -180,23 +180,37 @@ func _on_salon_pressed() -> void:
 	# On set "l'index" de la salle
 	current_room = 0
 	room_selection(current_room)
+	_deselect_item()
 
 func _on_salle_de_bain_pressed() -> void:
 	current_room = 1
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_cuisine_pressed() -> void:
 	current_room = 2
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_chambre_pressed() -> void:
 	current_room = 3
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_laboratoire_pressed() -> void:
 	current_room = 4
 	room_selection(current_room)
+	_deselect_item()
 
 func _on_stockage_pressed() -> void:
 	current_room = 5
 	room_selection(current_room)
+	_deselect_item()
+	
+func _deselect_item():
+	placing = false
+	can_place = false
+	item_list.deselect_all()
+	if is_instance_valid(instance):
+		instance.queue_free()
+	
