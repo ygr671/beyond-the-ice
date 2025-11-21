@@ -407,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -6.2996216, -0.28632832, -5.242553)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -6.2996216, -4.6002274, -5.242553)
 amount = 200
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")
@@ -420,9 +420,9 @@ current = true
 size = 13.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9584713, -1.9077346, -5.7108965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9584713, -11.565416, -5.7108965)
 size = Vector3(68.76289, 1, 63.944427)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.275279, -1.1682823, 6.3606367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.275279, -10.828322, 6.3606367)
 size = Vector3(22.5042, 1, 23.039257)
