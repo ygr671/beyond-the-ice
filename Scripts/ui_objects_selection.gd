@@ -90,6 +90,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
+	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
+		item_list.deselect_all()
+		return # Arrête l'exécution de la fonction si la limite est atteinte
 	if placing:
 		instance.queue_free()
 	if index == 0: 
