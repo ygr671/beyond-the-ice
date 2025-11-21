@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bs38tonarg0s2"
+path="res://.godot/imported/snow-tile-end-round.obj-67cc0cc421a4e1658957bd5a5714dac0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/snow-tile-end-round.obj-67cc0cc421a4e1658957bd5a5714dac0.mesh"]
+
+source_file="res://Import/Models/Models/OBJ format/snow-tile-end-round.obj"
+dest_files=["res://.godot/imported/snow-tile-end-round.obj-67cc0cc421a4e1658957bd5a5714dac0.mesh", "res://.godot/imported/snow-tile-end-round.obj-67cc0cc421a4e1658957bd5a5714dac0.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

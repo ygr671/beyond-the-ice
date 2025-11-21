@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=30 format=3 uid="uid://vy68o6b7ni3t"]
 
-[ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://b8e283gttqrq7" path="res://Scenes/UI_salle_de_bain.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://y5n0yqq5olvb" path="res://Scripts/ui_salle_de_bain.gd" id="3_6ev3c"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -40,18 +39,62 @@ size = Vector3(0.1, 5, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.1, 5, 10)
 
+[sub_resource type="Gradient" id="Gradient_ioaeq"]
+offsets = PackedFloat32Array(0, 0.04489796)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7ewk0"]
+gradient = SubResource("Gradient_ioaeq")
+
+[sub_resource type="Curve" id="Curve_lhp3t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21317829, 0.88284075), 0.0, 0.0, 0, 0, Vector2(1, 0.25486666), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gnsmo"]
+curve = SubResource("Curve_lhp3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ioaeq"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 2, 16)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -5.5, 0)
+radial_accel_min = -4.0000024
+radial_accel_max = 3.9999976
+tangential_accel_min = -8.000002
+tangential_accel_max = 7.9999976
+damping_max = 4.0
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_gnsmo")
+color = Color(0.8992584, 0.8992584, 0.8992584, 1)
+color_ramp = SubResource("GradientTexture1D_7ewk0")
+
+[sub_resource type="Gradient" id="Gradient_7ewk0"]
+offsets = PackedFloat32Array(0.35829958, 0.36842105, 0.72469634)
+colors = PackedColorArray(0.97921336, 0.97921336, 0.97921336, 0.96901405, 1, 1, 1, 1, 0.32915837, 0.3291584, 0.3291584, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lhp3t"]
+gradient = SubResource("Gradient_7ewk0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioaeq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_lhp3t")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ewk0"]
+material = SubResource("StandardMaterial3D_ioaeq")
+
 [node name="Salles" type="Node3D"]
 
 [node name="salon" type="Node3D" parent="."]
 
 [node name="UI_salon" parent="salon" instance=ExtResource("11_ioaeq")]
-
-[node name="Camera3D" type="Camera3D" parent="salon"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
-script = ExtResource("1_ioaeq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -106,12 +149,6 @@ visible = false
 [node name="UI_salle_de_bain" parent="salle_de_bain" instance=ExtResource("2_iacmt")]
 script = ExtResource("3_6ev3c")
 
-[node name="Camera3D" type="Camera3D" parent="salle_de_bain"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="salle_de_bain"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 
@@ -162,12 +199,6 @@ visible = false
 
 [node name="UI_cuisine" parent="cuisine" instance=ExtResource("5_maf8m")]
 script = ExtResource("6_huasi")
-
-[node name="Camera3D" type="Camera3D" parent="cuisine"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="cuisine"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -222,12 +253,6 @@ visible = false
 [node name="UI_chambre" parent="chambre" instance=ExtResource("7_m1efj")]
 script = ExtResource("8_mai8y")
 
-[node name="Camera3D" type="Camera3D" parent="chambre"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="chambre"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 
@@ -280,12 +305,6 @@ visible = false
 
 [node name="UI_laboratoire" parent="laboratoire" instance=ExtResource("9_76v2p")]
 script = ExtResource("10_drdnd")
-
-[node name="Camera3D" type="Camera3D" parent="laboratoire"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="laboratoire"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -340,12 +359,6 @@ visible = false
 [node name="UI_stockage" parent="stockage" instance=ExtResource("11_ioaeq")]
 script = ExtResource("12_7ewk0")
 
-[node name="Camera3D" type="Camera3D" parent="stockage"]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
-projection = 1
-current = true
-size = 13.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="stockage"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 
@@ -392,3 +405,24 @@ mesh = SubResource("BoxMesh_m1efj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="Snow" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -6.2996216, -0.28632832, -5.242553)
+amount = 200
+lifetime = 3.5
+process_material = SubResource("ParticleProcessMaterial_ioaeq")
+draw_pass_1 = SubResource("QuadMesh_7ewk0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
+projection = 1
+current = true
+size = 13.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9584713, -1.9077346, -5.7108965)
+size = Vector3(68.76289, 1, 63.944427)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.275279, -1.1682823, 6.3606367)
+size = Vector3(22.5042, 1, 23.039257)
