@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dqmypj1sy8mit"]
 
-[ext_resource type="Script" path="res://Scripts/object.gd" id="1_n0alh"]
+[ext_resource type="Script" uid="uid://b6ourepbyouqm" path="res://Scripts/Object.gd" id="1_n0alh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1uwt"]
 resource_name = "mat0"
