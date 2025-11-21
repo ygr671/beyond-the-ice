@@ -45,7 +45,6 @@ size = Vector3(0.1, 5, 10)
 [node name="salon" type="Node3D" parent="."]
 
 [node name="UI_salon" parent="salon" instance=ExtResource("11_ioaeq")]
-script = ExtResource("12_7ewk0")
 
 [node name="Camera3D" type="Camera3D" parent="salon"]
 transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 8, 10, 8)
