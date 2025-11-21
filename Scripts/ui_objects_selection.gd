@@ -11,8 +11,6 @@ extends Control
 
 @onready var salles = get_tree().get_current_scene().get_children() 
 
-@onready var salon = salles[0]
-@onready var salle_de_bain = salles[1]
 
 var current_room = 0
 var furniture_type
@@ -32,13 +30,14 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	set_room_collision_active(salon, true)
+	room_selection(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
 		placing = false
 		can_place = false
 		instance.placed()
+		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		item_list.deselect_all()
 
 	if event.is_action_pressed("r") and instance and placing and !rotating:
@@ -114,7 +113,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
-	player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
+	
 	
 	
 
@@ -171,7 +170,6 @@ func room_selection(index: int) -> void:
 		var active = (i == index)
 		salles[i].visible = active
 		salles[i].set_process(active)
-		
 		set_room_collision_active(salles[i], active)
 
 	await get_tree().process_frame
