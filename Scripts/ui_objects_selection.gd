@@ -37,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		placing = false
 		can_place = false
 		instance.placed()
+		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		item_list.deselect_all()
 
 	if event.is_action_pressed("r") and instance and placing and !rotating:
@@ -112,7 +113,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
-	player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
+	
 	
 	
 
