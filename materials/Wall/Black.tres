@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://7pih8ewbf40a"]
+
+[resource]
+albedo_color = Color(0.12591091, 0.12591082, 0.12591082, 1)
+roughness = 0.5
+normal_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+uv1_scale = Vector3(3, 3, 3)
