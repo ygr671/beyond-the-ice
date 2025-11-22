@@ -164,7 +164,7 @@ func set_room_collision_active(room, active: bool):
 
 func room_selection(index: int) -> void:
 	player_controller.current_room = index
-	for i in range(salles.size()):
+	for i in range(salles.size()-4):
 		var active = (i == index)
 		salles[i].visible = active
 		salles[i].set_process(active)
