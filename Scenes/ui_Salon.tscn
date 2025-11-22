@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://37f4w0w3kcck"]
+
+[ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_ohal7"]
+
+[node name="UIobjects" instance=ExtResource("1_ohal7")]

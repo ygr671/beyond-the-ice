@@ -11,8 +11,6 @@ extends Control
 
 @onready var salles = get_tree().get_current_scene().get_children() 
 
-@onready var salon = salles[0]
-@onready var salle_de_bain = salles[1]
 
 var current_room = 0
 var furniture_type
@@ -32,14 +30,16 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	set_room_collision_active(salon, true)
+	room_selection(0)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
 		placing = false
 		can_place = false
 		instance.placed()
+		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		item_list.deselect_all()
+		instance = null
 
 	if event.is_action_pressed("r") and instance and placing and !rotating:
 		rotating = true
@@ -59,12 +59,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if instance:
 			instance.queue_free()
 			instance = null
-
-	if event.is_action_pressed("undo") and !placing:
-		if event is InputEventKey:
-			if event.echo:
-				return;
-			undo_placement()
 
 # Note : utiliser ça pour l'émoji ou une réction instantée d'un NPC dans son code ? 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
@@ -97,6 +91,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
+	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
+		item_list.deselect_all()
+		
 	if placing:
 		instance.queue_free()
 	if index == 0: 
@@ -114,7 +111,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
-	player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
+	
 	
 	
 
@@ -167,11 +164,10 @@ func set_room_collision_active(room, active: bool):
 
 func room_selection(index: int) -> void:
 	player_controller.current_room = index
-	for i in range(salles.size()-4):
+	for i in range(salles.size()):
 		var active = (i == index)
 		salles[i].visible = active
 		salles[i].set_process(active)
-		
 		set_room_collision_active(salles[i], active)
 
 	await get_tree().process_frame
@@ -180,23 +176,37 @@ func _on_salon_pressed() -> void:
 	# On set "l'index" de la salle
 	current_room = 0
 	room_selection(current_room)
+	_deselect_item()
 
 func _on_salle_de_bain_pressed() -> void:
 	current_room = 1
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_cuisine_pressed() -> void:
 	current_room = 2
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_chambre_pressed() -> void:
 	current_room = 3
 	room_selection(current_room)
+	_deselect_item()
 	
 func _on_laboratoire_pressed() -> void:
 	current_room = 4
 	room_selection(current_room)
+	_deselect_item()
 
 func _on_stockage_pressed() -> void:
 	current_room = 5
 	room_selection(current_room)
+	_deselect_item()
+	
+func _deselect_item():
+	placing = false
+	can_place = false
+	item_list.deselect_all()
+	if is_instance_valid(instance):
+		instance.queue_free()
+	

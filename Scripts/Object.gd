@@ -3,8 +3,8 @@ extends Node3D
 @onready var raycasts = [$Mesh/ray1, $Mesh/ray2, $Mesh/ray3, $Mesh/ray4]
 @export var meshes: Array[MeshInstance3D]
 @onready var area = $Mesh/Area3D
-@onready var green_mat = preload("res://materials/green_placement.tres")
-@onready var red_mat = preload("res://materials/red_placement.tres")
+@onready var green_mat = preload("res://materials/Object/green_placement.tres")
+@onready var red_mat = preload("res://materials/Object/red_placement.tres")
 var angle: float = 0
 
 func _ready() -> void:
