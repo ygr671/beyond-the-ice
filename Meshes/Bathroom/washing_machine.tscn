@@ -1,6 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://b43wcqn0pktts"]
-
-[ext_resource type="Script" uid="uid://dvbgcxo0o0i3f" path="res://Scripts/object.gd" id="1_gpafi"]
+[gd_scene load_steps=5 format=4 uid="uid://b43wcqn0pktts"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1tx4"]
 resource_name = "mat0"
@@ -42,20 +40,20 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2fx35")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aof6o"]
-size = Vector3(0.5169678, 0.671402, 0.47303772)
+size = Vector3(0.5169678, 0.671402, 0.56119156)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.99993825, 0, 0.011110768, 0, 1, 0, -0.011110768, 0, -0.99993825, 0, 0, 0)
 mesh = SubResource("ArrayMesh_coc1g")
 skeleton = NodePath("")
-script = ExtResource("1_gpafi")
 
 [node name="Area3D" type="Area3D" parent="Mesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D"]
-transform = Transform3D(1.0000541, 0, -2.8964132e-07, 0, 1, 0, 2.8964132e-07, 0, 1.0000541, -0.002869519, 0.386055, -0.01119206)
+transform = Transform3D(1.0000571, 0, -3.0640513e-07, 0, 1, 0, 3.0640513e-07, 0, 1.0000571, -0.002869516, 0.386055, -0.02506498)
 shape = SubResource("BoxShape3D_aof6o")
 
 [node name="ray1" type="RayCast3D" parent="Mesh"]

@@ -8,7 +8,7 @@ class_name NavigationNPC
 
 @export var npc_name: String = "NPC"
 @export var dialogue: String = "Bonjour !"
-@export var emoji: String = "😁"
+@export var emoji: String = "😐"
 
 
 # Référence à l'emoji actuel
@@ -23,18 +23,16 @@ var emoji_timer: Timer
 
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
-	# === Timer pour lancer emoji automatiquement ===
-	emoji_timer = Timer.new()
-	emoji_timer.wait_time = 5.0
-	emoji_timer.autostart = true
-	emoji_timer.one_shot = false
-	add_child(emoji_timer)
-	emoji_timer.timeout.connect(_on_emoji_timer_timeout)
-	
+	show_animated_emoji(emoji, self)
 
-func _on_emoji_timer_timeout():
-	# Choisir l'emoji selon la satisfaction
-	
+func changeSatisfaction(valeur: int):
+	real_satisfaction += valeur
+	if real_satisfaction >= 0 && real_satisfaction <= 100:
+		satisfaction = real_satisfaction
+	elif real_satisfaction <= 0:
+		satisfaction = 0
+	else:
+		satisfaction = 100
 	var current_emoji_text = emoji
 	if satisfaction >= 80:
 		current_emoji_text = "😇"
@@ -47,15 +45,6 @@ func _on_emoji_timer_timeout():
 	else:
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
-
-func changeSatisfaction(valeur: int):
-	real_satisfaction += valeur
-	if real_satisfaction >= 0 && real_satisfaction <= 100:
-		satisfaction = real_satisfaction
-	elif real_satisfaction <= 0:
-		satisfaction = 0
-	else:
-		satisfaction = 100
 	
 	
 
@@ -122,7 +111,7 @@ func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	label.text = emoji_text
 	label.modulate = Color(1, 1, 1, 1)
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	label.position = Vector3(0, 2.5, 0)
+	label.position = Vector3(0, 3.0, 0)
 	label.scale = Vector3(0, 0, 0)
 	label.font_size = 128
 	
@@ -141,10 +130,10 @@ func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	
 	# Animation d'apparition
 	tween.tween_property(label, "scale", Vector3(1.3, 1.3, 1.3), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tween.tween_property(label, "position", Vector3(0, 3.0, 0), 0.5)
+	tween.tween_property(label, "position", Vector3(0, 4.0, 0), 0.5)
 	
 	# Disparition après 3 secondes
-	tween.tween_property(label, "modulate:a", 0.0, 0.3).set_delay(3.0)
+	tween.tween_property(label, "modulate:a", 0.0, 0.3).set_delay(2.0)
 	
 	tween.finished.connect(_on_emoji_animation_finished.bind(label))
 
