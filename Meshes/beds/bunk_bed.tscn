@@ -42,9 +42,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a2cmj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wk73k"]
-size = Vector3(1.3695221, 1.1386108, 0.8448334)
+size = Vector3(1.3695221, 1.469696, 0.93239975)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_4edqk")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -55,7 +56,7 @@ skeleton = NodePath("")
 [node name="Area3D" type="Area3D" parent="Mesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D"]
-transform = Transform3D(1.0781702, 0, 5.2014366e-07, 0, 1, 0, -5.620532e-07, 0, 0.999393, 0.008660374, 0.73428345, -0.02198078)
+transform = Transform3D(1.0781639, 0, 4.954636e-07, 0, 1, 0, -5.508773e-07, 0, 0.999393, 0.008660368, 0.56874084, -0.035265025)
 shape = SubResource("BoxShape3D_wk73k")
 
 [node name="ray1" type="RayCast3D" parent="Mesh"]

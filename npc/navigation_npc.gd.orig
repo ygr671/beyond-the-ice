@@ -7,8 +7,13 @@ class_name NavigationNPC
 @onready var model = $MeshInstance3D
 
 @export var npc_name: String = "NPC"
-
+<<<<<<< HEAD
+@export var dialogue: String = "Bonjour !"
 @export var emoji: String = "😐"
+=======
+@export var emoji: String = "😁"
+>>>>>>> 1342fce8754c54b5b66baf852921211a394477f6
+
 
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
@@ -18,11 +23,14 @@ var room_index: int = 0
 var nblits = 1
 var emoji_timer: Timer
 
+
+
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
 	show_animated_emoji(emoji, self)
 
-func change_satisfaction(valeur: int):
+<<<<<<< HEAD
+func changeSatisfaction(valeur: int):
 	real_satisfaction += valeur
 	if real_satisfaction >= 0 && real_satisfaction <= 100:
 		satisfaction = real_satisfaction
@@ -30,6 +38,9 @@ func change_satisfaction(valeur: int):
 		satisfaction = 0
 	else:
 		satisfaction = 100
+=======
+func _on_emoji_timer_timeout():
+>>>>>>> 1342fce8754c54b5b66baf852921211a394477f6
 	var current_emoji_text = emoji
 	if satisfaction >= 80:
 		current_emoji_text = "😇"
@@ -42,6 +53,20 @@ func change_satisfaction(valeur: int):
 	else:
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
+<<<<<<< HEAD
+=======
+
+func change_satisfaction(valeur: int):
+	real_satisfaction += valeur
+	if real_satisfaction >= 0 && real_satisfaction <= 100:
+		satisfaction = real_satisfaction
+	elif real_satisfaction <= 0:
+		satisfaction = 0
+	else:
+		satisfaction = 100
+>>>>>>> 1342fce8754c54b5b66baf852921211a394477f6
+	
+	
 
 func _on_environment_changed(change_type, data):
 	if player_controller.current_room != room_index:
@@ -50,17 +75,17 @@ func _on_environment_changed(change_type, data):
 	match change_type:
 		"color_changed":
 			match data:   # data = Color
-				Color.DARK_ORANGE:
+				Color.ORANGE:
 					change_satisfaction(10)
-				Color.DARK_RED:
+				Color.RED:
 					change_satisfaction(-10)
-				Color.DARK_GRAY:
+				Color.GRAY:
 					change_satisfaction(-8)
-				Color.WHITE_SMOKE:
+				Color.WHITE:
 					change_satisfaction(-15)
-				Color.DIM_GRAY:
+				Color.BLACK:
 					change_satisfaction(-8)
-				Color.DARK_GREEN:
+				Color.GREEN:
 					change_satisfaction(10)
 
 		"furniture_placed":
@@ -91,8 +116,6 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(15)
 					print("lit retiré")
 					print("satisfaction : ", satisfaction)
-		
-		
 
 
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
@@ -149,7 +172,6 @@ var waiting := false
 
 func setup(NPC_name: String = "DefaultName", model_name: String = "Nils", em: String = emoji) -> void:
 	self.npc_name = NPC_name
-	
 	self.emoji = em
 	
 	var path = "res://Import/Models/NPC/%s.fbx" % model_name
@@ -163,7 +185,6 @@ func setup(NPC_name: String = "DefaultName", model_name: String = "Nils", em: St
 	else:
 		push_warning("Modèle %s introuvable dans Import/Models/NPC/" % model_name)
 	
-
 
 func _physics_process(delta: float) -> void:
 	if not Move or waiting:
