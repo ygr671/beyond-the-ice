@@ -9,7 +9,7 @@ extends Control
 
 # @onready var salles = get_tree().current_scene.get_node("Salles")
 
-@onready var salles = get_tree().get_current_scene().get_children() 
+@onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
 
 var current_room = 0
@@ -93,6 +93,7 @@ func _process(_delta: float) -> void:
 func _on_item_list_item_selected(index: int) -> void:
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
 		item_list.deselect_all()
+		return
 		
 	if placing:
 		instance.queue_free()
@@ -164,7 +165,7 @@ func set_room_collision_active(room, active: bool):
 
 func room_selection(index: int) -> void:
 	player_controller.current_room = index
-	for i in range(salles.size()-4):
+	for i in range(salles.size()-1):
 		var active = (i == index)
 		salles[i].visible = active
 		salles[i].set_process(active)
