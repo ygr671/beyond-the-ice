@@ -25,7 +25,7 @@ func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
 	show_animated_emoji(emoji, self)
 
-func changeSatisfaction(valeur: int):
+func change_satisfaction(valeur: int):
 	real_satisfaction += valeur
 	if real_satisfaction >= 0 && real_satisfaction <= 100:
 		satisfaction = real_satisfaction
