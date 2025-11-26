@@ -9,7 +9,7 @@ extends Control
 
 @onready var color_menu = $ui_color_selection
 
-@onready var salles = get_tree().get_current_scene().get_children() 
+@onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
 var current_room = 0
 var furniture_type
@@ -39,6 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		instance.placed()
 		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		item_list.deselect_all()
+		instance = null
 
 	if event.is_action_pressed("r") and instance and placing and !rotating:
 		rotating = true
@@ -92,6 +93,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
+	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
+		item_list.deselect_all()
+		return
+		
 	if placing:
 		instance.queue_free()
 	if index == 0: 
@@ -162,7 +167,7 @@ func set_room_collision_active(room, active: bool):
 
 func room_selection(index: int) -> void:
 	player_controller.current_room = index
-	for i in range(salles.size()):
+	for i in range(salles.size()-1):
 		var active = (i == index)
 		salles[i].visible = active
 		salles[i].set_process(active)

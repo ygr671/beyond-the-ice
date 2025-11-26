@@ -7,7 +7,6 @@ class_name NavigationNPC
 @onready var model = $MeshInstance3D
 
 @export var npc_name: String = "NPC"
-@export var dialogue: String = "Bonjour !"
 @export var emoji: String = "😁"
 
 # Référence à l'emoji actuel
@@ -30,8 +29,6 @@ func _ready():
 	
 
 func _on_emoji_timer_timeout():
-	# Choisir l'emoji selon la satisfaction
-	
 	var current_emoji_text = emoji
 	if satisfaction >= 80:
 		current_emoji_text = "😇"
@@ -45,7 +42,7 @@ func _on_emoji_timer_timeout():
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
 
-func changeSatisfaction(valeur: int):
+func change_satisfaction(valeur: int):
 	real_satisfaction += valeur
 	if real_satisfaction >= 0 && real_satisfaction <= 100:
 		satisfaction = real_satisfaction
@@ -64,17 +61,17 @@ func _on_environment_changed(change_type, data):
 		"color_changed":
 			match data:   # data = Color
 				Color.ORANGE:
-					changeSatisfaction(10)
+					change_satisfaction(10)
 				Color.RED:
-					changeSatisfaction(-10)
+					change_satisfaction(-10)
 				Color.GRAY:
-					changeSatisfaction(-8)
+					change_satisfaction(-8)
 				Color.WHITE:
-					changeSatisfaction(-15)
+					change_satisfaction(-15)
 				Color.BLACK:
-					changeSatisfaction(-8)
+					change_satisfaction(-8)
 				Color.GREEN:
-					changeSatisfaction(10)
+					change_satisfaction(10)
 
 		"furniture_placed":
 			match data:
@@ -84,11 +81,11 @@ func _on_environment_changed(change_type, data):
 						print("nbr de lits " , nblits)
 						if nblits == 2:
 							print("assez de lit")
-							changeSatisfaction(15)
+							change_satisfaction(15)
 						else:
-							changeSatisfaction(-15)
+							change_satisfaction(-15)
 					else:
-						changeSatisfaction(-15)
+						change_satisfaction(-15)
 					print("satisfaction : ", satisfaction)	
 		"furniture_removed":
 			match data:
@@ -97,17 +94,13 @@ func _on_environment_changed(change_type, data):
 						
 						nblits -= 1
 						if nblits >= 2:
-							changeSatisfaction(15)
+							change_satisfaction(15)
 						else:
-							changeSatisfaction(-15) 
+							change_satisfaction(-15) 
 					else:
-						changeSatisfaction(15)
+						change_satisfaction(15)
 					print("lit retiré")
 					print("satisfaction : ", satisfaction)
-		
-		
-func _display() -> String:
-	return "Je m'appelle " + npc_name + " " + dialogue
 
 
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
@@ -162,9 +155,8 @@ var SPEED: float = 2.0
 var Move: bool = true
 var waiting := false
 
-func setup(NPC_name: String = "DefaultName", dialogue_text: String = "Bonjour !", model_name: String = "Nils", em: String = emoji) -> void:
+func setup(NPC_name: String = "DefaultName", model_name: String = "Nils", em: String = emoji) -> void:
 	self.npc_name = NPC_name
-	self.dialogue = dialogue_text
 	self.emoji = em
 	
 	var path = "res://Import/Models/NPC/%s.fbx" % model_name
@@ -178,7 +170,6 @@ func setup(NPC_name: String = "DefaultName", dialogue_text: String = "Bonjour !"
 	else:
 		push_warning("Modèle %s introuvable dans Import/Models/NPC/" % model_name)
 	
-	print("[DEBUG] NPC setup : ", name, " - ", dialogue_text, " (modèle : ", model_name, ")")
 
 func _physics_process(delta: float) -> void:
 	if not Move or waiting:

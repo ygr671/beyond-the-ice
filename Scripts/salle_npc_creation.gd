@@ -11,8 +11,8 @@ func _ready() -> void:
 		
 		var npc = npc_scene.instantiate() as NavigationNPC
 		npc.room_index = get_parent().get_index()
-		add_child(npc)  # Important : onready se déclenche maintenant
-		npc.setup("Nils", "Bienvenue à la base Concordia !", "Nils", "😁")
+		add_child(npc)
+		npc.setup("Nils", "Nils", "😁")
 		
 		
 		var random_x = randf_range(0.0, 5.0)
