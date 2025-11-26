@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=30 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -8,7 +8,10 @@
 [ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
 [ext_resource type="PackedScene" uid="uid://di588a34hawif" path="res://Import/Models/Models/GLB format/snow-detail-tree-large.glb" id="4_mai8y"]
 [ext_resource type="Script" uid="uid://bv023yo53uhag" path="res://Scripts/ui_salon.gd" id="5_lhp3t"]
+[ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/Bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="7_maf8m"]
+[ext_resource type="PackedScene" uid="uid://bsk6owg08uvax" path="res://Meshes/living_room/pc_setup.tscn" id="8_drdnd"]
+[ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
 vertices = PackedVector3Array(-7.3586483, -2.095741, -9.3837385, -7.3586483, -2.095741, 9.3662615, 11.391352, -2.095741, 9.3662615, 11.391352, -2.095741, -9.3837385)
@@ -199,6 +202,9 @@ mesh = SubResource("BoxMesh_m1efj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
+[node name="washing_machine" parent="Salles/salle_de_bain" instance=ExtResource("6_mai8y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.9612136)
+
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
 
@@ -304,6 +310,12 @@ mesh = SubResource("BoxMesh_m1efj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/chambre/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="bed" parent="Salles/chambre" instance=ExtResource("10_mai8y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.744742, 0.068670064, 2.6475034)
+
+[node name="pc_setup" parent="Salles/chambre" instance=ExtResource("8_drdnd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528432)
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
@@ -419,7 +431,7 @@ size = 12.107
 script = ExtResource("1_ioaeq")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -10.517086, -5.1319237, -13.921461)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -15.322443, 15.403624, -14.874723)
 amount = 200
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")

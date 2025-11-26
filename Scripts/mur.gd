@@ -10,7 +10,7 @@ extends Node3D
 
 
 
-func set_color(material_ressource: StandardMaterial3D, color_name: String):
+func set_color(material_ressource: StandardMaterial3D, color_name: Color):
 	wall_mesh.set_surface_override_material(0, material_ressource)
 	# émission du signal
 	player_controller.emit_signal("environment_changed", "color_changed", color_name)

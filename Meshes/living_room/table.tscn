@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://rhqidj62dy13"]
 
-[ext_resource type="Script" uid="uid://b6ourepbyouqm" path="res://Scripts/Object.gd" id="1_slrsa"]
+[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Object.gd" id="1_slrsa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_huoyo"]
 resource_name = "mat0"
@@ -42,9 +42,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dx67u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekftj"]
-size = Vector3(1.4805298, 0.566864, 0.86486816)
+size = Vector3(1.5990677, 0.6227875, 1.0318375)
 
 [node name="Table" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_slrsa")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -54,7 +55,7 @@ skeleton = NodePath("")
 [node name="Area3D" type="Area3D" parent="Mesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1552734e-05, 0.33805847, 0.0017700195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012439728, 0.31009674, -0.016391754)
 shape = SubResource("BoxShape3D_ekftj")
 
 [node name="ray1" type="RayCast3D" parent="Mesh"]

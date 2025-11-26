@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dqmypj1sy8mit"]
 
-[ext_resource type="Script" uid="uid://b6ourepbyouqm" path="res://Scripts/Object.gd" id="1_n0alh"]
+[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Object.gd" id="1_n0alh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1uwt"]
 resource_name = "mat0"
@@ -45,6 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_57j6o")
 size = Vector3(0.41357422, 0.7060547, 0.46533203)
 
 [node name="Chair" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_n0alh")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
