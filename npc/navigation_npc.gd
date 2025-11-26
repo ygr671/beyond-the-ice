@@ -10,7 +10,6 @@ class_name NavigationNPC
 @export var dialogue: String = "Bonjour !"
 @export var emoji: String = "😁"
 
-
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
 var satisfaction = 50
@@ -18,8 +17,6 @@ var real_satisfaction = satisfaction
 var room_index: int = 0
 var nblits = 1
 var emoji_timer: Timer
-
-
 
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))

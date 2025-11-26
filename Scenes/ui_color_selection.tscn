@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://d02wx3ltd6hoj"]
+[gd_scene load_steps=22 format=3 uid="uid://d02wx3ltd6hoj"]
 
+[ext_resource type="Script" uid="uid://c8m4pl0nu8gr6" path="res://Scripts/ui_color_selection.gd" id="1_4m8mk"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_i2aor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_832b5"]
-bg_color = Color(0.16, 0.16, 0.16, 0.7529412)
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.972549)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -220,12 +221,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -263.0
-offset_right = 135.0
-offset_bottom = -13.0
+offset_left = -317.5
+offset_top = -125.0
+offset_right = 317.5
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4m8mk")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -235,6 +237,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_832b5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 615.0
+offset_bottom = 52.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("1_i2aor")
+theme_override_font_sizes/font_size = 26
+text = "Choix de la couleur des murs"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -297,30 +311,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_tqskg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_uw7u1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ijpv6")
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="MarginContainer2"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
-theme_override_fonts/font = ExtResource("1_i2aor")
-theme_override_font_sizes/font_size = 26
-text = "Choix de la couleur des murs"
-
-[node name="Button" type="Button" parent="MarginContainer2"]
-layout_mode = 2
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 198.0
+offset_right = 615.0
+offset_bottom = 230.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_i2aor")
 theme_override_font_sizes/font_size = 20
 text = "Fermer"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Orange" to="." method="_on_orange_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/White" to="." method="_on_white_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Gray" to="." method="_on_gray_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Black" to="." method="_on_black_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

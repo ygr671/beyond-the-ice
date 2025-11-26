@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=15 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -12,7 +12,6 @@ vertices = PackedVector3Array(-7.3586483, -2.095741, -9.3837385, -7.3586483, -2.
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iacmt"]
-resource_local_to_scene = true
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_iacmt"]
@@ -23,20 +22,15 @@ polygons = [PackedInt32Array(0, 2, 4), PackedInt32Array(2, 6, 4), PackedInt32Arr
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_maf8m"]
-resource_local_to_scene = true
 size = Vector3(10, 5, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_huasi"]
 size = Vector3(10, 5, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m1efj"]
-resource_local_to_scene = true
 size = Vector3(0.1, 5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
-size = Vector3(0.1, 5, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6ev3c"]
 size = Vector3(0.1, 5, 10)
 
 [node name="Salles" type="Node3D"]
@@ -140,23 +134,23 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="salle_de_bain/Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
 
-[node name="Mur_droit" type="StaticBody3D" parent="salle_de_bain/Salle"]
+[node name="Mur droit" type="StaticBody3D" parent="salle_de_bain/Salle"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="salle_de_bain/Salle/Mur_droit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="salle_de_bain/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_maf8m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="salle_de_bain/Salle/Mur_droit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="salle_de_bain/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
-[node name="Mur_gauche" type="StaticBody3D" parent="salle_de_bain/Salle"]
+[node name="Mur gauche" type="StaticBody3D" parent="salle_de_bain/Salle"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="salle_de_bain/Salle/Mur_gauche"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="salle_de_bain/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
-mesh = SubResource("BoxMesh_6ev3c")
+mesh = SubResource("BoxMesh_m1efj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="salle_de_bain/Salle/Mur_gauche"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="salle_de_bain/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
@@ -197,25 +191,25 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cuisine/Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
 
-[node name="Mur_droit" type="StaticBody3D" parent="cuisine/Salle"]
+[node name="Mur droit" type="StaticBody3D" parent="cuisine/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur_droit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_maf8m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cuisine/Salle/Mur_droit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cuisine/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
-[node name="Mur_gauche" type="StaticBody3D" parent="cuisine/Salle"]
+[node name="Mur gauche" type="StaticBody3D" parent="cuisine/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur_gauche"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cuisine/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 mesh = SubResource("BoxMesh_m1efj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cuisine/Salle/Mur_gauche"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cuisine/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
@@ -256,25 +250,25 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="chambre/Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
 
-[node name="Mur_droit" type="StaticBody3D" parent="chambre/Salle"]
+[node name="Mur droit" type="StaticBody3D" parent="chambre/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur_droit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_maf8m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="chambre/Salle/Mur_droit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chambre/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
-[node name="Mur_gauche" type="StaticBody3D" parent="chambre/Salle"]
+[node name="Mur gauche" type="StaticBody3D" parent="chambre/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur_gauche"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="chambre/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 mesh = SubResource("BoxMesh_m1efj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="chambre/Salle/Mur_gauche"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="chambre/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
@@ -315,25 +309,25 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="laboratoire/Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
 
-[node name="Mur_droit" type="StaticBody3D" parent="laboratoire/Salle"]
+[node name="Mur droit" type="StaticBody3D" parent="laboratoire/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur_droit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_maf8m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="laboratoire/Salle/Mur_droit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="laboratoire/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
-[node name="Mur_gauche" type="StaticBody3D" parent="laboratoire/Salle"]
+[node name="Mur gauche" type="StaticBody3D" parent="laboratoire/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur_gauche"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="laboratoire/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 mesh = SubResource("BoxMesh_m1efj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="laboratoire/Salle/Mur_gauche"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="laboratoire/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
@@ -374,24 +368,24 @@ navigation_mesh = SubResource("NavigationMesh_iacmt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Sol"]
 shape = SubResource("BoxShape3D_6ev3c")
 
-[node name="Mur_droit" type="StaticBody3D" parent="stockage/Salle"]
+[node name="Mur droit" type="StaticBody3D" parent="stockage/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur_droit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 mesh = SubResource("BoxMesh_maf8m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur_droit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
 shape = SubResource("BoxShape3D_huasi")
 
-[node name="Mur_gauche" type="StaticBody3D" parent="stockage/Salle"]
+[node name="Mur gauche" type="StaticBody3D" parent="stockage/Salle"]
 script = ExtResource("3_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur_gauche"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stockage/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 mesh = SubResource("BoxMesh_m1efj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur_gauche"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stockage/Salle/Mur gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
