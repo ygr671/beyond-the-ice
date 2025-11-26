@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
-[ext_resource type="PackedScene" uid="uid://biumr68by8ghk" path="res://Import/Models/Models/GLB format/snow-tile-corner-round.glb" id="3_m1efj"]
+[ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="3_m1efj"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
 [ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
 [ext_resource type="PackedScene" uid="uid://di588a34hawif" path="res://Import/Models/Models/GLB format/snow-detail-tree-large.glb" id="4_mai8y"]
