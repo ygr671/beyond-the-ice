@@ -7,10 +7,9 @@ extends Control
 @onready var chair = preload("res://Meshes/living_room/chair.tscn")
 @onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
 
-# @onready var salles = get_tree().current_scene.get_node("Salles")
+@onready var color_menu = $ui_color_selection
 
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
-
 
 var current_room = 0
 var furniture_type
@@ -31,6 +30,7 @@ func get_current_room():
 func _ready():
 	camera = get_viewport().get_camera_3d()
 	room_selection(0)
+	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
@@ -52,13 +52,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tween.finished.connect(func(): rotating = false)
 		
-	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click") )and can_place:
-		can_place = false
-		placing = false
-		item_list.deselect_all()
-		if instance:
-			instance.queue_free()
-			instance = null
+	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
+		color_menu.hide()
+		if can_place:
+			can_place = false
+			placing = false
+			item_list.deselect_all()
+			if instance:
+				instance.queue_free()
+				instance = null
 
 # Note : utiliser ça pour l'émoji ou une réction instantée d'un NPC dans son code ? 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
@@ -210,4 +212,7 @@ func _deselect_item():
 	item_list.deselect_all()
 	if is_instance_valid(instance):
 		instance.queue_free()
-	
+	color_menu.hide()
+
+func _on_button_open_color_pressed() -> void:
+	color_menu.show()

@@ -10,7 +10,6 @@ class_name NavigationNPC
 
 @export var emoji: String = "😐"
 
-
 # Référence à l'emoji actuel
 var current_emoji: Label3D = null
 var satisfaction = 50
@@ -18,8 +17,6 @@ var real_satisfaction = satisfaction
 var room_index: int = 0
 var nblits = 1
 var emoji_timer: Timer
-
-
 
 func _ready():
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
@@ -46,10 +43,6 @@ func change_satisfaction(valeur: int):
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
 
-
-	
-	
-
 func _on_environment_changed(change_type, data):
 	if player_controller.current_room != room_index:
 		return
@@ -57,17 +50,17 @@ func _on_environment_changed(change_type, data):
 	match change_type:
 		"color_changed":
 			match data:   # data = Color
-				Color.ORANGE:
+				Color.DARK_ORANGE:
 					change_satisfaction(10)
-				Color.RED:
+				Color.DARK_RED:
 					change_satisfaction(-10)
-				Color.GRAY:
+				Color.DARK_GRAY:
 					change_satisfaction(-8)
-				Color.WHITE:
+				Color.WHITE_SMOKE:
 					change_satisfaction(-15)
-				Color.BLACK:
+				Color.DIM_GRAY:
 					change_satisfaction(-8)
-				Color.GREEN:
+				Color.DARK_GREEN:
 					change_satisfaction(10)
 
 		"furniture_placed":
