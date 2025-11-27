@@ -1,5 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://37f4w0w3kcck"]
+[gd_scene load_steps=4 format=3 uid="uid://37f4w0w3kcck"]
 
 [ext_resource type="PackedScene" uid="uid://cly3vguseol5j" path="res://Scenes/UIObjectsSelection.tscn" id="1_ohal7"]
+[ext_resource type="Script" uid="uid://diw863a2q3ugh" path="res://Scripts/ui_order_furniture.gd" id="2_0pdqk"]
+[ext_resource type="PackedScene" uid="uid://b7oq6f6el8oat" path="res://Scenes/ui_order_furniture.tscn" id="3_7wvwr"]
 
 [node name="UIobjects" instance=ExtResource("1_ohal7")]
+
+[node name="PanelMenu" parent="." index="3"]
+offset_top = -125.0
+offset_right = 191.0
+
+[node name="PanelMenu2" type="PanelContainer" parent="." index="5"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 870.0
+offset_right = 192.0
+offset_bottom = 941.0
+script = ExtResource("2_0pdqk")
+
+[node name="Button_order" type="Button" parent="PanelMenu2" index="0"]
+layout_mode = 2
+text = "order
+furniture"
+
+[node name="ui_order_furniture" parent="." index="6" instance=ExtResource("3_7wvwr")]
+visible = false
+layout_mode = 1
+offset_left = 25.0
+offset_top = -23.0
+offset_right = 25.0
+offset_bottom = -23.0
+script = ExtResource("2_0pdqk")
+
+[connection signal="pressed" from="PanelMenu2/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
+[connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]
+
+[editable path="ui_order_furniture"]

@@ -1,13 +1,6 @@
 extends Control
 
 @onready var color_menu = $"."
-#On charge chaque variente de couleur
-@onready var orange = preload("res://materials/Wall/Orange.tres")
-@onready var red = preload("res://materials/Wall/Red.tres")
-@onready var gray = preload("res://materials/Wall/Gray.tres")
-@onready var white = preload("res://materials/Wall/White.tres")
-@onready var black = preload("res://materials/Wall/Black.tres")
-@onready var green = preload("res://materials/Wall/Green.tres")
 
 var already_changed = false;
 
