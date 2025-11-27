@@ -7,8 +7,9 @@ extends Node3D
 var already_changed_color = false
 
 func _ready() -> void:
-	for i in range(4):
-		
+	var rng = RandomNumberGenerator.new()
+	var nb_npc = rng.randi_range(1, 4)
+	for i in range(nb_npc):
 		var npc = npc_scene.instantiate() as NavigationNPC
 		npc.room_index = get_parent().get_index()
 		add_child(npc)
