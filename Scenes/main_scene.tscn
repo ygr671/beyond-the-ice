@@ -454,4 +454,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.920006, 0, -5.430429)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.447596, 0, -12.114434)
 
 [node name="snow-detail-tree-large2" parent="." instance=ExtResource("4_mai8y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7077694, 0, 1.6597991)
+transform = Transform3D(3.240621, 0, 0, 0, 3.7299335, 0, 0, 0, 4.217639, 8.060654, 0, -1.402214)
