@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Noto_Color_Emoji">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Import/Fonts/Noto_Color_Emoji.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
