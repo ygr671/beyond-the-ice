@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		item_list.deselect_all()
 		instance = null
 
-	if event.is_action_pressed("r") and instance and placing and !rotating:
+	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
 		rotating = true
 		var startRotation = instance.rotation_degrees
 		var targetRotation = startRotation
@@ -51,7 +51,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		var tween = create_tween()
 		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		tween.finished.connect(func(): rotating = false)
+	
+	elif (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP) and instance and placing and !rotating:
+		rotating = true
+		var startRotation = instance.rotation_degrees
+		var targetRotation = startRotation
+		targetRotation.y -= -90 
+		targetRotation.y = round(targetRotation.y / 90) * 90 #pour rester sur des multiple de 90° sinon c'est buggger a mort
 		
+		var tween = create_tween()
+		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.finished.connect(func(): rotating = false)
+	
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
 		color_menu.hide()
 		if can_place:
