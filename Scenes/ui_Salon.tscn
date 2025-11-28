@@ -34,8 +34,18 @@ offset_right = 25.0
 offset_bottom = -23.0
 script = ExtResource("2_0pdqk")
 
-[node name="ui_charging_bar" parent="." index="7" instance=ExtResource("4_7wvwr")]
+[node name="err_message" type="Label" parent="ui_order_furniture" index="1"]
 visible = false
+layout_mode = 0
+offset_left = 650.0
+offset_top = 685.0
+offset_right = 1193.0
+offset_bottom = 808.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "commandez un seul meuble a la fois !"
+
+[node name="ui_charging_bar" parent="." index="7" instance=ExtResource("4_7wvwr")]
 layout_mode = 1
 offset_left = 340.0
 offset_top = 136.0
@@ -43,13 +53,29 @@ offset_right = -389.0
 offset_bottom = -816.0
 script = ExtResource("5_80kmy")
 
-[node name="confirmation_message" type="Label" parent="ui_charging_bar" index="2"]
+[node name="charging_bar_furniture" parent="ui_charging_bar" index="0"]
+visible = false
+
+[node name="succes" type="Label" parent="ui_charging_bar" index="2"]
+visible = false
 layout_mode = 0
-offset_left = 260.0
-offset_top = -6.0
-offset_right = 1145.0
-offset_bottom = 97.0
+offset_left = 318.0
+offset_top = -5.0
+offset_right = 1143.0
+offset_bottom = 98.0
 theme_override_font_sizes/font_size = 60
+text = "Livraison Effectuée !"
+
+[node name="failure" type="Label" parent="ui_charging_bar" index="3"]
+visible = false
+layout_mode = 0
+offset_left = 245.0
+offset_top = -44.0
+offset_right = 1142.0
+offset_bottom = 126.5
+theme_override_font_sizes/font_size = 60
+text = "Livraison abandonné, 
+conditions météo défavorables"
 
 [connection signal="pressed" from="PanelMenu2/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
 [connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]

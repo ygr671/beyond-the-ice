@@ -1,7 +1,8 @@
 extends Control
 @onready var fill_timer: Timer = $"Timer"
 @onready var progress_bar: ProgressBar = $"charging_bar_furniture"
-@onready var confirmation : Label = $"confirmation_message"
+@onready var succes : Label = $"succes"
+@onready var failure : Label = $"failure"
 
 
 var is_filling: bool = false
@@ -30,7 +31,7 @@ func _on_furniture_ordered(furniture_type: String):
 	start_filling_bar()
 	await get_tree().create_timer(15.0).timeout
 	
-	var rand = get_weighted_result(0.5)
+	var rand = get_weighted_result(0.66)
 	_on_timer_timeout(rand)
 	if rand == 1:
 		match furniture_type:
@@ -40,6 +41,7 @@ func _on_furniture_ordered(furniture_type: String):
 	
 
 func start_filling_bar(): 
+	progress_bar.show()    
 	progress_bar.value = 0.0  
 	is_filling = true  
 	fill_timer.start()
@@ -51,8 +53,12 @@ func _on_timer_timeout(random: int):
 	progress_bar.hide()
 	progress_bar.value = progress_bar.min_value
 	if(random == 1):
-		confirmation.text = "Meuble livré avec succès !"
+		succes.show()
 	else:
-		confirmation.text = "Votre commande n'a pas pu etre livré !"
+		failure.show()
+	
 	await get_tree().create_timer(2.0).timeout
-	confirmation.hide()
+	if(random == 1):
+		succes.hide()
+	else:
+		failure.hide()
