@@ -6,11 +6,7 @@
 
 [node name="UIobjects" instance=ExtResource("1_ohal7")]
 
-[node name="PanelMenu" parent="." index="3"]
-offset_top = -125.0
-offset_right = 191.0
-
-[node name="PanelMenu2" type="PanelContainer" parent="." index="5"]
+[node name="PanelMenu3" type="PanelContainer" parent="." index="5"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 870.0
@@ -18,12 +14,12 @@ offset_right = 192.0
 offset_bottom = 941.0
 script = ExtResource("2_0pdqk")
 
-[node name="Button_order" type="Button" parent="PanelMenu2" index="0"]
+[node name="Button_order" type="Button" parent="PanelMenu3" index="0"]
 layout_mode = 2
 text = "order
 furniture"
 
-[node name="ui_order_furniture" parent="." index="6" instance=ExtResource("3_7wvwr")]
+[node name="ui_order_furniture2" parent="." index="6" instance=ExtResource("3_7wvwr")]
 visible = false
 layout_mode = 1
 offset_left = 25.0
@@ -32,7 +28,8 @@ offset_right = 25.0
 offset_bottom = -23.0
 script = ExtResource("2_0pdqk")
 
-[connection signal="pressed" from="PanelMenu2/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
+[connection signal="pressed" from="PanelMenu3/Button_order" to="ui_order_furniture2" method="_on_button_order_pressed"]
 [connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]
+[connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture2" method="_on_item_list_item_selected"]
 
 [editable path="ui_order_furniture"]

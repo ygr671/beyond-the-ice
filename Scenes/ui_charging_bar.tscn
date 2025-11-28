@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://2ilii70xbmbp"]
+
+[node name="ui_charging_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="order_furniture_time" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 91.0
+offset_right = 1470.0
+offset_bottom = 184.0
+max_value = 15.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
