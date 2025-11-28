@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7oq6f6el8oat"]
+
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_eu0ch"]
+[ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="2_x7lv0"]
+[ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_7qsxq"]
+[ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_k3jl1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhuvd"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.972549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.42745098, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="UiOrderFurniture" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 173.0
+offset_right = -418.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhuvd")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 57.000004
+offset_right = 924.0
+offset_bottom = 165.0
+scale = Vector2(0.99745595, 1)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("1_eu0ch")
+theme_override_font_sizes/font_size = 70
+text = "commander des meuble"
+
+[node name="ItemList" type="ItemList" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1090.0
+offset_top = -587.0
+offset_right = -57.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+max_text_lines = 5
+item_count = 4
+max_columns = 7
+icon_scale = 0.5
+item_0/icon = ExtResource("2_x7lv0")
+item_1/icon = ExtResource("3_7qsxq")
+item_2/icon = ExtResource("4_k3jl1")

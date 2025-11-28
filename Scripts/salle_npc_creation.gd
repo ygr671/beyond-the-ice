@@ -4,8 +4,6 @@ extends Node3D
 @onready var right_wall = $"Mur_droit/MeshInstance3D"
 @onready var left_wall = $"Mur_gauche/MeshInstance3D"
 
-var already_changed_color = false
-
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	var nb_npc = rng.randi_range(1, 4)
@@ -31,9 +29,8 @@ func set_wall_color(material_ressource: StandardMaterial3D, color_name: String):
 	
 func _on_environment_changed(change_type, data):
 	var room_index = get_parent().get_index();
-	if room_index != player_controller.current_room or already_changed_color:
+	if room_index != player_controller.current_room:
 		return
-	already_changed_color = true
 	var targets = [right_wall, left_wall]
 	match change_type:
 		"color_changed":
