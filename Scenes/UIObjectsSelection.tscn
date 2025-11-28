@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=14 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
 [ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
 [ext_resource type="Theme" uid="uid://cqfsa4k60p8td" path="res://Themes/Button/button.tres" id="5_p3gva"]
 [ext_resource type="PackedScene" uid="uid://d02wx3ltd6hoj" path="res://Scenes/ui_color_selection.tscn" id="7_gngrj"]
-[ext_resource type="Script" uid="uid://diw863a2q3ugh" path="res://Scripts/ui_order_furniture.gd" id="8_6xx6k"]
-[ext_resource type="PackedScene" uid="uid://b7oq6f6el8oat" path="res://Scenes/ui_order_furniture.tscn" id="9_j1sb8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fyeh"]
 bg_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
@@ -180,8 +178,8 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 45.0
-offset_top = -125.0
-offset_right = 191.0
+offset_top = -304.0
+offset_right = 295.0
 offset_bottom = -54.0
 grow_vertical = 0
 
@@ -193,28 +191,12 @@ text = "menu color"
 visible = false
 layout_mode = 1
 
-[node name="PanelMenu2" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = 46.0
-offset_top = 870.0
-offset_right = 192.0
-offset_bottom = 941.0
-script = ExtResource("8_6xx6k")
-
-[node name="Button_order" type="Button" parent="PanelMenu2"]
-layout_mode = 2
-text = "order
-furniture"
-
-[node name="ui_order_furniture" parent="." instance=ExtResource("9_j1sb8")]
-visible = false
-layout_mode = 1
-offset_left = 25.0
-offset_top = -23.0
-offset_right = 25.0
-offset_bottom = -23.0
-script = ExtResource("8_6xx6k")
-
-[connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]
-
-[editable path="ui_order_furniture"]
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Cuisine" to="." method="_on_cuisine_pressed"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Chambre" to="." method="_on_chambre_pressed"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Laboratoire" to="." method="_on_laboratoire_pressed"]
+[connection signal="pressed" from="PanelSalles/HBoxContainer/Stockage" to="." method="_on_stockage_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelMenu/ButtonOpenColor" to="." method="_on_button_open_color_pressed"]

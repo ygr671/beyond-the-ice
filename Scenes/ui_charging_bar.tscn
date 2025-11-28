@@ -8,12 +8,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="order_furniture_time" type="ProgressBar" parent="."]
+[node name="charging_bar_furniture" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 286.0
-offset_top = 91.0
-offset_right = 1470.0
-offset_bottom = 184.0
+offset_left = 54.0
+offset_top = 2.0
+offset_right = 1163.0
+offset_bottom = 82.0
 max_value = 15.0
 
 [node name="Timer" type="Timer" parent="."]
