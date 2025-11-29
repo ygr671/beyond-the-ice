@@ -17,7 +17,6 @@ viewport_path = NodePath("Sprite3D/SubViewport")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008757591, 0)
 script = ExtResource("1_jlvxn")
 npc_name = "Nils"
-dialogue = "Salut c'est l'homme vert"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
