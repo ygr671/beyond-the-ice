@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=36 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bsk6owg08uvax" path="res://Meshes/living_room/pc_setup.tscn" id="8_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="10_76v2p"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
+[ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
+[ext_resource type="PackedScene" uid="uid://bpakje7i88j1y" path="res://Import/Models/Models/Antarctic base.glb" id="14_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="14_lhp3t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -55,6 +58,11 @@ size = Vector3(0.1, 5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.1, 5, 10)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 144.51
+dof_blur_amount = 1.0
 
 [sub_resource type="Gradient" id="Gradient_ioaeq"]
 offsets = PackedFloat32Array(0, 0.04489796)
@@ -445,11 +453,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
-transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 7.5383673, 6.4637423)
+transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
 cull_mask = 1
+attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
-size = 13.326
+size = 16.037382
 script = ExtResource("1_ioaeq")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
@@ -459,10 +468,6 @@ lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")
 draw_pass_1 = SubResource("QuadMesh_7ewk0")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1586256, -0.47635722, 6.19405)
-size = Vector3(22.5042, 1, 23.039257)
-
 [node name="LowPolyWater" parent="." instance=ExtResource("10_76v2p")]
 transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
 
@@ -470,3 +475,15 @@ transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.9199
 transform = Transform3D(1, 0, 0, 0, -0.64811987, -0.7615384, 0, 0.7615385, -0.6481198, 0, 0, 0)
 light_color = Color(0.9407096, 0.9318794, 0, 1)
 shadow_enabled = true
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
+transform = Transform3D(0.043485086, 0.02467888, 8.09973e-10, -0.023277108, 0.04101511, -0.01661135, -0.008198991, 0.014446922, 0.047159974, -80.92033, -39.3203, -85.99612)
+
+[node name="snow-tile2" parent="." instance=ExtResource("14_lhp3t")]
+transform = Transform3D(15.524792, 4.7252517, -11.689861, -6.9468637, 18.679804, -1.6751125, 10.5224495, 5.360682, 16.141287, -64.347626, -46.157932, -92.99213)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
+transform = Transform3D(0.06764727, 0.017995754, 0, -0.017855579, 0.06712034, -0.008719992, -0.0022417544, 0.008426908, 0.069454744, -76.503975, -38.59102, -91.42132)
+
+[node name="Antarctic base" parent="." instance=ExtResource("14_7ewk0")]
+transform = Transform3D(8.254208, 4.1290855, 11.824496, 1.4577589, 13.748445, -5.818527, -12.439573, 4.3509727, 7.1642203, -62.852333, -43.496906, -86.3174)
