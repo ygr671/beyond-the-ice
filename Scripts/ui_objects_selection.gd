@@ -39,7 +39,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		can_place = false
 		instance.placed()
 		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
-		player_controller.bed_in_invetory -= 1
+		match furniture_type :
+			"lit_superpose":
+				player_controller.bed_in_invetory -= 1
 		item_list.deselect_all()
 		instance = null
 
@@ -106,7 +108,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
-	if player_controller.bed_in_invetory == 0:
+	print(player_controller.bed_in_invetory)
+	if player_controller.bed_in_invetory == 0 && index == 0:
 		item_list.deselect_all()
 		return
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
