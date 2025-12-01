@@ -6,6 +6,7 @@ extends Control
 
 @onready var chair = preload("res://Meshes/living_room/chair.tscn")
 @onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
+@onready var wheel_chair = preload("res://Meshes/Laboratory/wheel_chair.tscn")
 
 @onready var color_menu = $ui_color_selection
 
@@ -117,8 +118,8 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = pc_setup.instantiate()
 		furniture_type = "pc_gaming"
 	if index == 2: 
-		instance = chair.instantiate()
-		furniture_type = "chaise"
+		instance = wheel_chair.instantiate()
+		furniture_type = "wheel_chair"
 		
 	instance.set_meta("furniture_type", furniture_type)	
 	

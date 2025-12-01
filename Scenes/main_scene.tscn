@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=32 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/Bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="7_maf8m"]
 [ext_resource type="PackedScene" uid="uid://bsk6owg08uvax" path="res://Meshes/living_room/pc_setup.tscn" id="8_drdnd"]
+[ext_resource type="PackedScene" uid="uid://cpdeyocpnqtwo" path="res://Meshes/Laboratory/hanging_shelf.tscn" id="9_ioaeq"]
+[ext_resource type="PackedScene" uid="uid://deqdk58e13f53" path="res://Meshes/Laboratory/shelf.tscn" id="10_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
+[ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/Laboratory/desks.tscn" id="11_7ewk0"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
 vertices = PackedVector3Array(-7.3586483, -2.095741, -9.3837385, -7.3586483, -2.095741, 9.3662615, 11.391352, -2.095741, 9.3662615, 11.391352, -2.095741, -9.3837385)
@@ -371,6 +374,15 @@ mesh = SubResource("BoxMesh_m1efj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/laboratoire/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="hanging_shelf" parent="Salles/laboratoire" instance=ExtResource("9_ioaeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8830566, 2.9770508, -4.460364)
+
+[node name="Shelf" parent="Salles/laboratoire" instance=ExtResource("10_drdnd")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.9406738, 0.10346794, -4.0977783)
+
+[node name="Desks" parent="Salles/laboratoire" instance=ExtResource("11_7ewk0")]
+transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
 
 [node name="stockage" type="Node3D" parent="Salles"]
 visible = false
