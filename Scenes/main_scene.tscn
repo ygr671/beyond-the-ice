@@ -470,11 +470,6 @@ draw_pass_1 = SubResource("QuadMesh_7ewk0")
 [node name="LowPolyWater" parent="." instance=ExtResource("10_76v2p")]
 transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.64811987, -0.7615384, 0, 0.7615385, -0.6481198, 0, 0, 0)
-light_color = Color(0.9407096, 0.9318794, 0, 1)
-shadow_enabled = true
-
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
 transform = Transform3D(0.043485086, 0.02467888, 8.09973e-10, -0.023277108, 0.04101511, -0.01661135, -0.008198991, 0.014446922, 0.047159974, -80.92033, -39.3203, -85.99612)
 
