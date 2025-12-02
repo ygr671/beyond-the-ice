@@ -26,6 +26,7 @@ sky_material = SubResource("ProceduralSkyMaterial_mai8y")
 
 [sub_resource type="Environment" id="Environment_drdnd"]
 background_mode = 2
+background_energy_multiplier = 0.7
 sky = SubResource("Sky_76v2p")
 tonemap_mode = 2
 
@@ -471,10 +472,10 @@ draw_pass_1 = SubResource("QuadMesh_7ewk0")
 transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.043485086, 0.02467888, 8.09973e-10, -0.023277108, 0.04101511, -0.01661135, -0.008198991, 0.014446922, 0.047159974, -80.92033, -39.3203, -85.99612)
+transform = Transform3D(0.052182104, 0.029614655, 4.2035161e-10, -0.027932528, 0.04921813, -0.01993362, -0.009838789, 0.017336305, 0.056591965, -80.92033, -39.3203, -85.99612)
 
 [node name="snow-tile2" parent="." instance=ExtResource("14_lhp3t")]
-transform = Transform3D(15.524792, 4.7252517, -11.689861, -6.9468637, 18.679804, -1.6751125, 10.5224495, 5.360682, 16.141287, -64.347626, -46.157932, -92.99213)
+transform = Transform3D(19.405989, 5.906564, -14.612326, -8.683579, 23.349754, -2.0938911, 13.153061, 6.7008524, 20.176609, -64.347626, -46.157932, -92.99213)
 
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.06764727, 0.017995754, 0, -0.017855579, 0.06712034, -0.008719992, -0.0022417544, 0.008426908, 0.069454744, -76.503975, -38.59102, -91.42132)
+transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -76.503975, -38.59102, -91.42132)
