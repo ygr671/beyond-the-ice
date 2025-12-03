@@ -28,10 +28,14 @@ func get_weighted_result(success_proba: float) -> int:
 		return 0
 		
 func _on_furniture_ordered(index: int):
+	var rand;
 	start_filling_bar()
 	await get_tree().create_timer(15.0).timeout
+	if player_controller.is_day:
+		rand = get_weighted_result(75)
+	else:
+		rand = get_weighted_result(0.4)
 	
-	var rand = get_weighted_result(0.66)
 	_on_timer_timeout(rand)
 	if rand == 1:
 		player_controller.furniture_count[index] += 1
