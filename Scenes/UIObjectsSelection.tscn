@@ -78,10 +78,21 @@ grow_horizontal = 0
 grow_vertical = 0
 item_count = 3
 max_columns = 3
-icon_scale = 0.18
+icon_mode = 0
+icon_scale = 0.15
+item_0/text = "0"
 item_0/icon = ExtResource("1_uhs4y")
+item_1/text = "0"
 item_1/icon = ExtResource("3_ea02u")
+item_2/text = "0"
 item_2/icon = ExtResource("4_ea02u")
+
+[node name="Label" type="Label" parent="ItemList"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -33.0
 
 [node name="PanelSalles" type="PanelContainer" parent="."]
 layout_mode = 1

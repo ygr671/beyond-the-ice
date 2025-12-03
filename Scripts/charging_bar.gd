@@ -27,16 +27,14 @@ func get_weighted_result(success_proba: float) -> int:
 	else:
 		return 0
 		
-func _on_furniture_ordered(furniture_type: String):
+func _on_furniture_ordered(index: int):
 	start_filling_bar()
 	await get_tree().create_timer(15.0).timeout
 	
 	var rand = get_weighted_result(0.66)
 	_on_timer_timeout(rand)
 	if rand == 1:
-		match furniture_type:
-			"bed":
-				player_controller.bed_in_invetory +=1
+		player_controller.furniture_count[index] += 1
 	
 	
 

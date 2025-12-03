@@ -27,7 +27,7 @@ func _on_item_list_item_selected(index: int) -> void:
 		furniture_order = "setup"
 	order_furniture.hide()
 	item_list.deselect_all()
-	player_controller.emit_signal("furniture_ordered", furniture_order)
+	player_controller.emit_signal("furniture_ordered", index)
 	await get_tree().create_timer(15.0).timeout
 	is_processing = false
 	

@@ -108,8 +108,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
-	print(player_controller.bed_in_invetory)
-	if player_controller.bed_in_invetory == 0 && index == 0:
+	print(player_controller.furniture_count[index])
+	if player_controller.furniture_count[index] == 0 && index == 0:
 		item_list.deselect_all()
 		return
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
@@ -127,8 +127,12 @@ func _on_item_list_item_selected(index: int) -> void:
 	if index == 2: 
 		instance = chair.instantiate()
 		furniture_type = "chaise"
+	
+	# revenir ici
+	item_list.set_item_metadata(index, "tg") # TODO : faire un observeur ici pour actualiser le label de nombre de meubles parce que là ça ne fonctionne pas comme prévu
+	# TODO : proposer une modification du comptage de meubles par type (peut-être par index ?)
 		
-	instance.set_meta("furniture_type", furniture_type)	
+	instance.set_meta("furniture_type", furniture_type)
 	
 	placing = true
 	
@@ -147,7 +151,9 @@ func undo_placement() -> void:
 	
 	furniture_type = lastObject.get_meta("furniture_type")
 	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
-	player_controller.bed_in_invetory +=1 
+	match furniture_type:
+		"lit_superpose":
+			player_controller.furniture_count[0] += 1 
 	lastObject.queue_free()
 
 
