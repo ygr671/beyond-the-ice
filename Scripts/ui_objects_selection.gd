@@ -12,6 +12,8 @@ extends Control
 
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
+const INTERVALLE_DESIRE: float = 30.0
+var temps_ecoule: float = 0.0
 var current_room = 0
 var furniture_type
 var camera
@@ -96,6 +98,11 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	tween.finished.connect(func(): label.queue_free())
 
 func _process(_delta: float) -> void:
+	temps_ecoule += _delta
+	
+	if temps_ecoule >= INTERVALLE_DESIRE:
+		cycle()
+		temps_ecoule -= INTERVALLE_DESIRE
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -105,7 +112,6 @@ func _process(_delta: float) -> void:
 		if colision:
 			instance.transform.origin = colision.position
 			can_place = instance.check_placement()
-
 
 func _on_item_list_item_selected(index: int) -> void:
 	print(player_controller.furniture_count[index])
@@ -244,7 +250,8 @@ func _on_button_open_color_pressed() -> void:
 	color_menu.show()
 
 
-func _on_cycle_pressed() -> void:
+   
+func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
 	else:
