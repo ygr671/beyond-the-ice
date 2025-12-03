@@ -43,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		match furniture_type :
 			"lit_superpose":
-				player_controller.bed_in_invetory -= 1
+				player_controller.furniture_count[0] -= 1
 		item_list.deselect_all()
 		instance = null
 
