@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsu3kg7vr2sci"]
+
+[ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="1_3uqw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcik"]
+render_priority = 1
+shader = ExtResource("1_3uqw6")
+shader_parameter/out_col = Color(0.2, 0.4, 0.8, 1)
+shader_parameter/amount = 0.40100001252773
+shader_parameter/beer_factor = 0.2
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 0.3
+shader_parameter/specular = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kon4g"]
+lightmap_size_hint = Vector2i(502, 502)
+material = SubResource("ShaderMaterial_ndcik")
+size = Vector2(100, 100)
+subdivide_width = 50
+subdivide_depth = 50
+
+[node name="LowPolyWater" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_kon4g")

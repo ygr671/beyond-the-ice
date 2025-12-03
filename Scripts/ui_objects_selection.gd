@@ -3,6 +3,7 @@ extends Control
 @onready var bed = preload("res://Meshes/beds/bed.tscn")
 @onready var large_bed = preload("res://Meshes/beds/large_bed.tscn")
 @onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
+@onready var main_controller = get_tree().get_current_scene()
 
 @onready var chair = preload("res://Meshes/living_room/chair.tscn")
 @onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
@@ -39,6 +40,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		can_place = false
 		instance.placed()
 		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
+		match furniture_type :
+			"lit_superpose":
+				player_controller.bed_in_invetory -= 1
 		item_list.deselect_all()
 		instance = null
 
@@ -105,6 +109,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_item_list_item_selected(index: int) -> void:
+	print(player_controller.bed_in_invetory)
+	if player_controller.bed_in_invetory == 0 && index == 0:
+		item_list.deselect_all()
+		return
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
 		item_list.deselect_all()
 		return
@@ -140,6 +148,7 @@ func undo_placement() -> void:
 	
 	furniture_type = lastObject.get_meta("furniture_type")
 	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
+	player_controller.bed_in_invetory +=1 
 	lastObject.queue_free()
 
 
@@ -228,3 +237,12 @@ func _deselect_item():
 
 func _on_button_open_color_pressed() -> void:
 	color_menu.show()
+
+
+func _on_cycle_pressed() -> void:
+	# 💥 NOUVELLE LOGIQUE : Appeler la fonction Jour/Nuit du contrôleur principal
+	if main_controller and main_controller.has_method("toggle_day_night"):
+		main_controller.toggle_day_night()
+	else:
+		# Ceci vous aidera à déboguer si le script Jour/Nuit n'est pas trouvé
+		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
