@@ -37,6 +37,7 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
+		var index
 		placing = false
 		can_place = false
 		instance.placed()
@@ -44,8 +45,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		match furniture_type :
 			"lit_superpose":
 				player_controller.furniture_count[0] -= 1
+				index = 0
 		item_list.deselect_all()
 		instance = null
+		item_list.set_item_text(index, str(player_controller.furniture_count[index]))
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
 		rotating = true
@@ -135,8 +138,7 @@ func _on_item_list_item_selected(index: int) -> void:
 		furniture_type = "chaise"
 	
 	# revenir ici
-	item_list.set_item_metadata(index, "tg") # TODO : faire un observeur ici pour actualiser le label de nombre de meubles parce que là ça ne fonctionne pas comme prévu
-	# TODO : proposer une modification du comptage de meubles par type (peut-être par index ?)
+	
 		
 	instance.set_meta("furniture_type", furniture_type)
 	
@@ -154,12 +156,14 @@ func undo_placement() -> void:
 		return
 	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
-	
+	var index;
 	furniture_type = lastObject.get_meta("furniture_type")
 	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
 	match furniture_type:
 		"lit_superpose":
 			player_controller.furniture_count[0] += 1 
+			index = 0
+	item_list.set_item_text(index, str(player_controller.furniture_count[index]))		
 	lastObject.queue_free()
 
 
