@@ -1,24 +1,16 @@
 extends Control
 
-@onready var bed = preload("res://Meshes/beds/bed.tscn")
-@onready var large_bed = preload("res://Meshes/beds/large_bed.tscn")
-@onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
 @onready var main_controller = get_tree().get_current_scene()
-@onready var sofa = preload("res://Meshes/living_room/sofa.tscn")
-@onready var gym = preload("res://Meshes/Gym/gym.tscn")
-
-@onready var chair = preload("res://Meshes/living_room/chair.tscn")
-@onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
-@onready var wheel_chair = preload("res://Meshes/Laboratory/wheel_chair.tscn")
-
 @onready var color_menu = $ui_color_selection
-
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
+
+var furnitures: Array[PackedScene] = []
+var furnitures_names: Array[String] = []
+
 
 const INTERVALLE_DESIRE: float = 30.0
 var temps_ecoule: float = 0.0
 var current_room = 0
-var furniture_type
 var camera
 var instance
 var placing = false
@@ -35,23 +27,55 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
+	load_furnitures_from_directory("res://Meshes")
+
+	player_controller.furniture_count.resize(furnitures.size())
+	for i in range(furnitures.size()):
+		player_controller.furniture_count[i] = 1
+			
+	for i in range(furnitures_names.size()):
+		var name = furnitures_names[i]
+		item_list.add_item(name + " (" + str(player_controller.furniture_count[i]) + ")")
+
+		
 	room_selection(0)
 	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
+	
+func load_furnitures_from_directory(path: String) -> void:
+	var dir := DirAccess.open(path)
+	if dir == null:
+		push_error("Could not open directory: " + path)
+		return
+	
+	for file_name in dir.get_files():
+		if file_name.ends_with(".tscn"):
+			var full_path = path + "/" + file_name
+			var scene = load(full_path)
+			if scene:
+				var inst = scene.instantiate()
+				if inst.has_method("check_placement"):
+					furnitures.append(scene)
+					furnitures_names.append(file_name.get_basename())
+				inst.queue_free()
+
+	
+	for subdir_name in dir.get_directories():
+		load_furnitures_from_directory(path + "/" + subdir_name)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
-		var index
+		var index = item_list.get_selected_items()[0]
 		placing = false
 		can_place = false
 		instance.placed()
-		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
-		match furniture_type :
-			"lit_superpose":
-				player_controller.furniture_count[0] -= 1
-				index = 0
+		player_controller.emit_signal("environment_changed", "furniture_placed", furnitures_names[index])
+		player_controller.furniture_count[index] -= 1
+		
 		item_list.deselect_all()
 		instance = null
-		item_list.set_item_text(index, str(player_controller.furniture_count[index]))
+		item_list.set_item_text(index, furnitures_names[index] + " (" + str(player_controller.furniture_count[index]) + ")")
+
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
 		rotating = true
@@ -121,49 +145,37 @@ func _process(_delta: float) -> void:
 
 func _on_item_list_item_selected(index: int) -> void:
 	print(player_controller.furniture_count[index])
-	if player_controller.furniture_count[index] == 0 && index == 0:
+	if player_controller.furniture_count[index] == 0:
 		item_list.deselect_all()
 		return
+
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
 		item_list.deselect_all()
 		return
 		
 	if placing:
 		instance.queue_free()
-	if index == 0: 
-		instance = bunk_bed.instantiate()
-		furniture_type = "lit_superpose"
-	if index == 1:
-		instance = gym.instantiate()
-		furniture_type = "pc_gaming"
-	if index == 2: 
-		instance = wheel_chair.instantiate()
-		furniture_type = "wheel_chair"
-		
-	instance.set_meta("furniture_type", furniture_type)
 	
+	instance = furnitures[index].instantiate()
+	
+	instance.set_meta("furniture_index", index)
+	
+
 	placing = true
 	
 	salles[current_room].get_node("PlacedObjects").add_child(instance)
 	
 	
 	
-
 func undo_placement() -> void:
 	var placed = salles[current_room].get_node("PlacedObjects")
-
 	if placed.get_child_count() == 0:
 		return
-	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
-	var index;
-	furniture_type = lastObject.get_meta("furniture_type")
-	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
-	match furniture_type:
-		"lit_superpose":
-			player_controller.furniture_count[0] += 1 
-			index = 0
-	item_list.set_item_text(index, str(player_controller.furniture_count[index]))		
+	var index = lastObject.get_meta("furniture_index")
+	player_controller.emit_signal("environment_changed", "furniture_removed", furnitures_names[index])
+	player_controller.furniture_count[index] += 1
+	item_list.set_item_text(index, furnitures_names[index] + " (" + str(player_controller.furniture_count[index]) + ")")
 	lastObject.queue_free()
 
 

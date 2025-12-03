@@ -5,7 +5,6 @@ extends Node3D
 @onready var area = $Mesh/Area3D
 @onready var green_mat = preload("res://materials/Object/green_placement.tres")
 @onready var red_mat = preload("res://materials/Object/red_placement.tres")
-@onready var collisions = Array[CollisionShape3D]
 
 var angle: float = 0
 
@@ -16,13 +15,6 @@ func _ready() -> void:
 			meshes.append(child)
 		elif child.get_child_count() > 0:
 			meshes += _get_meshes_recursive(child)
-	
-	collisions.clear()
-	for child in get_children():
-		if child is CollisionShape3D:
-			collisions.append(child)
-		elif child.get_child_count() > 0:
-			collisions += _get_collisions_recursive(child)
 
 
 func _get_collisions_recursive(node: Node) -> Array:
@@ -61,30 +53,6 @@ func placed() ->void:
 		mesh.material_override = null
 	for ray in raycasts:
 		ray.queue_free()
-	create_collision()
-
-func create_collision():
-	var i = 0
-	for col in collisions:
-			# Créer le StaticBody3D
-		var static_body = StaticBody3D.new()
-		
-		# Créer le CollisionShape3D
-		var collision_shape = CollisionShape3D.new()
-		
-		# Copier la forme de collision de l'Area3D
-		var area_collision = area.get_child(i)  # Le premier enfant de l'Area3D
-		if area_collision is CollisionShape3D:
-			collision_shape.shape = area_collision.shape.duplicate()
-		
-		# Assembler la hiérarchie
-		static_body.add_child(collision_shape)
-		add_child(static_body)
-		
-		# Positionner au même endroit que l'objet
-		static_body.global_transform = global_transform
-
-
 
 func placement_red() ->void:
 	for mesh in meshes:

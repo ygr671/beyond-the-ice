@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c3tfqvwwmaxkp"
-path="res://.godot/imported/Gym.glb-91a811b8ae6020474f0c21612f0f5a77.scn"
+path="res://.godot/imported/Gym.glb-a11ef48c42541e924da3dec87c82b528.scn"
 
 [deps]
 
-source_file="res://Meshes/Gym/Gym.glb"
-dest_files=["res://.godot/imported/Gym.glb-91a811b8ae6020474f0c21612f0f5a77.scn"]
+source_file="res://Meshes/gym/Gym.glb"
+dest_files=["res://.godot/imported/Gym.glb-a11ef48c42541e924da3dec87c82b528.scn"]
 
 [params]
 

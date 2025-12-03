@@ -1,9 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=11 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
-[ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
-[ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_ea02u"]
-[ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_ea02u"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
 [ext_resource type="Theme" uid="uid://cqfsa4k60p8td" path="res://Themes/Button/button.tres" id="5_p3gva"]
 [ext_resource type="PackedScene" uid="uid://d02wx3ltd6hoj" path="res://Scenes/ui_color_selection.tscn" id="7_gngrj"]
@@ -76,16 +73,9 @@ offset_left = -366.0
 offset_top = -111.0
 grow_horizontal = 0
 grow_vertical = 0
-item_count = 3
 max_columns = 3
 icon_mode = 0
 icon_scale = 0.15
-item_0/text = "0"
-item_0/icon = ExtResource("1_uhs4y")
-item_1/text = "0"
-item_1/icon = ExtResource("3_ea02u")
-item_2/text = "0"
-item_2/icon = ExtResource("4_ea02u")
 
 [node name="Label" type="Label" parent="ItemList"]
 layout_mode = 0

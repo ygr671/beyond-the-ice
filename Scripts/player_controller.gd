@@ -2,7 +2,7 @@ extends Node
 var current_room: int  = 0
 var is_day: bool = true
 
-var furniture_count = [0, 0, 0]
+var furniture_count = []
 
 signal environment_changed(change_type, data)
 signal furniture_ordered(index)
