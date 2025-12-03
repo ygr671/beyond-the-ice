@@ -13,7 +13,7 @@ func _ready():
 	randomize()
 	
 # --- Mise à jour de la barre et du Label à chaque frame ---
-func _process(delta: float):
+func _process(_delta: float):
 	if is_filling:
 		var temps_reel_ecoule = progress_bar.max_value - fill_timer.get_time_left()
 		progress_bar.value = temps_reel_ecoule

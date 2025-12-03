@@ -4,6 +4,8 @@ extends Control
 @onready var large_bed = preload("res://Meshes/beds/large_bed.tscn")
 @onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
 @onready var main_controller = get_tree().get_current_scene()
+@onready var sofa = preload("res://Meshes/living_room/sofa.tscn")
+@onready var gym = preload("res://Meshes/Gym/gym.tscn")
 
 @onready var chair = preload("res://Meshes/living_room/chair.tscn")
 @onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
@@ -123,7 +125,7 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = bunk_bed.instantiate()
 		furniture_type = "lit_superpose"
 	if index == 1:
-		instance = pc_setup.instantiate()
+		instance = gym.instantiate()
 		furniture_type = "pc_gaming"
 	if index == 2: 
 		instance = wheel_chair.instantiate()

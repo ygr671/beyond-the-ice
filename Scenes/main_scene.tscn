@@ -495,7 +495,7 @@ lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")
 draw_pass_1 = SubResource("QuadMesh_7ewk0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="LowPolyWater" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_kon4g")
