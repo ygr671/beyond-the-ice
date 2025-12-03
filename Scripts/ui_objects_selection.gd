@@ -240,9 +240,7 @@ func _on_button_open_color_pressed() -> void:
 
 
 func _on_cycle_pressed() -> void:
-	# 💥 NOUVELLE LOGIQUE : Appeler la fonction Jour/Nuit du contrôleur principal
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
 	else:
-		# Ceci vous aidera à déboguer si le script Jour/Nuit n'est pas trouvé
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
