@@ -78,10 +78,21 @@ grow_horizontal = 0
 grow_vertical = 0
 item_count = 3
 max_columns = 3
-icon_scale = 0.18
+icon_mode = 0
+icon_scale = 0.15
+item_0/text = "0"
 item_0/icon = ExtResource("1_uhs4y")
+item_1/text = "0"
 item_1/icon = ExtResource("3_ea02u")
+item_2/text = "0"
 item_2/icon = ExtResource("4_ea02u")
+
+[node name="Label" type="Label" parent="ItemList"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = -56.0
+offset_right = 154.0
+offset_bottom = -33.0
 
 [node name="PanelSalles" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -191,15 +202,6 @@ text = "menu color"
 visible = false
 layout_mode = 1
 
-[node name="cycle" type="Button" parent="."]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 511.0
-offset_right = 118.0
-offset_bottom = 602.0
-text = "cycle
-"
-
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
@@ -209,4 +211,3 @@ text = "cycle
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Stockage" to="." method="_on_stockage_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelMenu/ButtonOpenColor" to="." method="_on_button_open_color_pressed"]
-[connection signal="pressed" from="cycle" to="." method="_on_cycle_pressed"]

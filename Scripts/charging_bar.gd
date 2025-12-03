@@ -3,6 +3,7 @@ extends Control
 @onready var progress_bar: ProgressBar = $"charging_bar_furniture"
 @onready var succes : Label = $"succes"
 @onready var failure : Label = $"failure"
+@onready var item_list : ItemList =  $"../ItemList"
 
 
 var is_filling: bool = false
@@ -27,16 +28,19 @@ func get_weighted_result(success_proba: float) -> int:
 	else:
 		return 0
 		
-func _on_furniture_ordered(furniture_type: String):
+func _on_furniture_ordered(index: int):
+	var rand;
 	start_filling_bar()
 	await get_tree().create_timer(15.0).timeout
+	if player_controller.is_day:
+		rand = get_weighted_result(75)
+	else:
+		rand = get_weighted_result(0.4)
 	
-	var rand = get_weighted_result(0.66)
 	_on_timer_timeout(rand)
 	if rand == 1:
-		match furniture_type:
-			"bed":
-				player_controller.bed_in_invetory +=1
+		player_controller.furniture_count[index] += 1
+		item_list.set_item_text(index, str(player_controller.furniture_count[index]))
 	
 	
 

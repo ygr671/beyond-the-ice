@@ -15,6 +15,8 @@ extends Control
 
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
+const INTERVALLE_DESIRE: float = 30.0
+var temps_ecoule: float = 0.0
 var current_room = 0
 var furniture_type
 var camera
@@ -38,15 +40,18 @@ func _ready():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
+		var index
 		placing = false
 		can_place = false
 		instance.placed()
 		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
 		match furniture_type :
 			"lit_superpose":
-				player_controller.bed_in_invetory -= 1
+				player_controller.furniture_count[0] -= 1
+				index = 0
 		item_list.deselect_all()
 		instance = null
+		item_list.set_item_text(index, str(player_controller.furniture_count[index]))
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
 		rotating = true
@@ -99,6 +104,11 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	tween.finished.connect(func(): label.queue_free())
 
 func _process(_delta: float) -> void:
+	temps_ecoule += _delta
+	
+	if temps_ecoule >= INTERVALLE_DESIRE:
+		cycle()
+		temps_ecoule -= INTERVALLE_DESIRE
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -109,10 +119,9 @@ func _process(_delta: float) -> void:
 			instance.transform.origin = colision.position
 			can_place = instance.check_placement()
 
-
 func _on_item_list_item_selected(index: int) -> void:
-	print(player_controller.bed_in_invetory)
-	if player_controller.bed_in_invetory == 0 && index == 0:
+	print(player_controller.furniture_count[index])
+	if player_controller.furniture_count[index] == 0 && index == 0:
 		item_list.deselect_all()
 		return
 	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
@@ -131,7 +140,7 @@ func _on_item_list_item_selected(index: int) -> void:
 		instance = wheel_chair.instantiate()
 		furniture_type = "wheel_chair"
 		
-	instance.set_meta("furniture_type", furniture_type)	
+	instance.set_meta("furniture_type", furniture_type)
 	
 	placing = true
 	
@@ -147,10 +156,14 @@ func undo_placement() -> void:
 		return
 	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
-	
+	var index;
 	furniture_type = lastObject.get_meta("furniture_type")
 	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
-	player_controller.bed_in_invetory +=1 
+	match furniture_type:
+		"lit_superpose":
+			player_controller.furniture_count[0] += 1 
+			index = 0
+	item_list.set_item_text(index, str(player_controller.furniture_count[index]))		
 	lastObject.queue_free()
 
 
@@ -241,7 +254,8 @@ func _on_button_open_color_pressed() -> void:
 	color_menu.show()
 
 
-func _on_cycle_pressed() -> void:
+   
+func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
 	else:

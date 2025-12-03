@@ -35,11 +35,13 @@ func toggle_day_night():
 	if is_day:
 		target_water_color = WATER_COLOR_DAY
 		target_env_energy = 1.0
+		
 
 	else:
 		target_water_color = WATER_COLOR_NIGHT
 		target_env_energy = 0.2 # Valeur faible pour la nuit
 
+	player_controller.is_day = is_day
 	# Délègue la tâche d'animation au script de l'eau
 	water_node.set_water_color_target(target_water_color)
 	

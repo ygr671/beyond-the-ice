@@ -63,7 +63,6 @@ size = Vector3(0.1, 5, 10)
 size = Vector3(0.1, 5, 10)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 144.51
 dof_blur_amount = 1.0
 
