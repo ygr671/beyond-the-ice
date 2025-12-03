@@ -8,6 +8,10 @@
 
 [node name="UIobjects" instance=ExtResource("1_ohal7")]
 
+[node name="ItemList" parent="." index="0"]
+icon_mode = 1
+icon_scale = 0.18
+
 [node name="PanelMenu" parent="." index="3"]
 offset_top = -125.0
 offset_right = 191.0
