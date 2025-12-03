@@ -68,15 +68,12 @@ func _on_environment_changed(change_type, data):
 				"bunk_bed":
 					if player_controller.current_room == 3: #salle chambre
 						nblits += 1
-						print("nbr de lits " , nblits)
 						if nblits == 2:
-							print("assez de lit")
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15)
 					else:
 						change_satisfaction(-15)
-					print("satisfaction : ", satisfaction)	
 		"furniture_removed":
 			match data:
 				"bunk_bed":
@@ -89,8 +86,6 @@ func _on_environment_changed(change_type, data):
 							change_satisfaction(-15) 
 					else:
 						change_satisfaction(15)
-					print("lit retiré")
-					print("satisfaction : ", satisfaction)
 		
 		
 

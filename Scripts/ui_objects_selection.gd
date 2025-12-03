@@ -4,8 +4,7 @@ extends Control
 @onready var color_menu = $ui_color_selection
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
-var furnitures: Array[PackedScene] = []
-var furnitures_names: Array[String] = []
+var furniture_list: Array[FurnitureInfo] = []
 
 
 const INTERVALLE_DESIRE: float = 30.0
@@ -28,18 +27,15 @@ func get_current_room():
 func _ready():
 	camera = get_viewport().get_camera_3d()
 	load_furnitures_from_directory("res://Meshes")
+	
+	for i in range(furniture_list.size()):
+		var info = furniture_list[i]
+		item_list.add_item(info.name + " (" + str(info.stock) + ")")
 
-	player_controller.furniture_count.resize(furnitures.size())
-	for i in range(furnitures.size()):
-		player_controller.furniture_count[i] = 1
-			
-	for i in range(furnitures_names.size()):
-		var name = furnitures_names[i]
-		item_list.add_item(name + " (" + str(player_controller.furniture_count[i]) + ")")
 
 		
 	room_selection(0)
-	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
+	connect("environment_changed", Callable(self, "_on_environment_changed"))
 	
 func load_furnitures_from_directory(path: String) -> void:
 	var dir := DirAccess.open(path)
@@ -54,8 +50,12 @@ func load_furnitures_from_directory(path: String) -> void:
 			if scene:
 				var inst = scene.instantiate()
 				if inst.has_method("check_placement"):
-					furnitures.append(scene)
-					furnitures_names.append(file_name.get_basename())
+					var info := FurnitureInfo.new()
+					info.scene = scene
+					info.name = file_name.get_basename()
+					info.stock = 1
+
+					furniture_list.append(info)
 				inst.queue_free()
 
 	
@@ -69,12 +69,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		placing = false
 		can_place = false
 		instance.placed()
-		player_controller.emit_signal("environment_changed", "furniture_placed", furnitures_names[index])
-		player_controller.furniture_count[index] -= 1
+		
+		var info = furniture_list[index]
+		info.stock -= 1
+
+		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+
+		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
+
 		
 		item_list.deselect_all()
 		instance = null
-		item_list.set_item_text(index, furnitures_names[index] + " (" + str(player_controller.furniture_count[index]) + ")")
+		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
 
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
@@ -144,8 +150,7 @@ func _process(_delta: float) -> void:
 			can_place = instance.check_placement()
 
 func _on_item_list_item_selected(index: int) -> void:
-	print(player_controller.furniture_count[index])
-	if player_controller.furniture_count[index] == 0:
+	if furniture_list[index].stock == 0:
 		item_list.deselect_all()
 		return
 
@@ -156,8 +161,10 @@ func _on_item_list_item_selected(index: int) -> void:
 	if placing:
 		instance.queue_free()
 	
-	instance = furnitures[index].instantiate()
-	
+	var info = furniture_list[index]
+
+	# chargement de la scène
+	instance = info.scene.instantiate()
 	instance.set_meta("furniture_index", index)
 	
 
@@ -173,9 +180,14 @@ func undo_placement() -> void:
 		return
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
 	var index = lastObject.get_meta("furniture_index")
-	player_controller.emit_signal("environment_changed", "furniture_removed", furnitures_names[index])
-	player_controller.furniture_count[index] += 1
-	item_list.set_item_text(index, furnitures_names[index] + " (" + str(player_controller.furniture_count[index]) + ")")
+	var info = furniture_list[index]
+
+	info.stock += 1
+
+	item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+
+	player_controller.emit_signal("environment_changed", "furniture_removed", info.name)
+
 	lastObject.queue_free()
 
 
