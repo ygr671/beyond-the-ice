@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://2ilii70xbmbp"]
+[gd_scene format=3 uid="uid://2ilii70xbmbp"]
 
 [node name="ui_charging_bar" type="Control"]
 layout_mode = 3
