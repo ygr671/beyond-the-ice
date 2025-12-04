@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fu6ebya3n465"
-path="res://.godot/imported/litSimple.png-7e4d6e837f82e2e96b59bb429a15e10a.ctex"
+uid="uid://cchgubtf05331"
+path="res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Icon/litSimple.png"
-dest_files=["res://.godot/imported/litSimple.png-7e4d6e837f82e2e96b59bb429a15e10a.ctex"]
+source_file="res://Import/Images/Bedroom/litSuperposer.png"
+dest_files=["res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"]
 
 [params]
 
