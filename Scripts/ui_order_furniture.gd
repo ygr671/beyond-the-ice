@@ -24,3 +24,7 @@ func _on_item_list_item_selected(index: int) -> void:
 	await get_tree().create_timer(15.0).timeout
 	processing = false
 	
+
+
+func _on_button_pressed() -> void:
+	order_furniture.hide()
