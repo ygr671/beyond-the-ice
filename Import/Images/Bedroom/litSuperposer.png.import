@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c256wtstiuqp"
-path.s3tc="res://.godot/imported/gym_equipment_0.png-c82952b589be3852cc0ceb9bc91e881a.s3tc.ctex"
+uid="uid://cchgubtf05331"
+path="res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "5654dd6fef3aa784b1d7d5e0f47c59c6"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Meshes/living_room/gym_equipment_0.png"
-dest_files=["res://.godot/imported/gym_equipment_0.png-c82952b589be3852cc0ceb9bc91e881a.s3tc.ctex"]
+source_file="res://Import/Images/Bedroom/litSuperposer.png"
+dest_files=["res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

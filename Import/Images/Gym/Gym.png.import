@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfxskfsmevt5"
-path="res://.godot/imported/litDouble.png-13468ae0242ef896d32c0dd5a4460b6f.ctex"
+uid="uid://dmv7nrcbgau5o"
+path="res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Icon/litDouble.png"
-dest_files=["res://.godot/imported/litDouble.png-13468ae0242ef896d32c0dd5a4460b6f.ctex"]
+source_file="res://Import/Images/Gym/Gym.png"
+dest_files=["res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"]
 
 [params]
 
