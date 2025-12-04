@@ -5,6 +5,7 @@ extends Control
 @onready var failure : Label = $"failure"
 @onready var item_list : ItemList =  $"../ItemList"
 
+var furniture_list = player_controller.furniture_list
 
 var is_filling: bool = false
 
@@ -39,8 +40,9 @@ func _on_furniture_ordered(index: int):
 	
 	_on_timer_timeout(rand)
 	if rand == 1:
-		player_controller.furniture_count[index] += 1
-		item_list.set_item_text(index, str(player_controller.furniture_count[index]))
+		furniture_list[index].stock += 1
+		item_list.set_item_text(index, str(furniture_list[index].stock))
+		item_list.set_item_text(index, furniture_list[index].name + " (" + str(furniture_list[index].stock) + ")")
 	
 	
 
