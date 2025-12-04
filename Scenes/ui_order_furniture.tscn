@@ -1,9 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7oq6f6el8oat"]
+[gd_scene load_steps=4 format=3 uid="uid://b7oq6f6el8oat"]
 
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_eu0ch"]
-[ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="2_x7lv0"]
-[ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_7qsxq"]
-[ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_k3jl1"]
 
 [sub_resource type="GDScript" id="GDScript_x7lv0"]
 script/source = "extends Control
@@ -87,12 +84,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 max_text_lines = 5
-item_count = 4
+item_count = 1
 max_columns = 7
 icon_scale = 0.5
-item_0/icon = ExtResource("2_x7lv0")
-item_1/icon = ExtResource("3_7qsxq")
-item_2/icon = ExtResource("4_k3jl1")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
