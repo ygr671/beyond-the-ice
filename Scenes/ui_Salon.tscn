@@ -16,7 +16,7 @@ icon_scale = 0.18
 offset_top = -125.0
 offset_right = 191.0
 
-[node name="PanelMenu2" type="PanelContainer" parent="." index="5"]
+[node name="OrderMenu" type="PanelContainer" parent="." index="5"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 870.0
@@ -24,7 +24,7 @@ offset_right = 192.0
 offset_bottom = 941.0
 script = ExtResource("2_0pdqk")
 
-[node name="Button_order" type="Button" parent="PanelMenu2" index="0"]
+[node name="Button_order" type="Button" parent="OrderMenu" index="0"]
 layout_mode = 2
 text = "order
 furniture"
@@ -37,6 +37,9 @@ offset_top = -23.0
 offset_right = 25.0
 offset_bottom = -23.0
 script = ExtResource("2_0pdqk")
+
+[node name="ItemList" parent="ui_order_furniture/Panel" index="1"]
+item_count = 0
 
 [node name="err_message" type="Label" parent="ui_order_furniture" index="1"]
 visible = false
@@ -81,7 +84,7 @@ theme_override_font_sizes/font_size = 60
 text = "Livraison abandonné, 
 conditions météo défavorables"
 
-[connection signal="pressed" from="PanelMenu2/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
+[connection signal="pressed" from="OrderMenu/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
 [connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]
 
 [editable path="ui_order_furniture"]

@@ -4,7 +4,7 @@ extends Control
 @onready var color_menu = $ui_color_selection
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
-var furniture_list: Array[FurnitureInfo] = []
+var furniture_list = player_controller.furniture_list
 
 
 const INTERVALLE_DESIRE: float = 30.0
@@ -16,6 +16,7 @@ var placing = false
 var can_place = false
 var rotating = false # Pour l'anim sinon on peut spam
 @onready var item_list = $ItemList
+@onready var order_list = $ui_order_furniture/Panel/ItemList
 
 
 func get_current_room():
@@ -31,6 +32,7 @@ func _ready():
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
 		item_list.add_item(info.name + " (" + str(info.stock) + ")")
+		order_list.add_item(info.name)
 
 
 		
