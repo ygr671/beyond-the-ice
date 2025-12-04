@@ -2,6 +2,7 @@ extends Control
 
 @onready var main_controller = get_tree().get_current_scene()
 @onready var color_menu = $ui_color_selection
+@onready var order_menu = $ui_order_furniture
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
 var furniture_list = player_controller.furniture_list
@@ -109,6 +110,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
 		color_menu.hide()
+		order_menu.hide()
 		if placing:
 			can_place = false
 			placing = false
