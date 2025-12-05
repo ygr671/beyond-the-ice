@@ -86,7 +86,7 @@ func _on_environment_changed(change_type, data):
 							change_satisfaction(-15) 
 					else:
 						change_satisfaction(15)
-		
+	player_controller.room_satisfaction[room_index] = satisfaction
 		
 
 
