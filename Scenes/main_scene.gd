@@ -17,7 +17,6 @@ func _ready():
 	if water_node and water_node.has_method("set_water_color_target"):
 		water_node.set_water_color_target(WATER_COLOR_DAY)
 	else:
-	
 		print("ERREUR CRITIQUE: Le nœud d'eau ($LowPolyWater) est trouvé, mais le script Low_poly_water.gd est manquant ou n'a pas la fonction 'set_water_color_target'.")
 
 
@@ -56,6 +55,4 @@ func toggle_day_night():
 			TRANSITION_SPEED
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-# Fonction de connexion du Bouton UI (appelée par le script UI)
-func _on_cycle_pressed():
-	toggle_day_night()
+# Fonction de connexion du Bouton UI (appelée par le script )

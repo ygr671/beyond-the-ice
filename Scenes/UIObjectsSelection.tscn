@@ -62,39 +62,15 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_ea02u")
 
-[node name="ItemList" type="ItemList" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -366.0
-offset_top = -111.0
-grow_horizontal = 0
-grow_vertical = 0
-max_columns = 3
-icon_mode = 0
-icon_scale = 0.15
-
-[node name="Label" type="Label" parent="ItemList"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = -56.0
-offset_right = 154.0
-offset_bottom = -33.0
-
 [node name="PanelSalles" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -377.5
-offset_top = -80.0
+offset_top = 118.0
 offset_right = 377.5
-offset_bottom = -40.002197
+offset_bottom = 157.9978
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3fyeh")
 
@@ -191,7 +167,6 @@ text = "menu color"
 visible = false
 layout_mode = 1
 
-[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Cuisine" to="." method="_on_cuisine_pressed"]
