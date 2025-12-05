@@ -9,9 +9,9 @@ var processing: bool = false
 func _on_button_order_pressed() -> void:
 	order_furniture.show()
 
-
 func _on_item_list_item_selected(index: int) -> void:
-	if is_processing:
+	print(processing)
+	if processing:
 		item_list.deselect_all()
 		err_message.show()
 		await get_tree().create_timer(2.0).timeout

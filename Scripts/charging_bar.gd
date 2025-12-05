@@ -3,7 +3,7 @@ extends Control
 @onready var progress_bar: ProgressBar = $"charging_bar_furniture"
 @onready var succes : Label = $"succes"
 @onready var failure : Label = $"failure"
-@onready var item_list : ItemList =  $"../ItemList"
+@onready var item_list : ItemList =  $"../ui_inventory/Panel/ItemList"
 
 var furniture_list = player_controller.furniture_list
 
