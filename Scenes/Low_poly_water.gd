@@ -47,8 +47,10 @@ func _ready():
 	else:
 		print("SUCCÈS : ShaderMaterial prêt à être utilisé")
 
-
-
+func _update_shader_color(color: Color):
+	if water_material:
+		water_material.set_shader_parameter("out_col", color)
+		
 func set_water_color_target(new_color: Color):
 	if water_material == null:
 		print("ERREUR : Impossible de changer la couleur, water_material est null")
@@ -74,7 +76,3 @@ func set_water_color_target(new_color: Color):
 		new_color,
 		TRANSITION_SPEED
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
-func _update_shader_color(color: Color):
-	if water_material:
-		water_material.set_shader_parameter("out_col", color)

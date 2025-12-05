@@ -1,12 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7oq6f6el8oat"]
 
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_eu0ch"]
+<<<<<<< HEAD
+=======
+[ext_resource type="Texture2D" path="res://Import/Icon/litSuperposer.png" id="2_x7lv0"]
+[ext_resource type="Texture2D" uid="uid://bho2ofp76ppgt" path="res://Import/Images/Living_room/pc_setup.png" id="3_7qsxq"]
+[ext_resource type="Texture2D" uid="uid://bt72di8kl4fp7" path="res://Import/Images/Living_room/chair.png" id="4_k3jl1"]
+>>>>>>> 916da350e33194523f40587b2072daaf2ff0143e
 
 [sub_resource type="GDScript" id="GDScript_x7lv0"]
 script/source = "extends Control
 @onready var order_list = $\"../../\"
-
-
 
 func _on_button_pressed() -> void:
 	order_list.hide()
@@ -75,6 +79,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 max_text_lines = 5
+item_count = 1
 max_columns = 7
 icon_scale = 0.5
 

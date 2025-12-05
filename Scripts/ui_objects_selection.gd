@@ -3,6 +3,7 @@ extends Control
 @onready var main_controller = get_tree().get_current_scene()
 @onready var color_menu = $ui_color_selection
 @onready var order_menu = $ui_order_furniture
+@onready var inventory_menu = $ui_inventory
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
 var furniture_list = player_controller.furniture_list
@@ -16,7 +17,7 @@ var instance
 var placing = false
 var can_place = false
 var rotating = false # Pour l'anim sinon on peut spam
-@onready var item_list = $ItemList
+@onready var item_list = $ui_inventory/Panel/ItemList
 @onready var order_list = $ui_order_furniture/Panel/ItemList
 
 
@@ -85,9 +86,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
 
 		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
-
-		
 		item_list.deselect_all()
+
 		instance = null
 		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
 
@@ -117,6 +117,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
 		color_menu.hide()
 		order_menu.hide()
+		inventory_menu.hide()
 		if placing:
 			can_place = false
 			placing = false
@@ -145,7 +146,6 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 
 func _process(_delta: float) -> void:
 	temps_ecoule += _delta
-	
 	if temps_ecoule >= INTERVALLE_DESIRE:
 		cycle()
 		temps_ecoule -= INTERVALLE_DESIRE
@@ -158,30 +158,6 @@ func _process(_delta: float) -> void:
 		if colision:
 			instance.transform.origin = colision.position
 			can_place = instance.check_placement()
-
-func _on_item_list_item_selected(index: int) -> void:
-	if furniture_list[index].stock == 0:
-		item_list.deselect_all()
-		return
-
-	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
-		item_list.deselect_all()
-		return
-		
-	if placing:
-		instance.queue_free()
-	
-	var info = furniture_list[index]
-
-	# chargement de la scène
-	instance = info.scene.instantiate()
-	instance.set_meta("furniture_index", index)
-	
-
-	placing = true
-	
-	salles[current_room].get_node("PlacedObjects").add_child(instance)
-	
 	
 	
 func undo_placement() -> void:
@@ -294,3 +270,27 @@ func cycle():
 		main_controller.toggle_day_night()
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
+
+
+func _on_item_list_item_selected(index: int) -> void:
+	if furniture_list[index].stock == 0:
+		item_list.deselect_all()
+		return
+
+	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
+		item_list.deselect_all()
+		return
+		
+	if placing:
+		instance.queue_free()
+	
+	var info = furniture_list[index]
+
+	# chargement de la scène
+	instance = info.scene.instantiate()
+	instance.set_meta("furniture_index", index)
+	
+
+	placing = true
+	inventory_menu.hide()
+	salles[current_room].get_node("PlacedObjects").add_child(instance)
