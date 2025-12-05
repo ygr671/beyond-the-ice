@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://03p4s7ii2in2"
-path="res://.godot/imported/Shelf.png-abc1d086758316533926e32a66dc62ba.ctex"
+uid="uid://crcy0act6dipx"
+path="res://.godot/imported/gym.png-1e0177304a8b95db37e0683e7d88b8a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Laboratory/Shelf.png"
-dest_files=["res://.godot/imported/Shelf.png-abc1d086758316533926e32a66dc62ba.ctex"]
+source_file="res://Meshes/gym/gym.png"
+dest_files=["res://.godot/imported/gym.png-1e0177304a8b95db37e0683e7d88b8a1.ctex"]
 
 [params]
 

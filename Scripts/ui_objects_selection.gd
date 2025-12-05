@@ -32,7 +32,7 @@ func _ready():
 	
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
-		item_list.add_item(info.name + " (" + str(info.stock) + ")")
+		item_list.add_item(info.name + " (" + str(info.stock) + ")", info.image)
 		order_list.add_item(info.name)
 
 
@@ -57,6 +57,12 @@ func load_furnitures_from_directory(path: String) -> void:
 					info.scene = scene
 					info.name = file_name.get_basename()
 					info.stock = 1
+					var image_path := path + "/" + file_name.get_basename() + ".png"
+					if ResourceLoader.exists(image_path):
+						info.image = load(image_path)
+					else:
+						push_warning("Image introuvable : " + image_path)
+						info.image = null
 
 					furniture_list.append(info)
 				inst.queue_free()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgsrkjq5hra5"
-path="res://.godot/imported/litDouble.png-85fbfa443ac6a6b68f712cf4079fdf74.ctex"
+uid="uid://c66106s1uxbqm"
+path="res://.godot/imported/sofa.png-7c85221c37e5c6910ed4a94b02a9c349.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Bedroom/litDouble.png"
-dest_files=["res://.godot/imported/litDouble.png-85fbfa443ac6a6b68f712cf4079fdf74.ctex"]
+source_file="res://Meshes/living_room/sofa.png"
+dest_files=["res://.godot/imported/sofa.png-7c85221c37e5c6910ed4a94b02a9c349.ctex"]
 
 [params]
 

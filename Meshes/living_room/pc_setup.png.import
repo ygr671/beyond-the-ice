@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tjjrfs0hf0h1"
-path="res://.godot/imported/litSimple.png-c1a442988bc3acc7091c03e58c51995f.ctex"
+uid="uid://ciqad450hx2i3"
+path="res://.godot/imported/pc_setup.png-0154840093b7c91d3224b3aa0513ebf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Bedroom/litSimple.png"
-dest_files=["res://.godot/imported/litSimple.png-c1a442988bc3acc7091c03e58c51995f.ctex"]
+source_file="res://Meshes/living_room/pc_setup.png"
+dest_files=["res://.godot/imported/pc_setup.png-0154840093b7c91d3224b3aa0513ebf7.ctex"]
 
 [params]
 

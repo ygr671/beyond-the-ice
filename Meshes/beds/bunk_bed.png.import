@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmv7nrcbgau5o"
-path="res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"
+uid="uid://buu30xi40q6og"
+path="res://.godot/imported/bunk_bed.png-53defe2ab849f785302ccdb1174e5d69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Gym/Gym.png"
-dest_files=["res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"]
+source_file="res://Meshes/beds/bunk_bed.png"
+dest_files=["res://.godot/imported/bunk_bed.png-53defe2ab849f785302ccdb1174e5d69.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cchgubtf05331"
-path="res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"
+uid="uid://lrul7pv64uqn"
+path="res://.godot/imported/chair.png-80a766618525d4def2263e7c1020aa16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Bedroom/litSuperposer.png"
-dest_files=["res://.godot/imported/litSuperposer.png-78a038d78552b4b71602b6005152a646.ctex"]
+source_file="res://Meshes/living_room/chair.png"
+dest_files=["res://.godot/imported/chair.png-80a766618525d4def2263e7c1020aa16.ctex"]
 
 [params]
 
