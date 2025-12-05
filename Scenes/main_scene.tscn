@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=36 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="10_76v2p"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
-[ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="14_lhp3t"]
+[ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="13_ioaeq"]
+[ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="14_7ewk0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -28,6 +29,8 @@ sky_material = SubResource("ProceduralSkyMaterial_mai8y")
 background_mode = 2
 background_energy_multiplier = 0.7
 sky = SubResource("Sky_76v2p")
+ambient_light_energy = 2.57
+reflected_light_source = 2
 tonemap_mode = 2
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
@@ -60,7 +63,6 @@ size = Vector3(0.1, 5, 10)
 size = Vector3(0.1, 5, 10)
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
-dof_blur_far_enabled = true
 dof_blur_far_distance = 144.51
 dof_blur_amount = 1.0
 
@@ -453,7 +455,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
-transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
+transform = Transform3D(0.7164552, -0.2834332, 0.6374618, 0.009006872, 0.9174314, 0.3977924, -0.6975749, -0.2792589, 0.6598513, 5.741697, 5.853462, 6.4637423)
 cull_mask = 1
 attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
@@ -462,20 +464,30 @@ size = 16.037382
 script = ExtResource("1_ioaeq")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.9576468, -0.27482632, -0.08592523, 0.28794557, 0.9140149, 0.2857693, 0, -0.29840785, 0.95443845, -17.834293, 7.7425404, -9.4091625)
+transform = Transform3D(0.9576468, -0.27482632, -0.08592523, 0.28794557, 0.9140149, 0.2857693, 0, -0.29840785, 0.95443845, -24.003923, 7.7425404, -26.716486)
 amount = 200
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")
 draw_pass_1 = SubResource("QuadMesh_7ewk0")
 
 [node name="LowPolyWater" parent="." instance=ExtResource("10_76v2p")]
-transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
+transform = Transform3D(0.9115899, 0.33831075, 0.23355836, -0.26816294, 0.91996574, -0.2859226, -0.3115963, 0.19801247, 0.92935413, -15.283216, 1.2072392, -13.971031)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
 transform = Transform3D(0.052182104, 0.029614655, 4.2035161e-10, -0.027932528, 0.04921813, -0.01993362, -0.009838789, 0.017336305, 0.056591965, -80.92033, -39.3203, -85.99612)
 
-[node name="snow-tile2" parent="." instance=ExtResource("14_lhp3t")]
-transform = Transform3D(19.405989, 5.906564, -14.612326, -8.683579, 23.349754, -2.0938911, 13.153061, 6.7008524, 20.176609, -64.347626, -46.157932, -92.99213)
-
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -76.503975, -38.59102, -91.42132)
+transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -21.059662, 4.0682983, 0.25922585)
+visible = false
+
+[node name="Sketchfab_Scene3" parent="Sketchfab_Scene3" instance=ExtResource("12_drdnd")]
+transform = Transform3D(2.7036905, 0.29059714, -1.2671262, -0.6591878, 2.8267534, -0.7582474, 1.1205027, 0.9617813, 2.6114087, 35.622437, 43.285927, -337.17297)
+
+[node name="Iceberg" parent="." instance=ExtResource("13_ioaeq")]
+transform = Transform3D(-3.3964171, -3.103369, 1.9579246, 1.9925634, 0.6804584, 4.53505, -3.0812428, 3.8608415, 0.774508, -6.4467697, -4.4849234, -5.6134386)
+
+[node name="Ugandan Knuckles" parent="." instance=ExtResource("14_7ewk0")]
+transform = Transform3D(0.110104896, 0, 0.1669638, 0, 0.2, 0, -0.1669638, 0, 0.110104896, -19.48404, 2.5287013, -4.4438405)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("12_drdnd")]
+transform = Transform3D(0.02506468, 0.021027181, -0.023013461, -0.015488724, 0.034027305, 0.014221174, 0.027052933, 0, 0.029464195, -21.040956, 2.4369102, -6.38698)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dhb0rh6musbex"]
 
-[ext_resource type="Script" uid="uid://xxp86afck0ka" path="res://npc/navigation_npc.gd" id="1_jlvxn"]
-[ext_resource type="Script" uid="uid://wtn7ck1qcwfm" path="res://npc/sub_viewport.gd" id="2_da7jf"]
+[ext_resource type="Script" uid="uid://xxp86afck0ka" path="res://Scripts/navigation_npc.gd" id="1_jlvxn"]
+[ext_resource type="Script" uid="uid://wtn7ck1qcwfm" path="res://shader/sub_viewport.gd" id="2_da7jf"]
 [ext_resource type="FontFile" uid="uid://cu2rdqabhwe5h" path="res://Import/Fonts/NotoColorEmoji-Regular.ttf" id="3_ldes2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_da7jf"]
