@@ -222,18 +222,18 @@ offset_top = 967.0
 offset_right = 845.0
 offset_bottom = 1038.0
 
-[node name="PanelMenu2" type="PanelContainer" parent="Salles/salon/ui_Salon/ui_charging_bar" index="4"]
+[node name="PanelMenu2" type="PanelContainer" parent="Salles/salon/ui_Salon"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 721.0
-offset_top = 705.0
-offset_right = 867.0
-offset_bottom = 776.0
+offset_left = 1067.0
+offset_top = -111.0
+offset_right = 1213.0
+offset_bottom = -40.0
 grow_vertical = 0
 
-[node name="buttonInventory" type="Button" parent="Salles/salon/ui_Salon/ui_charging_bar/PanelMenu2"]
+[node name="buttonInventory" type="Button" parent="Salles/salon/ui_Salon/PanelMenu2"]
 layout_mode = 2
 text = "Inventory"
 
@@ -245,6 +245,9 @@ offset_top = 107.0
 offset_right = 163.0
 offset_bottom = 107.0
 script = ExtResource("8_2ebs2")
+
+[node name="ItemList" parent="Salles/salon/ui_Salon/ui_inventory/Panel" index="1"]
+item_count = 0
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
@@ -551,7 +554,7 @@ transform = Transform3D(19.405989, 5.906564, -14.612326, -8.683579, 23.349754, -
 [node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
 transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -76.503975, -38.59102, -91.42132)
 
-[connection signal="pressed" from="Salles/salon/ui_Salon/ui_charging_bar/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_inventory/Panel/Button" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_pressed"]
 

@@ -35,9 +35,6 @@ func _ready():
 		var info = furniture_list[i]
 		item_list.add_item(info.name + " (" + str(info.stock) + ")", info.image)
 		order_list.add_item(info.name)
-
-
-		
 	room_selection(0)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
 	
