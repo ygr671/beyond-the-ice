@@ -1,6 +1,8 @@
 extends Control
 
 @onready var order_furniture = $"."
+@onready var color_menu = $"../ui_color_selection"
+@onready var inventory_menu = $"../ui_inventory"
 @onready var charging_bar = $"../ui_charging_bar"
 @onready var item_list = $"../ui_order_furniture/Panel/ItemList"
 @onready var err_message = $"../ui_order_furniture/err_message"
@@ -8,6 +10,8 @@ var processing: bool = false
 
 func _on_button_order_pressed() -> void:
 	order_furniture.show()
+	color_menu.hide()
+	inventory_menu.hide()
 
 func _on_item_list_item_selected(index: int) -> void:
 	print(processing)

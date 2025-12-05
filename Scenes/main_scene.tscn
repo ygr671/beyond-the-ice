@@ -231,10 +231,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1067.0
-offset_top = -111.0
-offset_right = 1213.0
-offset_bottom = -40.0
+offset_left = 1069.0
+offset_top = -113.0
+offset_right = 1215.0
+offset_bottom = -42.0
 grow_vertical = 0
 
 [node name="buttonInventory" type="Button" parent="Salles/salon/ui_Salon/PanelMenu2"]
