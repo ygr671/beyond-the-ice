@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmv7nrcbgau5o"
-path="res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"
+uid="uid://cejno837x3ra4"
+path="res://.godot/imported/closet.png-e36eb0db913a86397a846c9763c8cafe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Import/Images/Gym/Gym.png"
-dest_files=["res://.godot/imported/Gym.png-0f18504e2ece417940083827b8f23fc3.ctex"]
+source_file="res://Meshes/beds/closet.png"
+dest_files=["res://.godot/imported/closet.png-e36eb0db913a86397a846c9763c8cafe.ctex"]
 
 [params]
 

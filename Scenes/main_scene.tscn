@@ -1,19 +1,20 @@
-[gd_scene load_steps=42 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=43 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
-[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/Low_poly_water.gd" id="3_2ebs2"]
+[ext_resource type="Script" uid="uid://clltecglxmm6o" path="res://Scenes/low_poly_water.gd" id="3_2ebs2"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
 [ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
-[ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
+[ext_resource type="PackedScene" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
 [ext_resource type="Script" uid="uid://detftc710v7j1" path="res://Scripts/ui_inventory.gd" id="8_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://bsk6owg08uvax" path="res://Meshes/living_room/pc_setup.tscn" id="8_drdnd"]
 [ext_resource type="PackedScene" uid="uid://cpdeyocpnqtwo" path="res://Meshes/lab/hanging_shelf.tscn" id="9_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://deqdk58e13f53" path="res://Meshes/lab/shelf.tscn" id="10_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
+[ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
 [ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="14_gnsmo"]
@@ -206,17 +207,20 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="ui_Salon" parent="Salles/salon" instance=ExtResource("4_7ewk0")]
 
-[node name="PanelSalles" parent="Salles/salon/ui_Salon" index="0"]
+[node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
+layout_mode = 1
+
+[node name="PanelSalles" parent="Salles/salon/ui_Salon" index="1"]
 offset_top = 148.0
 offset_bottom = 187.9978
 
-[node name="PanelMenu" parent="Salles/salon/ui_Salon" index="2"]
+[node name="PanelMenu" parent="Salles/salon/ui_Salon" index="3"]
 offset_left = 884.0
 offset_top = -113.0
 offset_right = 1030.0
 offset_bottom = -42.0
 
-[node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
+[node name="OrderMenu" parent="Salles/salon/ui_Salon" index="5"]
 offset_left = 699.0
 offset_top = 967.0
 offset_right = 845.0
