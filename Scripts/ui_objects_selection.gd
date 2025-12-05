@@ -253,6 +253,8 @@ func _deselect_item():
 
 func _on_button_open_color_pressed() -> void:
 	color_menu.show()
+	order_menu.hide()
+	inventory_menu.hide()
 
 
    
