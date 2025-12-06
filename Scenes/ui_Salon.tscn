@@ -34,9 +34,6 @@ offset_right = 25.0
 offset_bottom = -23.0
 script = ExtResource("2_0pdqk")
 
-[node name="ItemList" parent="ui_order_furniture/Panel" index="1"]
-item_count = 0
-
 [node name="err_message" type="Label" parent="ui_order_furniture" index="1"]
 visible = false
 layout_mode = 0
