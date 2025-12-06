@@ -16,6 +16,7 @@ var satisfaction = 50
 var real_satisfaction = satisfaction
 var room_index: int = 0
 var nblits = 1
+var nb_closet =1
 var emoji_timer: Timer
 
 func _ready():
@@ -46,7 +47,6 @@ func change_satisfaction(valeur: int):
 func _on_environment_changed(change_type, data):
 	if player_controller.current_room != room_index:
 		return
-	print("room index  ", room_index)
 	match change_type:
 		"color_changed":
 			match data:   # data = Color
@@ -66,7 +66,7 @@ func _on_environment_changed(change_type, data):
 		"furniture_placed":
 			match data:
 				"bunk_bed":
-					if player_controller.current_room == 3: #salle chambre
+					if room_index == 3: #salle chambre
 						nblits += 1
 						if nblits == 2:
 							change_satisfaction(15)
@@ -74,16 +74,31 @@ func _on_environment_changed(change_type, data):
 							change_satisfaction(-15)
 					else:
 						change_satisfaction(-15)
+				"closet":
+					nb_closet += 1
+					if nb_closet <=3:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-4)
+				"gym":
+					if room_index == 5:
+						change_satisfaction(25)
+					else:
+						change_satisfaction(-15)
 		"furniture_removed":
 			match data:
 				"bunk_bed":
 					if player_controller.current_room == 3:
-						
 						nblits -= 1
 						if nblits >= 2:
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15) 
+					else:
+						change_satisfaction(15)
+				"gym":
+					if room_index == 5:
+						change_satisfaction(-25)
 					else:
 						change_satisfaction(15)
 	player_controller.room_satisfaction[room_index] = satisfaction

@@ -9,7 +9,7 @@ extends Control
 var furniture_list = player_controller.furniture_list
 
 
-const INTERVALLE_DESIRE: float = 30.0
+const INTERVALLE_DESIRE: float = 45.0
 var temps_ecoule: float = 0.0
 var current_room = 0
 var camera
@@ -83,6 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
 
 		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
+		print(info.name)
 		item_list.deselect_all()
 
 		instance = null
