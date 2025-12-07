@@ -42,7 +42,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8qewk")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_01h48"]
-size = Vector3(1.0920258, 1.6744995, 0.4499817)
+size = Vector3(1.0920258, 1.6062927, 0.4499817)
 
 [node name="Closet" type="Node3D"]
 script = ExtResource("1_chxxl")
@@ -55,21 +55,21 @@ skeleton = NodePath("")
 [node name="Area3D" type="Area3D" parent="Mesh"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Area3D"]
-transform = Transform3D(1.0000426, 0, -2.2724271e-07, 0, 1, 0, 2.2724271e-07, 0, 1.0000426, 0.011070651, 0.86105347, 0.031906616)
+transform = Transform3D(1.0000473, 0, -2.5331974e-07, 0, 1, 0, 2.5331974e-07, 0, 1.0000473, 0.011070653, 0.89515686, 0.031906616)
 shape = SubResource("BoxShape3D_01h48")
 
 [node name="ray1" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1.0000004, 0, -1.8626451e-09, 0, 1, 0, 1.8626451e-09, 0, 1.0000004, -0.50511575, 0.07373334, 0.14363477)
-target_position = Vector3(0, -0.072, 0)
+target_position = Vector3(0, -0.092, 0)
 
 [node name="ray2" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1.0000005, 0, -1.8626451e-09, 0, 1, 0, 1.8626451e-09, 0, 1.0000005, 0.5018145, 0.07373334, 0.13244632)
-target_position = Vector3(0, -0.072, 0)
+target_position = Vector3(0, -0.092, 0)
 
 [node name="ray3" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1.0000006, 0, -2.7939677e-09, 0, 1, 0, 2.7939677e-09, 0, 1.0000006, 0.5012713, 0.07373334, -0.14792812)
-target_position = Vector3(0, -0.072, 0)
+target_position = Vector3(0, -0.092, 0)
 
 [node name="ray4" type="RayCast3D" parent="Mesh"]
 transform = Transform3D(1.0000005, 0, -1.8626451e-09, 0, 1, 0, 1.8626451e-09, 0, 1.0000005, -0.50824517, 0.07373334, -0.13799706)
-target_position = Vector3(0, -0.072, 0)
+target_position = Vector3(0, -0.092, 0)

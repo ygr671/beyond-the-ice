@@ -1,9 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cly3vguseol5j"]
+[gd_scene load_steps=11 format=3 uid="uid://cly3vguseol5j"]
 
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
-[ext_resource type="Texture2D" uid="uid://c0jtbgwno41eu" path="res://Import/Icon/litSuperposer.png" id="1_uhs4y"]
-[ext_resource type="Texture2D" uid="uid://cimtbcoawkk18" path="res://Import/Images/living_room/pc_setup.png" id="3_ea02u"]
-[ext_resource type="Texture2D" uid="uid://bn44tpw8lahla" path="res://Import/Images/living_room/chair.png" id="4_ea02u"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
 [ext_resource type="Theme" uid="uid://cqfsa4k60p8td" path="res://Themes/Button/button.tres" id="5_p3gva"]
 [ext_resource type="PackedScene" uid="uid://d02wx3ltd6hoj" path="res://Scenes/ui_color_selection.tscn" id="7_gngrj"]
@@ -65,37 +62,16 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_ea02u")
 
-[node name="ItemList" type="ItemList" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -366.0
-offset_top = -111.0
-grow_horizontal = 0
-grow_vertical = 0
-item_count = 3
-max_columns = 3
-icon_scale = 0.18
-item_0/icon = ExtResource("1_uhs4y")
-item_1/icon = ExtResource("3_ea02u")
-item_2/icon = ExtResource("4_ea02u")
-
 [node name="PanelSalles" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -377.5
-offset_top = -80.0
+offset_top = 118.0
 offset_right = 377.5
-offset_bottom = -40.002197
+offset_bottom = 157.9978
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3fyeh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelSalles"]
@@ -191,16 +167,6 @@ text = "menu color"
 visible = false
 layout_mode = 1
 
-[node name="cycle" type="Button" parent="."]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 511.0
-offset_right = 118.0
-offset_bottom = 602.0
-text = "cycle
-"
-
-[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salon" to="." method="_on_salon_pressed"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Salle de bain" to="." method="_on_salle_de_bain_pressed"]
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Cuisine" to="." method="_on_cuisine_pressed"]
@@ -209,4 +175,3 @@ text = "cycle
 [connection signal="pressed" from="PanelSalles/HBoxContainer/Stockage" to="." method="_on_stockage_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelMenu/ButtonOpenColor" to="." method="_on_button_open_color_pressed"]
-[connection signal="pressed" from="cycle" to="." method="_on_cycle_pressed"]

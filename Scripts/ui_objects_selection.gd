@@ -1,25 +1,24 @@
 extends Control
 
-@onready var bed = preload("res://Meshes/beds/bed.tscn")
-@onready var large_bed = preload("res://Meshes/beds/large_bed.tscn")
-@onready var bunk_bed = preload("res://Meshes/beds/bunk_bed.tscn")
 @onready var main_controller = get_tree().get_current_scene()
-
-@onready var chair = preload("res://Meshes/living_room/chair.tscn")
-@onready var pc_setup = preload("res://Meshes/living_room/pc_setup.tscn")
-
 @onready var color_menu = $ui_color_selection
-
+@onready var order_menu = $ui_order_furniture
+@onready var inventory_menu = $ui_inventory
 @onready var salles = get_tree().get_current_scene().get_node("Salles").get_children() 
 
+var furniture_list = player_controller.furniture_list
+
+
+const INTERVALLE_DESIRE: float = 30.0
+var temps_ecoule: float = 0.0
 var current_room = 0
-var furniture_type
 var camera
 var instance
 var placing = false
 var can_place = false
 var rotating = false # Pour l'anim sinon on peut spam
-@onready var item_list = $ItemList
+@onready var item_list = $ui_inventory/Panel/ItemList
+@onready var order_list = $ui_order_furniture/Panel/ItemList
 
 
 func get_current_room():
@@ -30,20 +29,59 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
+	load_furnitures_from_directory("res://Meshes")
+	
+	for i in range(furniture_list.size()):
+		var info = furniture_list[i]
+		item_list.add_item(info.name + " (" + str(info.stock) + ")")
+		order_list.add_item(info.name)
 	room_selection(0)
-	player_controller.connect("environment_changed", Callable(self, "_on_environment_changed"))
+	connect("environment_changed", Callable(self, "_on_environment_changed"))
+	
+func load_furnitures_from_directory(path: String) -> void:
+	var dir := DirAccess.open(path)
+	if dir == null:
+		push_error("Could not open directory: " + path)
+		return
+	
+	for file_name in dir.get_files():
+		if file_name.ends_with(".tscn"):
+			var full_path = path + "/" + file_name
+			var scene = load(full_path)
+			if scene:
+				var inst = scene.instantiate()
+				if inst.has_method("check_placement"):
+					var info := FurnitureInfo.new()
+					info.scene = scene
+					info.name = file_name.get_basename()
+					info.stock = 1
+
+					furniture_list.append(info)
+				inst.queue_free()
+
+	
+	for subdir_name in dir.get_directories():
+		load_furnitures_from_directory(path + "/" + subdir_name)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click") and can_place:
+		var index = item_list.get_selected_items()[0]
 		placing = false
 		can_place = false
 		instance.placed()
-		player_controller.emit_signal("environment_changed", "furniture_placed", furniture_type)
-		match furniture_type :
-			"lit_superpose":
-				player_controller.bed_in_invetory -= 1
+		
+		var info = furniture_list[index]
+		info.stock -= 1
+
+		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+
+		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
 		item_list.deselect_all()
+
 		instance = null
+		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
 		rotating = true
@@ -69,7 +107,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
 		color_menu.hide()
-		if can_place:
+		order_menu.hide()
+		inventory_menu.hide()
+		if placing:
 			can_place = false
 			placing = false
 			item_list.deselect_all()
@@ -96,6 +136,10 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	tween.finished.connect(func(): label.queue_free())
 
 func _process(_delta: float) -> void:
+	temps_ecoule += _delta
+	if temps_ecoule >= INTERVALLE_DESIRE:
+		cycle()
+		temps_ecoule -= INTERVALLE_DESIRE
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -105,49 +149,22 @@ func _process(_delta: float) -> void:
 		if colision:
 			instance.transform.origin = colision.position
 			can_place = instance.check_placement()
-
-
-func _on_item_list_item_selected(index: int) -> void:
-	print(player_controller.bed_in_invetory)
-	if player_controller.bed_in_invetory == 0 && index == 0:
-		item_list.deselect_all()
-		return
-	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
-		item_list.deselect_all()
-		return
-		
-	if placing:
-		instance.queue_free()
-	if index == 0: 
-		instance = bunk_bed.instantiate()
-		furniture_type = "lit_superpose"
-	if index == 1:
-		instance = pc_setup.instantiate()
-		furniture_type = "pc_gaming"
-	if index == 2: 
-		instance = chair.instantiate()
-		furniture_type = "chaise"
-		
-	instance.set_meta("furniture_type", furniture_type)	
-	
-	placing = true
-	
-	salles[current_room].get_node("PlacedObjects").add_child(instance)
 	
 	
-	
-
 func undo_placement() -> void:
 	var placed = salles[current_room].get_node("PlacedObjects")
-
 	if placed.get_child_count() == 0:
 		return
-	
 	var lastObject = placed.get_child(placed.get_child_count() - 1)
-	
-	furniture_type = lastObject.get_meta("furniture_type")
-	player_controller.emit_signal("environment_changed", "furniture_removed", furniture_type)
-	player_controller.bed_in_invetory +=1 
+	var index = lastObject.get_meta("furniture_index")
+	var info = furniture_list[index]
+
+	info.stock += 1
+
+	item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+
+	player_controller.emit_signal("environment_changed", "furniture_removed", info.name)
+
 	lastObject.queue_free()
 
 
@@ -238,8 +255,33 @@ func _on_button_open_color_pressed() -> void:
 	color_menu.show()
 
 
-func _on_cycle_pressed() -> void:
+   
+func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
+
+
+func _on_item_list_item_selected(index: int) -> void:
+	if furniture_list[index].stock == 0:
+		item_list.deselect_all()
+		return
+
+	if salles[current_room].get_node("PlacedObjects").get_child_count() >= 4:
+		item_list.deselect_all()
+		return
+		
+	if placing:
+		instance.queue_free()
+	
+	var info = furniture_list[index]
+
+	# chargement de la scène
+	instance = info.scene.instantiate()
+	instance.set_meta("furniture_index", index)
+	
+
+	placing = true
+	inventory_menu.hide()
+	salles[current_room].get_node("PlacedObjects").add_child(instance)

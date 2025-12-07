@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsu3kg7vr2sci"]
 
 [ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="1_3uqw6"]
-[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/low_poly_water.gd" id="1_ndcik"]
+[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/Low_poly_water.gd" id="1_ndcik"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcik"]
 render_priority = 1

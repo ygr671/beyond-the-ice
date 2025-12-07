@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var npc_scene: PackedScene = preload("res://npc/navigation_npc.tscn")
+@export var npc_scene: PackedScene = preload("res://Scenes/navigation_npc.tscn")
 @onready var right_wall = $"Mur_droit/MeshInstance3D"
 @onready var left_wall = $"Mur_gauche/MeshInstance3D"
 
