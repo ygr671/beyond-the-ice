@@ -9,7 +9,7 @@ extends Control
 var furniture_list = player_controller.furniture_list
 
 
-const INTERVALLE_DESIRE: float = 30.0
+const INTERVALLE_DESIRE: float = 45.0
 var temps_ecoule: float = 0.0
 var current_room = 0
 var camera
@@ -33,7 +33,7 @@ func _ready():
 	
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
-		item_list.add_item(info.name + " (" + str(info.stock) + ")")
+		item_list.add_item(info.name + " (" + str(info.stock) + ")", info.image)
 		order_list.add_item(info.name)
 	room_selection(0)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
@@ -55,6 +55,12 @@ func load_furnitures_from_directory(path: String) -> void:
 					info.scene = scene
 					info.name = file_name.get_basename()
 					info.stock = 1
+					var image_path := path + "/" + file_name.get_basename() + ".png"
+					if ResourceLoader.exists(image_path):
+						info.image = load(image_path)
+					else:
+						push_warning("Image introuvable : " + image_path)
+						info.image = null
 
 					furniture_list.append(info)
 				inst.queue_free()
@@ -77,6 +83,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
 
 		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
+		print(info.name)
 		item_list.deselect_all()
 
 		instance = null
@@ -253,6 +260,8 @@ func _deselect_item():
 
 func _on_button_open_color_pressed() -> void:
 	color_menu.show()
+	order_menu.hide()
+	inventory_menu.hide()
 
 
    
