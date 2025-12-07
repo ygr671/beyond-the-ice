@@ -1,8 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=41 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
-[ext_resource type="Script" uid="uid://clltecglxmm6o" path="res://Scenes/Low_poly_water.gd" id="3_2ebs2"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
@@ -17,24 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
-[ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="14_gnsmo"]
-[ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="14_lhp3t"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcik"]
-render_priority = 1
-shader = ExtResource("14_gnsmo")
-shader_parameter/out_col = Color(0.2, 0.4, 0.8, 1)
-shader_parameter/amount = 0.40100001252773
-shader_parameter/beer_factor = 0.2
-shader_parameter/metallic = 1.0
-shader_parameter/roughness = 0.3
-shader_parameter/specular = 0.5
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_kon4g"]
-material = SubResource("ShaderMaterial_ndcik")
-size = Vector2(100, 100)
-subdivide_width = 50
-subdivide_depth = 50
+[ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
+[ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
+[ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -138,13 +122,6 @@ material = SubResource("StandardMaterial3D_ioaeq")
 
 [node name="Main_scene" type="Node3D"]
 script = ExtResource("1_76v2p")
-
-[node name="LowPolyWater" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_kon4g")
-skeleton = NodePath("")
-script = ExtResource("3_2ebs2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_drdnd")
@@ -539,24 +516,27 @@ transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313,
 attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
-size = 13.681537
+size = 16.175995
 script = ExtResource("1_ioaeq")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.9576468, -0.27482632, -0.08592523, 0.28794557, 0.9140149, 0.2857693, 0, -0.29840785, 0.95443845, -17.834293, 7.7425404, -9.4091625)
+transform = Transform3D(0.9955798, -0.038022116, -0.08587918, 0.03907104, 0.9991805, 0.010566184, 0.085407004, -0.013874948, 0.9962494, -26.87265, 0.7567229, -23.121498)
 amount = 200
 lifetime = 3.5
 process_material = SubResource("ParticleProcessMaterial_ioaeq")
 draw_pass_1 = SubResource("QuadMesh_7ewk0")
 
+[node name="LowPolyWater" parent="." instance=ExtResource("16_psl12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160435, -22.346388, -21.1003)
+
+[node name="Iceberg" parent="." instance=ExtResource("17_2ebs2")]
+transform = Transform3D(7.653859, -2.3277547, -1.0174939e-07, 0, -3.496911e-07, 8, -2.3277547, -7.653859, -3.345608e-07, -36.023117, -20.278185, -28.342133)
+
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.052182104, 0.029614655, 4.2035161e-10, -0.027932528, 0.04921813, -0.01993362, -0.009838789, 0.017336305, 0.056591965, -80.92033, -39.3203, -85.99612)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -42.88293, -23.23826, -60.209503)
 
-[node name="snow-tile2" parent="." instance=ExtResource("14_lhp3t")]
-transform = Transform3D(19.405989, 5.906564, -14.612326, -8.683579, 23.349754, -2.0938911, 13.153061, 6.7008524, 20.176609, -64.347626, -46.157932, -92.99213)
-
-[node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -76.503975, -38.59102, -91.42132)
+[node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
+transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
 
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
