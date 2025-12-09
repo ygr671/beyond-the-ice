@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://3bfsga3t87gy"]
 
-[ext_resource type="Texture2D" uid="uid://bcpb20icv3qew" path="res://Meshes/Gym/Gym_Image_0.png" id="1_kj003"]
-[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Object.gd" id="1_s64f4"]
+[ext_resource type="Texture2D" uid="uid://bcpb20icv3qew" path="res://Import/Models/gym/Gym_Image_0.png" id="1_kj003"]
+[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Furniture.gd" id="1_s64f4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1hyi"]
 resource_name = "LowPolyModelsWorld"

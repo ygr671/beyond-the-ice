@@ -8,6 +8,10 @@ extends Node3D
 
 var angle: float = 0
 
+# Métadonnées utilsées pour l'instanciation
+@export var initial_stock: int = 1
+@export var restock_count: int = 1
+
 func _ready() -> void:
 	meshes.clear()
 	for child in get_children():

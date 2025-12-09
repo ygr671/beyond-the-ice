@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=4 uid="uid://b43wcqn0pktts"]
+[gd_scene load_steps=6 format=4 uid="uid://b43wcqn0pktts"]
+
+[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Furniture.gd" id="1_2lj2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1tx4"]
 resource_name = "mat0"
@@ -44,6 +46,7 @@ size = Vector3(0.5169678, 0.671402, 0.56119156)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_2lj2d")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.99993825, 0, 0.011110768, 0, 1, 0, -0.011110768, 0, -0.99993825, 0, 0, 0)

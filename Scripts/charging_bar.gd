@@ -89,7 +89,7 @@ func _on_furniture_ordered(index: int):
 
 	# Mise à jour stock si succès
 	if rand == 1:
-		furniture_list[index].stock += 1
+		furniture_list[index].stock += furniture_list[index].restock_count
 		item_list.set_item_text(index, furniture_list[index].name + " (" + str(furniture_list[index].stock) + ")")
 
 
