@@ -9,7 +9,7 @@ extends Control
 var furniture_list = player_controller.furniture_list
 
 
-const INTERVALLE_DESIRE: float = 45.0
+const INTERVALLE_DESIRE: float = 10.0
 var temps_ecoule: float = 0.0
 var current_room = 0
 var camera
@@ -268,6 +268,7 @@ func _on_button_open_color_pressed() -> void:
 func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
+		main_controller.toggle_good_bad_weather()
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
 

@@ -1,6 +1,7 @@
 extends Node
 var current_room: int  = 0
 var is_day: bool = true
+var weather: bool = true #true si bonne météo / false mauvaise météo
 
 var furniture_list: Array[FurnitureInfo] = []
 var room_satisfaction: Array[int] = []

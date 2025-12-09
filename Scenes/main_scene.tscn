@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=33 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
+[ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
@@ -68,57 +69,6 @@ size = Vector3(0.1, 5, 10)
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
 dof_blur_far_distance = 144.51
 dof_blur_amount = 1.0
-
-[sub_resource type="Gradient" id="Gradient_ioaeq"]
-offsets = PackedFloat32Array(0, 0.04489796)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7ewk0"]
-gradient = SubResource("Gradient_ioaeq")
-
-[sub_resource type="Curve" id="Curve_lhp3t"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21317829, 0.88284075), 0.0, 0.0, 0, 0, Vector2(1, 0.25486666), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_gnsmo"]
-curve = SubResource("Curve_lhp3t")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ioaeq"]
-emission_shape = 3
-emission_box_extents = Vector3(16, 2, 16)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 6.0
-gravity = Vector3(0, -5.5, 0)
-radial_accel_min = -4.0000024
-radial_accel_max = 3.9999976
-tangential_accel_min = -8.000002
-tangential_accel_max = 7.9999976
-damping_max = 4.0
-scale_min = 0.19999999
-scale_max = 0.19999999
-scale_curve = SubResource("CurveTexture_gnsmo")
-color = Color(0.8992584, 0.8992584, 0.8992584, 1)
-color_ramp = SubResource("GradientTexture1D_7ewk0")
-
-[sub_resource type="Gradient" id="Gradient_7ewk0"]
-offsets = PackedFloat32Array(0.35829958, 0.36842105, 0.72469634)
-colors = PackedColorArray(0.97921336, 0.97921336, 0.97921336, 0.96901405, 1, 1, 1, 1, 0.32915837, 0.3291584, 0.3291584, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lhp3t"]
-gradient = SubResource("Gradient_7ewk0")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioaeq"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_lhp3t")
-billboard_mode = 1
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_7ewk0"]
-material = SubResource("StandardMaterial3D_ioaeq")
 
 [node name="Main_scene" type="Node3D"]
 script = ExtResource("1_76v2p")
@@ -519,12 +469,8 @@ current = true
 size = 16.175995
 script = ExtResource("1_ioaeq")
 
-[node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.9955798, -0.038022116, -0.08587918, 0.03907104, 0.9991805, 0.010566184, 0.085407004, -0.013874948, 0.9962494, -26.87265, 0.7567229, -23.121498)
-amount = 200
-lifetime = 3.5
-process_material = SubResource("ParticleProcessMaterial_ioaeq")
-draw_pass_1 = SubResource("QuadMesh_7ewk0")
+[node name="Snow" parent="." instance=ExtResource("16_jvnna")]
+transform = Transform3D(0.9955798, -0.038022064, -0.0858791, 0.039071035, 0.9991805, 0.0105662625, 0.085407, -0.013874945, 0.9962493, -26.87265, 0.7567229, -23.121498)
 
 [node name="LowPolyWater" parent="." instance=ExtResource("16_psl12")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160435, -22.346388, -21.1003)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://duu1towgml6ek"]
+
+[sub_resource type="Gradient" id="Gradient_ioaeq"]
+offsets = PackedFloat32Array(0, 0.04489796)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7ewk0"]
+gradient = SubResource("Gradient_ioaeq")
+
+[sub_resource type="Curve" id="Curve_lhp3t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21317829, 0.88284075), 0.0, 0.0, 0, 0, Vector2(1, 0.25486666), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gnsmo"]
+curve = SubResource("Curve_lhp3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ioaeq"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 2, 16)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -5.5, 0)
+radial_accel_min = -4.0000024
+radial_accel_max = 3.9999976
+tangential_accel_min = -8.000002
+tangential_accel_max = 7.9999976
+damping_max = 4.0
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_gnsmo")
+color = Color(0.8992584, 0.8992584, 0.8992584, 1)
+color_ramp = SubResource("GradientTexture1D_7ewk0")
+
+[sub_resource type="Gradient" id="Gradient_7ewk0"]
+offsets = PackedFloat32Array(0.35829958, 0.36842105, 0.72469634)
+colors = PackedColorArray(0.97921336, 0.97921336, 0.97921336, 0.96901405, 1, 1, 1, 1, 0.32915837, 0.3291584, 0.3291584, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lhp3t"]
+gradient = SubResource("Gradient_7ewk0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioaeq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_lhp3t")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7ewk0"]
+material = SubResource("StandardMaterial3D_ioaeq")
+
+[node name="Snow" type="GPUParticles3D"]
+transform = Transform3D(0.9955798, -0.038022116, -0.08587918, 0.03907104, 0.9991805, 0.010566184, 0.085407004, -0.013874948, 0.9962494, 0, 0, 0)
+amount = 200
+lifetime = 3.5
+process_material = SubResource("ParticleProcessMaterial_ioaeq")
+draw_pass_1 = SubResource("QuadMesh_7ewk0")

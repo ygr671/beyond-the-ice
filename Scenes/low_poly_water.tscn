@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsu3kg7vr2sci"]
 
 [ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="1_3uqw6"]
-[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/Low_poly_water.gd" id="1_ndcik"]
+[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/low_poly_water.gd" id="1_ndcik"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcik"]
-render_priority = 1
+render_priority = 2
 shader = ExtResource("1_3uqw6")
 shader_parameter/out_col = Color(1, 1, 1, 1)
-shader_parameter/amount = 0.40100001252773
+shader_parameter/amount = 0.20000000298023
 shader_parameter/beer_factor = 0.2
 shader_parameter/metallic = 1.0
 shader_parameter/roughness = 0.3

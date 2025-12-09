@@ -1,15 +1,24 @@
 extends Node
 
+# =========================================================
+# CONSTANTES
+# =========================================================
+const WORK_DURATION: float = 15.0 
+
+# =========================================================
+# VARIABLES & NODES
+# =========================================================
 @onready var fill_timer: Timer = $"Timer"
 @onready var progress_bar: ProgressBar = $"charging_bar_furniture"
 @onready var succes: Label = $"succes"
 @onready var failure: Label = $"failure"
 @onready var item_list: ItemList = $"../ui_inventory/Panel/ItemList"
 
+
 var furniture_list = player_controller.furniture_list
 
 var is_filling: bool = false
-var paused_time_left: float = 0.0   # Temps restant quand la nuit tombe
+var paused_time_left: float = 0.0
 
 
 func _ready():
@@ -33,7 +42,7 @@ func _process(_delta: float):
 
 
 # ---------------------------------------------------------
-#         Gestion du système jour/nuit (pause/reprise)
+#         Gestion du système jour/nuit (pause/reprise)
 # ---------------------------------------------------------
 
 func pause_filling():
@@ -41,6 +50,8 @@ func pause_filling():
 		paused_time_left = fill_timer.get_time_left()
 		fill_timer.stop()
 		is_filling = false
+		
+	
 
 
 func resume_filling():
@@ -48,10 +59,12 @@ func resume_filling():
 		fill_timer.start(paused_time_left)
 		is_filling = true
 		paused_time_left = 0.0
+		
+
 
 
 # ---------------------------------------------------------
-#     Attente qui se met en PAUSE la nuit automatiquement
+#     Attente qui se met en PAUSE la nuit automatiquement
 # ---------------------------------------------------------
 
 func wait_for_work_time(duration: float) -> void:
@@ -64,7 +77,7 @@ func wait_for_work_time(duration: float) -> void:
 
 
 # ---------------------------------------------------------
-#                 Logique de commande meuble
+#                 Logique de commande meuble
 # ---------------------------------------------------------
 
 func get_weighted_result(success_proba: float) -> int:
@@ -77,13 +90,18 @@ func _on_furniture_ordered(index: int):
 	start_filling_bar()
 
 	# Attente qui se met en pause la nuit
-	await wait_for_work_time(15.0)
+	await wait_for_work_time(WORK_DURATION) # Utilise la constante
 
 	# Détermination du résultat
-	if player_controller.is_day:
-		rand = get_weighted_result(0.75)
-	else:
-		rand = get_weighted_result(0.4)
+	# Note : Le temps de travail étant fini, le is_day de cette ligne est celui à la fin du travail.
+	if player_controller.is_day && player_controller.weather:
+		rand = get_weighted_result(0.85)
+	elif player_controller.is_day && !player_controller.weather:
+		rand = get_weighted_result(0.50)
+	elif !player_controller.is_day && player_controller.weather:
+		rand = get_weighted_result(0.60)
+	else :
+		rand = get_weighted_result(0.10)
 
 	_on_timer_timeout(rand)
 
@@ -94,7 +112,7 @@ func _on_furniture_ordered(index: int):
 
 
 # ---------------------------------------------------------
-#                     Barre de progression
+#                     Barre de progression
 # ---------------------------------------------------------
 
 func start_filling_bar():
@@ -102,7 +120,9 @@ func start_filling_bar():
 	progress_bar.value = 0.0
 	is_filling = true
 	paused_time_left = 0.0
-	fill_timer.start()
+	fill_timer.start(WORK_DURATION) # Démarre le timer avec la durée de travail
+	
+
 
 
 func _on_timer_timeout(random: int):
@@ -112,10 +132,12 @@ func _on_timer_timeout(random: int):
 	progress_bar.value = progress_bar.min_value
 
 	if random == 1:
+
 		succes.show()
 	else:
-		failure.show()
 
+		failure.show()
+		
 	await get_tree().create_timer(2.0).timeout
 
 	if random == 1:
