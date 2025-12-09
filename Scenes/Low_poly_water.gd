@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name owPolyWater
+class_name lowPolyWater
 
 const TRANSITION_SPEED: float = 1.5
 
