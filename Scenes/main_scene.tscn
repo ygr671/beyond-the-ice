@@ -205,6 +205,12 @@ offset_top = 967.0
 offset_right = 845.0
 offset_bottom = 1038.0
 
+[node name="charging_bar_furniture" parent="Salles/salon/ui_Salon/ui_charging_bar" index="0"]
+offset_left = 259.0
+offset_top = 778.0
+offset_right = 525.0
+offset_bottom = 858.0
+
 [node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
 layout_mode = 1
 
@@ -234,6 +240,15 @@ script = ExtResource("8_2ebs2")
 
 [node name="ItemList" parent="Salles/salon/ui_Salon/ui_inventory/Panel" index="1"]
 item_count = 0
+
+[node name="Button2" type="Button" parent="Salles/salon/ui_Salon"]
+layout_mode = 0
+offset_left = 1653.0
+offset_top = 812.0
+offset_right = 1895.0
+offset_bottom = 902.0
+theme_override_font_sizes/font_size = 30
+text = "Finir la mission"
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false

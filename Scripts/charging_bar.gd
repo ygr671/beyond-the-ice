@@ -5,6 +5,7 @@ extends Node
 @onready var succes: Label = $"succes"
 @onready var failure: Label = $"failure"
 @onready var item_list: ItemList = $"../ui_inventory/Panel/ItemList"
+@onready var button_order: PanelContainer =$"../OrderMenu"
 
 var furniture_list = player_controller.furniture_list
 
@@ -98,6 +99,7 @@ func _on_furniture_ordered(index: int):
 # ---------------------------------------------------------
 
 func start_filling_bar():
+	button_order.hide()
 	progress_bar.show()
 	progress_bar.value = 0.0
 	is_filling = true
@@ -115,10 +117,11 @@ func _on_timer_timeout(random: int):
 		succes.show()
 	else:
 		failure.show()
-
+	button_order.show()
 	await get_tree().create_timer(2.0).timeout
 
 	if random == 1:
 		succes.hide()
 	else:
 		failure.hide()
+	
