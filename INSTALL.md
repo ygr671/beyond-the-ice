@@ -44,11 +44,12 @@ en ssh :
 ```bash
 git clone git@github.com:ygr671/beyond-the-ice.git
 ```
-puis :
+### 2. Lancer le jeu
+dans un terminal tapez :
 ```bash
 cd beyond-the-ice
 ```
-
+puis
 sur Windows :
 tapez :
 ```bash
