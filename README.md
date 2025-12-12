@@ -28,7 +28,7 @@ piece dans laquelle le joueur peut agir
 barre de satisfaction moyenne de tous les NPC de la base
 
 ### menus
-en haut : naviguer entre les salles
+en haut : naviguer entre les salles<br>
 en bas : effectuer une action :
   - changer la couleur des murs
   - changer la lumiere/luminosité
