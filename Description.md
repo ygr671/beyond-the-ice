@@ -65,14 +65,18 @@ un mauvais éclairage accentue les symptômes liés à l’isolement (fatigue, i
 - [KIT – Psychologie et perception architecturale](https://akomm.ekut.kit.edu/downloads/2015_curaviva_franz.pdf)  
 
 
-## Action possibles:
+## Action possibles
 
 - changer la couleur des murs
 - commander des meubles, mais il doit etre prevoyant car les meubles mettent logntemps a arriver.
 - changer la luminosité/lumiere
 - poser des meubles dans les bonnes salles pour satisfaire les habitants
-- chnager la matiere du sol
+- changer la matiere du sol
+  
 
+## feedback
+- emojies montrant la pertinance de la derniere action effectuée, pour que le joueur puisse apprendre de ses erreurs et comprendre quelles décisions sont bonnes ou mauvaise
+  
 ## Fin de partie
 
 Le jeu se termine par :
