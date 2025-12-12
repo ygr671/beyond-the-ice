@@ -237,7 +237,7 @@ anchor_bottom = 1.0
 offset_left = -4.5
 offset_top = 3.0
 offset_right = -6.5
-offset_bottom = 209.0
+offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_832b5")
@@ -253,6 +253,30 @@ theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
 theme_override_fonts/font = ExtResource("2_dlofv")
 theme_override_font_sizes/font_size = 26
 text = "Couleur des murs"
+
+[node name="label_light_intensity" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 239.0
+offset_right = 616.0
+offset_bottom = 271.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("2_dlofv")
+theme_override_font_sizes/font_size = 26
+text = "Intensité de la lumère"
+
+[node name="label_light_heat" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 345.0
+offset_right = 616.0
+offset_bottom = 377.0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("2_dlofv")
+theme_override_font_sizes/font_size = 26
+text = "Chaleur de la lumère"
 
 [node name="Label_title" type="Label" parent="."]
 layout_mode = 0
@@ -272,10 +296,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.5
-offset_top = -22.0
-offset_right = 0.5
-offset_bottom = 115.0
+offset_left = -5.0
+offset_top = -27.0
+offset_right = -5.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -332,15 +356,30 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ijpv6")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 530.5
-offset_top = 411.0
-offset_right = 603.5
-offset_bottom = 443.0
+offset_left = 523.0
+offset_top = 436.0
+offset_right = 596.0
+offset_bottom = 468.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_dlofv")
 theme_override_font_sizes/font_size = 20
 text = "Fermer"
+
+[node name="HSlider_light _intensity" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 279.0
+offset_right = 595.0
+offset_bottom = 314.0
+tick_count = 1
+
+[node name="HSlider_light_heat" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 387.0
+offset_right = 595.0
+offset_bottom = 418.0
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Orange" to="." method="_on_orange_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
@@ -349,3 +388,5 @@ text = "Fermer"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Gray" to="." method="_on_gray_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Black" to="." method="_on_black_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="HSlider_light _intensity" to="." method="_on_h_slider_light__intensity_value_changed"]
+[connection signal="value_changed" from="HSlider_light_heat" to="." method="_on_h_slider_light_heat_value_changed"]
