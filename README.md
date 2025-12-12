@@ -48,11 +48,11 @@ Player actions affect NPC satisfaction, progression, and the final score, which 
 
 ### 🇫🇷
 
-voir INSTALL.md
+Voir le fichier : [INSTALL.md](INSTALL.md)
 
 ### 🇬🇧
 
-see INSTALL.md
+See the file : [INSTALL.md](INSTALL.md)
 
 ## Fonctionnalités / Features
 
