@@ -118,7 +118,8 @@ func get_current_room():
 ## @tags init, core
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	load_furnitures_from_directory("user://furnitures")
+	#load_furnitures_from_directory("user://furnitures") POUR L'EXPORT FINAL
+	load_furnitures_from_directory("res://Meshes")
 	
 	# Mise a jour des listes d'inventaire et de commande
 	for i in range(furniture_list.size()):
