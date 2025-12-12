@@ -41,6 +41,11 @@ Nous les remercions chaleureusement pour leur travail.
 * **Source :** [pack d'asset](https://skfb.ly/6UY9K)
 * **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+### Pack d'assets "Low-poly radiator"
+* **Créateur :** pino
+* **Source :** [pack d'asset](https://skfb.ly/oHzns)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ### Police d'écriture "Roboto"
 * **Créateur :** Christian Robertson
 * **Source :** [Google Fonts](https://fonts.google.com/specimen/Roboto)
