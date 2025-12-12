@@ -1,16 +1,12 @@
 # Beyond the Ice
 
-🇫🇷  
+
 Beyond the Ice est un jeu éducatif développé avec le moteur Godot dans le cadre d’un projet universitaire.  
 Le projet combine un jeu de gestion en environnement polaire avec une plateforme web Laravel permettant d’enregistrer les résultats et le score des joueurs.
 
-🇬🇧  
-Beyond the Ice is an educational game developed with the Godot engine as part of a university project.  
-The project combines a management game set in a polar environment with a Laravel web platform used to store player results and scores.
-
 ## Description
 
-🇫🇷  
+
 Le projet met l’accent sur :  
 - la conception logicielle (UML, architecture modulaire)  
 - la gestion de projet (PERT, Gantt, découpage en tâches)  
@@ -21,20 +17,27 @@ Le projet met l’accent sur :
 Le joueur peut modifier la pièce (changer la couleur des murs, ajouter ou retirer des meubles), et les NPC réagissent dynamiquement à ces changements.  
 Les actions du joueur influencent la satisfaction des NPC, la progression, et le score final, envoyé vers la plateforme web.
 
-🇬🇧  
-The project focuses on:  
-- software design (UML, modular architecture)  
-- project management (PERT, Gantt, structured tasks)  
-- gameplay centered on environment management, object interaction, and NPC behavior  
-- learning and using the Godot engine  
-- a companion Laravel web platform used to store and view player scores
+![Aperçu du jeu](gameplay.png)
 
-The player can modify the room (change wall colors, add or remove furniture), and NPCs react dynamically to these changes.  
-Player actions affect NPC satisfaction, progression, and the final score, which is uploaded to the web platform.
+## explication 
+
+### partie centrale
+piece dans laquelle le joueur peut agir
+
+### partie gauche 
+barre de satisfaction moyenne de tous les NPC de la base
+
+### menus
+en haut : naviguer entre les salles<br>
+en bas : effectuer une action :
+  - changer la couleur des murs
+  - changer la lumiere/luminosité
+  - commander des meubles
+  - poser un meuble disponible dans l'inventaire
 
 ## Technologies / Stack
 
-🇫🇷 / 🇬🇧  
+
 - Godot Engine (4.x)  
 - GDScript  
 - Laravel (backend pour les scores)  
@@ -46,17 +49,11 @@ Player actions affect NPC satisfaction, progression, and the final score, which 
 
 ## Installation & Lancement
 
-### 🇫🇷
-
 Voir le fichier : [INSTALL.md](INSTALL.md)
-
-### 🇬🇧
-
-See the file : [INSTALL.md](INSTALL.md)
 
 ## Fonctionnalités / Features
 
-### 🇫🇷 Implémentées
+### Implémentées
 - Structure complète du projet Godot  
 - Architecture des scènes / nodes  
 - Système de navigation des NPC  
@@ -66,19 +63,8 @@ See the file : [INSTALL.md](INSTALL.md)
 - Calcul du score  
 - API Laravel pour enregistrer les résultats
 
-### 🇬🇧 Implemented
-- Full Godot project structure  
-- Scene / node architecture  
-- NPC navigation system  
-- Dynamic NPC reactions to player actions  
-- Real-time furniture placement/removal  
-- Wall color customization  
-- Score calculation  
-- Laravel API for result storage
-
 ## Roadmap / Planned Work
 
-🇫🇷  
 Les tâches en cours incluent :  
 - Conteneurisation des applications (jeu + backend Laravel)  
 - Génération aléatoire de décor / niveaux  
@@ -92,26 +78,8 @@ Les tâches en cours incluent :
 - Bouton “Fin de partie” + écran de récapitulatif  
 - Optimisations générales
 
-🇬🇧  
-Ongoing tasks include:  
-- Containerizing the applications (game + Laravel backend)  
-- Random environment generation  
-- Tutorial overhaul  
-- Main menu and full UI  
-- Day/night cycle  
-- Lighting system  
-- Improved NPC behavior (avoid obstacles, collisions, etc.)  
-- Adding new furniture  
-- Limit of 4 furniture items per room  
-- “End game” button + recap screen  
-- General optimizations
 
 ## Notes
 
-🇫🇷  
 Projet réalisé dans le cadre d’un travail d’équipe universitaire.  
 Le jeu et le site web évoluent régulièrement.
-
-🇬🇧  
-Project created as part of a university team assignment.  
-Both the game and the web platform evolve continuously.
