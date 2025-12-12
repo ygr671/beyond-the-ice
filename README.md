@@ -48,27 +48,11 @@ Player actions affect NPC satisfaction, progression, and the final score, which 
 
 ### 🇫🇷
 
-1. Clonez le dépôt :  
-git clone https://github.com/ygr671/beyond-the-ice  
-cd beyond-the-ice
-
-2. Ouvrez le projet dans Godot (version recommandée : 4.5)
-
-3. Lancez le jeu ou exportez-le
-
-4. (Optionnel) Pour la plateforme web Laravel, suivez les instructions du dépôt associé
+voir INSTALL.md
 
 ### 🇬🇧
 
-1. Clone the repository:  
-git clone https://github.com/ygr671/beyond-the-ice  
-cd beyond-the-ice
-
-2. Open the project with Godot (recommended version: 4.5)
-
-3. Run or export the game
-
-4. (Optional) For the Laravel platform, follow the instructions in its repository
+see INSTALL.md
 
 ## Fonctionnalités / Features
 
