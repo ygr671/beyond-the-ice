@@ -87,10 +87,8 @@ func _on_furniture_ordered(index: int):
 		rand = get_weighted_result(0.85)
 	elif player_controller.is_day && !player_controller.weather:
 		rand = get_weighted_result(0.50)
-	elif !player_controller.is_day && player_controller.weather:
-		rand = get_weighted_result(0.60)
 	else :
-		rand = get_weighted_result(0.10)
+		rand = get_weighted_result(0.0)
 
 	_on_timer_timeout(rand)
 
