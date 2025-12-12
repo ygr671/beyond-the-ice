@@ -38,15 +38,13 @@ func change_satisfaction(valeur: int):
 	else:
 		satisfaction = 100
 	var current_emoji_text = emoji
-	if satisfaction >= 80:
+	if valeur >= 15:
 		current_emoji_text = "😇"
-	elif satisfaction >= 60:
+	elif valeur >= 0:
 		current_emoji_text = "😊"
-	elif satisfaction >= 40:
-		current_emoji_text = "😐"
-	elif satisfaction >=20:
+	elif valeur >=0:
 		current_emoji_text = "😟"
-	else:
+	elif valeur <= -15:
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
 
@@ -130,7 +128,7 @@ func _on_environment_changed(change_type, data):
 				"bunk_bed":
 					if player_controller.current_room == 3:
 						nblits -= 1
-						if nblits >= 2:
+						if nblits >= 3:
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15) 

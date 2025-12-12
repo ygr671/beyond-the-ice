@@ -9,8 +9,10 @@ extends Control
 var furniture_list = player_controller.furniture_list
 
 
-const INTERVALLE_DESIRE: float = 45.0
-var temps_ecoule: float = 0.0
+const INTERVALLE_DESIRE_NUIT: float = 40.0
+const INTERVALLE_DESIRE_METEO: float = 25
+var temps_ecoule_nuit: float = 0.0
+var temps_ecoule_meteo:float = 0.0
 var current_room = 0
 var camera
 var instance
@@ -144,10 +146,16 @@ func show_floating_text(montant: int, pos: Vector3, parent: Node):
 	tween.finished.connect(func(): label.queue_free())
 
 func _process(_delta: float) -> void:
-	temps_ecoule += _delta
-	if temps_ecoule >= INTERVALLE_DESIRE:
+	temps_ecoule_nuit += _delta
+	temps_ecoule_meteo+=_delta
+	if temps_ecoule_nuit >= INTERVALLE_DESIRE_NUIT:
 		cycle()
-		temps_ecoule -= INTERVALLE_DESIRE
+		temps_ecoule_nuit -= INTERVALLE_DESIRE_NUIT
+		
+	if temps_ecoule_meteo >= INTERVALLE_DESIRE_METEO:
+		weather_cycle()
+		temps_ecoule_meteo-=INTERVALLE_DESIRE_METEO
+		
 	if placing:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_pos)
@@ -272,6 +280,8 @@ func cycle():
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
 
+func weather_cycle():
+	main_controller.toggle_good_bad_weather()
 
 func _on_item_list_item_selected(index: int) -> void:
 	if furniture_list[index].stock == 0:

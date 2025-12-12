@@ -1,19 +1,30 @@
 extends Node3D
 
-
-@onready var water_node = $LowPolyWater 
-@onready var worldenv = $WorldEnvironment
-@onready var iceberg_node = $Iceberg as Iceberg_controller
-
-var is_day: bool = true
-
-const WATER_COLOR_DAY := Color(1.0, 1.0, 1.0)   
+# =========================================================
+# CONSTANTES JOUR/NUIT
+# =========================================================
+const WATER_COLOR_DAY := Color(1.0, 1.0, 1.0)    
 const WATER_COLOR_NIGHT := Color(0.0, 0.0, 0.0)
 const TRANSITION_SPEED: float = 1.5
+const ICEBERG_COLOR_DAY := Color(0.8, 0.9, 1.0)
+const ICEBERG_COLOR_NIGHT := Color(0.3, 0.5, 0.7)
 
-# AJOUT : Couleurs pour l'iceberg
-const ICEBERG_COLOR_DAY := Color(0.8, 0.9, 1.0) # Blanc/Bleu clair
-const ICEBERG_COLOR_NIGHT := Color(0.3, 0.5, 0.7) # Bleu foncé/Gris
+# =========================================================
+# NODES
+# =========================================================
+@onready var worldenv = $WorldEnvironment
+@onready var iceberg_node = $Iceberg as Iceberg_controller
+@onready var water_node = $LowPolyWater
+@onready var snow_node = $Snow
+@onready var ui_charging_bar = $Salles/salon/ui_Salon/ui_charging_bar
+
+# =========================================================
+# VARIABLES DE SCENE
+# =========================================================
+var is_day: bool = true
+var is_good_weather: bool = true
+var is_cracking: bool = false # État actuel du crépitement
+var time_since_last_check: float = 0.0 # Minuteur scripté pour la météo
 
 
 
@@ -28,6 +39,11 @@ func _ready():
 		iceberg_node.set_iceberg_color_target(ICEBERG_COLOR_DAY)
 
 
+
+
+# ---------------------------------------------------------
+#                   SYSTÈME JOUR/NUIT
+# ---------------------------------------------------------
 
 func toggle_day_night():
 	
@@ -45,14 +61,12 @@ func toggle_day_night():
 		target_iceberg_color = ICEBERG_COLOR_DAY
 		target_env_energy = 1.0
 		
-
 	else:
 		target_water_color = WATER_COLOR_NIGHT
-		target_iceberg_color = ICEBERG_COLOR_NIGHT # AJOUT
-		target_env_energy = 0.2 # Valeur faible pour la nuit
+		target_iceberg_color = ICEBERG_COLOR_NIGHT 
+		target_env_energy = 0.2 
 
 	player_controller.is_day = is_day
-	# Délègue la tâche d'animation au script de l'eau
 	water_node.set_water_color_target(target_water_color)
 	
 	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
@@ -61,7 +75,7 @@ func toggle_day_night():
 	if worldenv:
 		var tween_env = create_tween()
 		
-		# On anime la propriété 'environment:background_energy_multiplier'
+		# Anime la propriété 'environment:background_energy_multiplier'
 		tween_env.tween_property(
 			worldenv.environment, 
 			"background_energy_multiplier", 
@@ -69,4 +83,25 @@ func toggle_day_night():
 			TRANSITION_SPEED
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-# Fonction de connexion du Bouton UI (appelée par le script )
+func toggle_good_bad_weather():
+	
+	is_good_weather = !is_good_weather
+	
+	player_controller.weather = is_good_weather
+	
+	if !is_good_weather:
+		water_node.animate_crackle_amount(1.5, 1.0)
+		snow_node.speed_scale = 5
+		print("NOT GOOD")
+		
+	else:
+		water_node.animate_crackle_amount(0.4, 1.0)
+		snow_node.speed_scale = 1
+		print("GOOD")
+
+	if not is_good_weather:
+		print("ALERTE MÉTÉO : Mauvais temps (Crépitement activé)")
+	else:
+		print("ALERTE MÉTÉO : Retour au beau temps")
+	
+	
