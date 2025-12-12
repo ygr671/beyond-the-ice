@@ -35,8 +35,11 @@ func _ready():
 	
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
-		item_list.add_item(info.name + " (" + str(info.stock) + ")", info.image)
-		order_list.add_item(info.name)
+		order_list.add_item("", info.image)
+		if info.stock == 0:
+			item_list.add_item("") # TODO : à fix, pour l'instant c'est temporaire
+		else:
+			item_list.add_item(str(info.stock), info.image)
 	room_selection(0)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
 	
@@ -83,14 +86,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		var info = furniture_list[index]
 		info.stock -= 1
 
-		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+		item_list.set_item_text(index, str(info.stock))
 
 		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
-		print(info.name)
 		item_list.deselect_all()
 
 		instance = null
-		item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+		item_list.set_item_text(index, str(info.stock))
 
 
 	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
@@ -177,7 +179,7 @@ func undo_placement() -> void:
 
 	info.stock += 1
 
-	item_list.set_item_text(index, info.name + " (" + str(info.stock) + ")")
+	item_list.set_item_text(index, str(info.stock))
 
 	player_controller.emit_signal("environment_changed", "furniture_removed", info.name)
 

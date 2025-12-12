@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name Low_poly_water
+class_name low_poly_water
 
 const TRANSITION_SPEED: float = 1.5
 const NORMAL_AMOUNT: float = 0.401 
