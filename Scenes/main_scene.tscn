@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=34 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
-[ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
+[ext_resource type="PackedScene" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
