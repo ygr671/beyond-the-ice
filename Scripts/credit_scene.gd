@@ -6,15 +6,14 @@
 
 extends Control
 
-<<<<<<< HEAD
+
 const CREDITS_TEXT_FILE = "user://legal/Credits.txt"
-=======
 ## @const_doc
 ## @description Chemin du fichier texte contenant le contenu des credits.
 ## Le fichier doit etre au format BBCode pour un affichage correct dans le RichTextLabel.
 ## @tags config, path, file_io
 const CREDITS_TEXT_FILE = "res://Credits.txt"
->>>>>>> b0c08758ff975cedf871cf3621eafc67727c3b0b
+
 
 ## @onready_doc
 ## @description Reference au RichTextLabel utilise pour afficher le contenu des credits.
