@@ -15,8 +15,14 @@ var current_emoji: Label3D = null
 var satisfaction = 50
 var real_satisfaction = satisfaction
 var room_index: int = 0
-var nblits = 1
-var nb_closet =1
+var nblits = 0
+var nb_closet =0
+var nb_chair =0
+var nb_table = 0
+var nb_sofa = 0
+var nb_washing = 0
+var nb_gym = 0
+var nb_pc = 0
 var emoji_timer: Timer
 
 func _ready():
@@ -76,15 +82,49 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(-15)
 				"closet":
 					nb_closet += 1
-					if nb_closet <=3:
+					if nb_closet <4:
 						change_satisfaction(8)
 					else:
-						change_satisfaction(-4)
+						change_satisfaction(-8)
 				"gym":
-					if room_index == 5:
+					nb_gym+=1
+					if room_index == 5 && nb_gym == 1:
 						change_satisfaction(25)
 					else:
-						change_satisfaction(-15)
+						change_satisfaction(-25)
+				"wheel_chair", "chair":
+					nb_chair+=1
+					if(nb_chair < 15):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table+=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table < 3):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(-4)		
+				"sofa":
+					nb_sofa+=1
+					if room_index == 0 && nb_sofa == 1:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing+=1
+					if room_index == 1 && nb_washing <4:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc +=1
+					if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)
 		"furniture_removed":
 			match data:
 				"bunk_bed":
@@ -97,14 +137,52 @@ func _on_environment_changed(change_type, data):
 					else:
 						change_satisfaction(15)
 				"gym":
-					if room_index == 5:
+					nb_gym-=1
+					if room_index == 5 && nb_gym == 0:
 						change_satisfaction(-25)
 					else:
+						change_satisfaction(25)
+				"closet":
+					nb_closet -= 1
+					if nb_closet >=3:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-8)
+				"wheel_chair", "chair":
+					nb_chair-=1
+					if(nb_chair >= 14):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table-=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table >= 2):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(4)		
+				"sofa":
+					nb_sofa-=1
+					if room_index != 0 || nb_sofa > 0:
 						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing-=1
+					if room_index != 1 || nb_washing >=3:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc -=1
+					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)		
 	player_controller.room_satisfaction[room_index] = satisfaction
 		
-
-
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	# Charge la font pour l'emoji animé
 	var font = load("res://Import/Fonts/NotoColorEmoji-Regular.ttf")

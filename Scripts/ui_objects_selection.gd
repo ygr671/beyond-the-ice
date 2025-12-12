@@ -54,7 +54,8 @@ func load_furnitures_from_directory(path: String) -> void:
 					var info := FurnitureInfo.new()
 					info.scene = scene
 					info.name = file_name.get_basename()
-					info.stock = 1
+					info.stock = inst.initial_stock
+					info.restock_count = inst.restock_count
 					var image_path := path + "/" + file_name.get_basename() + ".png"
 					if ResourceLoader.exists(image_path):
 						info.image = load(image_path)

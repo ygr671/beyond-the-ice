@@ -3,10 +3,10 @@ extends Node3D
 class_name Low_poly_water
 
 const TRANSITION_SPEED: float = 1.5
-const NORMAL_AMOUNT: float = 0.401 # Valeur de crépitement de base
+const NORMAL_AMOUNT: float = 0.401 
 
 @onready var water_mesh: MeshInstance3D = $MeshInstance3D
-# Assurez-vous que le MeshInstance3D est l'enfant nommé "MeshInstance3D"
+
 var water_material: ShaderMaterial = null
 
 func _ready():
@@ -16,13 +16,13 @@ func _ready():
 		print("ERREUR LowPolyWater : Le ShaderMaterial n'a pas pu être préparé pour l'animation.")
 	else:
 		print("SUCCÈS LowPolyWater : ShaderMaterial prêt à être utilisé.")
-		# Initialiser l'uniforme de crépitement à sa valeur normale
+
 		water_material.set_shader_parameter("Amount", NORMAL_AMOUNT) 
 
 
-# Fonction révisée pour trouver, vérifier et préparer le ShaderMaterial
+
 func get_water_shader_material() -> ShaderMaterial:
-	# ... (Le corps de cette fonction reste inchangé : il trouve, duplique et retourne le matériau) ...
+	
 	if water_mesh == null:
 		print("ERREUR : MeshInstance3D enfant non trouvé ! Vérifiez le nom '$MeshInstance3D'")
 		return null
@@ -51,21 +51,15 @@ func animate_crackle_amount(target_amount: float, duration: float):
 		print("ERREUR CRÉPITEMENT : water_material est null, impossible d'animer.")
 		return
 	print("Crépitement")
-		
-	# 1. Définir la nouvelle valeur immédiatement.
-	# On utilise le nom d'uniforme direct ("Amount") pour set_shader_parameter.
+
 	water_material.set_shader_parameter("amount", target_amount)
 	
-	# 2. Arrêter tout Tween actif qui pourrait annuler ce changement (Nettoyage).
+
 	if water_material.has_meta("crackle_tween") and is_instance_valid(water_material.get_meta("crackle_tween")):
 		water_material.get_meta("crackle_tween").kill()
-	# NOTE : Toute la logique de création de 'tween', 'tween.tween_property', 
-	# et d'enregistrement du meta a été supprimée, car elle n'est plus nécessaire.
-	# Le paramètre 'duration' n'est plus utilisé.
 
-# -------------------------------------------------------------------------------------
-# (Vos fonctions de couleur ci-dessous restent inchangées)
-# -------------------------------------------------------------------------------------
+
+
 
 func _update_shader_color(color: Color):
 	if water_material:

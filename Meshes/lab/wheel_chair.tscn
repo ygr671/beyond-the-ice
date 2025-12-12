@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://b7xc0oglbpfwu"]
 
-[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Object.gd" id="1_1ome6"]
+[ext_resource type="Script" uid="uid://14sbngud27p0" path="res://Scripts/Furniture.gd" id="1_1ome6"]
 [ext_resource type="Texture2D" uid="uid://cuvg04uw8ulbq" path="res://Import/Models/laboratory/WheelChair_Ma1nColor.jpg" id="1_u7l23"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1akj"]
@@ -239,6 +239,7 @@ shadow_mesh = SubResource("ArrayMesh_w240x")
 
 [node name="Wheel_chair" type="Node3D"]
 script = ExtResource("1_1ome6")
+restock_count = 7
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-3.721993, 0, -1.4651846, 0, 4, 0, 1.4651846, 0, -3.721993, 0, 0, 0)
