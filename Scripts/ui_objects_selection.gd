@@ -37,7 +37,7 @@ func _ready():
 		var info = furniture_list[i]
 		order_list.add_item("", info.image)
 		if info.stock == 0:
-			item_list.add_item("")
+			item_list.add_item("") # TODO : à fix, pour l'instant c'est temporaire
 		else:
 			item_list.add_item(str(info.stock), info.image)
 	room_selection(0)
