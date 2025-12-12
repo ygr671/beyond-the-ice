@@ -1,50 +1,106 @@
+## @class_doc
+## @description Contrôleur de la scene 3D principale.
+## Gère le cycle Jour/Nuit, la météo (bon/mauvais temps), et orchestre
+## les transitions visuelles (couleur de l'eau, éclairage ambiant, neige)
+## en interagissant avec les autres contrôleurs d'environnement (Iceberg, Water).
+## @tags core, environment, time_management, 3d
+
 extends Node3D
 
-# =========================================================
-# CONSTANTES JOUR/NUIT
-# =========================================================
+## @const_doc
+## @description Couleur de l'eau pendant le jour (Blanc pur pour l'éclairage de la texture).
+## @tags config, color
 const WATER_COLOR_DAY := Color(1.0, 1.0, 1.0)    
+
+## @const_doc
+## @description Couleur de l'eau pendant la nuit (Noir pour simuler l'absence de lumière).
+## @tags config, color
 const WATER_COLOR_NIGHT := Color(0.0, 0.0, 0.0)
+
+## @const_doc
+## @description Vitesse de transition pour les animations (ex: changement de couleur de l'eau, énergie environnementale).
+## @tags config, animation
 const TRANSITION_SPEED: float = 1.5
+
+## @const_doc
+## @description Couleur de l'iceberg pendant le jour.
+## @tags config, color
 const ICEBERG_COLOR_DAY := Color(0.8, 0.9, 1.0)
+
+## @const_doc
+## @description Couleur de l'iceberg pendant la nuit.
+## @tags config, color
 const ICEBERG_COLOR_NIGHT := Color(0.3, 0.5, 0.7)
 
-# =========================================================
-# NODES
-# =========================================================
+
+## @onready_doc
+## @description Reference au nœud WorldEnvironment qui controle l'eclairage ambiant et le ciel.
+## @tags nodes, environment
 @onready var worldenv = $WorldEnvironment
+
+## @onready_doc
+## @description Reference au contrôleur de l'iceberg (script Iceberg_controller.gd).
+## @type Iceberg_controller
+## @tags nodes, environment
 @onready var iceberg_node = $Iceberg as Iceberg_controller
+
+## @onready_doc
+## @description Reference au contrôleur de l'eau (script low_poly_water.gd).
+## @tags nodes, environment
 @onready var water_node = $LowPolyWater
+
+## @onready_doc
+## @description Reference au nœud du systeme de particules/GPU qui gere la neige.
+## @tags nodes, environment
 @onready var snow_node = $Snow
+
+## @onready_doc
+## @description Reference a la barre de chargement UI (situee dans la salle du salon).
+## @tags nodes, ui
 @onready var ui_charging_bar = $Salles/salon/ui_Salon/ui_charging_bar
 
-# =========================================================
-# VARIABLES DE SCENE
-# =========================================================
+
+## @var_doc
+## @description Etat actuel: Jour (true) ou Nuit (false).
+## @tags state, time
 var is_day: bool = true
+
+## @var_doc
+## @description Etat actuel de la météo: Beau temps (true) ou Mauvais temps (false).
+## @tags state, weather
 var is_good_weather: bool = true
-var is_cracking: bool = false # État actuel du crépitement
-var time_since_last_check: float = 0.0 # Minuteur scripté pour la météo
 
+## @var_doc
+## @description Indique si l'effet d'agitation de l'eau (crépitement) est actif.
+## @tags state, weather
+var is_cracking: bool = false
 
+## @var_doc
+## @description Minuteur pour la logique scriptée de la météo (non utilise dans le code actuel, mais reserve).
+## @tags cleanup, time
+var time_since_last_check: float = 0.0
 
+## @func_doc
+## @description Initialisation de la scene: met a jour la couleur initiale de l'eau et de l'iceberg.
+## @tags init, core
 func _ready():
 	
+	# Initialisation de la couleur de l'eau au Jour
 	if water_node and water_node.has_method("set_water_color_target"):
 		water_node.set_water_color_target(WATER_COLOR_DAY)
 	else:
 		print("ERREUR CRITIQUE: Le nœud d'eau ($LowPolyWater) est trouvé, mais le script Low_poly_water.gd est manquant ou n'a pas la fonction 'set_water_color_target'.")
-	
+		
+	# Initialisation de la couleur de l'iceberg au Jour
 	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
 		iceberg_node.set_iceberg_color_target(ICEBERG_COLOR_DAY)
 
 
-
-
-# ---------------------------------------------------------
-#                   SYSTÈME JOUR/NUIT
-# ---------------------------------------------------------
-
+## @func_doc
+## @description Bascule l'etat entre Jour et Nuit.
+## Orchestre les changements de couleur de l'eau, de l'iceberg et de l'energie environnementale.
+## @return void
+## @tags time, environment, animation
 func toggle_day_night():
 	
 	if !water_node or !water_node.has_method("set_water_color_target"):
@@ -56,26 +112,30 @@ func toggle_day_night():
 	var target_iceberg_color: Color
 	var target_env_energy: float
 	
+	# 1. Détermine les valeurs cibles
 	if is_day:
 		target_water_color = WATER_COLOR_DAY
 		target_iceberg_color = ICEBERG_COLOR_DAY
-		target_env_energy = 1.0
+		target_env_energy = 1.0 # Lumière ambiante Jour
 		
 	else:
 		target_water_color = WATER_COLOR_NIGHT
 		target_iceberg_color = ICEBERG_COLOR_NIGHT 
-		target_env_energy = 0.2 
+		target_env_energy = 0.2 # Lumière ambiante Nuit (faible) 
 
+	# 2. Met a jour l'etat global
 	player_controller.is_day = is_day
+	
+	# 3. Lance les animations de transition
 	water_node.set_water_color_target(target_water_color)
 	
 	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
 		iceberg_node.set_iceberg_color_target(target_iceberg_color)
-	
+		
+	# Animation de l'énergie environnementale (luminosité globale)
 	if worldenv:
 		var tween_env = create_tween()
 		
-		# Anime la propriété 'environment:background_energy_multiplier'
 		tween_env.tween_property(
 			worldenv.environment, 
 			"background_energy_multiplier", 
@@ -83,25 +143,32 @@ func toggle_day_night():
 			TRANSITION_SPEED
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
+## @func_doc
+## @description Bascule l'etat entre Beau temps et Mauvais temps.
+## Affecte l'agitation de l'eau (animate_crackle_amount) et la vitesse de la neige.
+## @return void
+## @tags weather, environment, particles
 func toggle_good_bad_weather():
 	
 	is_good_weather = !is_good_weather
 	
+	# Met a jour l'etat global
 	player_controller.weather = is_good_weather
 	
+	# Ajustement de l'eau et de la neige
 	if !is_good_weather:
-		water_node.animate_crackle_amount(1.5, 1.0)
-		snow_node.speed_scale = 5
+		# Mauvais temps (agitée)
+		water_node.animate_crackle_amount(1.5, 1.0) # Augmente l'agitation
+		snow_node.speed_scale = 5 # Augmente la vitesse des particules de neige
 		print("NOT GOOD")
 		
 	else:
-		water_node.animate_crackle_amount(0.4, 1.0)
-		snow_node.speed_scale = 1
+		# Beau temps (calme)
+		water_node.animate_crackle_amount(0.4, 1.0) # Normalise l'agitation
+		snow_node.speed_scale = 1 # Normalise la vitesse de la neige
 		print("GOOD")
 
 	if not is_good_weather:
 		print("ALERTE MÉTÉO : Mauvais temps (Crépitement activé)")
 	else:
 		print("ALERTE MÉTÉO : Retour au beau temps")
-	
-	

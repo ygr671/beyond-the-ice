@@ -1,5 +1,5 @@
 ## @class_doc
-## @description Contrôleur d'un personnage non-joueur (PNJ) utilisant la navigation 3D.
+## @description Contrôleur d'un personnage non-joueur (NPC) utilisant la navigation 3D.
 ## Gère le déplacement autonome du PNJ, sa satisfaction en fonction des changements 
 ## d'environnement (couleurs, placement/retrait de meubles) et l'affichage d'émoticônes.
 ## @tags npc, navigation, ia, environnement
@@ -42,7 +42,7 @@ var current_emoji: Label3D = null
 var satisfaction = 50
 
 ## @var_doc
-## @description Valeur de satisfaction brute, utilisée pour les calculs avant d'être clampée dans 'satisfaction'.
+## @description Valeur de satisfaction brute, utilisée pour les calculs avant d'être montrée dans 'satisfaction'.
 ## @tags state
 var real_satisfaction = satisfaction
 
@@ -52,7 +52,7 @@ var real_satisfaction = satisfaction
 ## @tags state, room
 var room_index: int = 0
 
-# --- Variables de comptage des meubles pour les calculs de satisfaction ---
+
 ## @var_doc
 ## @description Nombre actuel de lits dans la pièce.
 var nblits = 0
@@ -110,9 +110,10 @@ func change_satisfaction(valeur: int):
 	# Logique pour changer l'émoji en fonction de la valeur de changement
 	if valeur >= 15:
 		current_emoji_text = "😇" # Grande joie
-	elif valeur >= 0: # Correction de la logique, devrait être entre 0 et 15
+	elif valeur >= 0: # Devrait probablement être 'elif valeur > 0:' pour une petite joie
 		current_emoji_text = "😊" # Petite joie
-	# Note: La ligne 'elif valeur >=0:' semble être une erreur logique dans le script original.
+	# Note: La ligne suivante semble être une erreur logique dans le script original.
+	# Laissez-la telle quelle pour la fidélité au code source:
 	elif valeur >=0: 
 		current_emoji_text = "😟" # Petite tristesse
 	elif valeur <= -15:
@@ -181,11 +182,8 @@ func _on_environment_changed(change_type, data):
 ## @param npc: NavigationNPC Référence au PNJ pour ajouter le Label3D comme enfant.
 ## @tags visuals, animation
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
-	# ... (logique de chargement de font, création du Label3D, animation avec Tween)
-	# ... (Le code utilise une ressource 'res://Import/Fonts/NotoColorEmoji-Regular.ttf')
-
-	# ... (omission du corps de la fonction pour la concision)
-
+	
+	# CHARGEMENT DE L'ASSET DE POLICE ET CRÉATION DU LABEL
 	var font = load("res://Import/Fonts/NotoColorEmoji-Regular.ttf")
 	
 	var label = Label3D.new()
@@ -204,14 +202,18 @@ func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	current_emoji = label
 	npc.add_child(label)
 
+	# LOGIQUE D'ANIMATION (APPEAR / MOVE / FADE)
 	var tween = label.create_tween()
 	tween.set_parallel(true)
 	
+	# Animation d'apparition et de déplacement vertical
 	tween.tween_property(label, "scale", Vector3(1.3, 1.3, 1.3), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label, "position", Vector3(0, 4.0, 0), 0.5)
 	
+	# Animation de disparition (fade out) après un délai
 	tween.tween_property(label, "modulate:a", 0.0, 0.3).set_delay(2.0)
 	
+	# Connexion de la fonction de nettoyage à la fin de l'animation
 	tween.finished.connect(_on_emoji_animation_finished.bind(label))
 
 
@@ -272,8 +274,7 @@ func setup(NPC_name: String = "DefaultName", model_name: String = "Nils", em: St
 	
 	self.emoji = em
 	
-	# Logique pour charger le modèle 3D dynamiquement (omission du corps de la fonction pour la concision)
-	
+	# LOGIQUE DE CHARGEMENT DYNAMIQUE DU MODÈLE 3D
 	var path = "res://Import/Models/NPC/%s.fbx" % model_name
 	if ResourceLoader.exists(path):
 		var scene = load(path)
@@ -305,7 +306,7 @@ func _physics_process(delta: float) -> void:
 		_set_new_random_destination()
 		return
 
-	# Logique de mouvement et de détection de blocage
+	# Logique de mouvement
 	var destination = navigation_agent_3d.get_next_path_position()
 	var local_destination = destination - global_position
 	var distance = local_destination.length()
