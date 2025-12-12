@@ -129,12 +129,12 @@ func _ready():
 			item_list.add_item("") # Affiche vide si pas de stock
 		else:
 			item_list.add_item(str(info.stock), info.image)
-	
-	# Selectionne la premiere salle (index 0) par defaut
-	room_selection(0)
 	# Connexion au signal d'environnement (si besoin d'actions specifiques ici)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
-	
+	await get_tree().create_timer(0.2).timeout
+	_on_salon_pressed()
+
+
 ## @func_doc
 ## @description Charge recursivement les scenes de meubles depuis le repertoire specifie.
 ## Cree et peuple les ressources FurnitureInfo pour chaque meuble trouve.
