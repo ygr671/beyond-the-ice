@@ -36,22 +36,29 @@ Avant de commencer, assurez-vous d’avoir installé les logiciels suivants :
 2. Tapez les commande suivantes pour cloner le projet depuis GitHub puis le lancer:
 
 en https :
+```bash
 git clone https://github.com/ygr671/beyond-the-ice.git
+```
 
 en ssh :
+```bash
 git clone git@github.com:ygr671/beyond-the-ice.git
-
+```
+puis :
+```bash
 cd beyond-the-ice
+```
 
 sur Windows :
 tapez :
+```bash
 beyond-the-ice.exe
-
+```
 sur Linux/MacOS :
 tapez :
-
+```bash
 chmod +x beyond-the-ice
 ./beyond-the-ice
-
+```
 
 
