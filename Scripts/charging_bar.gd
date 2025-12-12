@@ -57,9 +57,6 @@ func resume_filling():
 		
 
 
-
-
-
 func wait_for_work_time(duration: float) -> void:
 	var elapsed := 0.0
 
