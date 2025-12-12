@@ -72,7 +72,7 @@ func _on_environment_changed(change_type, data):
 				"bunk_bed":
 					if room_index == 3: #salle chambre
 						nblits += 1
-						if nblits < 4:
+						if nblits <= 2:
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15)

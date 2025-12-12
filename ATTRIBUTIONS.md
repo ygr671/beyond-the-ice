@@ -21,6 +21,26 @@ Nous les remercions chaleureusement pour leur travail.
 * **Source :** [pack d'asset](https://skfb.ly/pzGCP)
 * **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+### Pack d'assets "Photo Frame (Low Poly Speed Model)"
+* **Créateur :** TheoClarke
+* **Source :** [pack d'asset](https://skfb.ly/oNJUU)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Pack d'assets "Cardboard Box Set- Low Poly"
+* **Créateur :** Nodeaxis
+* **Source :** [pack d'asset](https://skfb.ly/6VxYx)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Pack d'assets "MONSTERA 2 LOW POLY"
+* **Créateur :** THEAPPXR
+* **Source :** [pack d'asset](https://skfb.ly/pAAJV)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Pack d'assets "Conference Meeting Table and Chairs"
+* **Créateur :** CGDELUXE
+* **Source :** [pack d'asset](https://skfb.ly/6UY9K)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ### Police d'écriture "Roboto"
 * **Créateur :** Christian Robertson
 * **Source :** [Google Fonts](https://fonts.google.com/specimen/Roboto)
