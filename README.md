@@ -32,6 +32,9 @@ The project focuses on:
 The player can modify the room (change wall colors, add or remove furniture), and NPCs react dynamically to these changes.  
 Player actions affect NPC satisfaction, progression, and the final score, which is uploaded to the web platform.
 
+
+![Aperçu du jeu](gameplay.png)
+
 ## Technologies / Stack
 
 🇫🇷 / 🇬🇧  
