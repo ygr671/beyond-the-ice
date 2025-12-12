@@ -58,6 +58,12 @@ une lumière blanche/bleue stimule mais perturbe la sécrétion de mélatonine ;
 
 un mauvais éclairage accentue les symptômes liés à l’isolement (fatigue, irritabilité).
 
+## Références
+
+- [Mémoire de Sargenti Justin](memoire_julien_sargenti.pdf)  
+- [Wikipédia – Psychologie des couleurs](https://fr.wikipedia.org/wiki/Psychologie_des_couleurs)  
+- [KIT – Psychologie et perception architecturale](https://akomm.ekut.kit.edu/downloads/2015_curaviva_franz.pdf)  
+
 
 ## Action possibles:
 
