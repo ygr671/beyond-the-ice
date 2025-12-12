@@ -1,6 +1,6 @@
 extends Control
 
-const CREDITS_TEXT_FILE = "res://Credits.txt"
+const CREDITS_TEXT_FILE = "user://legal/Credits.txt"
 
 @onready var rich_text_label = $MarginContainer/VBoxContainer/ScrollContainer/RichTextLabel
 

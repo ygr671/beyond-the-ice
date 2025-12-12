@@ -2,7 +2,7 @@ extends Control
 
 const SETTINGS_PATH = "user://game_settings.cfg"
 const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
-const EULA_TEXT_FILE = "res://EULA.txt" # Fichier texte contenant la EULA
+const EULA_TEXT_FILE = "user://legal/EULA.txt" # Fichier texte contenant la EULA
 
 @onready var accept_button = $MarginContainer/VBoxContainer/HBoxContainer/AcceptButton
 @onready var checkbox = $MarginContainer/VBoxContainer/CheckBox

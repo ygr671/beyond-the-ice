@@ -31,7 +31,7 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	load_furnitures_from_directory("res://Meshes")
+	load_furnitures_from_directory("user://furnitures")
 	
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]

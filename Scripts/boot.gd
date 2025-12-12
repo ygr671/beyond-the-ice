@@ -5,6 +5,7 @@ const EULA_SCENE = "res://Scenes/EulaScreen.tscn"
 const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
 
 func _ready():
+	print(OS.get_user_data_dir())
 	var config = ConfigFile.new()
 	var err = config.load(SETTINGS_PATH)
 	var eula_accepted = false

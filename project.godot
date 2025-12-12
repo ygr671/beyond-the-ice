@@ -12,8 +12,10 @@ config_version=5
 
 config/name="beyond-the-ice"
 run/main_scene="uid://fgo8nx5lsby8"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="BeyondTheIce"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="uid://cw1wlsxrce5fw"
+config/icon="uid://dal7xam2yjw8q"
 
 [autoload]
 
