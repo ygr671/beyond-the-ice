@@ -112,9 +112,8 @@ func change_satisfaction(valeur: int):
 		current_emoji_text = "😇" # Grande joie
 	elif valeur >= 0: # Devrait probablement être 'elif valeur > 0:' pour une petite joie
 		current_emoji_text = "😊" # Petite joie
-	# Note: La ligne suivante semble être une erreur logique dans le script original.
-	# Laissez-la telle quelle pour la fidélité au code source:
-	elif valeur >=0: 
+
+	elif valeur <=0: 
 		current_emoji_text = "😟" # Petite tristesse
 	elif valeur <= -15:
 		current_emoji_text = "🤬" # Grande colère
@@ -129,22 +128,25 @@ func change_satisfaction(valeur: int):
 ## @param data: Variant Données associées au changement (ex: Color ou String de nom de meuble).
 ## @tags environment, events, core
 func _on_environment_changed(change_type, data):
-	# Ignore les changements si le PNJ n'est pas dans la pièce affectée
 	if player_controller.current_room != room_index:
 		return
-		
 	match change_type:
 		"color_changed":
-			# Logique de réaction au changement de couleur
-			match data:
+			match data:   # data = Color
 				Color.DARK_ORANGE:
 					change_satisfaction(10)
 				Color.DARK_RED:
 					change_satisfaction(-10)
-				# ... autres couleurs et leurs impacts
-				
+				Color.DARK_GRAY:
+					change_satisfaction(-8)
+				Color.WHITE_SMOKE:
+					change_satisfaction(-15)
+				Color.DIM_GRAY:
+					change_satisfaction(-8)
+				Color.DARK_GREEN:
+					change_satisfaction(10)
+
 		"furniture_placed":
-			# Logique de réaction à l'ajout de meubles, gérant les compteurs et les limites par pièce
 			match data:
 				"bunk_bed":
 					if room_index == 3: #salle chambre
@@ -152,27 +154,110 @@ func _on_environment_changed(change_type, data):
 						if nblits < 4:
 							change_satisfaction(15)
 						else:
-							change_satisfaction(-15) # Pénalité pour trop de lits
+							change_satisfaction(-15)
 					else:
-						change_satisfaction(-15) # Pénalité si le lit n'est pas dans la chambre
-				# ... autres meubles et leurs impacts (closet, gym, chair, table, sofa, washing_machine, pc_setup)
-				
+						change_satisfaction(-15)
+				"closet":
+					nb_closet += 1
+					if nb_closet <4:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-8)
+				"gym":
+					nb_gym+=1
+					if room_index == 5 && nb_gym == 1:
+						change_satisfaction(25)
+					else:
+						change_satisfaction(-25)
+				"wheel_chair", "chair":
+					nb_chair+=1
+					if(nb_chair < 15):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table+=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table < 3):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(-4)		
+				"sofa":
+					nb_sofa+=1
+					if room_index == 0 && nb_sofa == 1:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing+=1
+					if room_index == 1 && nb_washing <4:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc +=1
+					if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)
 		"furniture_removed":
-			# Logique de réaction au retrait de meubles, ajustant les compteurs et la satisfaction.
 			match data:
 				"bunk_bed":
 					if player_controller.current_room == 3:
 						nblits -= 1
-						# Logique inverse des effets de placement
 						if nblits >= 3:
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15) 
 					else:
-						change_satisfaction(15) # Gain si meuble inutile est retiré d'ailleurs
-				# ... autres meubles et leurs impacts inverses
-				
-	# Mettre à jour l'état de satisfaction de la pièce après tout changement
+						change_satisfaction(15)
+				"gym":
+					nb_gym-=1
+					if room_index == 5 && nb_gym == 0:
+						change_satisfaction(-25)
+					else:
+						change_satisfaction(25)
+				"closet":
+					nb_closet -= 1
+					if nb_closet >=3:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-8)
+				"wheel_chair", "chair":
+					nb_chair-=1
+					if(nb_chair >= 14):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table-=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table >= 2):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(4)		
+				"sofa":
+					nb_sofa-=1
+					if room_index != 0 || nb_sofa > 0:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing-=1
+					if room_index != 1 || nb_washing >=3:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc -=1
+					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)		
 	player_controller.room_satisfaction[room_index] = satisfaction
 
 ## @func_doc

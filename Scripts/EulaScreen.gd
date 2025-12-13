@@ -10,8 +10,6 @@ extends Control
 ## @description Chemin du fichier de configuration utilisateur pour les sauvegardes et parametres.
 ## @tags config, path
 const SETTINGS_PATH = "user://game_settings.cfg"
-const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
-const EULA_TEXT_FILE = "user://legal/EULA.txt" # Fichier texte contenant la EULA
 
 ## @const_doc
 ## @description Chemin de la scene du Menu Principal.
