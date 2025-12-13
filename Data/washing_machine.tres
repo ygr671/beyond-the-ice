@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="FurnitureInfo" load_steps=4 format=3 uid="uid://bobet2di1mb7b"]
+
+[ext_resource type="Script" uid="uid://bnaoutqo70bm2" path="res://Scripts/FurnitureInfo.gd" id="1_1kxew"]
+[ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="1_5kftt"]
+[ext_resource type="Texture2D" uid="uid://btplis2s5oc57" path="res://Meshes/bathroom/washing_machine.png" id="1_5wov6"]
+
+[resource]
+script = ExtResource("1_1kxew")
+scene = ExtResource("1_5kftt")
+name = "machine à laver"
+restock_count = 2
+image = ExtResource("1_5wov6")
+room_bonuses = {
+0: -10,
+1: 10,
+2: -10,
+3: -10,
+4: -10,
+5: -10
+}
+metadata/_custom_type_script = "uid://bnaoutqo70bm2"

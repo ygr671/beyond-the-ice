@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="FurnitureInfo" load_steps=4 format=3 uid="uid://c2lcqucsqgbof"]
+
+[ext_resource type="PackedScene" uid="uid://b7xc0oglbpfwu" path="res://Meshes/lab/wheel_chair.tscn" id="1_a8lu0"]
+[ext_resource type="Script" uid="uid://bnaoutqo70bm2" path="res://Scripts/FurnitureInfo.gd" id="1_stm2q"]
+[ext_resource type="Texture2D" uid="uid://dnhkj55n7r4n2" path="res://Meshes/lab/wheel_chair.png" id="1_ya2qt"]
+
+[resource]
+script = ExtResource("1_stm2q")
+scene = ExtResource("1_a8lu0")
+name = "chaise à roulettes"
+stock = 1
+restock_count = 7
+image = ExtResource("1_ya2qt")
+room_bonuses = {
+0: 2,
+1: 2,
+2: 2,
+3: 2,
+4: 2,
+5: 2
+}
+maximum_placed = 7
+metadata/_custom_type_script = "uid://bnaoutqo70bm2"

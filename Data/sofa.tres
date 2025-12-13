@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="FurnitureInfo" load_steps=4 format=3 uid="uid://d2war31m4g6rx"]
+
+[ext_resource type="PackedScene" uid="uid://b1h3arr6fy5t0" path="res://Meshes/living_room/sofa.tscn" id="1_2fc3t"]
+[ext_resource type="Texture2D" uid="uid://c66106s1uxbqm" path="res://Meshes/living_room/sofa.png" id="1_68jeo"]
+[ext_resource type="Script" uid="uid://bnaoutqo70bm2" path="res://Scripts/FurnitureInfo.gd" id="1_jyhu1"]
+
+[resource]
+script = ExtResource("1_jyhu1")
+scene = ExtResource("1_2fc3t")
+name = "canapé"
+stock = 1
+restock_count = 1
+image = ExtResource("1_68jeo")
+room_bonuses = {
+0: 15,
+1: -20,
+2: -20,
+3: -20,
+4: -20,
+5: -20
+}
+metadata/_custom_type_script = "uid://bnaoutqo70bm2"

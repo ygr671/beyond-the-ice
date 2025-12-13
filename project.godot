@@ -19,6 +19,7 @@ config/icon="uid://cw1wlsxrce5fw"
 
 scene_manager="*res://Scripts/scene_manager.gd"
 player_controller="*res://Scripts/player_controller.gd"
+EnvironnementEvent="*res://Scripts/environnement_event.gd"
 
 [display]
 

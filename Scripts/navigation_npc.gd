@@ -48,138 +48,139 @@ func change_satisfaction(valeur: int):
 		current_emoji_text = "🤬"
 	show_animated_emoji(current_emoji_text, self)
 
-func _on_environment_changed(change_type, data):
-	if player_controller.current_room != room_index:
-		return
-	match change_type:
-		"color_changed":
-			match data:   # data = Color
-				Color.DARK_ORANGE:
-					change_satisfaction(10)
-				Color.DARK_RED:
-					change_satisfaction(-10)
-				Color.DARK_GRAY:
-					change_satisfaction(-8)
-				Color.WHITE_SMOKE:
-					change_satisfaction(-15)
-				Color.DIM_GRAY:
-					change_satisfaction(-8)
-				Color.DARK_GREEN:
-					change_satisfaction(10)
-
-		"furniture_placed":
-			match data:
-				"bunk_bed":
-					if room_index == 3: #salle chambre
-						nblits += 1
-						if nblits < 4:
-							change_satisfaction(15)
-						else:
-							change_satisfaction(-15)
-					else:
-						change_satisfaction(-15)
-				"closet":
-					nb_closet += 1
-					if nb_closet <4:
-						change_satisfaction(8)
-					else:
-						change_satisfaction(-8)
-				"gym":
-					nb_gym+=1
-					if room_index == 5 && nb_gym == 1:
-						change_satisfaction(25)
-					else:
-						change_satisfaction(-25)
-				"wheel_chair", "chair":
-					nb_chair+=1
-					if(nb_chair < 15):
-						change_satisfaction(2)
-					else:
-						change_satisfaction(-2)
-				"table":
-					nb_table+=1
-					if room_index == 0 || room_index == 2:
-						if(nb_table < 3):
-							change_satisfaction(4)
-						else:
-							change_satisfaction(-4)	
-					else:
-						change_satisfaction(-4)		
-				"sofa":
-					nb_sofa+=1
-					if room_index == 0 && nb_sofa == 1:
-						change_satisfaction(15)
-					else:
-						change_satisfaction(-20)	
-				"washing_machine":
-					nb_washing+=1
-					if room_index == 1 && nb_washing <4:
-						change_satisfaction(9)
-					else:
-						change_satisfaction(-9)
-				"pc_setup":
-					nb_pc +=1
-					if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
-						change_satisfaction(10)
-					else:
-						change_satisfaction(-10)
-		"furniture_removed":
-			match data:
-				"bunk_bed":
-					if player_controller.current_room == 3:
-						nblits -= 1
-						if nblits >= 3:
-							change_satisfaction(15)
-						else:
-							change_satisfaction(-15) 
-					else:
-						change_satisfaction(15)
-				"gym":
-					nb_gym-=1
-					if room_index == 5 && nb_gym == 0:
-						change_satisfaction(-25)
-					else:
-						change_satisfaction(25)
-				"closet":
-					nb_closet -= 1
-					if nb_closet >=3:
-						change_satisfaction(8)
-					else:
-						change_satisfaction(-8)
-				"wheel_chair", "chair":
-					nb_chair-=1
-					if(nb_chair >= 14):
-						change_satisfaction(2)
-					else:
-						change_satisfaction(-2)
-				"table":
-					nb_table-=1
-					if room_index == 0 || room_index == 2:
-						if(nb_table >= 2):
-							change_satisfaction(4)
-						else:
-							change_satisfaction(-4)	
-					else:
-						change_satisfaction(4)		
-				"sofa":
-					nb_sofa-=1
-					if room_index != 0 || nb_sofa > 0:
-						change_satisfaction(15)
-					else:
-						change_satisfaction(-20)	
-				"washing_machine":
-					nb_washing-=1
-					if room_index != 1 || nb_washing >=3:
-						change_satisfaction(9)
-					else:
-						change_satisfaction(-9)
-				"pc_setup":
-					nb_pc -=1
-					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
-						change_satisfaction(10)
-					else:
-						change_satisfaction(-10)		
-	player_controller.room_satisfaction[room_index] = satisfaction
+func _on_environment_changed(bonus: int):
+		change_satisfaction(bonus)
+		player_controller.room_satisfaction[room_index] += bonus
+	
+	#match change_type:
+		#"color_changed":
+			#match data:   # data = Color
+				#Color.DARK_ORANGE:
+					#change_satisfaction(10)
+				#Color.DARK_RED:
+					#change_satisfaction(-10)
+				#Color.DARK_GRAY:
+					#change_satisfaction(-8)
+				#Color.WHITE_SMOKE:
+					#change_satisfaction(-15)
+				#Color.DIM_GRAY:
+					#change_satisfaction(-8)
+				#Color.DARK_GREEN:
+					#change_satisfaction(10)
+#
+		#"furniture_placed":
+			#match data:
+				#"bunk_bed":
+					#if room_index == 3: #salle chambre
+						#nblits += 1
+						#if nblits < 4:
+							#change_satisfaction(15)
+						#else:
+							#change_satisfaction(-15)
+					#else:
+						#change_satisfaction(-15)
+				#"closet":
+					#nb_closet += 1
+					#if nb_closet <4:
+						#change_satisfaction(8)
+					#else:
+						#change_satisfaction(-8)
+				#"gym":
+					#nb_gym+=1
+					#if room_index == 5 && nb_gym == 1:
+						#change_satisfaction(25)
+					#else:
+						#change_satisfaction(-25)
+				#"wheel_chair", "chair":
+					#nb_chair+=1
+					#if(nb_chair < 15):
+						#change_satisfaction(2)
+					#else:
+						#change_satisfaction(-2)
+				#"table":
+					#nb_table+=1
+					#if room_index == 0 || room_index == 2:
+						#if(nb_table < 3):
+							#change_satisfaction(4)
+						#else:
+							#change_satisfaction(-4)	
+					#else:
+						#change_satisfaction(-4)		
+				#"sofa":
+					#nb_sofa+=1
+					#if room_index == 0 && nb_sofa == 1:
+						#change_satisfaction(15)
+					#else:
+						#change_satisfaction(-20)	
+				#"washing_machine":
+					#nb_washing+=1
+					#if room_index == 1 && nb_washing <4:
+						#change_satisfaction(9)
+					#else:
+						#change_satisfaction(-9)
+				#"pc_setup":
+					#nb_pc +=1
+					#if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
+						#change_satisfaction(10)
+					#else:
+						#change_satisfaction(-10)
+		#"furniture_removed":
+			#match data:
+				#"bunk_bed":
+					#if player_controller.current_room == 3:
+						#nblits -= 1
+						#if nblits >= 3:
+							#change_satisfaction(15)
+						#else:
+							#change_satisfaction(-15) 
+					#else:
+						#change_satisfaction(15)
+				#"gym":
+					#nb_gym-=1
+					#if room_index == 5 && nb_gym == 0:
+						#change_satisfaction(-25)
+					#else:
+						#change_satisfaction(25)
+				#"closet":
+					#nb_closet -= 1
+					#if nb_closet >=3:
+						#change_satisfaction(8)
+					#else:
+						#change_satisfaction(-8)
+				#"wheel_chair", "chair":
+					#nb_chair-=1
+					#if(nb_chair >= 14):
+						#change_satisfaction(2)
+					#else:
+						#change_satisfaction(-2)
+				#"table":
+					#nb_table-=1
+					#if room_index == 0 || room_index == 2:
+						#if(nb_table >= 2):
+							#change_satisfaction(4)
+						#else:
+							#change_satisfaction(-4)	
+					#else:
+						#change_satisfaction(4)		
+				#"sofa":
+					#nb_sofa-=1
+					#if room_index != 0 || nb_sofa > 0:
+						#change_satisfaction(15)
+					#else:
+						#change_satisfaction(-20)	
+				#"washing_machine":
+					#nb_washing-=1
+					#if room_index != 1 || nb_washing >=3:
+						#change_satisfaction(9)
+					#else:
+						#change_satisfaction(-9)
+				#"pc_setup":
+					#nb_pc -=1
+					#if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
+						#change_satisfaction(10)
+					#else:
+						#change_satisfaction(-10)		
+	#player_controller.room_satisfaction[room_index] = satisfaction
 		
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	# Charge la font pour l'emoji animé

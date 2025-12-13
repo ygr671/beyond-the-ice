@@ -1,0 +1,4 @@
+enum EnvironmentEvent {
+	FURNITURE_PLACED,
+	FURNITURE_REMOVED
+}

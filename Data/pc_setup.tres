@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="FurnitureInfo" load_steps=4 format=3 uid="uid://f75ar22moh3j"]
+
+[ext_resource type="Script" uid="uid://bnaoutqo70bm2" path="res://Scripts/FurnitureInfo.gd" id="1_8nfpt"]
+[ext_resource type="PackedScene" uid="uid://bsk6owg08uvax" path="res://Meshes/living_room/pc_setup.tscn" id="1_348l2"]
+[ext_resource type="Texture2D" uid="uid://ciqad450hx2i3" path="res://Meshes/living_room/pc_setup.png" id="1_mfxry"]
+
+[resource]
+script = ExtResource("1_8nfpt")
+scene = ExtResource("1_348l2")
+name = "PC"
+stock = 1
+restock_count = 1
+image = ExtResource("1_mfxry")
+room_bonuses = {
+0: -10,
+1: -10,
+2: -10,
+3: 10,
+4: 10,
+5: 10
+}
+metadata/_custom_type_script = "uid://bnaoutqo70bm2"

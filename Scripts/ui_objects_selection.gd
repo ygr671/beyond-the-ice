@@ -31,47 +31,35 @@ func get_current_room():
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
-	load_furnitures_from_directory("res://Meshes")
+	load_furnitures_from_directory("res://Data")
 	
+	# Remplissage des listes UI
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
 		order_list.add_item("", info.image)
-		if info.stock == 0:
-			item_list.add_item("") # TODO : à fix, pour l'instant c'est temporaire
-		else:
-			item_list.add_item(str(info.stock), info.image)
+		item_list.add_item(str(info.stock) if info.stock > 0 else "", info.image)
+		
 	room_selection(0)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
-	
+
+
 func load_furnitures_from_directory(path: String) -> void:
 	var dir := DirAccess.open(path)
 	if dir == null:
-		push_error("Could not open directory: " + path)
+		push_error("Impossible d'ouvrir le répertoire : " + path)
 		return
 	
+	# Charge tous les .tres dans ce dossier
 	for file_name in dir.get_files():
-		if file_name.ends_with(".tscn"):
+		if file_name.ends_with(".tres"):
 			var full_path = path + "/" + file_name
-			var scene = load(full_path)
-			if scene:
-				var inst = scene.instantiate()
-				if inst.has_method("check_placement"):
-					var info := FurnitureInfo.new()
-					info.scene = scene
-					info.name = file_name.get_basename()
-					info.stock = inst.initial_stock
-					info.restock_count = inst.restock_count
-					var image_path := path + "/" + file_name.get_basename() + ".png"
-					if ResourceLoader.exists(image_path):
-						info.image = load(image_path)
-					else:
-						push_warning("Image introuvable : " + image_path)
-						info.image = null
-
-					furniture_list.append(info)
-				inst.queue_free()
-
+			var info: FurnitureInfo = load(full_path)
+			if info:
+				furniture_list.append(info)
+			else:
+				push_warning("Impossible de charger le .tres : " + full_path)
 	
+	# Récursion dans les sous-dossiers
 	for subdir_name in dir.get_directories():
 		load_furnitures_from_directory(path + "/" + subdir_name)
 
@@ -82,52 +70,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		placing = false
 		can_place = false
 		instance.placed()
-		
+
 		var info = furniture_list[index]
 		info.stock -= 1
-
 		item_list.set_item_text(index, str(info.stock))
 
-		player_controller.emit_signal("environment_changed", "furniture_placed", info.name)
+		# Calculer le bonus directement
+		var placed_count = salles[current_room].get_node("PlacedObjects").get_child_count()
+		var bonus = furniture_list[index].get_bonus(current_room, placed_count)
+		print("DEBUG : bonus retourné : " + str(bonus))
+		# Émettre seulement le signal
+		player_controller.emit_signal(
+			"environment_changed",
+			bonus
+		)
+
 		item_list.deselect_all()
-
 		instance = null
-		item_list.set_item_text(index, str(info.stock))
 
-
-	if event.is_action_pressed("r") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN) and instance and placing and !rotating:
-		rotating = true
-		var startRotation = instance.rotation_degrees
-		var targetRotation = startRotation
-		targetRotation.y -= 90 
-		targetRotation.y = round(targetRotation.y / 90) * 90 #pour rester sur des multiple de 90° sinon c'est buggger a mort
-		
-		var tween = create_tween()
-		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		tween.finished.connect(func(): rotating = false)
-	
-	elif (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP) and instance and placing and !rotating:
-		rotating = true
-		var startRotation = instance.rotation_degrees
-		var targetRotation = startRotation
-		targetRotation.y -= -90 
-		targetRotation.y = round(targetRotation.y / 90) * 90 #pour rester sur des multiple de 90° sinon c'est buggger a mort
-		
-		var tween = create_tween()
-		tween.tween_property(instance, "rotation_degrees", targetRotation, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-		tween.finished.connect(func(): rotating = false)
-	
-	if (event.is_action_pressed('escape') or event.is_action_pressed("right_click")):
-		color_menu.hide()
-		order_menu.hide()
-		inventory_menu.hide()
-		if placing:
-			can_place = false
-			placing = false
-			item_list.deselect_all()
-			if instance:
-				instance.queue_free()
-				instance = null
 
 # Note : utiliser ça pour l'émoji ou une réction instantée d'un NPC dans son code ? 
 func show_floating_text(montant: int, pos: Vector3, parent: Node):
@@ -181,10 +141,16 @@ func undo_placement() -> void:
 
 	item_list.set_item_text(index, str(info.stock))
 
-	player_controller.emit_signal("environment_changed", "furniture_removed", info.name)
+	# Calculer le bonus
+	var placed_count = salles[current_room].get_node("PlacedObjects").get_child_count()
+	var bonus = furniture_list[index].get_bonus(current_room, placed_count)
 
+	# player_controller.emit_signal("environment_changed", "furniture_removed", info.name)
+	player_controller.emit_signal(
+			"environment_changed",
+			-bonus
+	)
 	lastObject.queue_free()
-
 
 func _on_button_pressed() -> void:
 	if !placing:
