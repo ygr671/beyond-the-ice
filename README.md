@@ -28,12 +28,15 @@ piece dans laquelle le joueur peut agir
 barre de satisfaction moyenne de tous les NPC de la base
 
 ### menus
-en haut : naviguer entre les salles<br>
-en bas : effectuer une action :
-  - changer la couleur des murs
-  - changer la lumiere/luminosité
-  - commander des meubles
-  - poser un meuble disponible dans l'inventaire
+## partie superieur 
+naviguer entre les salles grace a des boutons<br>
+## partie inferieur
+![menu pour commander des meubles](order_menu.png)
+<br>
+![inventaire](inventory_menu.png)
+<br>
+![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
+<br>
 
 ## Technologies / Stack
 
@@ -41,7 +44,7 @@ en bas : effectuer une action :
 - Godot Engine (4.x)  
 - GDScript  
 - Laravel (backend pour les scores)  
-- MySQL / SQLite  
+- SQLite  
 - UML diagrams  
 - PERT / Gantt  
 - Git & GitHub  

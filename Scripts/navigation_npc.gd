@@ -1,5 +1,5 @@
 ## @class_doc
-## @description Contrôleur d'un personnage non-joueur (PNJ) utilisant la navigation 3D.
+## @description Contrôleur d'un personnage non-joueur (NPC) utilisant la navigation 3D.
 ## Gère le déplacement autonome du PNJ, sa satisfaction en fonction des changements 
 ## d'environnement (couleurs, placement/retrait de meubles) et l'affichage d'émoticônes.
 ## @tags npc, navigation, ia, environnement
@@ -42,7 +42,7 @@ var current_emoji: Label3D = null
 var satisfaction = 50
 
 ## @var_doc
-## @description Valeur de satisfaction brute, utilisée pour les calculs avant d'être clampée dans 'satisfaction'.
+## @description Valeur de satisfaction brute, utilisée pour les calculs avant d'être montrée dans 'satisfaction'.
 ## @tags state
 var real_satisfaction = satisfaction
 
@@ -52,7 +52,7 @@ var real_satisfaction = satisfaction
 ## @tags state, room
 var room_index: int = 0
 
-# --- Variables de comptage des meubles pour les calculs de satisfaction ---
+
 ## @var_doc
 ## @description Nombre actuel de lits dans la pièce.
 var nblits = 0
@@ -110,10 +110,10 @@ func change_satisfaction(valeur: int):
 	# Logique pour changer l'émoji en fonction de la valeur de changement
 	if valeur >= 15:
 		current_emoji_text = "😇" # Grande joie
-	elif valeur >= 0: # Correction de la logique, devrait être entre 0 et 15
+	elif valeur >= 0: # Devrait probablement être 'elif valeur > 0:' pour une petite joie
 		current_emoji_text = "😊" # Petite joie
-	# Note: La ligne 'elif valeur >=0:' semble être une erreur logique dans le script original.
-	elif valeur >=0: 
+
+	elif valeur <=0: 
 		current_emoji_text = "😟" # Petite tristesse
 	elif valeur <= -15:
 		current_emoji_text = "🤬" # Grande colère
@@ -128,22 +128,25 @@ func change_satisfaction(valeur: int):
 ## @param data: Variant Données associées au changement (ex: Color ou String de nom de meuble).
 ## @tags environment, events, core
 func _on_environment_changed(change_type, data):
-	# Ignore les changements si le PNJ n'est pas dans la pièce affectée
 	if player_controller.current_room != room_index:
 		return
-		
 	match change_type:
 		"color_changed":
-			# Logique de réaction au changement de couleur
-			match data:
+			match data:   # data = Color
 				Color.DARK_ORANGE:
 					change_satisfaction(10)
 				Color.DARK_RED:
 					change_satisfaction(-10)
-				# ... autres couleurs et leurs impacts
-				
+				Color.DARK_GRAY:
+					change_satisfaction(-8)
+				Color.WHITE_SMOKE:
+					change_satisfaction(-15)
+				Color.DIM_GRAY:
+					change_satisfaction(-8)
+				Color.DARK_GREEN:
+					change_satisfaction(10)
+
 		"furniture_placed":
-			# Logique de réaction à l'ajout de meubles, gérant les compteurs et les limites par pièce
 			match data:
 				"bunk_bed":
 					if room_index == 3: #salle chambre
@@ -151,27 +154,110 @@ func _on_environment_changed(change_type, data):
 						if nblits < 4:
 							change_satisfaction(15)
 						else:
-							change_satisfaction(-15) # Pénalité pour trop de lits
+							change_satisfaction(-15)
 					else:
-						change_satisfaction(-15) # Pénalité si le lit n'est pas dans la chambre
-				# ... autres meubles et leurs impacts (closet, gym, chair, table, sofa, washing_machine, pc_setup)
-				
+						change_satisfaction(-15)
+				"closet":
+					nb_closet += 1
+					if nb_closet <4:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-8)
+				"gym":
+					nb_gym+=1
+					if room_index == 5 && nb_gym == 1:
+						change_satisfaction(25)
+					else:
+						change_satisfaction(-25)
+				"wheel_chair", "chair":
+					nb_chair+=1
+					if(nb_chair < 15):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table+=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table < 3):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(-4)		
+				"sofa":
+					nb_sofa+=1
+					if room_index == 0 && nb_sofa == 1:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing+=1
+					if room_index == 1 && nb_washing <4:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc +=1
+					if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)
 		"furniture_removed":
-			# Logique de réaction au retrait de meubles, ajustant les compteurs et la satisfaction.
 			match data:
 				"bunk_bed":
 					if player_controller.current_room == 3:
 						nblits -= 1
-						# Logique inverse des effets de placement
 						if nblits >= 3:
 							change_satisfaction(15)
 						else:
 							change_satisfaction(-15) 
 					else:
-						change_satisfaction(15) # Gain si meuble inutile est retiré d'ailleurs
-				# ... autres meubles et leurs impacts inverses
-				
-	# Mettre à jour l'état de satisfaction de la pièce après tout changement
+						change_satisfaction(15)
+				"gym":
+					nb_gym-=1
+					if room_index == 5 && nb_gym == 0:
+						change_satisfaction(-25)
+					else:
+						change_satisfaction(25)
+				"closet":
+					nb_closet -= 1
+					if nb_closet >=3:
+						change_satisfaction(8)
+					else:
+						change_satisfaction(-8)
+				"wheel_chair", "chair":
+					nb_chair-=1
+					if(nb_chair >= 14):
+						change_satisfaction(2)
+					else:
+						change_satisfaction(-2)
+				"table":
+					nb_table-=1
+					if room_index == 0 || room_index == 2:
+						if(nb_table >= 2):
+							change_satisfaction(4)
+						else:
+							change_satisfaction(-4)	
+					else:
+						change_satisfaction(4)		
+				"sofa":
+					nb_sofa-=1
+					if room_index != 0 || nb_sofa > 0:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-20)	
+				"washing_machine":
+					nb_washing-=1
+					if room_index != 1 || nb_washing >=3:
+						change_satisfaction(9)
+					else:
+						change_satisfaction(-9)
+				"pc_setup":
+					nb_pc -=1
+					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
+						change_satisfaction(10)
+					else:
+						change_satisfaction(-10)		
 	player_controller.room_satisfaction[room_index] = satisfaction
 
 ## @func_doc
@@ -181,11 +267,8 @@ func _on_environment_changed(change_type, data):
 ## @param npc: NavigationNPC Référence au PNJ pour ajouter le Label3D comme enfant.
 ## @tags visuals, animation
 func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
-	# ... (logique de chargement de font, création du Label3D, animation avec Tween)
-	# ... (Le code utilise une ressource 'res://Import/Fonts/NotoColorEmoji-Regular.ttf')
-
-	# ... (omission du corps de la fonction pour la concision)
-
+	
+	# CHARGEMENT DE L'ASSET DE POLICE ET CRÉATION DU LABEL
 	var font = load("res://Import/Fonts/NotoColorEmoji-Regular.ttf")
 	
 	var label = Label3D.new()
@@ -204,14 +287,18 @@ func show_animated_emoji(emoji_text: String, npc: NavigationNPC):
 	current_emoji = label
 	npc.add_child(label)
 
+	# LOGIQUE D'ANIMATION (APPEAR / MOVE / FADE)
 	var tween = label.create_tween()
 	tween.set_parallel(true)
 	
+	# Animation d'apparition et de déplacement vertical
 	tween.tween_property(label, "scale", Vector3(1.3, 1.3, 1.3), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(label, "position", Vector3(0, 4.0, 0), 0.5)
 	
+	# Animation de disparition (fade out) après un délai
 	tween.tween_property(label, "modulate:a", 0.0, 0.3).set_delay(2.0)
 	
+	# Connexion de la fonction de nettoyage à la fin de l'animation
 	tween.finished.connect(_on_emoji_animation_finished.bind(label))
 
 
@@ -272,8 +359,7 @@ func setup(NPC_name: String = "DefaultName", model_name: String = "Nils", em: St
 	
 	self.emoji = em
 	
-	# Logique pour charger le modèle 3D dynamiquement (omission du corps de la fonction pour la concision)
-	
+	# LOGIQUE DE CHARGEMENT DYNAMIQUE DU MODÈLE 3D
 	var path = "res://Import/Models/NPC/%s.fbx" % model_name
 	if ResourceLoader.exists(path):
 		var scene = load(path)
@@ -305,7 +391,7 @@ func _physics_process(delta: float) -> void:
 		_set_new_random_destination()
 		return
 
-	# Logique de mouvement et de détection de blocage
+	# Logique de mouvement
 	var destination = navigation_agent_3d.get_next_path_position()
 	var local_destination = destination - global_position
 	var distance = local_destination.length()
