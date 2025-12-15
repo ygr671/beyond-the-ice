@@ -32,8 +32,11 @@ barre de satisfaction moyenne de tous les NPC de la base
 naviguer entre les salles grace a des boutons<br>
 ## partie inferieur
 ![menu pour commander des meubles](order_menu.png)
-![inventaire](inventory_menu.ong)
+<br>
+![inventaire](inventory_menu.png)
+<br>
 ![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
+<br>
 
 ## Technologies / Stack
 
