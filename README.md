@@ -27,7 +27,7 @@ piece dans laquelle le joueur peut agir
 ### partie gauche 
 barre de satisfaction moyenne de tous les NPC de la base
 
-### menus
+# menus
 ## partie superieur 
 naviguer entre les salles grace a des boutons<br>
 ## partie inferieur
