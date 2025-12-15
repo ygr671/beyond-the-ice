@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
-[ext_resource type="PackedScene" path="res://Scenes/snow.tscn" id="16_jvnna"]
+[ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
@@ -199,6 +199,21 @@ offset_right = 1895.0
 offset_bottom = 902.0
 theme_override_font_sizes/font_size = 30
 text = "Finir la mission"
+
+[node name="LightMenu" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 529.0
+offset_top = -113.0
+offset_right = 675.0
+offset_bottom = -42.0
+grow_vertical = 0
+
+[node name="ButtonLight" type="Button" parent="Salles/salon/ui_Salon/LightMenu"]
+layout_mode = 2
+text = "light menu"
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
