@@ -41,6 +41,7 @@ inventaire :
 ![inventaire](inventory_menu.png)
 <br>
 changer la couleur des mur et la luminosité :
+<br>
 ![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
 <br>
 
