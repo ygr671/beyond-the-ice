@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=37 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
+[ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
@@ -588,6 +589,7 @@ attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
 size = 16.175995
+script = ExtResource("1_ioaeq")
 
 [node name="Snow" parent="." instance=ExtResource("16_jvnna")]
 transform = Transform3D(0.9955798, -0.038022064, -0.0858791, 0.039071035, 0.9991805, 0.0105662625, 0.085407, -0.013874945, 0.9962493, -26.87265, 0.7567229, -23.121498)

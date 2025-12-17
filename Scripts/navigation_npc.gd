@@ -77,6 +77,15 @@ var nb_gym = 0
 ## @var_doc
 ## @description Nombre actuel de PC setups dans la pièce.
 var nb_pc = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_toilet = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_sink = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_shower = 0
 
 ## @var_doc
 ## @description Timer non utilisé dans le code actuel, mais réservé pour une éventuelle gestion du temps des émojis.
@@ -203,6 +212,9 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
+				"sink":
+					nb_sink+=1
+					
 		"furniture_removed":
 			match data:
 				"bunk_bed":
