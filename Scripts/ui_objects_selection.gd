@@ -13,6 +13,11 @@ extends Control
 @onready var main_controller = get_tree().get_current_scene()
 
 ## @onready_doc
+## @description reference au label d'icone a afficher lorsqu'il fait nuit pour dire quon ne peut pas faire de livrasions
+@onready var delivery_label = $delivery_label
+@onready var line_label = $line_label
+
+## @onready_doc
 ## @description Reference au sous-menu de selection de couleur.
 ## @tags nodes, ui
 @onready var color_menu = $ui_color_selection
@@ -117,6 +122,8 @@ func get_current_room():
 ## et met a jour les ItemList d'inventaire et de commande.
 ## @tags init, core
 func _ready():
+	delivery_label.focus_mode = Control.FOCUS_NONE
+	line_label.focus_mode = Control.FOCUS_NONE
 	camera = get_viewport().get_camera_3d()
 	load_furnitures_from_directory("user://furnitures")
 	
@@ -477,6 +484,13 @@ func _on_button_open_color_pressed() -> void:
 func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
+		if !player_controller.is_day:
+			delivery_label.show()
+			line_label.show()
+		else:
+			delivery_label.hide()
+			line_label.hide()
+		
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
 
