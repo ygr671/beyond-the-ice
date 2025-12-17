@@ -147,6 +147,7 @@ func _on_environment_changed(change_type, data):
 					change_satisfaction(10)
 
 		"furniture_placed":
+			print(data)
 			match data:
 				"bunk_bed":
 					if room_index == 3: #salle chambre
