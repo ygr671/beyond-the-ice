@@ -97,6 +97,7 @@ environment = SubResource("Environment_drdnd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294967293
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -111,10 +112,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/salon/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/salon/Salle/Sol/MeshInstance3D"]
@@ -128,6 +131,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 surface_material_override/0 = ExtResource("4_gnsmo")
 
@@ -140,6 +144,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 surface_material_override/0 = ExtResource("4_gnsmo")
 
@@ -299,6 +304,11 @@ rotation = 0.5791199
 bbcode_enabled = true
 text = "[img=300x300]res://bx-minus.svg[/img]"
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Salles/salon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
+
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
 
@@ -318,10 +328,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/salle_de_bain/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/salle_de_bain/Salle/Sol/MeshInstance3D"]
@@ -334,6 +346,7 @@ shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salle_de_bain/Salle/Mur_droit"]
@@ -344,6 +357,7 @@ shape = SubResource("BoxShape3D_huasi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salle_de_bain/Salle/Mur_gauche"]
@@ -352,6 +366,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="washing_machine" parent="Salles/salle_de_bain" instance=ExtResource("6_mai8y")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.9612136)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Salles/salle_de_bain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
 
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
@@ -372,10 +391,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/cuisine/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/cuisine/Salle/Sol/MeshInstance3D"]
@@ -389,6 +410,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/cuisine/Salle/Mur_droit"]
@@ -400,11 +422,17 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/cuisine/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Salles/cuisine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
 
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
@@ -425,10 +453,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/chambre/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/chambre/Salle/Sol/MeshInstance3D"]
@@ -442,6 +472,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/chambre/Salle/Mur_droit"]
@@ -453,6 +484,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/chambre/Salle/Mur_gauche"]
@@ -464,6 +496,11 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.744742, 0.068670064, 2.647
 
 [node name="pc_setup" parent="Salles/chambre" instance=ExtResource("8_drdnd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528432)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Salles/chambre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
@@ -484,10 +521,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/laboratoire/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/laboratoire/Salle/Sol/MeshInstance3D"]
@@ -501,6 +540,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/laboratoire/Salle/Mur_droit"]
@@ -512,6 +552,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/laboratoire/Salle/Mur_gauche"]
@@ -526,6 +567,11 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.9406738, 0.10346794, -4.09
 
 [node name="Desks" parent="Salles/laboratoire" instance=ExtResource("11_7ewk0")]
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Salles/laboratoire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
 
 [node name="stockage" type="Node3D" parent="Salles"]
 visible = false
@@ -546,10 +592,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/stockage/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/stockage/Salle/Sol/MeshInstance3D"]
@@ -563,6 +611,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/stockage/Salle/Mur_droit"]
@@ -574,6 +623,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/stockage/Salle/Mur_gauche"]
@@ -582,6 +632,11 @@ shape = SubResource("BoxShape3D_mai8y")
 
 [node name="cardbox" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -4.040039, 0, -4.591675)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Salles/stockage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
 transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
