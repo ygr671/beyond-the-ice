@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-[gd_scene load_steps=36 format=3 uid="uid://vy68o6b7ni3t"]
-=======
-[gd_scene load_steps=42 format=3 uid="uid://vy68o6b7ni3t"]
->>>>>>> b6496f07af7319b60babb7e43443de3be6426086
+[gd_scene load_steps=37 format=3 uid="uid://2ho4rd7rxcd6"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
-[ext_resource type="Script" uid="uid://dxlng8jbvv8e1" path="res://Scenes/Low_poly_water.gd" id="3_2ebs2"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
 [ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
+[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
 [ext_resource type="Script" uid="uid://detftc710v7j1" path="res://Scripts/ui_inventory.gd" id="8_2ebs2"]
@@ -18,31 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://cpdeyocpnqtwo" path="res://Meshes/lab/hanging_shelf.tscn" id="9_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://deqdk58e13f53" path="res://Meshes/lab/shelf.tscn" id="10_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
+[ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
-[ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="13_ioaeq"]
-[ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="14_7ewk0"]
-=======
-[ext_resource type="Shader" uid="uid://c05hqvlvyp2pc" path="res://shader/lowpolywater.gdshader" id="14_gnsmo"]
-[ext_resource type="PackedScene" uid="uid://dq0a8nxy68cbb" path="res://Import/Models/Models/GLB format/snow-tile.glb" id="14_lhp3t"]
->>>>>>> b6496f07af7319b60babb7e43443de3be6426086
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndcik"]
-render_priority = 1
-shader = ExtResource("14_gnsmo")
-shader_parameter/out_col = Color(0.2, 0.4, 0.8, 1)
-shader_parameter/amount = 0.40100001252773
-shader_parameter/beer_factor = 0.2
-shader_parameter/metallic = 1.0
-shader_parameter/roughness = 0.3
-shader_parameter/specular = 0.5
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_kon4g"]
-material = SubResource("ShaderMaterial_ndcik")
-size = Vector2(100, 100)
-subdivide_width = 50
-subdivide_depth = 50
+[ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
+[ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
+[ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
+[ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
+[ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
+[ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -58,8 +38,6 @@ sky_material = SubResource("ProceduralSkyMaterial_mai8y")
 background_mode = 2
 background_energy_multiplier = 0.7
 sky = SubResource("Sky_76v2p")
-ambient_light_energy = 2.57
-reflected_light_source = 2
 tonemap_mode = 2
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_x6ack"]
@@ -91,70 +69,24 @@ size = Vector3(0.1, 5, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.1, 5, 10)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhuvd"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.972549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.42745098, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
 dof_blur_far_distance = 144.51
 dof_blur_amount = 1.0
 
-[sub_resource type="Gradient" id="Gradient_ioaeq"]
-offsets = PackedFloat32Array(0, 0.04489796)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_7ewk0"]
-gradient = SubResource("Gradient_ioaeq")
-
-[sub_resource type="Curve" id="Curve_lhp3t"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.21317829, 0.88284075), 0.0, 0.0, 0, 0, Vector2(1, 0.25486666), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_gnsmo"]
-curve = SubResource("Curve_lhp3t")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ioaeq"]
-emission_shape = 3
-emission_box_extents = Vector3(16, 2, 16)
-direction = Vector3(0, -1, 0)
-initial_velocity_min = 3.0
-initial_velocity_max = 6.0
-gravity = Vector3(0, -5.5, 0)
-radial_accel_min = -4.0000024
-radial_accel_max = 3.9999976
-tangential_accel_min = -8.000002
-tangential_accel_max = 7.9999976
-damping_max = 4.0
-scale_min = 0.19999999
-scale_max = 0.19999999
-scale_curve = SubResource("CurveTexture_gnsmo")
-color = Color(0.8992584, 0.8992584, 0.8992584, 1)
-color_ramp = SubResource("GradientTexture1D_7ewk0")
-
-[sub_resource type="Gradient" id="Gradient_7ewk0"]
-offsets = PackedFloat32Array(0.35829958, 0.36842105, 0.72469634)
-colors = PackedColorArray(0.97921336, 0.97921336, 0.97921336, 0.96901405, 1, 1, 1, 1, 0.32915837, 0.3291584, 0.3291584, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lhp3t"]
-gradient = SubResource("Gradient_7ewk0")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioaeq"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_lhp3t")
-billboard_mode = 1
-billboard_keep_scale = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_7ewk0"]
-material = SubResource("StandardMaterial3D_ioaeq")
-
 [node name="Main_scene" type="Node3D"]
 script = ExtResource("1_76v2p")
-
-[node name="LowPolyWater" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.960045, 0.27984577, 3.6959642e-09, -0.26816297, 0.91996574, -0.28592253, -0.08001421, 0.2744985, 0.9582528, -84.208405, -40.798668, -81.02485)
-cast_shadow = 0
-mesh = SubResource("PlaneMesh_kon4g")
-skeleton = NodePath("")
-script = ExtResource("3_2ebs2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_drdnd")
@@ -221,11 +153,19 @@ shape = SubResource("BoxShape3D_mai8y")
 offset_top = 148.0
 offset_bottom = 187.9978
 
+[node name="Button" parent="Salles/salon/ui_Salon" index="1"]
+offset_left = 96.0
+offset_right = 153.29166
+
 [node name="PanelMenu" parent="Salles/salon/ui_Salon" index="2"]
 offset_left = 884.0
 offset_top = -113.0
 offset_right = 1030.0
 offset_bottom = -42.0
+
+[node name="ui_color_selection" parent="Salles/salon/ui_Salon" index="3"]
+offset_top = -200.0
+offset_bottom = 50.0
 
 [node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
 offset_left = 699.0
@@ -233,15 +173,82 @@ offset_top = 967.0
 offset_right = 845.0
 offset_bottom = 1038.0
 
+[node name="charging_bar_furniture" parent="Salles/salon/ui_Salon/ui_charging_bar" index="0"]
+offset_left = 259.0
+offset_top = 778.0
+offset_right = 525.0
+offset_bottom = 858.0
+
+[node name="ui_confirmation_end" type="Control" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -23.0
+offset_right = 25.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_5oxhp")
+
+[node name="Panel" type="Panel" parent="Salles/salon/ui_Salon/ui_confirmation_end"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 173.0
+offset_right = -418.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhuvd")
+
+[node name="title" type="Label" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 1164.9636
+offset_bottom = 132.0
+scale = Vector2(0.99745595, 1)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("6_8edxt")
+theme_override_font_sizes/font_size = 70
+text = "Confirmation de fin de partie"
+horizontal_alignment = 1
+
+[node name="yes" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 652.0
+offset_right = 1145.0
+offset_bottom = 730.0
+theme_override_font_sizes/font_size = 28
+text = "Oui"
+
+[node name="no" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 652.0
+offset_right = 568.0
+offset_bottom = 730.0
+theme_override_font_sizes/font_size = 28
+text = "Non"
+
+[node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
+layout_mode = 1
+
 [node name="PanelMenu2" type="PanelContainer" parent="Salles/salon/ui_Salon"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 1067.0
-offset_top = -111.0
-offset_right = 1213.0
-offset_bottom = -40.0
+offset_left = 1069.0
+offset_top = -113.0
+offset_right = 1215.0
+offset_bottom = -42.0
 grow_vertical = 0
 
 [node name="buttonInventory" type="Button" parent="Salles/salon/ui_Salon/PanelMenu2"]
@@ -259,6 +266,38 @@ script = ExtResource("8_2ebs2")
 
 [node name="ItemList" parent="Salles/salon/ui_Salon/ui_inventory/Panel" index="1"]
 item_count = 0
+
+[node name="button_end_mission" type="Button" parent="Salles/salon/ui_Salon"]
+layout_mode = 0
+offset_left = 1653.0
+offset_top = 812.0
+offset_right = 1895.0
+offset_bottom = 902.0
+theme_override_font_sizes/font_size = 30
+text = "Finir la mission"
+
+[node name="delivery_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 373.0
+offset_top = 876.0
+offset_right = 499.0
+offset_bottom = 1050.0
+bbcode_enabled = true
+text = "[img=128x128]res://bx-package.svg[/img]
+     no delivery"
+fit_content = true
+
+[node name="line_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 392.00006
+offset_top = 735.0
+offset_right = 751.0
+offset_bottom = 1103.0
+rotation = 0.5791199
+bbcode_enabled = true
+text = "[img=300x300]res://bx-minus.svg[/img]"
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
@@ -541,60 +580,49 @@ mesh = SubResource("BoxMesh_m1efj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
+[node name="cardbox" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -4.040039, 0, -4.591675)
+
 [node name="Camera3D" type="Camera3D" parent="Salles"]
-<<<<<<< HEAD
-transform = Transform3D(0.7164552, -0.2834332, 0.6374618, 0.009006872, 0.9174314, 0.3977924, -0.6975749, -0.2792589, 0.6598513, 5.741697, 5.853462, 6.4637423)
-cull_mask = 1
-=======
 transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
->>>>>>> b6496f07af7319b60babb7e43443de3be6426086
 attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
-size = 13.681537
+size = 16.175995
 script = ExtResource("1_ioaeq")
 
-[node name="Snow" type="GPUParticles3D" parent="."]
-transform = Transform3D(0.9576468, -0.27482632, -0.08592523, 0.28794557, 0.9140149, 0.2857693, 0, -0.29840785, 0.95443845, -24.003923, 7.7425404, -26.716486)
-amount = 200
-lifetime = 3.5
-process_material = SubResource("ParticleProcessMaterial_ioaeq")
-draw_pass_1 = SubResource("QuadMesh_7ewk0")
+[node name="Snow" parent="." instance=ExtResource("16_jvnna")]
+transform = Transform3D(0.9955798, -0.038022064, -0.0858791, 0.039071035, 0.9991805, 0.0105662625, 0.085407, -0.013874945, 0.9962493, -26.87265, 0.7567229, -23.121498)
+
+[node name="LowPolyWater" parent="." instance=ExtResource("16_psl12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160435, -22.346388, -21.1003)
+
+[node name="Iceberg" parent="." instance=ExtResource("17_2ebs2")]
+transform = Transform3D(7.653859, -2.3277547, -1.0174939e-07, 0, -3.496911e-07, 8, -2.3277547, -7.653859, -3.345608e-07, -36.023117, -20.278185, -28.342133)
 
 <<<<<<< HEAD
-[node name="LowPolyWater" parent="." instance=ExtResource("10_76v2p")]
-transform = Transform3D(0.9115899, 0.33831075, 0.23355836, -0.26816294, 0.91996574, -0.2859226, -0.3115963, 0.19801247, 0.92935413, -15.283216, 1.2072392, -13.971031)
+[node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
+transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
+
+[node name="Mini_iceberg" parent="." instance=ExtResource("21_b48ew")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, -60.12489)
 
 =======
->>>>>>> b6496f07af7319b60babb7e43443de3be6426086
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.052182104, 0.029614655, 4.2035161e-10, -0.027932528, 0.04921813, -0.01993362, -0.009838789, 0.017336305, 0.056591965, -80.92033, -39.3203, -85.99612)
+[node name="Iceberg_fond" parent="." instance=ExtResource("12_drdnd")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -42.88293, -23.23826, -60.209503)
 
-[node name="Sketchfab_Scene3" parent="." instance=ExtResource("12_drdnd")]
-<<<<<<< HEAD
-transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -21.059662, 4.0682983, 0.25922585)
-visible = false
+[node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
+transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
 
-[node name="Sketchfab_Scene3" parent="Sketchfab_Scene3" instance=ExtResource("12_drdnd")]
-transform = Transform3D(2.7036905, 0.29059714, -1.2671262, -0.6591878, 2.8267534, -0.7582474, 1.1205027, 0.9617813, 2.6114087, 35.622437, 43.285927, -337.17297)
-
-[node name="Iceberg" parent="." instance=ExtResource("13_ioaeq")]
-transform = Transform3D(-3.3964171, -3.103369, 1.9579246, 1.9925634, 0.6804584, 4.53505, -3.0812428, 3.8608415, 0.774508, -6.4467697, -4.4849234, -5.6134386)
-
-[node name="Ugandan Knuckles" parent="." instance=ExtResource("14_7ewk0")]
-transform = Transform3D(0.110104896, 0, 0.1669638, 0, 0.2, 0, -0.1669638, 0, 0.110104896, -19.48404, 2.5287013, -4.4438405)
-
-[node name="Sketchfab_Scene2" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.02506468, 0.021027181, -0.023013461, -0.015488724, 0.034027305, 0.014221174, 0.027052933, 0, 0.029464195, -21.040956, 2.4369102, -6.38698)
-=======
-transform = Transform3D(0.07731116, 0.020566575, 3.2962997e-11, -0.020406375, 0.07670896, -0.009965703, -0.0025620048, 0.009630752, 0.079376854, -76.503975, -38.59102, -91.42132)
-
+[connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
+>>>>>>> f651a3e2402bbacb744b217d3f0f04d9ed38216f
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_inventory/Panel/Button" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_pressed"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/button_end_mission" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_end_mission_pressed"]
 
 [editable path="Salles/salon/ui_Salon"]
 [editable path="Salles/salon/ui_Salon/ui_order_furniture"]
 [editable path="Salles/salon/ui_Salon/ui_charging_bar"]
 [editable path="Salles/salon/ui_Salon/ui_inventory"]
->>>>>>> b6496f07af7319b60babb7e43443de3be6426086

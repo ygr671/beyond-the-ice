@@ -22,6 +22,11 @@ extends Node
 ## @tags nodes, ui
 @onready var order_menu = $"../ui_order_furniture"
 
+## @onready_doc
+## @description Reference au panneau de confirmation.
+## @tags nodes, ui
+@onready var confirmation_menu = $"../ui_confirmation_end"
+
 
 ## @func_doc
 ## @description Appelé lors de l'appui sur un bouton générique de fermeture/validation (si présent).
@@ -41,3 +46,5 @@ func _on_button_inventory_pressed() -> void:
 	item_list.show()
 	color_menu.hide()
 	order_menu.hide()
+	confirmation_menu.hide()
+	
