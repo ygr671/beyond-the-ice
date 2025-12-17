@@ -172,3 +172,7 @@ func toggle_good_bad_weather():
 		print("ALERTE MÉTÉO : Mauvais temps (Crépitement activé)")
 	else:
 		print("ALERTE MÉTÉO : Retour au beau temps")
+
+
+func _on_button_no_pressed() -> void:
+	pass # Replace with function body.
