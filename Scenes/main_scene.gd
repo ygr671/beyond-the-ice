@@ -15,7 +15,7 @@ const WATER_COLOR_DAY := Color(1.0, 1.0, 1.0)
 ## @const_doc
 ## @description Couleur de l'eau pendant la nuit (Noir pour simuler l'absence de lumière).
 ## @tags config, color
-const WATER_COLOR_NIGHT := Color(0.0, 0.0, 0.0)
+const WATER_COLOR_NIGHT := Color(0.9, 0.9, 0.9)
 
 ## @const_doc
 ## @description Vitesse de transition pour les animations (ex: changement de couleur de l'eau, énergie environnementale).
@@ -25,12 +25,14 @@ const TRANSITION_SPEED: float = 1.5
 ## @const_doc
 ## @description Couleur de l'iceberg pendant le jour.
 ## @tags config, color
-const ICEBERG_COLOR_DAY := Color(0.8, 0.9, 1.0)
+const ICEBERG_COLOR_DAY := Color(0.643, 0.812, 0.835)  # #a4cfd5
 
 ## @const_doc
 ## @description Couleur de l'iceberg pendant la nuit.
 ## @tags config, color
-const ICEBERG_COLOR_NIGHT := Color(0.3, 0.5, 0.7)
+const ICEBERG_COLOR_NIGHT := Color(0.219, 0.351, 0.375)
+
+
 
 
 ## @onready_doc
@@ -43,7 +45,7 @@ const ICEBERG_COLOR_NIGHT := Color(0.3, 0.5, 0.7)
 ## @type Iceberg_controller
 ## @tags nodes, environment
 @onready var iceberg_node = $Iceberg as Iceberg_controller
-
+@onready var mini_iceberg = $Mini_iceberg as Mini_iceberg_controller
 ## @onready_doc
 ## @description Reference au contrôleur de l'eau (script low_poly_water.gd).
 ## @tags nodes, environment
@@ -102,44 +104,43 @@ func _ready():
 ## @return void
 ## @tags time, environment, animation
 func toggle_day_night():
+	print("\n=== toggle_day_night() appelé ===")
 	
-	if !water_node or !water_node.has_method("set_water_color_target"):
-		return
-		
 	is_day = !is_day
 	
-	var target_water_color: Color
 	var target_iceberg_color: Color
-	var target_env_energy: float
+	var target_water_color: Color
 	
-	# 1. Détermine les valeurs cibles
 	if is_day:
+		print("→ Transition vers JOUR")
+		target_iceberg_color = ICEBERG_COLOR_DAY      # #a4cfd5
 		target_water_color = WATER_COLOR_DAY
-		target_iceberg_color = ICEBERG_COLOR_DAY
-		target_env_energy = 1.0 # Lumière ambiante Jour
+	else:
+		print("→ Transition vers NUIT")
+		target_iceberg_color = ICEBERG_COLOR_NIGHT    # #060f11
+		target_water_color = WATER_COLOR_NIGHT
+	
+	# 1. Transition iceberg - CORRECTION ICI
+	if iceberg_node:
+		print("Changement couleur iceberg vers: ", target_iceberg_color)
+		iceberg_node.set_iceberg_color(target_iceberg_color)
+		mini_iceberg.set_mini_iceberg_color(target_iceberg_color)
 		
 	else:
-		target_water_color = WATER_COLOR_NIGHT
-		target_iceberg_color = ICEBERG_COLOR_NIGHT 
-		target_env_energy = 0.2 # Lumière ambiante Nuit (faible) 
-
-	# 2. Met a jour l'etat global
-	player_controller.is_day = is_day
+		print("✗ iceberg_node est null!")
 	
-	# 3. Lance les animations de transition
-	water_node.set_water_color_target(target_water_color)
+	# 2. Transition eau
+	if water_node and water_node.has_method("set_water_color_target"):
+		water_node.set_water_color_target(target_water_color)
 	
-	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
-		iceberg_node.set_iceberg_color_target(target_iceberg_color)
-		
-	# Animation de l'énergie environnementale (luminosité globale)
+	# 3. Transition luminosité environnement
 	if worldenv:
-		var tween_env = create_tween()
-		
-		tween_env.tween_property(
-			worldenv.environment, 
-			"background_energy_multiplier", 
-			target_env_energy, 
+		var target_energy = 1.0 if is_day else 0.2
+		var tween = create_tween()
+		tween.tween_property(
+			worldenv.environment,
+			"background_energy_multiplier",
+			target_energy,
 			TRANSITION_SPEED
 		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
@@ -172,3 +173,7 @@ func toggle_good_bad_weather():
 		print("ALERTE MÉTÉO : Mauvais temps (Crépitement activé)")
 	else:
 		print("ALERTE MÉTÉO : Retour au beau temps")
+
+
+func _on_button_no_pressed() -> void:
+	pass # Replace with function body.

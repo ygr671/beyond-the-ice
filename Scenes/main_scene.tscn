@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=37 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
 [ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
+[ext_resource type="Script" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
 [ext_resource type="Script" uid="uid://detftc710v7j1" path="res://Scripts/ui_inventory.gd" id="8_2ebs2"]
@@ -15,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
-[ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="12_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
 [ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
+[ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -66,6 +68,18 @@ size = Vector3(0.1, 5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mai8y"]
 size = Vector3(0.1, 5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhuvd"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.972549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.42745098, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7ewk0"]
 dof_blur_far_distance = 144.51
@@ -165,6 +179,64 @@ offset_top = 778.0
 offset_right = 525.0
 offset_bottom = 858.0
 
+[node name="ui_confirmation_end" type="Control" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -23.0
+offset_right = 25.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_5oxhp")
+
+[node name="Panel" type="Panel" parent="Salles/salon/ui_Salon/ui_confirmation_end"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 341.0
+offset_top = 173.0
+offset_right = -418.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhuvd")
+
+[node name="title" type="Label" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 1164.9636
+offset_bottom = 132.0
+scale = Vector2(0.99745595, 1)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("6_8edxt")
+theme_override_font_sizes/font_size = 70
+text = "Confirmation de fin de partie"
+horizontal_alignment = 1
+
+[node name="yes" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 652.0
+offset_right = 1145.0
+offset_bottom = 730.0
+theme_override_font_sizes/font_size = 28
+text = "Oui"
+
+[node name="no" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 652.0
+offset_right = 568.0
+offset_bottom = 730.0
+theme_override_font_sizes/font_size = 28
+text = "Non"
+
 [node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
 layout_mode = 1
 
@@ -195,7 +267,7 @@ script = ExtResource("8_2ebs2")
 [node name="ItemList" parent="Salles/salon/ui_Salon/ui_inventory/Panel" index="1"]
 item_count = 0
 
-[node name="Button2" type="Button" parent="Salles/salon/ui_Salon"]
+[node name="button_end_mission" type="Button" parent="Salles/salon/ui_Salon"]
 layout_mode = 0
 offset_left = 1653.0
 offset_top = 812.0
@@ -204,20 +276,28 @@ offset_bottom = 902.0
 theme_override_font_sizes/font_size = 30
 text = "Finir la mission"
 
-[node name="LightMenu" type="PanelContainer" parent="Salles/salon/ui_Salon"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 529.0
-offset_top = -113.0
-offset_right = 675.0
-offset_bottom = -42.0
-grow_vertical = 0
+[node name="delivery_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 373.0
+offset_top = 876.0
+offset_right = 499.0
+offset_bottom = 1050.0
+bbcode_enabled = true
+text = "[img=128x128]res://bx-package.svg[/img]
+     no delivery"
+fit_content = true
 
-[node name="ButtonLight" type="Button" parent="Salles/salon/ui_Salon/LightMenu"]
-layout_mode = 2
-text = "light menu"
+[node name="line_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 392.00006
+offset_top = 735.0
+offset_right = 751.0
+offset_bottom = 1103.0
+rotation = 0.5791199
+bbcode_enabled = true
+text = "[img=300x300]res://bx-minus.svg[/img]"
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
@@ -520,15 +600,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160435, -22.346388, -21.1
 [node name="Iceberg" parent="." instance=ExtResource("17_2ebs2")]
 transform = Transform3D(7.653859, -2.3277547, -1.0174939e-07, 0, -3.496911e-07, 8, -2.3277547, -7.653859, -3.345608e-07, -36.023117, -20.278185, -28.342133)
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -42.88293, -23.23826, -60.209503)
-
 [node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
 transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
+
+[node name="Mini_iceberg" parent="." instance=ExtResource("21_b48ew")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, -60.12489)
 
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_inventory/Panel/Button" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_pressed"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/button_end_mission" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_end_mission_pressed"]
 
 [editable path="Salles/salon/ui_Salon"]
 [editable path="Salles/salon/ui_Salon/ui_order_furniture"]

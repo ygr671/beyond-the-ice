@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://2njdyvnqxl7w"]
+
+[ext_resource type="PackedScene" uid="uid://bkyejr7kxoss3" path="res://Import/Models/Models/iceberg_-_low_poly.glb" id="1_7ucru"]
+[ext_resource type="Script" uid="uid://cwalr8vf7ryjk" path="res://Scripts/mini_iceberg.gd" id="2_2tuy4"]
+
+[node name="Mini_iceberg" instance=ExtResource("1_7ucru")]
+script = ExtResource("2_2tuy4")

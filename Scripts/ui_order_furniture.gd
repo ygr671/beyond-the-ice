@@ -12,6 +12,12 @@ extends Control
 ## @tags nodes, ui
 @onready var order_furniture = $"."
 
+
+## @onready_doc
+## @description Reference au panneau de confirmation.
+## @tags nodes, ui
+@onready var confirmation_menu = $"../ui_confirmation_end"
+
 ## @onready_doc
 ## @description Reference au sous-menu de selection de couleur.
 ## @tags nodes, ui
@@ -51,6 +57,8 @@ func _on_button_order_pressed() -> void:
 	order_furniture.show()
 	color_menu.hide()
 	inventory_menu.hide()
+	confirmation_menu.hide()
+
 
 ## @func_doc
 ## @description Appelé lorsqu'un element de la liste est selectionne pour la commande.
