@@ -97,7 +97,7 @@ environment = SubResource("Environment_drdnd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294967293
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -169,6 +169,7 @@ offset_right = 1030.0
 offset_bottom = -42.0
 
 [node name="ui_color_selection" parent="Salles/salon/ui_Salon" index="3"]
+visible = true
 offset_top = -200.0
 offset_bottom = 50.0
 
@@ -304,10 +305,10 @@ rotation = 0.5791199
 bbcode_enabled = true
 text = "[img=300x300]res://bx-minus.svg[/img]"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Salles/salon"]
+[node name="room_light" type="OmniLight3D" parent="Salles/salon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-light_energy = 1.5
+light_cull_mask = 4294967294
 omni_range = 10.0
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
@@ -315,6 +316,7 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salle_de_bain"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189895, 0.6864201, 7.632513, 9.024776, 8.058487)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -368,10 +370,10 @@ shape = SubResource("BoxShape3D_mai8y")
 [node name="washing_machine" parent="Salles/salle_de_bain" instance=ExtResource("6_mai8y")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.9612136)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Salles/salle_de_bain"]
+[node name="room_light" type="OmniLight3D" parent="Salles/salle_de_bain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-light_energy = 1.5
+light_cull_mask = 4294967294
 omni_range = 10.0
 
 [node name="cuisine" type="Node3D" parent="Salles"]
@@ -379,6 +381,7 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/cuisine"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -431,10 +434,10 @@ mesh = SubResource("BoxMesh_m1efj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Salles/cuisine"]
+[node name="room_light" type="OmniLight3D" parent="Salles/cuisine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-light_energy = 1.5
+light_cull_mask = 4294967294
 omni_range = 10.0
 
 [node name="chambre" type="Node3D" parent="Salles"]
@@ -442,6 +445,7 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/chambre"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -500,10 +504,9 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.744742, 0.068670064, 2.647
 [node name="pc_setup" parent="Salles/chambre" instance=ExtResource("8_drdnd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528432)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Salles/chambre"]
+[node name="room_light" type="OmniLight3D" parent="Salles/chambre"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-light_energy = 1.5
 omni_range = 10.0
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
@@ -511,6 +514,7 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/laboratoire"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -572,10 +576,10 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.9406738, 0.10346794, -4.09
 [node name="Desks" parent="Salles/laboratoire" instance=ExtResource("11_7ewk0")]
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Salles/laboratoire"]
+[node name="room_light" type="OmniLight3D" parent="Salles/laboratoire"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-light_energy = 1.5
+light_cull_mask = 4294967294
 omni_range = 10.0
 
 [node name="stockage" type="Node3D" parent="Salles"]
@@ -583,6 +587,8 @@ visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/stockage"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_negative = true
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -638,9 +644,10 @@ shape = SubResource("BoxShape3D_mai8y")
 [node name="cardbox" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -4.040039, 0, -4.591675)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Salles/stockage"]
+[node name="room_light" type="OmniLight3D" parent="Salles/stockage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_cull_mask = 4294966274
 omni_range = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
@@ -668,6 +675,8 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, 
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
+[connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
+[connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
