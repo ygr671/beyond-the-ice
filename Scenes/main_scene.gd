@@ -61,12 +61,6 @@ const ICEBERG_COLOR_NIGHT := Color(0.219, 0.351, 0.375)
 ## @tags nodes, ui
 @onready var ui_charging_bar = $Salles/salon/ui_Salon/ui_charging_bar
 
-
-## @var_doc
-## @description Etat actuel: Jour (true) ou Nuit (false).
-## @tags state, time
-var is_day: bool = true
-
 ## @var_doc
 ## @description Etat actuel de la météo: Beau temps (true) ou Mauvais temps (false).
 ## @tags state, weather
@@ -106,12 +100,12 @@ func _ready():
 func toggle_day_night():
 	print("\n=== toggle_day_night() appelé ===")
 	
-	is_day = !is_day
+	player_controller.is_day = !player_controller.is_day
 	
 	var target_iceberg_color: Color
 	var target_water_color: Color
 	
-	if is_day:
+	if player_controller.is_day:
 		print("→ Transition vers JOUR")
 		target_iceberg_color = ICEBERG_COLOR_DAY      # #a4cfd5
 		target_water_color = WATER_COLOR_DAY
@@ -135,7 +129,7 @@ func toggle_day_night():
 	
 	# 3. Transition luminosité environnement
 	if worldenv:
-		var target_energy = 1.0 if is_day else 0.2
+		var target_energy = 1.0 if player_controller.is_day else 0.2
 		var tween = create_tween()
 		tween.tween_property(
 			worldenv.environment,
