@@ -18,7 +18,7 @@ Le joueur peut modifier la pièce (changer la couleur des murs, ajouter ou retir
 Les actions du joueur influencent la satisfaction des NPC, la progression, et le score final, envoyé vers la plateforme web.
 
 ### Description plus complete : 
-[Description.md](Description.md)
+voir le fichier : [Description.md](Description.md)
 <br><br>
 
 ![Aperçu du jeu](gameplay.png)
@@ -52,7 +52,8 @@ naviguer entre les salles grace a des boutons<br>
 <br>
 ### changer la couleur des mur et la luminosité :
 <br>
-![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
+
+![menu pour adapter l'atmosphere de la pièce](light_color_menu.png)
 <br>
 
 ## Technologies / Stack
