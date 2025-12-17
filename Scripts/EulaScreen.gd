@@ -10,8 +10,7 @@ extends Control
 ## @description Chemin du fichier de configuration utilisateur pour les sauvegardes et parametres.
 ## @tags config, path
 const SETTINGS_PATH = "user://game_settings.cfg"
-const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
-const EULA_TEXT_FILE = "user://legal/EULA.txt" # Fichier texte contenant la EULA
+
 
 ## @const_doc
 ## @description Chemin de la scene du Menu Principal.
@@ -21,7 +20,7 @@ const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
 ## @const_doc
 ## @description Chemin du fichier texte contenant la EULA (format BBCode recommande).
 ## @tags config, path, file_io
-const EULA_TEXT_FILE = "res://EULA.txt" 
+const EULA_TEXT_FILE = "user://legal/EULA.txt" # Fichier texte contenant la EULA
 
 # --- References de Noeuds (OnReady) ---
 ## @onready_doc
