@@ -307,6 +307,7 @@ text = "[img=300x300]res://bx-minus.svg[/img]"
 [node name="OmniLight3D" type="OmniLight3D" parent="Salles/salon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_energy = 1.5
 omni_range = 10.0
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
@@ -370,6 +371,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.96
 [node name="OmniLight3D2" type="OmniLight3D" parent="Salles/salle_de_bain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_energy = 1.5
 omni_range = 10.0
 
 [node name="cuisine" type="Node3D" parent="Salles"]
@@ -432,6 +434,7 @@ shape = SubResource("BoxShape3D_mai8y")
 [node name="OmniLight3D" type="OmniLight3D" parent="Salles/cuisine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_energy = 1.5
 omni_range = 10.0
 
 [node name="chambre" type="Node3D" parent="Salles"]
@@ -500,6 +503,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528
 [node name="OmniLight3D" type="OmniLight3D" parent="Salles/chambre"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_energy = 1.5
 omni_range = 10.0
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
@@ -571,6 +575,7 @@ transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
 [node name="OmniLight3D2" type="OmniLight3D" parent="Salles/laboratoire"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
+light_energy = 1.5
 omni_range = 10.0
 
 [node name="stockage" type="Node3D" parent="Salles"]
@@ -671,6 +676,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, 
 [connection signal="pressed" from="Salles/salon/ui_Salon/button_end_mission" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_end_mission_pressed"]
 
 [editable path="Salles/salon/ui_Salon"]
+[editable path="Salles/salon/ui_Salon/ui_color_selection"]
 [editable path="Salles/salon/ui_Salon/ui_order_furniture"]
 [editable path="Salles/salon/ui_Salon/ui_charging_bar"]
 [editable path="Salles/salon/ui_Salon/ui_inventory"]
