@@ -17,6 +17,10 @@ Le projet met l’accent sur :
 Le joueur peut modifier la pièce (changer la couleur des murs, ajouter ou retirer des meubles), et les NPC réagissent dynamiquement à ces changements.  
 Les actions du joueur influencent la satisfaction des NPC, la progression, et le score final, envoyé vers la plateforme web.
 
+### Description plus complete : 
+voir le fichier : [Description.md](Description.md)
+<br><br>
+
 ![Aperçu du jeu](gameplay.png)
 
 ## explication 
@@ -33,16 +37,23 @@ naviguer entre les salles grace a des boutons<br>
 
 ![menu changement de piece](menu_room.png)
 
-### partie inferieur
-commander des meubles :
+## partie inferieur
+<br>
+
+### commander des meubles :
+
 ![menu pour commander des meubles](order_menu.png)
 <br>
-inventaire :
+<br>
+
+### inventaire :
 ![inventaire](inventory_menu.png)
 <br>
-changer la couleur des mur et la luminosité :
 <br>
-![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
+### changer la couleur des mur et la luminosité :
+<br>
+
+![menu pour adapter l'atmosphere de la pièce](light_color_menu.png)
 <br>
 
 ## Technologies / Stack

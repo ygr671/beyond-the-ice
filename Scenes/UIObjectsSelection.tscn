@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bnelnaiqbad20" path="res://Scripts/ui_objects_selection.gd" id="1_ea02u"]
 [ext_resource type="Texture2D" uid="uid://dn71xijsbmnut" path="res://Import/Icon/undoButtonIcon.png" id="5_7vsoc"]
 [ext_resource type="Theme" uid="uid://cqfsa4k60p8td" path="res://Themes/Button/button.tres" id="5_p3gva"]
-[ext_resource type="PackedScene" uid="uid://d02wx3ltd6hoj" path="res://Scenes/ui_color_selection.tscn" id="7_gngrj"]
+[ext_resource type="PackedScene" uid="uid://d02wx3ltd6hoj" path="res://Scenes/ui_room_settings.tscn" id="7_gngrj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fyeh"]
 bg_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
