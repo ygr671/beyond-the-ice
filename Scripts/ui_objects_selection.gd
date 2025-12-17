@@ -13,6 +13,11 @@ extends Control
 @onready var main_controller = get_tree().get_current_scene()
 
 ## @onready_doc
+## @description reference au label d'icone a afficher lorsqu'il fait nuit pour dire quon ne peut pas faire de livrasions
+@onready var delivery_label = $delivery_label
+@onready var line_label = $line_label
+
+## @onready_doc
 ## @description Reference au sous-menu de selection de couleur.
 ## @tags nodes, ui
 @onready var color_menu = $ui_color_selection
@@ -26,6 +31,13 @@ extends Control
 ## @description Reference au panneau d'inventaire.
 ## @tags nodes, ui
 @onready var inventory_menu = $ui_inventory
+
+
+## @onready_doc
+## @description Reference au panneau de confirmation.
+## @tags nodes, ui
+@onready var confirmation_menu = $ui_confirmation_end
+
 
 ## @onready_doc
 ## @description Liste des nœuds de salle (Room) enfants du nœud "Salles" de la scene principale.
@@ -117,6 +129,8 @@ func get_current_room():
 ## et met a jour les ItemList d'inventaire et de commande.
 ## @tags init, core
 func _ready():
+	delivery_label.focus_mode = Control.FOCUS_NONE
+	line_label.focus_mode = Control.FOCUS_NONE
 	camera = get_viewport().get_camera_3d()
 	#load_furnitures_from_directory("user://furnitures") POUR L'EXPORT FINAL
 	load_furnitures_from_directory("res://Meshes")
@@ -237,6 +251,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		color_menu.hide()
 		order_menu.hide()
 		inventory_menu.hide()
+		confirmation_menu.hide()
 		if placing:
 			can_place = false
 			placing = false
@@ -476,6 +491,7 @@ func _deselect_item():
 	if is_instance_valid(instance):
 		instance.queue_free()
 	color_menu.hide()
+	
 
 ## @func_doc
 ## @description Affiche le menu de selection de couleur et masque les autres menus UI.
@@ -484,6 +500,7 @@ func _on_button_open_color_pressed() -> void:
 	color_menu.show()
 	order_menu.hide()
 	inventory_menu.hide()
+	confirmation_menu.hide()
 
 
 ## @func_doc
@@ -492,6 +509,13 @@ func _on_button_open_color_pressed() -> void:
 func cycle():
 	if main_controller and main_controller.has_method("toggle_day_night"):
 		main_controller.toggle_day_night()
+		if !player_controller.is_day:
+			delivery_label.show()
+			line_label.show()
+		else:
+			delivery_label.hide()
+			line_label.hide()
+		
 	else:
 		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
 

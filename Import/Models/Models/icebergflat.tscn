@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=4 uid="uid://cxrecuubwufsw"]
+[gd_scene load_steps=5 format=4 uid="uid://cxrecuubwufsw"]
+
+[ext_resource type="Script" uid="uid://cvvax3v4nm63p" path="res://Scripts/icebergflat.gd" id="1_n72dq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjkln"]
 resource_name = "Iceberg"
@@ -41,6 +43,7 @@ shadow_mesh = SubResource("ArrayMesh_48ehq")
 
 [node name="Iceberg" type="Node3D"]
 transform = Transform3D(100, 0, 0, 0, -1.1920931e-05, 100, 0, -100, -1.1920931e-05, 0, 0, 0)
+script = ExtResource("1_n72dq")
 
 [node name="Iceberg_Iceberg_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_boqda")
