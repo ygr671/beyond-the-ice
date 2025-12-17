@@ -163,6 +163,10 @@ offset_top = -113.0
 offset_right = 1030.0
 offset_bottom = -42.0
 
+[node name="ui_color_selection" parent="Salles/salon/ui_Salon" index="3"]
+offset_top = -200.0
+offset_bottom = 50.0
+
 [node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
 offset_left = 699.0
 offset_top = 967.0
@@ -272,20 +276,28 @@ offset_bottom = 902.0
 theme_override_font_sizes/font_size = 30
 text = "Finir la mission"
 
-[node name="LightMenu" type="PanelContainer" parent="Salles/salon/ui_Salon"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 529.0
-offset_top = -113.0
-offset_right = 675.0
-offset_bottom = -42.0
-grow_vertical = 0
+[node name="delivery_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 373.0
+offset_top = 876.0
+offset_right = 499.0
+offset_bottom = 1050.0
+bbcode_enabled = true
+text = "[img=128x128]res://bx-package.svg[/img]
+     no delivery"
+fit_content = true
 
-[node name="ButtonLight" type="Button" parent="Salles/salon/ui_Salon/LightMenu"]
-layout_mode = 2
-text = "light menu"
+[node name="line_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
+visible = false
+layout_mode = 0
+offset_left = 392.00006
+offset_top = 735.0
+offset_right = 751.0
+offset_bottom = 1103.0
+rotation = 0.5791199
+bbcode_enabled = true
+text = "[img=300x300]res://bx-minus.svg[/img]"
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false

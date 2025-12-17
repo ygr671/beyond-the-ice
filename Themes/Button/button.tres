@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cqfsa4k60p8td"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cqfsa4k60p8td"]
 
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_q8x5d"]
 
@@ -8,15 +8,20 @@ bg_color = Color(0.2901961, 0.39607844, 0.4862745, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_giusn"]
 bg_color = Color(0.2, 0.2, 0.2, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8x5d"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3yfk"]
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
 
 [resource]
-Button/colors/font_color = Color(0.8784314, 0.8784314, 0.8784314, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0.36, 1, 1, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/normal_mirrored = Color(0.36078432, 1, 1, 1)
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_q8x5d")
 Button/styles/hover = SubResource("StyleBoxFlat_3s2ub")
 Button/styles/normal = SubResource("StyleBoxFlat_giusn")
+Button/styles/normal_mirrored = SubResource("StyleBoxFlat_q8x5d")
 Button/styles/pressed = SubResource("StyleBoxFlat_p3yfk")

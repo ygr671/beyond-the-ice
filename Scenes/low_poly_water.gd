@@ -87,7 +87,7 @@ func get_water_shader_material() -> ShaderMaterial:
 ## @param duration: float Duree de l'animation (non utilisee dans le code actuel).
 ## @return void
 ## @tags animation, shader
-func animate_crackle_amount(target_amount: float, duration: float):
+func animate_crackle_amount(target_amount: float, _duration: float):
 	
 	if water_material == null:
 		print("ERREUR CRÉPITEMENT : water_material est null, impossible d'animer.")
