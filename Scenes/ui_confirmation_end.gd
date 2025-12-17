@@ -3,7 +3,7 @@ extends Control
 ## @onready_doc
 ## @description Référence au formulaire de confirmation de fin de partie
 ## @tags nodes, ui
-@onready var form_end_game = $"."
+@onready var form_end_game = $"../ui_confirmation_end"
 
 ## @onready_doc
 ## @description Référence au nœud de l'interface de sélection/inventaire (ce nœud lui-même).
@@ -24,6 +24,11 @@ extends Control
 ## @description Référence au panel de l'interface de commande de meubles.
 ## @tags nodes, ui
 @onready var inventory_menu = $"../ui_inventory"
+
+## @onready_doc
+## @description Référence au noeud de l'HTTPRequest pour faire des requêtes à l'API
+## @tags node, ui
+@onready var http_request = $"../../HTTPRequest"
 
 
 # TODO : commenter
@@ -55,4 +60,4 @@ func _on_button_yes_pressed() -> void:
 	# TODO : bouger cette partie vers le formulaire de saisie de nom d'utilisateur
 	var json = JSON.stringify([{}]) # TODO : remplir les données avec les données de la partie ici (nom d'utilisateur + score).
 	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json)
+	http_request.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json)

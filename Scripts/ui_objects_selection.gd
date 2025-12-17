@@ -507,18 +507,14 @@ func _on_button_open_color_pressed() -> void:
 ## @description Appelle la fonction de bascule Jour/Nuit sur le controleur principal de scene.
 ## @tags time, core
 func cycle():
-	if main_controller and main_controller.has_method("toggle_day_night"):
-		main_controller.toggle_day_night()
-		if !player_controller.is_day:
-			delivery_label.show()
-			line_label.show()
-		else:
-			delivery_label.hide()
-			line_label.hide()
-		
+	main_controller.toggle_day_night()
+	if !player_controller.is_day:
+		delivery_label.show()
+		line_label.show()
 	else:
-		print("Erreur: Le contrôleur principal n'a pas la fonction 'toggle_day_night' ou n'est pas chargé.")
-
+		delivery_label.hide()
+		line_label.hide()
+			
 ## @func_doc
 ## @description Appelle la fonction de bascule de meteo sur le controleur principal de scene.
 ## @tags time, core
