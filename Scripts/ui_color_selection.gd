@@ -110,3 +110,11 @@ func _on_black_pressed() -> void:
 	already_changed[player_controller.current_room] = true
 	player_controller.emit_signal("environment_changed", "color_changed", Color.DIM_GRAY)
 	color_menu.hide()
+
+
+func _on_h_slider_light__intensity_value_changed(value: float) -> void:
+	player_controller.emit_signal("environment_changed", "light_intensity_changed", value)
+
+
+func _on_h_slider_light_heat_value_changed(value: float) -> void:
+	player_controller.emit_signal("environment_changed", "light_heat_changed", value)

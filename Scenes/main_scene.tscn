@@ -149,6 +149,10 @@ offset_top = -113.0
 offset_right = 1030.0
 offset_bottom = -42.0
 
+[node name="ui_color_selection" parent="Salles/salon/ui_Salon" index="3"]
+offset_top = -200.0
+offset_bottom = 50.0
+
 [node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
 offset_left = 699.0
 offset_top = 967.0
