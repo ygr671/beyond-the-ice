@@ -7,7 +7,7 @@
 extends Control
 
 
-const CREDITS_TEXT_FILE = "user://legal/Credits.txt"
+#const CREDITS_TEXT_FILE = "user://legal/Credits.txt"
 ## @const_doc
 ## @description Chemin du fichier texte contenant le contenu des credits.
 ## Le fichier doit etre au format BBCode pour un affichage correct dans le RichTextLabel.

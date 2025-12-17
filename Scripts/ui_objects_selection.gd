@@ -129,12 +129,12 @@ func _ready():
 			item_list.add_item("") # Affiche vide si pas de stock
 		else:
 			item_list.add_item(str(info.stock), info.image)
-	
-	# Selectionne la premiere salle (index 0) par defaut
-	room_selection(0)
 	# Connexion au signal d'environnement (si besoin d'actions specifiques ici)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
-	
+	await get_tree().create_timer(0.2).timeout
+	_on_salon_pressed()
+
+
 ## @func_doc
 ## @description Charge recursivement les scenes de meubles depuis le repertoire specifie.
 ## Cree et peuple les ressources FurnitureInfo pour chaque meuble trouve.
@@ -399,6 +399,20 @@ func room_selection(index: int) -> void:
 		salles[i].visible = active
 		salles[i].set_process(active)
 		set_room_collision_active(salles[i], active) # Gere les collisions pour le Raycast
+	
+		var buttons = $PanelSalles/HBoxContainer.get_children()
+		for y in range(buttons.size()):
+			var button = buttons[y]
+			if button is Button:
+				if y == current_room:
+					var style = button.get_theme_stylebox("normal_mirrored", "Button")
+					button.add_theme_stylebox_override("normal", style)
+					button.add_theme_color_override("font_color", Color("5cffff"))
+				else:
+					var default_style = button.get_theme_stylebox("normal", "Button")
+					button.add_theme_stylebox_override("normal", default_style)
+					button.add_theme_color_override("font_color", Color("ffff"))
+	
 
 	await get_tree().process_frame # Attend une frame pour s'assurer des mises a jour
 
