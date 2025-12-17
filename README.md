@@ -37,14 +37,20 @@ naviguer entre les salles grace a des boutons<br>
 
 ![menu changement de piece](menu_room.png)
 
-### partie inferieur
-commander des meubles :
+## partie inferieur
+<br>
+
+### commander des meubles :
+
 ![menu pour commander des meubles](order_menu.png)
 <br>
-inventaire :
+<br>
+
+### inventaire :
 ![inventaire](inventory_menu.png)
 <br>
-changer la couleur des mur et la luminosité :
+<br>
+### changer la couleur des mur et la luminosité :
 <br>
 ![menu pour adapter la couleur des mur et l'intensité de la lumière](light_color_menu.png)
 <br>
