@@ -17,6 +17,10 @@ Le projet met l’accent sur :
 Le joueur peut modifier la pièce (changer la couleur des murs, ajouter ou retirer des meubles), et les NPC réagissent dynamiquement à ces changements.  
 Les actions du joueur influencent la satisfaction des NPC, la progression, et le score final, envoyé vers la plateforme web.
 
+### Description plus complete : 
+[Description.md](Description.md)
+<br><br>
+
 ![Aperçu du jeu](gameplay.png)
 
 ## explication 
