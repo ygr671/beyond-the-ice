@@ -46,6 +46,16 @@ Nous les remercions chaleureusement pour leur travail.
 * **Source :** [pack d'asset](https://skfb.ly/oHzns)
 * **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+### Pack d'assets "Low Poly Bathroom Assets"
+* **Créateur :** Matrixxy
+* **Source :** [pack d'asset](https://skfb.ly/p9nyx)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+### Pack d'assets "Low poly Toilet Stall"
+* **Créateur :** 200097
+* **Source :** [pack d'asset](https://skfb.ly/p9ENY)
+* **Licence :** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ### Police d'écriture "Roboto"
 * **Créateur :** Christian Robertson
 * **Source :** [Google Fonts](https://fonts.google.com/specimen/Roboto)
