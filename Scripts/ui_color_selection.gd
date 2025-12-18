@@ -137,7 +137,10 @@ func _on_black_pressed() -> void:
 	player_controller.emit_signal("environment_changed", "color_changed", Color.DIM_GRAY)
 	color_menu.hide()
 
-
+## @func_doc
+## @description Gere la modification de l'intensite lumineuse via le slider.
+## @param value_changed: bool Indique si la valeur a ete modifiee.
+## @tags ui, lights
 func _on_h_slider_light__intensity_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		var value = intensity.value
@@ -145,7 +148,11 @@ func _on_h_slider_light__intensity_drag_ended(value_changed: bool) -> void:
 		light.light_energy = remap(value, 0, 100, 0.2, 7.0)
 		player_controller.emit_signal("environment_changed", "light_intensity_changed", value)
 
-
+## @func_doc
+## @description Gere la modification de la chaleur de la lumiere via le slider.
+## Assigne une couleur predefinie (Color8) selon des paliers de valeur.
+## @param value_changed: bool Indique si la valeur a ete modifiee.
+## @tags ui, lights
 func _on_h_slider_light_heat_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		var value = heat.value

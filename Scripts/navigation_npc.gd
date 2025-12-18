@@ -1,5 +1,5 @@
 ## @class_doc
-## @description Contrôleur d'un personnage non-joueur (NPC) utilisant la navigation 3D.
+## @description Controleur d'un personnage non-joueur (NPC) utilisant la navigation 3D.
 ## Gère le déplacement autonome du PNJ, sa satisfaction en fonction des changements 
 ## d'environnement (couleurs, placement/retrait de meubles) et l'affichage d'émoticônes.
 ## @tags npc, navigation, ia, environnement

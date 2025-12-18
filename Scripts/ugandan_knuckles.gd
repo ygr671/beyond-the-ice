@@ -1,7 +1,14 @@
+## @class_doc
+## @description Gere les donnees de dialogue et le positionnement de l'interface pour Knuckles.
+## Contient une liste de repliques aleatoires et les parametres d'affichage de la bulle de texte.
+## @tags npc, dialog, data
 extends Node3D
 
 
-
+## @export_doc
+## @description Liste des lignes de dialogue que le personnage peut prononcer.
+## Ces chaines sont selectionnees de maniere aleatoire lors des interactions.
+## @tags dialog, config
 @export var dialog_lines: Array[String] = [
 	"Do you know da way?",
 	"Spit on da fake queen!",
@@ -35,5 +42,7 @@ extends Node3D
 	"A ghost?! Nooooo!"
 ]
 
-# Optionnel : définir la hauteur de la bulle de texte
+## @export_doc
+## @description Decalage 3D pour positionner la bulle de texte au-dessus du personnage.
+## @tags ui, transform, config
 @export var textbox_offset := Vector3(0, 2.5, 0)

@@ -402,7 +402,8 @@ offset_bottom = 0.11993408
 layout_mode = 2
 theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "Voici tes outils, bruddah :
-          1. [Order Furniture] pour commander des meubles (attention à l'environnement !)
+          1. [Order Furniture] pour commander des meubles (attention l'environnement 
+peut compromettre  la livraison d'un meuble)
           2. [Menu Color] pour changer les murs et la lumière.
           3. [Inventaire] pour voir tes objets stockés."
 vertical_alignment = 1
@@ -484,6 +485,7 @@ text = "
 Écoute-moi bien bruddah, 
 je vais te montrer comment fonctionne ce
 monde !\""
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="room_light" type="OmniLight3D" parent="Salles/salon"]

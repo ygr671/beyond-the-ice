@@ -31,7 +31,15 @@ const ICEBERG_COLOR_DAY := Color(0.643, 0.812, 0.835)  # #a4cfd5
 ## @description Couleur de l'iceberg pendant la nuit.
 ## @tags config, color
 const ICEBERG_COLOR_NIGHT := Color(0.219, 0.351, 0.375)
+
+## @var_doc
+## @description Indique si le tutoriel est termine.
+## @tags state, progression
 var tutorial_finished : bool = false
+
+## @onready_doc
+## @description References aux differents elements de l'interface du tutoriel et de la scene.
+## @tags nodes, ui
 @onready var t1 = $Salles/salon/ui_Salon/Tutorial1
 @onready var t2 = $Salles/salon/ui_Salon/Tutorial2
 @onready var t3 = $Salles/salon/ui_Salon/Tutorial3
@@ -51,7 +59,12 @@ var tutorial_finished : bool = false
 ## @type Iceberg
 ## @tags nodes, environment
 @onready var iceberg_node = $Iceberg as Iceberg
+
+## @onready_doc
+## @description Reference au controleur des mini icebergs.
+## @tags nodes, environment
 @onready var mini_iceberg = $Mini_iceberg as Mini_iceberg_controller
+
 ## @onready_doc
 ## @description Reference au contrôleur de l'eau (script low_poly_water.gd).
 ## @tags nodes, environment
@@ -84,7 +97,8 @@ var time_since_last_check: float = 0.0
 
 
 ## @func_doc
-## @description Initialisation de la scene: met a jour la couleur initiale de l'eau et de l'iceberg.
+## @description Initialisation de la scene: masque l'UI et lance le tutoriel.
+## Met egalement a jour les couleurs initiales de l'eau et de l'iceberg.
 ## @tags init, core
 func _ready():
 	t1.hide()
@@ -106,6 +120,11 @@ func _ready():
 	# Initialisation de la couleur de l'iceberg au Jour
 	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
 		iceberg_node.set_iceberg_color_target(ICEBERG_COLOR_DAY)
+
+## @func_doc
+## @description Execute la sequence complete du tutoriel.
+## Deplace le personnage a travers differentes etapes et affiche les messages d'aide.
+## @tags tutorial, logic
 func run_full_tutorial():
 	# Étape 0 : Position de base + Saut
 	await move_knuckles_to_step(0)
@@ -165,7 +184,9 @@ func run_full_tutorial():
 	await move_knuckles_to_step(0)
 	tutorial_finished = true
 
-# On définit les étapes (Position, Rotation Y)
+## @var_doc
+## @description Definition des etapes du tutoriel (Positions et Rotations).
+## @tags tutorial, data
 var tutorial_steps = [
 	{"pos": Vector3(-27.287, -17.151, -49.14), "rot": 37.3},  # Base
 	{"pos": Vector3(-35.7, -17.151, -24.943),   "rot": -57.0}, # T1
@@ -175,8 +196,15 @@ var tutorial_steps = [
 	{"pos": Vector3(0.098, -17.151, -46.531),   "rot": 161.6}, # T5
 	{"pos": Vector3(12.947, -56.702, 9.904),    "rotx": -19.9, "roty": 46.9, "rotz": 1.1} # T6
 ]
-@onready var knuckles = $Ugandan_Knuckles # Ajuste le chemin vers ton nœud Knuckles
 
+## @onready_doc
+## @description Reference au noeud du personnage Knuckles.
+## @tags nodes, npc
+@onready var knuckles = $Ugandan_Knuckles # Ajuste le chemin vers ton nœud Knuckles
+## @func_doc
+## @description Deplace Knuckles vers une etape specifique du tutoriel avec une transition fluide.
+## @param step_index: int L'index de l'etape dans tutorial_steps.
+## @tags tutorial, animation, movement
 func move_knuckles_to_step(step_index: int):
 	if step_index >= tutorial_steps.size():
 		return
@@ -196,7 +224,12 @@ func move_knuckles_to_step(step_index: int):
 	tween.tween_property(knuckles, "global_rotation", Vector3(rx, ry, rz), 1.2)
 	
 	await tween.finished
-	
+
+## @func_doc
+## @description Fait sautiller Knuckles sur place.
+## @param duration: float Duree d'un saut complet.
+## @param height: float Hauteur du saut.
+## @tags tutorial, animation
 func hop_knuckles(duration: float = 0.5, height: float = 1.5):
 	# On crée un tween qui va faire monter puis descendre Knuckles
 	var tween = create_tween().set_loops() # set_loops() fait que ça se répète à l'infini
@@ -210,7 +243,9 @@ func hop_knuckles(duration: float = 0.5, height: float = 1.5):
 	# Animation : Redescend
 	tween.tween_property(knuckles, "global_position:y", start_pos.y, duration / 2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
-## Attend que le joueur appuie sur le bouton gauche de la souris
+## @func_doc
+## @description Met le script en pause jusqu'a ce qu'un clic gauche de la souris soit detecte.
+## @tags tutorial, input
 func wait_for_click():
 	while true:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -220,9 +255,14 @@ func wait_for_click():
 		await get_tree().process_frame # Attend l'image suivante pour ne pas bloquer le jeu
 	
 	
-# Ajoute cette variable en haut de ton script pour gérer le temps restant
+## @var_doc
+## @description Gestionnaire de temps pour les reactions du personnage.
+## @tags internal
 var reaction_timer: SceneTreeTimer
 
+## @func_doc
+## @description Declenche une reaction aleatoire (texte et saut) lorsque Knuckles est touche.
+## @tags interaction, npc, dialog
 func trigger_random_knuckles_reaction():
 	print("Touché")
 	
@@ -254,9 +294,7 @@ func trigger_random_knuckles_reaction():
 
 
 
-## @func_doc
-## @description Initialisation de la scene: met a jour la couleur initiale de l'eau et de l'iceberg.
-## @tags init, core
+
 
 
 ## @func_doc
