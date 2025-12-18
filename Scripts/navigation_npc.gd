@@ -156,7 +156,6 @@ func _on_environment_changed(change_type, data):
 					change_satisfaction(10)
 
 		"furniture_placed":
-			print(data)
 			match data:
 				"bunk_bed":
 					if room_index == 3: #salle chambre
@@ -214,8 +213,23 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(-10)
 				"sink":
 					nb_sink+=1
-					
-		"furniture_removed":
+					if (room_index == 1 || room_index == 2) && nb_sink < 3:
+						change_satisfaction(7)
+					else:
+						change_satisfaction(-7)
+				"toilet":
+					nb_toilet+=1
+					if room_index == 1 && nb_toilet < 4:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-15)
+				"shower":
+					nb_shower+=1
+					if room_index == 1 && nb_shower < 3:
+						change_satisfaction(13)
+					else:
+						change_satisfaction(-13)
+		"furniture_removed": ##Lors de la supression d'un meuble
 			match data:
 				"bunk_bed":
 					if player_controller.current_room == 3:
@@ -270,7 +284,35 @@ func _on_environment_changed(change_type, data):
 					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
 						change_satisfaction(10)
 					else:
-						change_satisfaction(-10)		
+						change_satisfaction(-10)
+						
+						
+						
+						
+				"sink":
+					nb_sink -= 1
+					# Si bien placé ET qu'on en a encore assez (2 ou plus restants) 
+					# OU si c'était mal placé à la base -> On redonne des points
+					if ((room_index == 1 || room_index == 2) && nb_sink >= 2) || (room_index != 1 && room_index != 2):
+						change_satisfaction(7)
+					else:
+						change_satisfaction(-7)
+						
+				"toilet":
+					nb_toilet -= 1
+					if (room_index == 1 && nb_toilet >= 3) || room_index != 1:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-15)
+						
+				"shower":
+					nb_shower -= 1
+					if (room_index == 1 && nb_shower >= 2) || room_index != 1:
+						change_satisfaction(13)
+					else:
+						change_satisfaction(-13)
+	print(satisfaction	)
+						
 	player_controller.room_satisfaction[room_index] = satisfaction
 
 ## @func_doc
