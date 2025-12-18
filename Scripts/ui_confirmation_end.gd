@@ -42,7 +42,7 @@ extends Control
 
 
 # TODO : commenter
-const API_ENDPOINT = "https://127.0.0.1:8000/api/test"
+const API_ENDPOINT = "http://localhost:8000/api/players"
 
 
 ## @func_doc
@@ -67,9 +67,17 @@ func _on_button_no_pressed() -> void:
 ## @tags ui, navigation
 func _on_button_yes_pressed() -> void:
 	form_end_game.hide()
-	var json = JSON.stringify([{}]) # TODO : remplir les données avec les données de la partie ici (nom d'utilisateur + score).
+	var score = 0
+	for i in range(0, 6):
+		score += player_controller.room_satisfaction[i]
+	var json_data = JSON.stringify({
+		"username": username.text,
+		"score": score,
+		"duration": 300
+	})
+
 	var headers = ["Content-Type: application/json"]
-	http_request.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json)
+	http_request.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json_data)
 
 ## @func_doc
 ## @description Vérifie si le champ de saisie du nom d'utilisateur est vide
