@@ -30,6 +30,16 @@ extends Control
 ## @tags node, ui
 @onready var http_request = $"../../../../HTTPRequest"
 
+## @onready_doc
+## @description Référence au champ de pseudonyme
+## @tags node, ui
+@onready var username = $"Panel/username_prompt"
+
+## @onready_doc
+## @description Référence au bouton "oui"
+## @tags node, ui
+@onready var yes_button = $"Panel/yes"
+
 
 # TODO : commenter
 const API_ENDPOINT = "https://127.0.0.1:8000/api/test"
@@ -57,7 +67,23 @@ func _on_button_no_pressed() -> void:
 ## @tags ui, navigation
 func _on_button_yes_pressed() -> void:
 	form_end_game.hide()
-	# TODO : bouger cette partie vers le formulaire de saisie de nom d'utilisateur
 	var json = JSON.stringify([{}]) # TODO : remplir les données avec les données de la partie ici (nom d'utilisateur + score).
 	var headers = ["Content-Type: application/json"]
 	http_request.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json)
+
+## @func_doc
+## @description Vérifie si le champ de saisie du nom d'utilisateur est vide
+## @tags ui
+func _on_username_prompt_text_changed(new_text: String) -> void:
+	var filtered_text = ""
+	for i in range(new_text.length()):
+		var char_code = new_text.unicode_at(i)
+		if (char_code >= 48 and char_code <= 57) or (char_code >= 65 and char_code <= 90) or (char_code >= 97 and char_code <= 122): 
+			filtered_text += char(char_code)
+
+	if filtered_text != new_text:
+		username.text = filtered_text
+		username.caret_column = filtered_text.length()
+		
+	yes_button.disabled = true if filtered_text.is_empty() else false
+	 
