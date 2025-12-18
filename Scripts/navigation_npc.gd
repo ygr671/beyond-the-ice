@@ -89,6 +89,15 @@ var nb_gym = 0
 ## @var_doc
 ## @description Nombre actuel de PC setups dans la pièce.
 var nb_pc = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_toilet = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_sink = 0
+## @var_doc
+## @description Nombre actuel de PC setups dans la pièce.
+var nb_shower = 0
 
 ## @var_doc
 ## @description Timer non utilisé dans le code actuel, mais réservé pour une éventuelle gestion du temps des émojis.
@@ -214,7 +223,25 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
-		"furniture_removed":
+				"sink":
+					nb_sink+=1
+					if (room_index == 1 || room_index == 2) && nb_sink < 3:
+						change_satisfaction(7)
+					else:
+						change_satisfaction(-7)
+				"toilet":
+					nb_toilet+=1
+					if room_index == 1 && nb_toilet < 4:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-15)
+				"shower":
+					nb_shower+=1
+					if room_index == 1 && nb_shower < 3:
+						change_satisfaction(13)
+					else:
+						change_satisfaction(-13)
+		"furniture_removed": ##Lors de la supression d'un meuble
 			match data:
 				"bunk_bed":
 					if player_controller.current_room == 3:
@@ -270,6 +297,28 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
+				"sink":
+					nb_sink -= 1
+					# Si bien placé ET qu'on en a encore assez (2 ou plus restants) 
+					# OU si c'était mal placé à la base -> On redonne des points
+					if ((room_index == 1 || room_index == 2) && nb_sink >= 2) || (room_index != 1 && room_index != 2):
+						change_satisfaction(7)
+					else:
+						change_satisfaction(-7)
+						
+				"toilet":
+					nb_toilet -= 1
+					if (room_index == 1 && nb_toilet >= 3) || room_index != 1:
+						change_satisfaction(15)
+					else:
+						change_satisfaction(-15)
+						
+				"shower":
+					nb_shower -= 1
+					if (room_index == 1 && nb_shower >= 2) || room_index != 1:
+						change_satisfaction(13)
+					else:
+						change_satisfaction(-13)
 		"light_intensity_changed":
 			var base_satisfaction = light_intensity_satisfaction # On retire l'ancien bonus
 			
