@@ -17,7 +17,7 @@ Télécharger la dernière version de l'installateur via le lien officiel ci-des
 [klausnitzer.fr/BeyondTheIce] A CHANGER QUAND INOVAPERF EST UP
 
 ### 2. Lancer l'installation
-1. Une fois le téléchargement terminé, localisez le fichier 'BeyondTheIce-setup.exe' dans votre dossier *Téléchargement.
+1. Une fois le téléchargement terminé, localisez le fichier **'BeyondTheIce-setup.exe'** dans votre dossier *Téléchargement*.
 2. Double-cliquez sur le fichier pour démarrer l'installation.
 
 > **/!\ Avertissement de sécurité Windows**
