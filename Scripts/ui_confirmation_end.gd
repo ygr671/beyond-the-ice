@@ -1,3 +1,8 @@
+## @class_doc
+## @description Gestionnaire de fin de mission et d'envoi de score.
+## Ce script gere l'affichage du formulaire de fin de partie, le calcul du score total 
+## base sur la satisfaction des salles, et la communication avec l'API REST.
+## @tags ui, core, network, score
 extends Control
 
 ## @onready_doc
