@@ -326,22 +326,22 @@ func _on_environment_changed(change_type, data):
 			
 			if room_index == 1 or room_index == 3: # Sommeil / Salle de bain
 				if data < 20:
-					light_intensity_satisfaction = 15  # Idéal pour dormir
+					light_intensity_satisfaction = -10  # impossible de faire quoi que ce soit
 				elif data < 50:
-					light_intensity_satisfaction = 5   # Correct
+					light_intensity_satisfaction = 15  # Idéal dans la chambre etc...
 				elif data < 80:
-					light_intensity_satisfaction = -10 # Trop lumineux pour dormir
+					light_intensity_satisfaction = -25 # Trop lumineux 
 				else:
-					light_intensity_satisfaction = -25 # Insupportable
+					light_intensity_satisfaction = -35 # Insupportable
 			else: # Bureaux / Travail
 				if data < 30:
-					light_intensity_satisfaction = -20 # Trop sombre (danger dépression)
+					light_intensity_satisfaction = -50 # Trop sombre (danger dépression)
 				elif data < 60:
 					light_intensity_satisfaction = 5   # Moyen
 				elif data < 90:
-					light_intensity_satisfaction = 20  # Optimal pour la concentration
+					light_intensity_satisfaction = 25  # Optimal pour la concentration
 				else:
-					light_intensity_satisfaction = 10  # Un peu trop éblouissant
+					light_intensity_satisfaction = 15  # Un peu trop éblouissant
 					
 			change_satisfaction(light_intensity_satisfaction- base_satisfaction)
 		"light_heat_changed":
@@ -349,20 +349,20 @@ func _on_environment_changed(change_type, data):
 			
 	
 			if room_index == 1 or room_index == 3: # Chambres / SDB (Détente)
-				if data < 30:
-					light_heat_satisfaction = -20 # Lumière bleue le soir = insomnie
+				if data < 40:
+					light_heat_satisfaction = 25 # Lumière rouge = relaxation
 				elif data < 60:
 					light_heat_satisfaction = 5   # Neutre
 				else:
-					light_heat_satisfaction = 20  # Lumière chaude : parfait pour se relaxer
+					light_heat_satisfaction = -30  # Lumière froide : insomnie
 					
 			else: # Bureaux / Laboratoires (Travail)
-				if data < 40:
-					light_heat_satisfaction = 25  # Lumière froide : booste la productivité
-				elif data < 70:
+				if data < 30:
+					light_heat_satisfaction = -20  # Lumière trop orange : donne envie de dormir au travail 
+				elif data < 60:
 					light_heat_satisfaction = 0   # Neutre
 				else:
-					light_heat_satisfaction = -15 # Lumière trop orange : donne envie de dormir au travail
+					light_heat_satisfaction = 25 # Lumière froide : booste la productivité
 			
 			change_satisfaction(light_heat_satisfaction - base_satisfaction)
 			
