@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
-[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scripts/ui_confirmation_end.gd" id="6_5oxhp"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
@@ -305,7 +305,7 @@ text = "[img=300x300]res://bx-minus.svg[/img]"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294967294
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
@@ -370,7 +370,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.96
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294967294
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
@@ -434,7 +434,7 @@ shape = SubResource("BoxShape3D_mai8y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294967294
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
@@ -503,7 +503,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528
 [node name="room_light" type="OmniLight3D" parent="Salles/chambre"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
@@ -576,7 +576,7 @@ transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294967294
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="stockage" type="Node3D" parent="Salles"]
 
@@ -642,7 +642,7 @@ transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294966274
-omni_range = 10.0
+omni_range = 150.0
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
 transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
