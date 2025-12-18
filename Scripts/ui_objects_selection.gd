@@ -409,6 +409,7 @@ func set_room_collision_active(room, active: bool):
 ## @tags room, navigation, core
 func room_selection(index: int) -> void:
 	player_controller.current_room = index
+	color_menu.update_hsliders()
 	for i in range(salles.size()-1):
 		var active = (i == index)
 		salles[i].visible = active
