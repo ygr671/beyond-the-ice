@@ -42,9 +42,9 @@ const ICEBERG_COLOR_NIGHT := Color(0.219, 0.351, 0.375)
 
 ## @onready_doc
 ## @description Reference au contrôleur de l'iceberg (script Iceberg_controller.gd).
-## @type Iceberg_controller
+## @type Iceberg
 ## @tags nodes, environment
-@onready var iceberg_node = $Iceberg as Iceberg_controller
+@onready var iceberg_node = $Iceberg as Iceberg
 @onready var mini_iceberg = $Mini_iceberg as Mini_iceberg_controller
 ## @onready_doc
 ## @description Reference au contrôleur de l'eau (script low_poly_water.gd).
@@ -60,12 +60,6 @@ const ICEBERG_COLOR_NIGHT := Color(0.219, 0.351, 0.375)
 ## @description Reference a la barre de chargement UI (situee dans la salle du salon).
 ## @tags nodes, ui
 @onready var ui_charging_bar = $Salles/salon/ui_Salon/ui_charging_bar
-
-
-## @var_doc
-## @description Etat actuel: Jour (true) ou Nuit (false).
-## @tags state, time
-var is_day: bool = true
 
 ## @var_doc
 ## @description Etat actuel de la météo: Beau temps (true) ou Mauvais temps (false).
@@ -90,9 +84,7 @@ func _ready():
 	# Initialisation de la couleur de l'eau au Jour
 	if water_node and water_node.has_method("set_water_color_target"):
 		water_node.set_water_color_target(WATER_COLOR_DAY)
-	else:
-		print("ERREUR CRITIQUE: Le nœud d'eau ($LowPolyWater) est trouvé, mais le script Low_poly_water.gd est manquant ou n'a pas la fonction 'set_water_color_target'.")
-		
+	
 	# Initialisation de la couleur de l'iceberg au Jour
 	if iceberg_node and iceberg_node.has_method("set_iceberg_color_target"):
 		iceberg_node.set_iceberg_color_target(ICEBERG_COLOR_DAY)
@@ -104,38 +96,30 @@ func _ready():
 ## @return void
 ## @tags time, environment, animation
 func toggle_day_night():
-	print("\n=== toggle_day_night() appelé ===")
-	
-	is_day = !is_day
+	player_controller.is_day = !player_controller.is_day
 	
 	var target_iceberg_color: Color
 	var target_water_color: Color
 	
-	if is_day:
-		print("→ Transition vers JOUR")
+	if player_controller.is_day:
 		target_iceberg_color = ICEBERG_COLOR_DAY      # #a4cfd5
 		target_water_color = WATER_COLOR_DAY
 	else:
-		print("→ Transition vers NUIT")
 		target_iceberg_color = ICEBERG_COLOR_NIGHT    # #060f11
 		target_water_color = WATER_COLOR_NIGHT
 	
 	# 1. Transition iceberg - CORRECTION ICI
 	if iceberg_node:
-		print("Changement couleur iceberg vers: ", target_iceberg_color)
 		iceberg_node.set_iceberg_color(target_iceberg_color)
 		mini_iceberg.set_mini_iceberg_color(target_iceberg_color)
 		
-	else:
-		print("✗ iceberg_node est null!")
-	
 	# 2. Transition eau
 	if water_node and water_node.has_method("set_water_color_target"):
 		water_node.set_water_color_target(target_water_color)
 	
 	# 3. Transition luminosité environnement
 	if worldenv:
-		var target_energy = 1.0 if is_day else 0.2
+		var target_energy = 1.0 if player_controller.is_day else 0.2
 		var tween = create_tween()
 		tween.tween_property(
 			worldenv.environment,
@@ -161,19 +145,8 @@ func toggle_good_bad_weather():
 		# Mauvais temps (agitée)
 		water_node.animate_crackle_amount(1.5, 1.0) # Augmente l'agitation
 		snow_node.speed_scale = 5 # Augmente la vitesse des particules de neige
-		print("NOT GOOD")
 		
 	else:
 		# Beau temps (calme)
 		water_node.animate_crackle_amount(0.4, 1.0) # Normalise l'agitation
 		snow_node.speed_scale = 1 # Normalise la vitesse de la neige
-		print("GOOD")
-
-	if not is_good_weather:
-		print("ALERTE MÉTÉO : Mauvais temps (Crépitement activé)")
-	else:
-		print("ALERTE MÉTÉO : Retour au beau temps")
-
-
-func _on_button_no_pressed() -> void:
-	pass # Replace with function body.

@@ -47,10 +47,22 @@ var satisfaction = 50
 var real_satisfaction = satisfaction
 
 ## @var_doc
+## @description Valeur de satisfaction du pnj par rapport a l'intensité de la lumiere
+## @tags state
+var light_intensity_satisfaction = 0
+
+## @var_doc
+## @description Valeur de satisfaction du pnj par rapport a la chaleur de la lumiere
+## @tags state
+var light_heat_satisfaction = 0
+
+## @var_doc
 ## @description Index de la salle où se trouve actuellement le PNJ.
 ## Utilisé pour les vérifications de pertinence des meubles.
 ## @tags state, room
 var room_index: int = 0
+
+
 
 
 ## @var_doc
@@ -114,7 +126,7 @@ func change_satisfaction(valeur: int):
 		satisfaction = 0
 	else:
 		satisfaction = 100
-		
+
 	var current_emoji_text = emoji
 	# Logique pour changer l'émoji en fonction de la valeur de changement
 	if valeur >= 15:
@@ -126,7 +138,7 @@ func change_satisfaction(valeur: int):
 		current_emoji_text = "😟" # Petite tristesse
 	elif valeur <= -15:
 		current_emoji_text = "🤬" # Grande colère
-		
+			
 	show_animated_emoji(current_emoji_text, self)
 
 ## @func_doc
@@ -285,10 +297,6 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
-						
-						
-						
-						
 				"sink":
 					nb_sink -= 1
 					# Si bien placé ET qu'on en a encore assez (2 ou plus restants) 
@@ -311,8 +319,52 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(13)
 					else:
 						change_satisfaction(-13)
-	print(satisfaction	)
-						
+		"light_intensity_changed":
+			var base_satisfaction = light_intensity_satisfaction # On retire l'ancien bonus
+			
+			if room_index == 1 or room_index == 3: # Sommeil / Salle de bain
+				if data < 20:
+					light_intensity_satisfaction = 15  # Idéal pour dormir
+				elif data < 50:
+					light_intensity_satisfaction = 5   # Correct
+				elif data < 80:
+					light_intensity_satisfaction = -10 # Trop lumineux pour dormir
+				else:
+					light_intensity_satisfaction = -25 # Insupportable
+			else: # Bureaux / Travail
+				if data < 30:
+					light_intensity_satisfaction = -20 # Trop sombre (danger dépression)
+				elif data < 60:
+					light_intensity_satisfaction = 5   # Moyen
+				elif data < 90:
+					light_intensity_satisfaction = 20  # Optimal pour la concentration
+				else:
+					light_intensity_satisfaction = 10  # Un peu trop éblouissant
+					
+			change_satisfaction(light_intensity_satisfaction- base_satisfaction)
+		"light_heat_changed":
+			var base_satisfaction = light_heat_satisfaction
+			
+	
+			if room_index == 1 or room_index == 3: # Chambres / SDB (Détente)
+				if data < 30:
+					light_heat_satisfaction = -20 # Lumière bleue le soir = insomnie
+				elif data < 60:
+					light_heat_satisfaction = 5   # Neutre
+				else:
+					light_heat_satisfaction = 20  # Lumière chaude : parfait pour se relaxer
+					
+			else: # Bureaux / Laboratoires (Travail)
+				if data < 40:
+					light_heat_satisfaction = 25  # Lumière froide : booste la productivité
+				elif data < 70:
+					light_heat_satisfaction = 0   # Neutre
+				else:
+					light_heat_satisfaction = -15 # Lumière trop orange : donne envie de dormir au travail
+			
+			change_satisfaction(light_heat_satisfaction - base_satisfaction)
+			
+			
 	player_controller.room_satisfaction[room_index] = satisfaction
 
 ## @func_doc

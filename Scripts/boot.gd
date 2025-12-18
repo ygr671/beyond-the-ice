@@ -30,7 +30,6 @@ const MAIN_MENU_SCENE = "res://Scenes/MainMenu.tscn"
 ## La redirection vers la scene appropriee est declenchee de maniere differee.
 ## @tags init, core
 func _ready():
-	print(OS.get_user_data_dir())
 	var config = ConfigFile.new()
 	var err = config.load(SETTINGS_PATH)
 	var eula_accepted = false

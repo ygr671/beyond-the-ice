@@ -54,7 +54,6 @@ func _ready():
 func get_water_shader_material() -> ShaderMaterial:
 	
 	if water_mesh == null:
-		print("ERREUR : MeshInstance3D enfant non trouvé ! Vérifiez le nom '$MeshInstance3D'")
 		return null
 		
 	var material: Material = null
@@ -72,11 +71,6 @@ func get_water_shader_material() -> ShaderMaterial:
 		water_mesh.set_surface_override_material(0, duplicated_material)
 		return duplicated_material
 	else:
-		# Gestion des erreurs si le material n'est pas un ShaderMaterial ou est manquant
-		if material != null:
-			print("ERREUR LowPolyWater : Matériau trouvé ({material.get_class()}) n'est pas un ShaderMaterial.")
-		else:
-			print("ERREUR LowPolyWater : Aucun matériau trouvé à l'index 0 du maillage.")
 		return null
 		
 ## @func_doc
@@ -88,12 +82,6 @@ func get_water_shader_material() -> ShaderMaterial:
 ## @return void
 ## @tags animation, shader
 func animate_crackle_amount(target_amount: float, _duration: float):
-	
-	if water_material == null:
-		print("ERREUR CRÉPITEMENT : water_material est null, impossible d'animer.")
-		return
-	print("Crépitement")
-
 	# Application directe du paramètre (sans animation Tween)
 	water_material.set_shader_parameter("amount", target_amount)
 	

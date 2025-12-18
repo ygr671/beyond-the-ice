@@ -10,6 +10,12 @@ extends Control
 ## @description Référence au nœud de contrôle principal de ce menu de sélection de couleur.
 ## @tags nodes, ui
 @onready var color_menu = $"."
+@onready var salles = $"../../../"
+@onready var intensity = $"HSlider_light _intensity"
+
+@onready var heat = $HSlider_light_heat
+
+var light : OmniLight3D
 
 ## @var_doc
 ## @description Tableau de booléens indiquant si la couleur d'une piece a deja ete changee.
@@ -112,9 +118,17 @@ func _on_black_pressed() -> void:
 	color_menu.hide()
 
 
-func _on_h_slider_light__intensity_value_changed(value: float) -> void:
-	player_controller.emit_signal("environment_changed", "light_intensity_changed", value)
+func _on_h_slider_light__intensity_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		var value = intensity.value
+		light = salles.get_child(player_controller.current_room).get_node("room_light")
+		light.light_energy = remap(value, 0, 100, 0.2, 7.0)
+		player_controller.emit_signal("environment_changed", "light_intensity_changed", value)
 
 
-func _on_h_slider_light_heat_value_changed(value: float) -> void:
-	player_controller.emit_signal("environment_changed", "light_heat_changed", value)
+func _on_h_slider_light_heat_drag_ended(value_changed: bool) -> void:
+	if value_changed:
+		var value = heat.value
+		light = salles.get_child(player_controller.current_room).get_node("room_light")
+		light.light_temperature = remap(value, 0.0, 100.0, 2000.0, 8000.0)
+		player_controller.emit_signal("environment_changed", "light_heat_changed", value)
