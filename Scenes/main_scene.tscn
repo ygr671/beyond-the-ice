@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
-[ext_resource type="Script" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scripts/ui_confirmation_end.gd" id="6_5oxhp"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
@@ -224,7 +224,6 @@ text = "      Livraison abandonné,
 conditions météo défavorables"
 
 [node name="ui_confirmation_end" type="Control" parent="Salles/salon/ui_Salon"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -275,10 +274,10 @@ text = "Oui"
 
 [node name="no" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 330.0
-offset_right = 574.0
-offset_bottom = 408.0
+offset_left = 20.0
+offset_top = 326.0
+offset_right = 575.0
+offset_bottom = 404.0
 theme_override_font_sizes/font_size = 28
 text = "Non"
 
@@ -288,7 +287,7 @@ offset_left = 325.0
 offset_top = 186.0
 offset_right = 1122.0
 offset_bottom = 253.0
-placeholder_text = "ygr671"
+placeholder_text = "Notez 5 étoiles"
 
 [node name="Label" type="Label" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0

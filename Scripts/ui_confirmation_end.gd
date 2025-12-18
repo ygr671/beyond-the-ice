@@ -42,7 +42,7 @@ extends Control
 
 
 # TODO : commenter
-const API_ENDPOINT = "http://localhost:8000/api/players"
+const API_ENDPOINT = "http://beyond-the-ice.klausnitzer.fr/api/players"
 
 
 ## @func_doc
@@ -78,6 +78,7 @@ func _on_button_yes_pressed() -> void:
 
 	var headers = ["Content-Type: application/json"]
 	http_request.request(API_ENDPOINT, headers, HTTPClient.METHOD_POST, json_data)
+	
 
 ## @func_doc
 ## @description Vérifie si le champ de saisie du nom d'utilisateur est vide
