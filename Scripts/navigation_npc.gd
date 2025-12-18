@@ -153,19 +153,63 @@ func _on_environment_changed(change_type, data):
 		return
 	match change_type:
 		"color_changed":
-			match data:   # data = Color
-				Color.DARK_ORANGE:
-					change_satisfaction(10)
-				Color.DARK_RED:
-					change_satisfaction(-10)
-				Color.DARK_GRAY:
-					change_satisfaction(-8)
-				Color.WHITE_SMOKE:
-					change_satisfaction(-15)
-				Color.DIM_GRAY:
-					change_satisfaction(-8)
-				Color.DARK_GREEN:
-					change_satisfaction(10)
+			var points = 0
+			match room_index:
+				0: # SALON (Confort & Vie sociale)
+					match data:
+						Color.DARK_ORANGE: points = 15  # Effet feu de cheminée
+						Color.DARK_GREEN:  points = 8   # Rappelle la nature (rare au pôle sud)
+						Color.DARK_RED:    points = -2  # Un peu trop agressif
+						Color.DARK_GRAY:   points = -8  # Triste
+						Color.DIM_GRAY:    points = -12 # Déprimant
+						Color.WHITE_SMOKE: points = -15 # Trop froid/clinique
+
+				1: # SDB (Hygiène & Réveil)
+					match data:
+						Color.WHITE_SMOKE: points = 12  # Sensation de propre
+						Color.DARK_GREEN:  points = 6   # Ambiance "Spa"
+						Color.DARK_ORANGE: points = 4   # Agréable le matin
+						Color.DIM_GRAY:    points = -4  # On voit mal la saleté
+						Color.DARK_GRAY:   points = -6
+						Color.DARK_RED:    points = -10 # Inquiétant dans une douche !
+
+				2: # CUISINE (Énergie & Préparation)
+					match data:
+						Color.DARK_ORANGE: points = 12  # Appétissant
+						Color.DARK_GREEN:  points = 8   # Évoque les légumes frais
+						Color.WHITE_SMOKE: points = 5   # Pratique pour cuisiner
+						Color.DARK_RED:    points = -2  
+						Color.DIM_GRAY:    points = -8  # Donne une impression de nourriture périmée
+						Color.DARK_GRAY:   points = -10
+
+				3: # CHAMBRE (Repos & Rythme Circadien)
+					match data:
+						Color.DARK_RED:    points = 12  # Aide à l'endormissement (pas de lumière bleue)
+						Color.DARK_ORANGE: points = 10  # Chaleureux
+						Color.DARK_GREEN:  points = 4   # Apaisant
+						Color.DARK_GRAY:   points = -5  # Lugubre
+						Color.DIM_GRAY:    points = -10
+						Color.WHITE_SMOKE: points = -20 # Horrible (bloque le sommeil au pôle)
+
+				4: # LABO (Concentration & Précision)
+					match data:
+						Color.WHITE_SMOKE: points = 15  # Idéal pour voir les échantillons
+						Color.DARK_GREEN:  points = 7   # Calme les nerfs durant les calculs
+						Color.DARK_GRAY:   points = 2   # Neutre
+						Color.DIM_GRAY:    points = -2
+						Color.DARK_ORANGE: points = -8  # Trop chaleureux, on s'endort
+						Color.DARK_RED:    points = -12 # Fatigue visuelle intense
+
+				5: # STOCKAGE (Logistique & Sécurité)
+					match data:
+						Color.DARK_RED:    points = 10  # Code couleur sécurité/nuit
+						Color.DIM_GRAY:    points = 6   # Utilitaire
+						Color.DARK_GRAY:   points = 4   # Utilitaire
+						Color.WHITE_SMOKE: points = 2   # Pratique mais énergivore
+						Color.DARK_GREEN:  points = -5  # Difficile de distinguer les étiquettes
+						Color.DARK_ORANGE: points = -8  # On dirait qu'il y a un début d'incendie
+
+			change_satisfaction(points)
 
 		"furniture_placed":
 			match data:
@@ -348,7 +392,7 @@ func _on_environment_changed(change_type, data):
 			var base_satisfaction = light_heat_satisfaction
 			
 	
-			if room_index == 1 or room_index == 3: # Chambres / SDB (Détente)
+			if room_index == 1 or room_index == 3 or room_index == 0: # Chambres / SDB (Détente)
 				if data < 40:
 					light_heat_satisfaction = 25 # Lumière rouge = relaxation
 				elif data < 60:
