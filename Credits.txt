@@ -41,7 +41,17 @@
 
 [b]Pack d'assets :[/b] “Low-poly radiator”
 [b]Créateur :[/b] pino
+[b]Source :[/b] [url=https://skfb.ly/p9nyx]https://skfb.ly/p9nyx[/url]
+[b]Licence :[/b] Creative Commons CC BY 4.0
+
+[b]Pack d'assets :[/b] "Low Poly Bathroom Assets”
+[b]Créateur :[/b] Matrixxy
 [b]Source :[/b] [url=https://skfb.ly/oHzns]https://skfb.ly/oHzns[/url]
+[b]Licence :[/b] Creative Commons CC BY 4.0
+
+[b]Pack d'assets :[/b] “Low poly Toilet Stall”
+[b]Créateur :[/b] 200097
+[b]Source :[/b] [url=https://skfb.ly/p9ENY]https://skfb.ly/p9ENY[/url]
 [b]Licence :[/b] Creative Commons CC BY 4.0
 
 [b]Police d'écriture :[/b] "Roboto"

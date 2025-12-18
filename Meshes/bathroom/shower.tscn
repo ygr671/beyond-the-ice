@@ -116,7 +116,7 @@ shadow_mesh = SubResource("ArrayMesh_hds3d")
 size = Vector3(216.54846, 390.88455, 227.50217)
 
 [node name="shower" type="Node3D"]
-transform = Transform3D(0.009, 0, 0, 0, 0.009, 0, 0, 0, 0.009, 0, 0, 0)
+transform = Transform3D(-4.2415018e-06, 0, 0.008999998, 0, 0.008999999, 0, -0.008999998, 0, -4.2415018e-06, 0, 0, 0)
 script = ExtResource("1_oj5bt")
 
 [node name="left_glass" type="MeshInstance3D" parent="."]
