@@ -156,7 +156,7 @@ func _on_furniture_ordered(index: int):
 	# Mise a jour du stock et de l'affichage de l'inventaire en cas de succes
 	if rand == 1:
 		furniture_list[index].stock += furniture_list[index].restock_count
-		item_list.set_item_text(index, furniture_list[index].name + " (" + str(furniture_list[index].stock) + ")")
+		item_list.set_item_text(index, str(furniture_list[index].stock))
 
 ## @func_doc
 ## @description Initialise et demarre la barre de progression.

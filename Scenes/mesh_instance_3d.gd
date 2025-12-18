@@ -65,7 +65,6 @@ func _ready():
 ## @tags animation, shader
 func set_water_color_target(new_color: Color):
 	if water_material == null:
-		print("ERREUR : Impossible de changer la couleur, water_material est null")
 		return
 	
 	# Récupérer la couleur actuelle du shader

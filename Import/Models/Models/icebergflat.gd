@@ -11,10 +11,7 @@ var iceberg_material: ShaderMaterial = null
 func _ready():
 	# 2. Appel de la fonction de récupération robuste
 	iceberg_material = get_iceberg_material()
-	
-	if iceberg_material == null:
-		print("ERREUR Iceberg : Le ShaderMaterial n'a pas pu être préparé pour l'animation.")
-		# Le script s'arrêtera silencieusement dans set_iceberg_color_target si le matériau est null.
+
 
 
 # SUPPRESSION des fonctions find_iceberg_mesh() pour éviter les conflits et simplifier.
@@ -45,12 +42,6 @@ func get_iceberg_material() -> ShaderMaterial:
 			
 		return duplicated_material
 	else:
-		# Afficher le type de matériau trouvé, si un matériau existe.
-		if material != null:
-			print("ERREUR Iceberg : Matériau trouvé ({material.get_class()}) n'est pas un ShaderMaterial. Assurez-vous d'utiliser votre shader.")
-		else:
-			print("ERREUR Iceberg : Aucun matériau trouvé à l'index 0 du maillage.")
-			
 		return null
 
 

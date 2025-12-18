@@ -80,5 +80,6 @@ conditions météo défavorables"
 [connection signal="pressed" from="OrderMenu/Button_order" to="ui_order_furniture" method="_on_button_order_pressed"]
 [connection signal="item_selected" from="ui_order_furniture/Panel/ItemList" to="ui_order_furniture" method="_on_item_list_item_selected"]
 
+[editable path="ui_color_selection"]
 [editable path="ui_order_furniture"]
 [editable path="ui_charging_bar"]

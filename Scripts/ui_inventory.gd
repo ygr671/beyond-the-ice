@@ -47,4 +47,3 @@ func _on_button_inventory_pressed() -> void:
 	color_menu.hide()
 	order_menu.hide()
 	confirmation_menu.hide()
-	

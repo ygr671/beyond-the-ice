@@ -16,16 +16,11 @@ func _ready():
 		iceberg_material = iceberg_mesh.get_surface_override_material(0)
 		if iceberg_material == null and iceberg_mesh.mesh:
 			iceberg_material = iceberg_mesh.mesh.surface_get_material(0)
-		
-		if iceberg_material:
-			print("✓ Matériau mini_iceberg chargé")
-		else:
-			print("✗ Aucun matériau trouvé sur l'iceberg")
+	
 
 # Fonction publique pour changer la couleur
 func set_mini_iceberg_color(new_color: Color):
 	if iceberg_material == null:
-		print("ERREUR: Matériau iceberg non disponible")
 		return
 	
 	var current_color = iceberg_material.albedo_color

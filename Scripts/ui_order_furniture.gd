@@ -67,7 +67,6 @@ func _on_button_order_pressed() -> void:
 ## @return void
 ## @tags ui, core, signal, time
 func _on_item_list_item_selected(index: int) -> void:
-	print(processing) # Debug
 	
 	# 1. Verification de la restriction
 	if processing:
