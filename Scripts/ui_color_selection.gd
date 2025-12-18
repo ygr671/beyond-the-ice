@@ -31,6 +31,26 @@ func _ready() -> void:
 	already_changed.fill(false)
 
 ## @func_doc
+## @update des hsliders a la veleur actuelle de la salle dans laquelle on se trouve
+## @tags update
+func update_hsliders() -> void:
+	light = salles.get_child(player_controller.current_room).get_node("room_light")
+	intensity.value =  remap(light.light_energy, 0.2, 7.0, 0, 100)
+	
+	if light.light_color == Color8(255, 200, 180) :
+		heat.value = 10
+		
+	elif light.light_color == Color8(255, 240, 220):
+			heat.value = 30
+		
+	elif light.light_color == Color8(255, 255, 255):
+			heat.value = 50
+	elif light.light_color == Color8(220, 240, 255):
+			heat.value = 70
+	else:
+		heat.value = 90
+	
+## @func_doc
 ## @description Appelé lors de l'appui sur un bouton générique de fermeture/validation (si présent).
 ## Masque le menu de sélection de couleur.
 ## @tags ui
