@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
-[ext_resource type="Script" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scripts/ui_confirmation_end.gd" id="6_5oxhp"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
@@ -243,8 +243,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 341.0
-offset_top = 173.0
-offset_right = -418.0
+offset_top = 493.0
+offset_right = -429.0
 offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -265,21 +265,42 @@ horizontal_alignment = 1
 
 [node name="yes" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 652.0
-offset_right = 1145.0
-offset_bottom = 730.0
+offset_left = 584.0
+offset_top = 326.0
+offset_right = 1124.0
+offset_bottom = 404.0
 theme_override_font_sizes/font_size = 28
+disabled = true
 text = "Oui"
 
 [node name="no" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 652.0
-offset_right = 568.0
-offset_bottom = 730.0
+offset_left = 19.0
+offset_top = 330.0
+offset_right = 574.0
+offset_bottom = 408.0
 theme_override_font_sizes/font_size = 28
 text = "Non"
+
+[node name="username_prompt" type="LineEdit" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 186.0
+offset_right = 1122.0
+offset_bottom = 253.0
+placeholder_text = "ygr671"
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 191.0
+offset_right = 313.0
+offset_bottom = 246.0
+theme_override_fonts/font = ExtResource("6_8edxt")
+theme_override_font_sizes/font_size = 46
+text = "Pseudonyme :"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
 layout_mode = 1
@@ -714,6 +735,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, 
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
+[connection signal="text_changed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/username_prompt" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_username_prompt_text_changed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_inventory/Panel/Button" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_pressed"]
