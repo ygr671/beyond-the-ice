@@ -152,7 +152,7 @@ theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_h33ay")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kbxwo")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x57wl")
-text = "TUTORIEL"
+text = "CONTEXTE"
 
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2

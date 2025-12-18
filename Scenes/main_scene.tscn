@@ -832,7 +832,7 @@ light_cull_mask = 4294966274
 omni_range = 150.0
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
-transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
+transform = Transform3D(0.73674, -0.275064, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750598, 0.67838573, 13.224647, 10.952124, 13.990914)
 attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
