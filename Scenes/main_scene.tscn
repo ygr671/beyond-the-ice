@@ -214,7 +214,6 @@ theme_override_colors/font_color = Color(0.8681116, 0.9169801, 0.9801639, 1)
 theme_override_font_sizes/font_size = 75
 
 [node name="failure" parent="Salles/salon/ui_Salon/ui_charging_bar" index="3"]
-visible = true
 offset_left = 96.0
 offset_top = 110.0
 offset_right = 1217.0

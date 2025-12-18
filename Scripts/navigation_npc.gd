@@ -324,7 +324,7 @@ func _on_environment_changed(change_type, data):
 		"light_intensity_changed":
 			var base_satisfaction = light_intensity_satisfaction # On retire l'ancien bonus
 			
-			if room_index == 1 or room_index == 3: # Sommeil / Salle de bain
+			if room_index == 1 or room_index == 3 or room_index == 0: # Sommeil / Salle de bain
 				if data < 20:
 					light_intensity_satisfaction = -10  # impossible de faire quoi que ce soit
 				elif data < 50:
