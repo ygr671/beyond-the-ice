@@ -94,6 +94,7 @@ environment = SubResource("Environment_drdnd")
 [node name="Salles" type="Node3D" parent="."]
 
 [node name="salon" type="Node3D" parent="Salles"]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
@@ -583,11 +584,9 @@ light_cull_mask = 4294967294
 omni_range = 10.0
 
 [node name="stockage" type="Node3D" parent="Salles"]
-visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/stockage"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_negative = true
+transform = Transform3D(0.41918242, -0.6798369, 0.601754, 0.5700946, 0.7129323, 0.4083132, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
