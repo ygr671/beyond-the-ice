@@ -194,8 +194,9 @@ func _on_environment_changed(change_type, data):
 					nb_chair+=1
 					if(nb_chair < 15):
 						change_satisfaction(2)
-					else:
+					if(nb_chair>=25):
 						change_satisfaction(-2)
+						#si on a + de 15 chaise c'est pas derangeant mais pas specialement bien non plus mais plus de 25 c'est derangeant
 				"table":
 					nb_table+=1
 					if room_index == 0 || room_index == 2:
@@ -266,10 +267,11 @@ func _on_environment_changed(change_type, data):
 						change_satisfaction(-8)
 				"wheel_chair", "chair":
 					nb_chair-=1
-					if(nb_chair >= 14):
-						change_satisfaction(2)
-					else:
+					if(nb_chair < 14):
 						change_satisfaction(-2)
+					if(nb_chair >= 25):
+						change_satisfaction(2)
+					
 				"table":
 					nb_table-=1
 					if room_index == 0 || room_index == 2:

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
-[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scripts/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="Script" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]

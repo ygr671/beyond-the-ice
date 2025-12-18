@@ -132,7 +132,7 @@ func _on_h_slider_light_heat_drag_ended(value_changed: bool) -> void:
 		light = salles.get_child(player_controller.current_room).get_node("room_light")
 		
 		if value <= 20:
-	# Un blanc très chaud (teinté orange) au lieu d'un rouge pur
+	# Un blanc très chaud (teinté orange)
 			light.light_color = Color8(255, 200, 180) 
 		elif value <= 40:
 			# Un blanc crème
