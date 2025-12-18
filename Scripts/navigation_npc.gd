@@ -157,8 +157,8 @@ func _on_environment_changed(change_type, data):
 			match room_index:
 				0: # SALON (Confort & Vie sociale)
 					match data:
-						Color.DARK_ORANGE: points = 15  # Effet feu de cheminée
-						Color.DARK_GREEN:  points = 8   # Rappelle la nature (rare au pôle sud)
+						Color.DARK_ORANGE: points = 18  # Effet feu de cheminée
+						Color.DARK_GREEN:  points = 13   # Rappelle la nature (rare au pôle sud)
 						Color.DARK_RED:    points = -2  # Un peu trop agressif
 						Color.DARK_GRAY:   points = -8  # Triste
 						Color.DIM_GRAY:    points = -12 # Déprimant
@@ -166,8 +166,8 @@ func _on_environment_changed(change_type, data):
 
 				1: # SDB (Hygiène & Réveil)
 					match data:
-						Color.WHITE_SMOKE: points = 12  # Sensation de propre
-						Color.DARK_GREEN:  points = 6   # Ambiance "Spa"
+						Color.WHITE_SMOKE: points = 15  # Sensation de propre
+						Color.DARK_GREEN:  points = 8   # Ambiance "Spa"
 						Color.DARK_ORANGE: points = 4   # Agréable le matin
 						Color.DIM_GRAY:    points = -4  # On voit mal la saleté
 						Color.DARK_GRAY:   points = -6
@@ -175,30 +175,30 @@ func _on_environment_changed(change_type, data):
 
 				2: # CUISINE (Énergie & Préparation)
 					match data:
-						Color.DARK_ORANGE: points = 12  # Appétissant
-						Color.DARK_GREEN:  points = 8   # Évoque les légumes frais
+						Color.DARK_ORANGE: points = 16 # Appétissant
+						Color.DARK_GREEN:  points = 12   # Évoque les légumes frais
 						Color.WHITE_SMOKE: points = 5   # Pratique pour cuisiner
-						Color.DARK_RED:    points = -2  
+						Color.DARK_RED:    points = -5  
 						Color.DIM_GRAY:    points = -8  # Donne une impression de nourriture périmée
 						Color.DARK_GRAY:   points = -10
 
 				3: # CHAMBRE (Repos & Rythme Circadien)
 					match data:
-						Color.DARK_RED:    points = 12  # Aide à l'endormissement (pas de lumière bleue)
-						Color.DARK_ORANGE: points = 10  # Chaleureux
-						Color.DARK_GREEN:  points = 4   # Apaisant
-						Color.DARK_GRAY:   points = -5  # Lugubre
+						Color.DARK_RED:    points = 16  # Aide à l'endormissement (pas de lumière bleue)
+						Color.DARK_ORANGE: points = 12  # Chaleureux
+						Color.DARK_GREEN:  points = 8   # Apaisant
+						Color.DARK_GRAY:   points = -6  # Lugubre
 						Color.DIM_GRAY:    points = -10
 						Color.WHITE_SMOKE: points = -20 # Horrible (bloque le sommeil au pôle)
 
 				4: # LABO (Concentration & Précision)
 					match data:
-						Color.WHITE_SMOKE: points = 15  # Idéal pour voir les échantillons
+						Color.WHITE_SMOKE: points = 18  # Idéal pour voir les échantillons
 						Color.DARK_GREEN:  points = 7   # Calme les nerfs durant les calculs
 						Color.DARK_GRAY:   points = 2   # Neutre
-						Color.DIM_GRAY:    points = -2
-						Color.DARK_ORANGE: points = -8  # Trop chaleureux, on s'endort
-						Color.DARK_RED:    points = -12 # Fatigue visuelle intense
+						Color.DIM_GRAY:    points = -6
+						Color.DARK_ORANGE: points = -11  # Trop chaleureux, on s'endort
+						Color.DARK_RED:    points = -16 # Fatigue visuelle intense
 
 				5: # STOCKAGE (Logistique & Sécurité)
 					match data:
