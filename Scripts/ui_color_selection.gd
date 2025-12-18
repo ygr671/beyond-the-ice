@@ -30,7 +30,9 @@ func _ready() -> void:
 	already_changed.resize(6)
 	already_changed.fill(false)
 
-
+## @func_doc
+## @update des hsliders a la veleur actuelle de la salle dans laquelle on se trouve
+## @tags update
 func update_hsliders() -> void:
 	light = salles.get_child(player_controller.current_room).get_node("room_light")
 	intensity.value =  remap(light.light_energy, 0.2, 7.0, 0, 100)

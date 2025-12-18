@@ -169,6 +169,30 @@ offset_bottom = -42.0
 offset_top = -200.0
 offset_bottom = 50.0
 
+[node name="label_light_heat" parent="Salles/salon/ui_Salon/ui_color_selection" index="3"]
+offset_top = 331.0
+offset_bottom = 363.0
+
+[node name="HSlider_light_heat" parent="Salles/salon/ui_Salon/ui_color_selection" index="8"]
+offset_top = 396.0
+offset_bottom = 427.0
+
+[node name="cold_label" type="Label" parent="Salles/salon/ui_Salon/ui_color_selection" index="9"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 374.0
+offset_right = 588.0
+offset_bottom = 397.0
+text = "froid"
+
+[node name="hot_label" type="Label" parent="Salles/salon/ui_Salon/ui_color_selection" index="10"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 375.0
+offset_right = 82.0
+offset_bottom = 398.0
+text = "chaud"
+
 [node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
 offset_left = 699.0
 offset_top = 967.0
@@ -180,6 +204,25 @@ offset_left = 259.0
 offset_top = 778.0
 offset_right = 525.0
 offset_bottom = 858.0
+
+[node name="succes" parent="Salles/salon/ui_Salon/ui_charging_bar" index="2"]
+offset_left = 266.0
+offset_top = 118.0
+offset_right = 1091.0
+offset_bottom = 222.6875
+theme_override_colors/font_color = Color(0.8681116, 0.9169801, 0.9801639, 1)
+theme_override_font_sizes/font_size = 75
+
+[node name="failure" parent="Salles/salon/ui_Salon/ui_charging_bar" index="3"]
+visible = true
+offset_left = 96.0
+offset_top = 110.0
+offset_right = 1217.0
+offset_bottom = 322.375
+theme_override_colors/font_color = Color(0.8666667, 0.91764706, 0.98039216, 1)
+theme_override_font_sizes/font_size = 75
+text = "      Livraison abandonné, 
+conditions météo défavorables"
 
 [node name="ui_confirmation_end" type="Control" parent="Salles/salon/ui_Salon"]
 visible = false
