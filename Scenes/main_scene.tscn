@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=45 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -16,14 +16,21 @@
 [ext_resource type="FontFile" uid="uid://ddnha0ehnjevw" path="res://Import/Fonts/Roboto-Regular.ttf" id="10_nt2eh"]
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://cs4nifrkn8oal" path="res://Meshes/beds/dog_photo_frame.tscn" id="11_viu5a"]
+[ext_resource type="PackedScene" uid="uid://bu77qljv4ysp3" path="res://Meshes/living_room/radiator.tscn" id="12_b00ha"]
+[ext_resource type="PackedScene" uid="uid://w3ss4mxt7nif" path="res://Meshes/bathroom/shower.tscn" id="12_xle81"]
+[ext_resource type="PackedScene" uid="uid://dbndsoe4dh8ed" path="res://Meshes/bathroom/sink.tscn" id="13_s8qe6"]
+[ext_resource type="PackedScene" uid="uid://cbkbr3ep3a158" path="res://Meshes/bathroom/toilet.tscn" id="14_yb0ja"]
 [ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
 [ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
 [ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="17_8edxt"]
+[ext_resource type="PackedScene" uid="uid://biydftvvxmcey" path="res://Meshes/Deco/monstera_plant.tscn" id="18_urcnp"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 [ext_resource type="Script" uid="uid://dkhsn644qgscf" path="res://Scripts/ugandan_knuckles.gd" id="22_5oxhp"]
+[ext_resource type="PackedScene" uid="uid://bkdufgwo17yqd" path="res://Meshes/beds/closet.tscn" id="31_rpyod"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -95,14 +102,6 @@ environment = SubResource("Environment_drdnd")
 [node name="Salles" type="Node3D" parent="."]
 
 [node name="salon" type="Node3D" parent="Salles"]
-visible = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/salon"]
 
@@ -151,6 +150,18 @@ mesh = SubResource("BoxMesh_m1efj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salon/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="dog_photo_frame" parent="Salles/salon" instance=ExtResource("11_viu5a")]
+transform = Transform3D(1.9027808, 0, 0.6159754, 0, 2, 0, -0.6159754, 0, 1.9027808, 0.74508953, 3.414827, -4.661728)
+
+[node name="radiator" parent="Salles/salon" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.8896148, 0.5752784, -4.661919)
+
+[node name="Closet" parent="Salles/salon" instance=ExtResource("31_rpyod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9652376, 0.05000019, -4.7674437)
+
+[node name="monstera_plant" parent="Salles/salon" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7498326, 3.407701, -4.6793914)
 
 [node name="ui_Salon" parent="Salles/salon" instance=ExtResource("4_7ewk0")]
 
@@ -497,13 +508,6 @@ omni_range = 150.0
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salle_de_bain"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189895, 0.6864201, 7.632513, 9.024776, 8.058487)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
-
 [node name="PlacedObjects" type="Node3D" parent="Salles/salle_de_bain"]
 
 [node name="Salle" type="Node3D" parent="Salles/salle_de_bain"]
@@ -551,7 +555,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="washing_machine" parent="Salles/salle_de_bain" instance=ExtResource("6_mai8y")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.9612136)
+transform = Transform3D(-0.07872892, 0, 1.9984498, 0, 2, 0, -1.9984498, 0, -0.07872892, -4.206896, 0.073498726, 4.1581306)
 
 [node name="room_light" type="OmniLight3D" parent="Salles/salle_de_bain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
@@ -559,15 +563,17 @@ layers = 2
 light_cull_mask = 4294967294
 omni_range = 150.0
 
+[node name="shower" parent="Salles/salle_de_bain" instance=ExtResource("12_xle81")]
+transform = Transform3D(-4.2415018e-06, 0, 0.008999998, 0, 0.008999999, 0, -0.008999998, 0, -4.2415018e-06, 3.7221255, 0.05000019, -3.818644)
+
+[node name="sink" parent="Salles/salle_de_bain" instance=ExtResource("13_s8qe6")]
+transform = Transform3D(-0.9995655, 0, 0.029474363, 0, 1, 0, -0.029474363, 0, -0.9995655, 4.260245, -0.12521505, -0.96843433)
+
+[node name="toilet" parent="Salles/salle_de_bain" instance=ExtResource("14_yb0ja")]
+transform = Transform3D(-0.096278094, 0, 0.8948354, 0, 0.9, 0, -0.8948354, 0, -0.096278094, -4.555147, -0.343441, 2.4231749)
+
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/cuisine"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/cuisine"]
 
@@ -623,15 +629,17 @@ layers = 2
 light_cull_mask = 4294967294
 omni_range = 150.0
 
+[node name="hanging_shelf" parent="Salles/cuisine" instance=ExtResource("9_ioaeq")]
+transform = Transform3D(-0.007225588, 0, 0.99997395, 0, 1, 0, -0.99997395, 0, -0.007225588, -4.691354, 3.2271767, 1.4374213)
+
+[node name="monstera_plant" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4743114, 4.477546, 2.044767)
+
+[node name="monstera_plant2" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4743114, 4.468075, 0.8615632)
+
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/chambre"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/chambre"]
 
@@ -694,13 +702,6 @@ omni_range = 150.0
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/laboratoire"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/laboratoire"]
 
@@ -765,14 +766,11 @@ layers = 2
 light_cull_mask = 4294967294
 omni_range = 150.0
 
-[node name="stockage" type="Node3D" parent="Salles"]
+[node name="monstera_plant" parent="Salles/laboratoire" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8488979, 4.391653, -4.545472)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/stockage"]
-transform = Transform3D(0.41918242, -0.6798369, 0.601754, 0.5700946, 0.7129323, 0.4083132, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-light_cull_mask = 4294966273
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
+[node name="stockage" type="Node3D" parent="Salles"]
+visible = false
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/stockage"]
 
@@ -856,6 +854,13 @@ script = ExtResource("22_5oxhp")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.924, -23.974, -56.216)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.41918242, -0.6798369, 0.601754, 0.5700946, 0.7129323, 0.4083132, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]

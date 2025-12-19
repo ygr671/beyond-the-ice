@@ -46,7 +46,7 @@ var tutorial_finished : bool = false
 @onready var t4 = $Salles/salon/ui_Salon/Tutorial4
 @onready var GL = $Salles/salon/ui_Salon/GL
 @onready var KTE = $Salles/salon/ui_Salon/KTE_textbox
-@onready var salle = $Salles/salon/Salle
+@onready var salle = $Salles
 
 
 ## @onready_doc

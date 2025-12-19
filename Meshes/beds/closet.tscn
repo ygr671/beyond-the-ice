@@ -46,7 +46,7 @@ size = Vector3(1.0920258, 1.6062927, 0.4499817)
 
 [node name="Closet" type="Node3D"]
 script = ExtResource("1_chxxl")
-initial_stock = 0
+initial_stock = 2
 restock_count = 3
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
