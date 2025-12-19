@@ -395,6 +395,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "C'est la barre de satisfaction globale. 
 Elle augmente ou diminue selon l'humeur de tous les PNJs !\""
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial2" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -417,6 +418,7 @@ text = "Voici tes outils, bruddah :
 peut compromettre  la livraison d'un meuble)
           2. [Menu Color] pour changer les murs et la lumière.
           3. [Inventaire] pour voir tes objets stockés."
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial3" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -437,6 +439,7 @@ theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "Explore les différentes salles !
 Mais attention : installe des meubles appropriés à chaque pièce.
 Les PNJs n'aiment pas dormir dans la cuisine !"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial4" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -457,6 +460,7 @@ theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "Et voici le bouton de Fin de Mission !
 Ne clique dessus que si tu es prêt à partir.
 Assure-toi que la satisfaction est au maximum !"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GL" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -476,6 +480,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_8edxt")
 theme_override_font_sizes/font_size = 100
 text = "Abracadabra !!"
+horizontal_alignment = 1
 
 [node name="KTE_textbox" type="PanelContainer" parent="Salles/salon/ui_Salon"]
 layout_mode = 1
@@ -864,6 +869,7 @@ shadow_blur = 0.57
 
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
 [connection signal="text_changed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/username_prompt" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_username_prompt_text_changed"]
