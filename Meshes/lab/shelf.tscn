@@ -1871,281 +1871,337 @@ skeleton = NodePath("")
 
 [node name="flask9" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.96240735, 0.27158752, 0.0035133213, 2.9802322e-08, 0.012934923, -0.99991643, -0.27161026, 0.9623269, 0.0124486685, 0.55600107, 0.13593048, 0.04582441)
+layers = 2
 mesh = SubResource("ArrayMesh_l1ihg")
 skeleton = NodePath("")
 
 [node name="eye1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 0.8847663, 0.466035, 0, -0.466035, 0.8847663, -0.0014370084, 0.24015495, 0.013183117)
+layers = 2
 mesh = SubResource("ArrayMesh_odr5n")
 skeleton = NodePath("")
 
 [node name="bottom_shelf4" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0022384524, 0.00011584163, -6.210804e-05)
+layers = 2
 mesh = SubResource("ArrayMesh_sywr4")
 skeleton = NodePath("")
 
 [node name="knob2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.027547568, 0.28135285, 0.019643784)
+layers = 2
 mesh = SubResource("ArrayMesh_b7yme")
 skeleton = NodePath("")
 
 [node name="large_flask1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.02378583, -0.31650195, 0.94829357, 0.997188, -0.07494068, 1.4901161e-07, 0.07106575, 0.945627, 0.31739444, 0.60695744, 0.15403378, -0.07137537)
+layers = 2
 mesh = SubResource("ArrayMesh_vr3ss")
 skeleton = NodePath("")
 
 [node name="salver" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81282413, 0.17163184, 0.020045161)
+layers = 2
 mesh = SubResource("ArrayMesh_2dtr7")
 skeleton = NodePath("")
 
 [node name="point " type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.31111538, 0.23177728, -0.14828861)
+layers = 2
 mesh = SubResource("ArrayMesh_pe65u")
 skeleton = NodePath("")
 
 [node name="midle_base" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014369786, 0.25020704, -0.0065897703)
+layers = 2
 mesh = SubResource("ArrayMesh_5nvqt")
 skeleton = NodePath("")
 
 [node name="bottom_shelf3" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24823308, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_4qc3x")
 skeleton = NodePath("")
 
 [node name="small_flask" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, -1, 3.8941437e-07, 0, -3.8941437e-07, -1, 0.85728025, 0.241882, 0.047362804)
+layers = 2
 mesh = SubResource("ArrayMesh_snt50")
 skeleton = NodePath("")
 
 [node name="flask10" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.8139452, -0.58089304, -0.007514745, 0, 0.01293546, -0.9999163, 0.5809417, 0.8138771, 0.010528743, 0.45898113, 0.13350832, -0.00037002563)
+layers = 2
 mesh = SubResource("ArrayMesh_262at")
 skeleton = NodePath("")
 
 [node name="plate" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2509219, 0.18901503, 0.008548617)
+layers = 2
 mesh = SubResource("ArrayMesh_w5ehk")
 skeleton = NodePath("")
 
 [node name="paper3" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.8838619, 0, -0.46774787, 0, 1, 0, 0.46774787, 0, -0.8838619, 0.7374494, 0.048466504, 0.18401688)
+layers = 2
 mesh = SubResource("ArrayMesh_qkoy1")
 skeleton = NodePath("")
 
 [node name="lower_base" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002667755, 0.18573564, 0.037736773)
+layers = 2
 mesh = SubResource("ArrayMesh_lx2mr")
 skeleton = NodePath("")
 
 [node name="bottom_shelf2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5232842, -0.020536125, -0.023926616)
+layers = 2
 mesh = SubResource("ArrayMesh_2uinx")
 skeleton = NodePath("")
 
 [node name="germs2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10503122, 0.17454511, 0.101731956)
+layers = 2
 mesh = SubResource("ArrayMesh_l4kvw")
 skeleton = NodePath("")
 
 [node name="Petri_dish2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.92994785, -0.34204552, -0.13491434, 0.36292824, 0.91274774, 0.18754898, 0.058992483, -0.22337501, 0.9729458, 0.4917514, 0.13425717, 0.01892662)
+layers = 2
 mesh = SubResource("ArrayMesh_fi3fm")
 skeleton = NodePath("")
 
 [node name="legs " type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1959508, 0.1727249, 0.060636997)
+layers = 2
 mesh = SubResource("ArrayMesh_hk4p1")
 skeleton = NodePath("")
 
 [node name="bottle_002" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.088320404, 0.19114718, 0.08611941)
+layers = 2
 mesh = SubResource("ArrayMesh_ud2mn")
 skeleton = NodePath("")
 
 [node name="bottom_shelf1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8086047, 0.006768346, 0.0024266243)
+layers = 2
 mesh = SubResource("ArrayMesh_q7ox4")
 skeleton = NodePath("")
 
 [node name="germs1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117290944, 0.17352304, 0.08385086)
+layers = 2
 mesh = SubResource("ArrayMesh_uktwi")
 skeleton = NodePath("")
 
 [node name="holder" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8548627, 0.30447236, -0.1341877)
+layers = 2
 mesh = SubResource("ArrayMesh_h6kop")
 skeleton = NodePath("")
 
 [node name="conductor3" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(3.5762787e-07, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 3.5762787e-07, 0.3110984, 0.23179373, -0.15046883)
+layers = 2
 mesh = SubResource("ArrayMesh_n1gcw")
 skeleton = NodePath("")
 
 [node name="hole" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.3175298, 0.18371338, 0.031616688)
+layers = 2
 mesh = SubResource("ArrayMesh_c8y4v")
 skeleton = NodePath("")
 
 [node name="big_flask" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.9840598, 0, 0.1778379, 0, 1, 0, -0.1778379, 0, 0.9840598, 0.067477435, 0.21880355, -0.09911466)
+layers = 2
 mesh = SubResource("ArrayMesh_dxhi1")
 skeleton = NodePath("")
 
 [node name="socket" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31112158, 0.2317743, -0.15455365)
+layers = 2
 mesh = SubResource("ArrayMesh_ahq46")
 skeleton = NodePath("")
 
 [node name="shelf_handle6" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0022758543, 0.10450882, 0.19667703)
+layers = 2
 mesh = SubResource("ArrayMesh_6jskk")
 skeleton = NodePath("")
 
 [node name="germs" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09968528, 0.17418134, 0.08400631)
+layers = 2
 mesh = SubResource("ArrayMesh_gbh7p")
 skeleton = NodePath("")
 
 [node name="button " type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.2510919, 0.18663588, 0.0750289)
+layers = 2
 mesh = SubResource("ArrayMesh_63yjl")
 skeleton = NodePath("")
 
 [node name="shelf_handle2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8119503, 0.028672487, 0.28687298)
+layers = 2
 mesh = SubResource("ArrayMesh_folc6")
 skeleton = NodePath("")
 
 [node name="frame " type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2510919, 0.19269821, 0.0083806515)
+layers = 2
 mesh = SubResource("ArrayMesh_eo588")
 skeleton = NodePath("")
 
 [node name="flask_drying" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, -1, 3.8941437e-07, 0, -3.8941437e-07, -1, 0.79881775, 0.28715506, -0.12690055)
+layers = 2
 mesh = SubResource("ArrayMesh_3ai3o")
 skeleton = NodePath("")
 
 [node name="shelf_handle5" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24406648, 0.10450882, 0.19667703)
+layers = 2
 mesh = SubResource("ArrayMesh_mse0w")
 skeleton = NodePath("")
 
 [node name="plates" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.94707704, 0, 0.32100627, 0, 1, 0, -0.32100627, 0, 0.94707704, -0.017763525, 0.20421413, 0.05478978)
+layers = 2
 mesh = SubResource("ArrayMesh_br37a")
 skeleton = NodePath("")
 
 [node name="dirt3" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.94509494, 0, -0.32679555, 0, 1, 0, 0.32679555, 0, -0.94509494, 0.5090517, 0.13400736, 0.026780248)
+layers = 2
 mesh = SubResource("ArrayMesh_y6k4c")
 skeleton = NodePath("")
 
 [node name="shelf_handle1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8119503, 0.10450882, 0.19667703)
+layers = 2
 mesh = SubResource("ArrayMesh_23mx4")
 skeleton = NodePath("")
 
 [node name="base_002" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2510919, 0.18877333, 0.009248376)
+layers = 2
 mesh = SubResource("ArrayMesh_fabbd")
 skeleton = NodePath("")
 
 [node name="knob1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, 0.005886227, 0.26713422, -0.0033308268)
+layers = 2
 mesh = SubResource("ArrayMesh_eq3cm")
 skeleton = NodePath("")
 
 [node name="shelf_handle4" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5238761, 0.10450882, 0.19667703)
+layers = 2
 mesh = SubResource("ArrayMesh_nj653")
 skeleton = NodePath("")
 
 [node name="plate2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018710196, 0.2029343, 0.063500166)
+layers = 2
 mesh = SubResource("ArrayMesh_o53r5")
 skeleton = NodePath("")
 
 [node name="paper2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.88073754, 0, -0.4736049, 0, 1, 0, 0.4736049, 0, -0.88073754, 0.7849786, 0.03406188, 0.19372445)
+layers = 2
 mesh = SubResource("ArrayMesh_kea7h")
 skeleton = NodePath("")
 
 [node name="dirt2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5366298, 0.13442183, -0.054151654)
+layers = 2
 mesh = SubResource("ArrayMesh_gvw06")
 skeleton = NodePath("")
 
 [node name="iron " type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022855908, 0.203033, 0.037169218)
+layers = 2
 mesh = SubResource("ArrayMesh_2o7n6")
 skeleton = NodePath("")
 
 [node name="shelf_handle3" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8119503, -0.13215113, 0.20056355)
+layers = 2
 mesh = SubResource("ArrayMesh_rd3f4")
 skeleton = NodePath("")
 
 [node name="Petri_dish" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76552224, 0.17563236, 0.06447506)
+layers = 2
 mesh = SubResource("ArrayMesh_8bim0")
 skeleton = NodePath("")
 
 [node name="Petri_dish4" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09968528, 0.17159772, 0.08400631)
+layers = 2
 mesh = SubResource("ArrayMesh_qohrw")
 skeleton = NodePath("")
 
 [node name="dirt" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.94509494, 0, -0.32679555, 0, 1, 0, 0.32679555, 0, -0.94509494, 0.51513195, 0.13044274, -0.011031747)
+layers = 2
 mesh = SubResource("ArrayMesh_whixg")
 skeleton = NodePath("")
 
 [node name="adapter" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013640225, 0.20725206, -0.017813325)
+layers = 2
 mesh = SubResource("ArrayMesh_jti7g")
 skeleton = NodePath("")
 
 [node name="head" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015191436, 0.27297154, 0.0461483)
+layers = 2
 mesh = SubResource("ArrayMesh_gkvxm")
 skeleton = NodePath("")
 
 [node name="lights" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 0.66430765, -0.74745923, 0, 0.74745923, 0.66430765, -0.014223695, 0.30389825, 0.059974313)
+layers = 2
 mesh = SubResource("ArrayMesh_u3spw")
 skeleton = NodePath("")
 
 [node name="tap" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.1774714, 0.9679917, 0.17747098, 0.6844733, 0.25098217, -0.68447363, -0.7071069, -3.874302e-07, -0.7071066, 0.6029993, 0.2769054, -0.13550496)
+layers = 2
 mesh = SubResource("ArrayMesh_1q8oe")
 skeleton = NodePath("")
 
 [node name="bottle_001" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.9135635, 0, 0.4066961, 0, 1, 0, -0.4066961, 0, 0.9135635, 0.14455986, 0.19167775, -0.097709894)
+layers = 2
 mesh = SubResource("ArrayMesh_dwori")
 skeleton = NodePath("")
 
 [node name="eye2" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015191436, 0.25587448, 0.0461483)
+layers = 2
 mesh = SubResource("ArrayMesh_iqlhv")
 skeleton = NodePath("")
 
 [node name="big_flask_001" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, -1, 3.8941437e-07, 0, -3.8941437e-07, -1, 0.741925, 0.26168177, -0.041760445)
+layers = 2
 mesh = SubResource("ArrayMesh_5xqwc")
 skeleton = NodePath("")
 
 [node name="paper1" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-0.8912035, 0, 0.45360374, 0, 1, 0, -0.45360374, 0, -0.8912035, 0.8420038, 0.036994904, 0.18401688)
+layers = 2
 mesh = SubResource("ArrayMesh_hbdkn")
 skeleton = NodePath("")
 
 [node name="leg" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026692122, 0.17475626, 0.07512128)
+layers = 2
 mesh = SubResource("ArrayMesh_e2adl")
 skeleton = NodePath("")
 
