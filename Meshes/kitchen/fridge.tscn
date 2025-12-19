@@ -43,6 +43,7 @@ shadow_mesh = SubResource("ArrayMesh_fjl0m")
 size = Vector3(0.6296387, 1.5288696, 0.623291)
 
 [node name="fridge" type="Node3D"]
+transform = Transform3D(2.3, 0, 0, 0, 2.3, 0, 0, 0, 2.3, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_xq51t")

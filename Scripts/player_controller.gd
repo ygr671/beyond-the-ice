@@ -61,4 +61,4 @@ func _ready():
 	
 	# Redimensionne et initialise la satisfaction de chaque pièce à 50 (neutre)
 	room_satisfaction.resize(6)
-	room_satisfaction.fill(50)
+	room_satisfaction.fill(35)

@@ -43,6 +43,7 @@ shadow_mesh = SubResource("ArrayMesh_5b1h1")
 size = Vector3(0.45220947, 0.18969727, 0.35009766)
 
 [node name="microwaves" type="Node3D"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_4x2e3")

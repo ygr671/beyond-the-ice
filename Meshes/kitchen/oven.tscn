@@ -43,6 +43,7 @@ shadow_mesh = SubResource("ArrayMesh_vdgkb")
 size = Vector3(0.524292, 0.63671875, 0.57421875)
 
 [node name="oven" type="Node3D"]
+transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0067923632, 0)

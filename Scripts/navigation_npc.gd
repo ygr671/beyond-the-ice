@@ -39,7 +39,7 @@ var current_emoji: Label3D = null
 ## @var_doc
 ## @description Valeur de satisfaction actuelle (0-100), clampée après vérification.
 ## @tags state, core
-var satisfaction = 50
+var satisfaction = 35
 
 ## @var_doc
 ## @description Valeur de satisfaction brute, utilisée pour les calculs avant d'être montrée dans 'satisfaction'.

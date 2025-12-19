@@ -121,6 +121,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m47aa")
 
 [node name="tv" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.225, 0, 0, 0, 0.225, -4.9960035e-17, 0, 4.9960035e-17, 0.225, 0, 0, 0)
