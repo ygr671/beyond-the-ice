@@ -35,7 +35,7 @@ var furniture_list: Array[FurnitureInfo] = []
 ## @tags state, core
 var room_satisfaction: Array[int] = []
 
-var chrono: float = 0.0
+var chrono: int = 0
 
 var score: int = -1
 

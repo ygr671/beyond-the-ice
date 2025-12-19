@@ -5,7 +5,6 @@ extends Control
 @onready var time = $basePanel/panelTime/tempsEcoule
 
 func init() -> void:
-	get_tree().paused = true
 	score.text = str(player_controller.score)
 	time.text = format_time()
 
