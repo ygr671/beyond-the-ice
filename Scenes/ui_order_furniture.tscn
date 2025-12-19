@@ -58,7 +58,7 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
 theme_override_fonts/font = ExtResource("1_eu0ch")
 theme_override_font_sizes/font_size = 70
-text = "commander des meuble"
+text = "Commander des meubles"
 
 [node name="ItemList" type="ItemList" parent="Panel"]
 layout_mode = 1

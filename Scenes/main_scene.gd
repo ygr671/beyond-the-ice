@@ -99,6 +99,7 @@ var chrono_actif = true
 
 var temps_ecoule: float = 0.0
 
+@onready var end_menu_scene = preload("res://Scenes/ui_end_game.tscn")
 
 func _process(delta: float) -> void:
 	if chrono_actif:
@@ -108,7 +109,33 @@ func _on_yes_pressed() -> void:
 	chrono_actif=false
 	temps_ecoule = snapped(temps_ecoule, 0.01)
 	player_controller.chrono = temps_ecoule
+	process_final_score()
+	
+	var end_menu = end_menu_scene.instantiate()
+	add_child(end_menu)
+	end_menu.init()
 
+func process_final_score():
+	var tolerance: float = 300.0
+	var sec_penalty = 20.0
+	
+	var total_score = 0
+	
+	for score in player_controller.room_satisfaction:
+		total_score += score
+	
+	var average_score = total_score/6
+	var delay: float = max(0.0, temps_ecoule - tolerance)
+	var malus: int = int(delay / sec_penalty)
+	
+	var final_score: int = average_score - malus
+	
+	if final_score < 0:
+		final_score = 0
+	
+	player_controller.score = final_score
+	
+	
 
 ## @func_doc
 ## @description Initialisation de la scene: masque l'UI et lance le tutoriel.
