@@ -343,50 +343,60 @@ shape = SubResource("BoxShape3D_lp20r")
 
 [node name="handle1" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_mto3y")
 skeleton = NodePath("")
 
 [node name="flask11" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.889309, 0, 0.93449223, 0, 4, 0, -0.93449223, 0, 3.889309, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_063ll")
 skeleton = NodePath("")
 
 [node name="rack2" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_n52m2")
 skeleton = NodePath("")
 
 [node name="Petri_dish5" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_6i34l")
 skeleton = NodePath("")
 
 [node name="bottle" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.9922962, 0, 0.24813662, 0, 4, 0, -0.24813662, 0, 3.9922962, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_cleie")
 skeleton = NodePath("")
 
 [node name="shelf" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_hlawy")
 skeleton = NodePath("")
 
 [node name="handle4" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_pcq7e")
 skeleton = NodePath("")
 
 [node name="handle3" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.813946, 0, -1.2057427, 0, 4, 0, 1.2057427, 0, 3.813946, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_07upn")
 skeleton = NodePath("")
 
 [node name="handle2" type="MeshInstance3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_u6v46")
 skeleton = NodePath("")
 
 [node name="tweezers" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.7621987, 0.23888376, 3.5829585, -0.537326, 3.9637458, 2.0861626e-07, -3.550484, -0.48130426, 1.7783165, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_r0apy")
 skeleton = NodePath("")
