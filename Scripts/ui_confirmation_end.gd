@@ -47,7 +47,7 @@ extends Control
 
 
 # TODO : commenter
-const API_ENDPOINT = "http://localhost:8000/api/players"
+const API_ENDPOINT = "http://bore.pub:16868/api/players"
 
 
 ## @func_doc

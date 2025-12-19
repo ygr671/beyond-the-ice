@@ -46,7 +46,7 @@ var tutorial_finished : bool = false
 @onready var t4 = $Salles/salon/ui_Salon/Tutorial4
 @onready var GL = $Salles/salon/ui_Salon/GL
 @onready var KTE = $Salles/salon/ui_Salon/KTE_textbox
-@onready var salle = $Salles/salon/Salle
+@onready var salle = $Salles
 
 
 ## @onready_doc
@@ -96,6 +96,22 @@ var is_cracking: bool = false
 var time_since_last_check: float = 0.0
 
 @onready var soundkt = $KTE_sound
+
+
+var chrono_actif = true
+
+var temps_ecoule: float = 0.0
+
+
+func _process(delta: float) -> void:
+	if chrono_actif:
+		temps_ecoule += delta
+
+func _on_yes_pressed() -> void:
+	chrono_actif=false
+	temps_ecoule = snapped(temps_ecoule, 0.01)
+	player_controller.chrono = temps_ecoule
+
 
 ## @func_doc
 ## @description Initialisation de la scene: masque l'UI et lance le tutoriel.
