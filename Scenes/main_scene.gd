@@ -104,6 +104,10 @@ func _process(delta: float) -> void:
 	if chrono_actif:
 		temps_ecoule += delta
 
+func _on_yes_pressed() -> void:
+	chrono_actif=false
+	temps_ecoule = snapped(temps_ecoule, 0.01)
+	player_controller.chrono = temps_ecoule
 
 
 ## @func_doc

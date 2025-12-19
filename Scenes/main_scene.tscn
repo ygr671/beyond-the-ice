@@ -864,6 +864,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.924, -23.974, -56.2
 
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
 [connection signal="text_changed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/username_prompt" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_username_prompt_text_changed"]
