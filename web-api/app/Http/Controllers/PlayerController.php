@@ -59,14 +59,14 @@ class PlayerController extends Controller
     public function ranking(): JsonResponse
     {
         return response()->json(
-            Player::orderByDesc('score')->get()
+            Player::orderByDesc('score')->orderByDesc('duration')->get()
         );
     }
 
     public function podium(): JsonResponse
     {
         return response()->json(
-            Player::orderByDesc('score')->limit(3)->get()
+            Player::orderByDesc('score')->orderByDesc('duration')->limit(3)->get()
         );
     }
 
