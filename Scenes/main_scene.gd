@@ -95,6 +95,16 @@ var is_cracking: bool = false
 ## @tags cleanup, time
 var time_since_last_check: float = 0.0
 
+var chrono_actif = true
+
+var temps_ecoule: float = 0.0
+
+
+func _process(delta: float) -> void:
+	if chrono_actif:
+		temps_ecoule += delta
+
+
 
 ## @func_doc
 ## @description Initialisation de la scene: masque l'UI et lance le tutoriel.

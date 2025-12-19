@@ -384,6 +384,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "C'est la barre de satisfaction globale. 
 Elle augmente ou diminue selon l'humeur de tous les PNJs !\""
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial2" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -406,6 +407,7 @@ text = "Voici tes outils, bruddah :
 peut compromettre  la livraison d'un meuble)
           2. [Menu Color] pour changer les murs et la lumière.
           3. [Inventaire] pour voir tes objets stockés."
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial3" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -426,6 +428,7 @@ theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "Explore les différentes salles !
 Mais attention : installe des meubles appropriés à chaque pièce.
 Les PNJs n'aiment pas dormir dans la cuisine !"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tutorial4" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -446,6 +449,7 @@ theme_override_fonts/font = ExtResource("10_nt2eh")
 text = "Et voici le bouton de Fin de Mission !
 Ne clique dessus que si tu es prêt à partir.
 Assure-toi que la satisfaction est au maximum !"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GL" type="PanelContainer" parent="Salles/salon/ui_Salon"]
@@ -465,6 +469,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("6_8edxt")
 theme_override_font_sizes/font_size = 100
 text = "Abracadabra !!"
+horizontal_alignment = 1
 
 [node name="KTE_textbox" type="PanelContainer" parent="Salles/salon/ui_Salon"]
 layout_mode = 1
