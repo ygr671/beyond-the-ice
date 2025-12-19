@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=51 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -31,15 +31,18 @@
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 [ext_resource type="Script" uid="uid://dkhsn644qgscf" path="res://Scripts/ugandan_knuckles.gd" id="22_5oxhp"]
-[ext_resource type="AudioStream" uid="uid://dvihuc36biuw2" path="res://Import/sound/normal_SANTA_song.mp3" id="26_5bov3"]
 [ext_resource type="PackedScene" uid="uid://bfpjpyuafupqs" path="res://Meshes/Deco/plant.tscn" id="27_r0xgx"]
-[ext_resource type="AudioStream" uid="uid://ddbdl0s44g51n" path="res://Import/sound/thud-sound-effect-405470.mp3" id="27_xle81"]
 [ext_resource type="PackedScene" uid="uid://bkdufgwo17yqd" path="res://Meshes/beds/closet.tscn" id="31_rpyod"]
+<<<<<<< HEAD
+[ext_resource type="AudioStream" uid="uid://dvihuc36biuw2" path="res://Import/sound/normal_SANTA_song.mp3" id="26_5bov3"]
+[ext_resource type="AudioStream" uid="uid://ddbdl0s44g51n" path="res://Import/sound/thud-sound-effect-405470.mp3" id="27_xle81"]
+=======
 [ext_resource type="PackedScene" uid="uid://dglppcpum0iho" path="res://Meshes/living_room/tv_cabinet.tscn" id="32_urcnp"]
 [ext_resource type="PackedScene" uid="uid://bk8vsamjs8bfw" path="res://Meshes/living_room/tv.tscn" id="33_rpyod"]
 [ext_resource type="PackedScene" uid="uid://cpcm4esrwhdx7" path="res://Meshes/kitchen/fridge.tscn" id="34_vggli"]
 [ext_resource type="PackedScene" uid="uid://c0m7xvyaj45eg" path="res://Meshes/kitchen/microwaves.tscn" id="35_r0xgx"]
 [ext_resource type="PackedScene" uid="uid://cj1iy5ka3qtxr" path="res://Meshes/kitchen/oven.tscn" id="36_nrumr"]
+>>>>>>> 320dc026a9f83f572462c4ad407d0219cf784e4f
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -951,7 +954,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.924, -23.974, -56.2
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41918242, -0.6798369, 0.601754, 0.5700946, 0.7129323, 0.4083132, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
 light_cull_mask = 4294966273
 shadow_normal_bias = 0.5

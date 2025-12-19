@@ -85,6 +85,8 @@ shadow_mesh = SubResource("ArrayMesh_8fluc")
 
 [node name="sink" type="Node3D"]
 script = ExtResource("1_av43w")
+initial_stock = 0
+restock_count = 4
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.010000002, 0, 0, 0, 0.010000002, 0, 0, 0)

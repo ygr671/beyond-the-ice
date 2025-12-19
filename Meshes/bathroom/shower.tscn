@@ -118,6 +118,8 @@ size = Vector3(216.54846, 390.88455, 227.50217)
 [node name="shower" type="Node3D"]
 transform = Transform3D(-4.2415018e-06, 0, 0.008999998, 0, 0.008999999, 0, -0.008999998, 0, -4.2415018e-06, 0, 0, 0)
 script = ExtResource("1_oj5bt")
+initial_stock = 0
+restock_count = 3
 
 [node name="left_glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.9995038, 0, 0.031498436, 0, 1, 0, -0.031498436, 0, -0.9995038, 0, 0, 0)
