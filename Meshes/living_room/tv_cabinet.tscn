@@ -46,6 +46,7 @@ size = Vector3(1.394043, 0.54052734, 0.44030762)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("ArrayMesh_iwkml")
 skeleton = NodePath("")
 

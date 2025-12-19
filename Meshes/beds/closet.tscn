@@ -51,6 +51,7 @@ restock_count = 3
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.9998765, 0, 0.02222141, 0, 2, 0, -0.02222141, 0, -1.9998765, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_3fm11")
 skeleton = NodePath("")
 

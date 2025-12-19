@@ -51,6 +51,7 @@ initial_stock = 0
 restock_count = 3
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("ArrayMesh_nf4r6")
 skeleton = NodePath("")
 

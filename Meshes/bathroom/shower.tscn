@@ -123,16 +123,19 @@ restock_count = 3
 
 [node name="left_glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.9995038, 0, 0.031498436, 0, 1, 0, -0.031498436, 0, -0.9995038, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_mvw5k")
 skeleton = NodePath("")
 
 [node name="right_glass" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.9995038, 0, 0.031498436, 0, 1, 0, -0.031498436, 0, -0.9995038, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_rvniv")
 skeleton = NodePath("")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.99999964, 0, -0.0009080176, 0, 1, 0, 0.0009080176, 0, -0.99999964, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_mtkjm")
 skeleton = NodePath("")
 

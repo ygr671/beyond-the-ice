@@ -199,6 +199,7 @@ initial_stock = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 3.8438973, 0, 5.1666756)
+layers = 2
 mesh = SubResource("ArrayMesh_xq3pl")
 skeleton = NodePath("")
 

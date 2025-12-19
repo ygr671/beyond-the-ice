@@ -1426,6 +1426,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04627514, 14.372555, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_algl4")
 skeleton = NodePath("")
 

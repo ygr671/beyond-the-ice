@@ -100,6 +100,7 @@ shadow_mesh = SubResource("ArrayMesh_e6d1d")
 [node name="monstera_plant" type="Node3D"]
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("ArrayMesh_2hsf5")
 skeleton = NodePath("")
 

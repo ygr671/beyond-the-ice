@@ -89,6 +89,7 @@ script = ExtResource("1_2aw07")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0013943271, 0, 0, 0, 0.0025348477, 0, 0, 0, 0.0013943274, 0, 0, 0)
+layers = 2
 mesh = SubResource("ArrayMesh_jw8l0")
 skeleton = NodePath("")
 
