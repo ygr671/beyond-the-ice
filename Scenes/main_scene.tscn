@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=51 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -30,7 +30,13 @@
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 [ext_resource type="Script" uid="uid://dkhsn644qgscf" path="res://Scripts/ugandan_knuckles.gd" id="22_5oxhp"]
+[ext_resource type="PackedScene" uid="uid://bfpjpyuafupqs" path="res://Meshes/Deco/plant.tscn" id="27_r0xgx"]
 [ext_resource type="PackedScene" uid="uid://bkdufgwo17yqd" path="res://Meshes/beds/closet.tscn" id="31_rpyod"]
+[ext_resource type="PackedScene" uid="uid://dglppcpum0iho" path="res://Meshes/living_room/tv_cabinet.tscn" id="32_urcnp"]
+[ext_resource type="PackedScene" uid="uid://bk8vsamjs8bfw" path="res://Meshes/living_room/tv.tscn" id="33_rpyod"]
+[ext_resource type="PackedScene" uid="uid://cpcm4esrwhdx7" path="res://Meshes/kitchen/fridge.tscn" id="34_vggli"]
+[ext_resource type="PackedScene" uid="uid://c0m7xvyaj45eg" path="res://Meshes/kitchen/microwaves.tscn" id="35_r0xgx"]
+[ext_resource type="PackedScene" uid="uid://cj1iy5ka3qtxr" path="res://Meshes/kitchen/oven.tscn" id="36_nrumr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -510,6 +516,18 @@ layers = 2
 light_cull_mask = 4294967294
 omni_range = 150.0
 
+[node name="tv_cabinet" parent="Salles/salon" instance=ExtResource("32_urcnp")]
+transform = Transform3D(0.0731395, 0, -2.9991086, 0, 3, 0, 2.9991086, 0, 0.0731395, -4.494821, 0.05000019, -0.009861946)
+
+[node name="tv" parent="Salles/salon" instance=ExtResource("33_rpyod")]
+transform = Transform3D(-0.11887812, 0, 2.9976437, 0, 3, 0, -2.9976437, 0, -0.11887812, -4.4857464, 1.8468137, 0.078122616)
+
+[node name="plant" parent="Salles/salon" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.476129, 0.18230534, -3.1307628)
+
+[node name="plant2" parent="Salles/salon" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.6181183, 0.05000019, 3.1838627)
+
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
 
@@ -635,13 +653,25 @@ light_cull_mask = 4294967294
 omni_range = 150.0
 
 [node name="hanging_shelf" parent="Salles/cuisine" instance=ExtResource("9_ioaeq")]
-transform = Transform3D(-0.007225588, 0, 0.99997395, 0, 1, 0, -0.99997395, 0, -0.007225588, -4.691354, 3.2271767, 1.4374213)
+transform = Transform3D(0.9999435, 0, -0.010628916, 0, 1, 0, 0.010628916, 0, 0.9999435, -1.2309985, 3.2271767, -4.411985)
 
 [node name="monstera_plant" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4743114, 4.477546, 2.044767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5012069, 4.477546, -4.700699)
 
 [node name="monstera_plant2" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4743114, 4.468075, 0.8615632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6502824, 4.468075, -4.9883094)
+
+[node name="fridge" parent="Salles/cuisine" instance=ExtResource("34_vggli")]
+transform = Transform3D(-2.2989972, 0, 0.067911506, 0, 2.3, 0, -0.067911506, 0, -2.2989972, 3.9221954, 0.05000019, -4.3010087)
+
+[node name="microwaves" parent="Salles/cuisine" instance=ExtResource("35_r0xgx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 3.8987064, 3.5480704, -4.65848)
+
+[node name="oven" parent="Salles/cuisine" instance=ExtResource("36_nrumr")]
+transform = Transform3D(-2.3998, 0, 0.030996203, 0, 2.3999999, 0, -0.030996203, 0, -2.3998, 1.5946455, 0.06630187, -4.257218)
+
+[node name="plant" parent="Salles/cuisine" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.230873, 0.05000019, -3.999844)
 
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
@@ -704,6 +734,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 omni_range = 150.0
+
+[node name="radiator" parent="Salles/chambre" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.5454928, 0.4165268, -4.755803)
+
+[node name="plant" parent="Salles/chambre" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6520057, 1.1621412, -4.0653915)
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
@@ -833,6 +869,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
 light_cull_mask = 4294966274
 omni_range = 150.0
+
+[node name="radiator" parent="Salles/stockage" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.77515125, 0.6390414, -4.7431755)
+
+[node name="cardbox2" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.121005, 0.3699615, -4.24124)
+
+[node name="cardbox3" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.189069, -0.054327607, -3.030559)
+
+[node name="cardbox4" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.342744, 0.92529094, -3.9260542)
 
 [node name="Camera3D" type="Camera3D" parent="Salles"]
 transform = Transform3D(0.73674, -0.275064, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750598, 0.67838573, 13.224647, 10.952124, 13.990914)
