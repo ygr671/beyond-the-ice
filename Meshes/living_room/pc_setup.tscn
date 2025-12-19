@@ -47,6 +47,7 @@ size = Vector3(1.4863281, 0.95599365, 0.7293701)
 [node name="pc_setup" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_21g17")
+restock_count = 2
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.99993825, 0, 0.011110768, 0, 1, 0, -0.011110768, 0, -0.99993825, 0, 0, 0)

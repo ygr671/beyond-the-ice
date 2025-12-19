@@ -47,6 +47,8 @@ size = Vector3(1.5990677, 0.6227875, 1.0318375)
 [node name="Table" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_slrsa")
+initial_stock = 0
+restock_count = 3
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_nf4r6")

@@ -53,6 +53,7 @@ size = Vector3(0.35009766, 0.43624878, 0.5673828)
 [node name="Sofa" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_nvkmw")
+initial_stock = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_138s5")

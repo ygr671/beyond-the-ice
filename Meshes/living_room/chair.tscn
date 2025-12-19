@@ -47,6 +47,8 @@ size = Vector3(0.41357422, 0.7060547, 0.46533203)
 [node name="Chair" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_n0alh")
+initial_stock = 3
+restock_count = 7
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, -0.0046034176)
