@@ -98,6 +98,8 @@ var placing = false
 ## @tags state, placement
 var can_place = false
 
+@onready var button_sound = $AudioStreamPlayer
+
 ## @var_doc
 ## @description Indicateur booleen si le meuble est en cours de rotation (pour eviter le spam de rotation).
 ## @tags state, animation
@@ -438,6 +440,7 @@ func room_selection(index: int) -> void:
 ## @description Selectionne la salle 'Salon' (index 0).
 ## @tags ui, navigation, room
 func _on_salon_pressed() -> void:
+	button_sound.play()
 	current_room = 0
 	room_selection(current_room)
 	_deselect_item()
@@ -446,6 +449,7 @@ func _on_salon_pressed() -> void:
 ## @description Selectionne la salle 'Salle de Bain' (index 1).
 ## @tags ui, navigation, room
 func _on_salle_de_bain_pressed() -> void:
+	button_sound.play()
 	current_room = 1
 	room_selection(current_room)
 	_deselect_item()
@@ -454,14 +458,18 @@ func _on_salle_de_bain_pressed() -> void:
 ## @description Selectionne la salle 'Cuisine' (index 2).
 ## @tags ui, navigation, room
 func _on_cuisine_pressed() -> void:
+	button_sound.play()
 	current_room = 2
 	room_selection(current_room)
 	_deselect_item()
 	
+
+
 ## @func_doc
 ## @description Selectionne la salle 'Chambre' (index 3).
 ## @tags ui, navigation, room
 func _on_chambre_pressed() -> void:
+	button_sound.play()
 	current_room = 3
 	room_selection(current_room)
 	_deselect_item()
@@ -470,6 +478,7 @@ func _on_chambre_pressed() -> void:
 ## @description Selectionne la salle 'Laboratoire' (index 4).
 ## @tags ui, navigation, room
 func _on_laboratoire_pressed() -> void:
+	button_sound.play()
 	current_room = 4
 	room_selection(current_room)
 	_deselect_item()
@@ -478,6 +487,7 @@ func _on_laboratoire_pressed() -> void:
 ## @description Selectionne la salle 'Stockage' (index 5).
 ## @tags ui, navigation, room
 func _on_stockage_pressed() -> void:
+	button_sound.play()
 	current_room = 5
 	room_selection(current_room)
 	_deselect_item()

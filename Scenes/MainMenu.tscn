@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://db51o88uxdxf7"]
+[gd_scene load_steps=10 format=3 uid="uid://db51o88uxdxf7"]
 
 [ext_resource type="Script" uid="uid://d3pdk5x7ot8qo" path="res://Scripts/menu_principal.gd" id="1_853f1"]
 [ext_resource type="Texture2D" uid="uid://cnlh0pa7fxnuq" path="res://Import/Icon/Background_image.png" id="2_ghw46"]
@@ -29,37 +29,6 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h33ay"]
-bg_color = Color(0.79607844, 0.85882354, 0.972549, 0.4745098)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbxwo"]
-bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x57wl"]
-bg_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
 border_color = Color(0.2784314, 0.43137255, 0.68235296, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -142,18 +111,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_liwpa")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5pxfp")
 text = "START"
 
-[node name="tutorial" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-focus_mode = 0
-theme_override_colors/font_color = Color(0.15686275, 0.2901961, 0.34901962, 1)
-theme_override_fonts/font = ExtResource("3_8saeu")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_h33ay")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kbxwo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_x57wl")
-text = "CONTEXTE"
-
 [node name="quit_btn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -196,6 +153,5 @@ theme_override_font_sizes/font_size = 128
 text = "Beyond The Ice"
 
 [connection signal="button_down" from="VBoxContainer/start_btn" to="." method="_on_start_btn_button_down"]
-[connection signal="button_down" from="VBoxContainer/tutorial" to="." method="_on_tutorial_button_down"]
 [connection signal="button_down" from="VBoxContainer/quit_btn" to="." method="_on_quit_btn_button_down"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

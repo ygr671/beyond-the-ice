@@ -95,6 +95,9 @@ var is_cracking: bool = false
 ## @tags cleanup, time
 var time_since_last_check: float = 0.0
 
+@onready var soundkt = $KTE_sound
+
+
 var chrono_actif = true
 
 var temps_ecoule: float = 0.0
@@ -279,6 +282,7 @@ var reaction_timer: SceneTreeTimer
 ## @tags interaction, npc, dialog
 func trigger_random_knuckles_reaction():
 	print("Touché")
+	soundkt.play()
 	
 	# 1. Mise à jour du texte (écrase le précédent immédiatement)
 	var label_node = $Salles/salon/ui_Salon/KTE_textbox/Label

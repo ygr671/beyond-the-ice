@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://vy68o6b7ni3t"]
+[gd_scene load_steps=54 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
 [ext_resource type="FontFile" uid="uid://ddnha0ehnjevw" path="res://Import/Fonts/Roboto-Regular.ttf" id="10_nt2eh"]
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
+[ext_resource type="AudioStream" uid="uid://dda5kykuscgev" path="res://Import/sound/button-305770.mp3" id="11_5cm5d"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
 [ext_resource type="PackedScene" uid="uid://cs4nifrkn8oal" path="res://Meshes/beds/dog_photo_frame.tscn" id="11_viu5a"]
 [ext_resource type="PackedScene" uid="uid://bu77qljv4ysp3" path="res://Meshes/living_room/radiator.tscn" id="12_b00ha"]
@@ -30,7 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
 [ext_resource type="Script" uid="uid://dkhsn644qgscf" path="res://Scripts/ugandan_knuckles.gd" id="22_5oxhp"]
+[ext_resource type="AudioStream" uid="uid://dvihuc36biuw2" path="res://Import/sound/normal_SANTA_song.mp3" id="26_5bov3"]
 [ext_resource type="PackedScene" uid="uid://bfpjpyuafupqs" path="res://Meshes/Deco/plant.tscn" id="27_r0xgx"]
+[ext_resource type="AudioStream" uid="uid://ddbdl0s44g51n" path="res://Import/sound/thud-sound-effect-405470.mp3" id="27_xle81"]
 [ext_resource type="PackedScene" uid="uid://bkdufgwo17yqd" path="res://Meshes/beds/closet.tscn" id="31_rpyod"]
 [ext_resource type="PackedScene" uid="uid://dglppcpum0iho" path="res://Meshes/living_room/tv_cabinet.tscn" id="32_urcnp"]
 [ext_resource type="PackedScene" uid="uid://bk8vsamjs8bfw" path="res://Meshes/living_room/tv.tscn" id="33_rpyod"]
@@ -108,6 +111,14 @@ environment = SubResource("Environment_drdnd")
 [node name="Salles" type="Node3D" parent="."]
 
 [node name="salon" type="Node3D" parent="Salles"]
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/salon"]
 
@@ -510,6 +521,10 @@ monde !\""
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Salles/salon/ui_Salon"]
+stream = ExtResource("11_5cm5d")
+volume_db = 0.3
+
 [node name="room_light" type="OmniLight3D" parent="Salles/salon"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
 layers = 2
@@ -530,6 +545,13 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.6181183, 0.05000019, 3.183
 
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salle_de_bain"]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189895, 0.6864201, 7.632513, 9.024776, 8.058487)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/salle_de_bain"]
 
@@ -597,6 +619,13 @@ transform = Transform3D(-0.096278094, 0, 0.8948354, 0, 0.9, 0, -0.8948354, 0, -0
 
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/cuisine"]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/cuisine"]
 
@@ -676,6 +705,13 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.230873, 0.05000019, -3.999
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/chambre"]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
+
 [node name="PlacedObjects" type="Node3D" parent="Salles/chambre"]
 
 [node name="Salle" type="Node3D" parent="Salles/chambre"]
@@ -743,6 +779,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6520057, 1.1621412, -4.0653
 
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/laboratoire"]
+transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/laboratoire"]
 
@@ -914,6 +957,14 @@ light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
+
+[node name="main_game_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_5bov3")
+autoplay = true
+parameters/looping = true
+
+[node name="KTE_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_xle81")
 
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
 [connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]

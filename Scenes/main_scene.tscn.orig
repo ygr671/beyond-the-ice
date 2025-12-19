@@ -1,12 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://2ho4rd7rxcd6"]
+[gd_scene load_steps=51 format=3 uid="uid://vy68o6b7ni3t"]
 
 [ext_resource type="Script" uid="uid://bf8ftibf6gywm" path="res://Scenes/main_scene.gd" id="1_76v2p"]
-[ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="1_ioaeq"]
 [ext_resource type="Script" uid="uid://djxubuc021te8" path="res://Scripts/mur.gd" id="3_7ewk0"]
 [ext_resource type="Script" uid="uid://bkgkdiw6yfk3v" path="res://Scripts/salle_npc_creation.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://37f4w0w3kcck" path="res://Scenes/ui_Salon.tscn" id="4_7ewk0"]
-[ext_resource type="Material" uid="uid://b2fsvomysdrj3" path="res://materials/Wall/Green.tres" id="4_gnsmo"]
-[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scenes/ui_confirmation_end.gd" id="6_5oxhp"]
+[ext_resource type="Script" uid="uid://cix1hhj1e7opm" path="res://Scripts/ui_confirmation_end.gd" id="6_5oxhp"]
 [ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="6_8edxt"]
 [ext_resource type="PackedScene" uid="uid://b43wcqn0pktts" path="res://Meshes/bathroom/washing_machine.tscn" id="6_mai8y"]
 [ext_resource type="PackedScene" uid="uid://bnqx14aw50rfv" path="res://Scenes/ui_inventory.tscn" id="7_psl12"]
@@ -15,14 +13,36 @@
 [ext_resource type="PackedScene" uid="uid://cpdeyocpnqtwo" path="res://Meshes/lab/hanging_shelf.tscn" id="9_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://deqdk58e13f53" path="res://Meshes/lab/shelf.tscn" id="10_drdnd"]
 [ext_resource type="PackedScene" uid="uid://bbos0e0obf7ou" path="res://Meshes/beds/bunk_bed.tscn" id="10_mai8y"]
+[ext_resource type="FontFile" uid="uid://ddnha0ehnjevw" path="res://Import/Fonts/Roboto-Regular.ttf" id="10_nt2eh"]
 [ext_resource type="PackedScene" uid="uid://c8tupl0mrtoly" path="res://Scenes/ui_global_satisfaction.tscn" id="10_oyb3p"]
+[ext_resource type="AudioStream" uid="uid://dda5kykuscgev" path="res://Import/sound/button-305770.mp3" id="11_5cm5d"]
 [ext_resource type="PackedScene" uid="uid://cphl6xks12hve" path="res://Meshes/lab/desks.tscn" id="11_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://cs4nifrkn8oal" path="res://Meshes/beds/dog_photo_frame.tscn" id="11_viu5a"]
+[ext_resource type="PackedScene" uid="uid://bu77qljv4ysp3" path="res://Meshes/living_room/radiator.tscn" id="12_b00ha"]
+[ext_resource type="PackedScene" uid="uid://w3ss4mxt7nif" path="res://Meshes/bathroom/shower.tscn" id="12_xle81"]
+[ext_resource type="PackedScene" uid="uid://dbndsoe4dh8ed" path="res://Meshes/bathroom/sink.tscn" id="13_s8qe6"]
+[ext_resource type="PackedScene" uid="uid://cbkbr3ep3a158" path="res://Meshes/bathroom/toilet.tscn" id="14_yb0ja"]
 [ext_resource type="PackedScene" uid="uid://bg4nleb4fdy48" path="res://Meshes/Storage/cardbox.tscn" id="15_jvnna"]
 [ext_resource type="PackedScene" uid="uid://duu1towgml6ek" path="res://Scenes/snow.tscn" id="16_jvnna"]
 [ext_resource type="PackedScene" uid="uid://bsu3kg7vr2sci" path="res://Scenes/low_poly_water.tscn" id="16_psl12"]
 [ext_resource type="PackedScene" uid="uid://cxrecuubwufsw" path="res://Import/Models/Models/icebergflat.tscn" id="17_2ebs2"]
+[ext_resource type="Script" uid="uid://bwja1cpp7kcyy" path="res://Scripts/camera_3d.gd" id="17_8edxt"]
+[ext_resource type="PackedScene" uid="uid://biydftvvxmcey" path="res://Meshes/Deco/monstera_plant.tscn" id="18_urcnp"]
 [ext_resource type="PackedScene" uid="uid://cfv1icv61boby" path="res://Import/Ugandan Knuckles.glb" id="19_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://2njdyvnqxl7w" path="res://Scenes/Mini_iceberg.tscn" id="21_b48ew"]
+[ext_resource type="Script" uid="uid://dkhsn644qgscf" path="res://Scripts/ugandan_knuckles.gd" id="22_5oxhp"]
+[ext_resource type="PackedScene" uid="uid://bfpjpyuafupqs" path="res://Meshes/Deco/plant.tscn" id="27_r0xgx"]
+[ext_resource type="PackedScene" uid="uid://bkdufgwo17yqd" path="res://Meshes/beds/closet.tscn" id="31_rpyod"]
+<<<<<<< HEAD
+[ext_resource type="AudioStream" uid="uid://dvihuc36biuw2" path="res://Import/sound/normal_SANTA_song.mp3" id="26_5bov3"]
+[ext_resource type="AudioStream" uid="uid://ddbdl0s44g51n" path="res://Import/sound/thud-sound-effect-405470.mp3" id="27_xle81"]
+=======
+[ext_resource type="PackedScene" uid="uid://dglppcpum0iho" path="res://Meshes/living_room/tv_cabinet.tscn" id="32_urcnp"]
+[ext_resource type="PackedScene" uid="uid://bk8vsamjs8bfw" path="res://Meshes/living_room/tv.tscn" id="33_rpyod"]
+[ext_resource type="PackedScene" uid="uid://cpcm4esrwhdx7" path="res://Meshes/kitchen/fridge.tscn" id="34_vggli"]
+[ext_resource type="PackedScene" uid="uid://c0m7xvyaj45eg" path="res://Meshes/kitchen/microwaves.tscn" id="35_r0xgx"]
+[ext_resource type="PackedScene" uid="uid://cj1iy5ka3qtxr" path="res://Meshes/kitchen/oven.tscn" id="36_nrumr"]
+>>>>>>> 320dc026a9f83f572462c4ad407d0219cf784e4f
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mai8y"]
 sky_top_color = Color(0.14843115, 0.3310186, 0.63769597, 1)
@@ -94,9 +114,11 @@ environment = SubResource("Environment_drdnd")
 [node name="Salles" type="Node3D" parent="."]
 
 [node name="salon" type="Node3D" parent="Salles"]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salon"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -111,10 +133,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/salon/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/salon/Salle/Sol/MeshInstance3D"]
@@ -128,8 +152,8 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
-surface_material_override/0 = ExtResource("4_gnsmo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salon/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
@@ -140,12 +164,24 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salon/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
-surface_material_override/0 = ExtResource("4_gnsmo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salon/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
+
+[node name="dog_photo_frame" parent="Salles/salon" instance=ExtResource("11_viu5a")]
+transform = Transform3D(1.9027808, 0, 0.6159754, 0, 2, 0, -0.6159754, 0, 1.9027808, 0.74508953, 3.414827, -4.661728)
+
+[node name="radiator" parent="Salles/salon" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.8896148, 0.5752784, -4.661919)
+
+[node name="Closet" parent="Salles/salon" instance=ExtResource("31_rpyod")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9652376, 0.05000019, -4.7674437)
+
+[node name="monstera_plant" parent="Salles/salon" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7498326, 3.407701, -4.6793914)
 
 [node name="ui_Salon" parent="Salles/salon" instance=ExtResource("4_7ewk0")]
 
@@ -167,6 +203,30 @@ offset_bottom = -42.0
 offset_top = -200.0
 offset_bottom = 50.0
 
+[node name="label_light_heat" parent="Salles/salon/ui_Salon/ui_color_selection" index="3"]
+offset_top = 331.0
+offset_bottom = 363.0
+
+[node name="HSlider_light_heat" parent="Salles/salon/ui_Salon/ui_color_selection" index="8"]
+offset_top = 396.0
+offset_bottom = 427.0
+
+[node name="cold_label" type="Label" parent="Salles/salon/ui_Salon/ui_color_selection" index="9"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 374.0
+offset_right = 588.0
+offset_bottom = 397.0
+text = "froid"
+
+[node name="hot_label" type="Label" parent="Salles/salon/ui_Salon/ui_color_selection" index="10"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 375.0
+offset_right = 82.0
+offset_bottom = 398.0
+text = "chaud"
+
 [node name="OrderMenu" parent="Salles/salon/ui_Salon" index="4"]
 offset_left = 699.0
 offset_top = 967.0
@@ -178,6 +238,24 @@ offset_left = 259.0
 offset_top = 778.0
 offset_right = 525.0
 offset_bottom = 858.0
+
+[node name="succes" parent="Salles/salon/ui_Salon/ui_charging_bar" index="2"]
+offset_left = 266.0
+offset_top = 118.0
+offset_right = 1091.0
+offset_bottom = 222.6875
+theme_override_colors/font_color = Color(0.8681116, 0.9169801, 0.9801639, 1)
+theme_override_font_sizes/font_size = 75
+
+[node name="failure" parent="Salles/salon/ui_Salon/ui_charging_bar" index="3"]
+offset_left = 96.0
+offset_top = 110.0
+offset_right = 1217.0
+offset_bottom = 322.375
+theme_override_colors/font_color = Color(0.8666667, 0.91764706, 0.98039216, 1)
+theme_override_font_sizes/font_size = 75
+text = "      Livraison abandonné, 
+conditions météo défavorables"
 
 [node name="ui_confirmation_end" type="Control" parent="Salles/salon/ui_Salon"]
 visible = false
@@ -199,8 +277,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 341.0
-offset_top = 173.0
-offset_right = -418.0
+offset_top = 493.0
+offset_right = -429.0
 offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -221,21 +299,42 @@ horizontal_alignment = 1
 
 [node name="yes" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0
-offset_left = 605.0
-offset_top = 652.0
-offset_right = 1145.0
-offset_bottom = 730.0
+offset_left = 584.0
+offset_top = 326.0
+offset_right = 1124.0
+offset_bottom = 404.0
 theme_override_font_sizes/font_size = 28
+disabled = true
 text = "Oui"
 
 [node name="no" type="Button" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 652.0
-offset_right = 568.0
-offset_bottom = 730.0
+offset_left = 19.0
+offset_top = 330.0
+offset_right = 574.0
+offset_bottom = 408.0
 theme_override_font_sizes/font_size = 28
 text = "Non"
+
+[node name="username_prompt" type="LineEdit" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 186.0
+offset_right = 1122.0
+offset_bottom = 253.0
+placeholder_text = "ygr671"
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/ui_confirmation_end/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 191.0
+offset_right = 313.0
+offset_bottom = 246.0
+theme_override_fonts/font = ExtResource("6_8edxt")
+theme_override_font_sizes/font_size = 46
+text = "Pseudonyme :"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ui_global_satisfaction" parent="Salles/salon/ui_Salon" instance=ExtResource("10_oyb3p")]
 layout_mode = 1
@@ -269,12 +368,12 @@ item_count = 0
 
 [node name="button_end_mission" type="Button" parent="Salles/salon/ui_Salon"]
 layout_mode = 0
-offset_left = 1653.0
-offset_top = 812.0
-offset_right = 1895.0
-offset_bottom = 902.0
+offset_left = 1603.0
+offset_top = 813.0
+offset_right = 1898.0
+offset_bottom = 903.0
 theme_override_font_sizes/font_size = 30
-text = "Finir la mission"
+text = "Terminer la mission"
 
 [node name="delivery_label" type="RichTextLabel" parent="Salles/salon/ui_Salon"]
 visible = false
@@ -299,11 +398,160 @@ rotation = 0.5791199
 bbcode_enabled = true
 text = "[img=300x300]res://bx-minus.svg[/img]"
 
+[node name="Tutorial1" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12900001
+anchor_top = 0.326
+anchor_right = 0.40600002
+anchor_bottom = 0.416
+offset_left = -0.6800232
+offset_top = -0.08001709
+offset_right = 0.47998047
+offset_bottom = -0.27999878
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/Tutorial1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_nt2eh")
+text = "C'est la barre de satisfaction globale. 
+Elle augmente ou diminue selon l'humeur de tous les PNJs !\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial2" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.363
+anchor_top = 0.771
+anchor_right = 0.64100003
+anchor_bottom = 0.86100006
+offset_left = 0.039978027
+offset_top = 0.3199463
+offset_right = -0.7200928
+offset_bottom = 0.11993408
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/Tutorial2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_nt2eh")
+text = "Voici tes outils, bruddah :
+          1. [Order Furniture] pour commander des meubles (attention l'environnement 
+peut compromettre  la livraison d'un meuble)
+          2. [Menu Color] pour changer les murs et la lumière.
+          3. [Inventaire] pour voir tes objets stockés."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial3" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33400002
+anchor_top = 0.19000001
+anchor_right = 0.611
+anchor_bottom = 0.28
+offset_left = -0.2800293
+offset_top = -0.2000122
+offset_right = 0.8800049
+offset_bottom = -0.3999939
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/Tutorial3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_nt2eh")
+text = "Explore les différentes salles !
+Mais attention : installe des meubles appropriés à chaque pièce.
+Les PNJs n'aiment pas dormir dans la cuisine !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tutorial4" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77800006
+anchor_top = 0.59000003
+anchor_right = 0.99200004
+anchor_bottom = 0.73200005
+offset_left = 0.23986816
+offset_top = -0.2000122
+offset_right = -0.6401367
+offset_bottom = 0.4399414
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/Tutorial4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_nt2eh")
+text = "Et voici le bouton de Fin de Mission !
+Ne clique dessus que si tu es prêt à partir.
+Assure-toi que la satisfaction est au maximum !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GL" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.323
+anchor_top = 0.48100004
+anchor_right = 0.674
+anchor_bottom = 0.70600003
+offset_left = -0.16003418
+offset_top = -0.4800415
+offset_right = 0.9199219
+offset_bottom = -0.4800415
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/GL"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_8edxt")
+theme_override_font_sizes/font_size = 100
+text = "Abracadabra !!"
+horizontal_alignment = 1
+
+[node name="KTE_textbox" type="PanelContainer" parent="Salles/salon/ui_Salon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79300004
+anchor_top = 0.017
+anchor_right = 0.98200005
+anchor_bottom = 0.126
+offset_left = -0.5600586
+offset_top = -0.3600006
+offset_right = -0.44006348
+offset_bottom = -0.08000183
+
+[node name="Label" type="Label" parent="Salles/salon/ui_Salon/KTE_textbox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_8edxt")
+text = "
+Écoute-moi bien bruddah, 
+je vais te montrer comment fonctionne ce
+monde !\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Salles/salon/ui_Salon"]
+stream = ExtResource("11_5cm5d")
+volume_db = 0.3
+
+[node name="room_light" type="OmniLight3D" parent="Salles/salon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+light_cull_mask = 4294967294
+omni_range = 150.0
+
+[node name="tv_cabinet" parent="Salles/salon" instance=ExtResource("32_urcnp")]
+transform = Transform3D(0.0731395, 0, -2.9991086, 0, 3, 0, 2.9991086, 0, 0.0731395, -4.494821, 0.05000019, -0.009861946)
+
+[node name="tv" parent="Salles/salon" instance=ExtResource("33_rpyod")]
+transform = Transform3D(-0.11887812, 0, 2.9976437, 0, 3, 0, -2.9976437, 0, -0.11887812, -4.4857464, 1.8468137, 0.078122616)
+
+[node name="plant" parent="Salles/salon" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.476129, 0.18230534, -3.1307628)
+
+[node name="plant2" parent="Salles/salon" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.6181183, 0.05000019, 3.1838627)
+
 [node name="salle_de_bain" type="Node3D" parent="Salles"]
 visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/salle_de_bain"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831324, -0.70659626, 0.17189895, 0.6864201, 7.632513, 9.024776, 8.058487)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -318,10 +566,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/salle_de_bain/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/salle_de_bain/Salle/Sol/MeshInstance3D"]
@@ -334,6 +584,7 @@ shape = SubResource("BoxShape3D_6ev3c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salle_de_bain/Salle/Mur_droit"]
@@ -344,6 +595,7 @@ shape = SubResource("BoxShape3D_huasi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/salle_de_bain/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/salle_de_bain/Salle/Mur_gauche"]
@@ -351,13 +603,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
 [node name="washing_machine" parent="Salles/salle_de_bain" instance=ExtResource("6_mai8y")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.71234846, 0.6652224, -2.9612136)
+transform = Transform3D(-0.07872892, 0, 1.9984498, 0, 2, 0, -1.9984498, 0, -0.07872892, -4.206896, 0.073498726, 4.1581306)
+
+[node name="room_light" type="OmniLight3D" parent="Salles/salle_de_bain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+light_cull_mask = 4294967294
+omni_range = 150.0
+
+[node name="shower" parent="Salles/salle_de_bain" instance=ExtResource("12_xle81")]
+transform = Transform3D(-4.2415018e-06, 0, 0.008999998, 0, 0.008999999, 0, -0.008999998, 0, -4.2415018e-06, 3.7221255, 0.05000019, -3.818644)
+
+[node name="sink" parent="Salles/salle_de_bain" instance=ExtResource("13_s8qe6")]
+transform = Transform3D(-0.9995655, 0, 0.029474363, 0, 1, 0, -0.029474363, 0, -0.9995655, 4.260245, -0.12521505, -0.96843433)
+
+[node name="toilet" parent="Salles/salle_de_bain" instance=ExtResource("14_yb0ja")]
+transform = Transform3D(-0.096278094, 0, 0.8948354, 0, 0.9, 0, -0.8948354, 0, -0.096278094, -4.555147, -0.343441, 2.4231749)
 
 [node name="cuisine" type="Node3D" parent="Salles"]
 visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/cuisine"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -372,10 +640,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/cuisine/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/cuisine/Salle/Sol/MeshInstance3D"]
@@ -389,6 +659,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/cuisine/Salle/Mur_droit"]
@@ -400,17 +671,46 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/cuisine/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/cuisine/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
 shape = SubResource("BoxShape3D_mai8y")
 
+[node name="room_light" type="OmniLight3D" parent="Salles/cuisine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+light_cull_mask = 4294967294
+omni_range = 150.0
+
+[node name="hanging_shelf" parent="Salles/cuisine" instance=ExtResource("9_ioaeq")]
+transform = Transform3D(0.9999435, 0, -0.010628916, 0, 1, 0, 0.010628916, 0, 0.9999435, -1.2309985, 3.2271767, -4.411985)
+
+[node name="monstera_plant" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5012069, 4.477546, -4.700699)
+
+[node name="monstera_plant2" parent="Salles/cuisine" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6502824, 4.468075, -4.9883094)
+
+[node name="fridge" parent="Salles/cuisine" instance=ExtResource("34_vggli")]
+transform = Transform3D(-2.2989972, 0, 0.067911506, 0, 2.3, 0, -0.067911506, 0, -2.2989972, 3.9221954, 0.05000019, -4.3010087)
+
+[node name="microwaves" parent="Salles/cuisine" instance=ExtResource("35_r0xgx")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 3.8987064, 3.5480704, -4.65848)
+
+[node name="oven" parent="Salles/cuisine" instance=ExtResource("36_nrumr")]
+transform = Transform3D(-2.3998, 0, 0.030996203, 0, 2.3999999, 0, -0.030996203, 0, -2.3998, 1.5946455, 0.06630187, -4.257218)
+
+[node name="plant" parent="Salles/cuisine" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.230873, 0.05000019, -3.999844)
+
 [node name="chambre" type="Node3D" parent="Salles"]
 visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/chambre"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -425,10 +725,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/chambre/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/chambre/Salle/Sol/MeshInstance3D"]
@@ -442,6 +744,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/chambre/Salle/Mur_droit"]
@@ -453,6 +756,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/chambre/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/chambre/Salle/Mur_gauche"]
@@ -465,11 +769,23 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.744742, 0.068670064, 2.647
 [node name="pc_setup" parent="Salles/chambre" instance=ExtResource("8_drdnd")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.542822, 0.05000019, -3.9528432)
 
+[node name="room_light" type="OmniLight3D" parent="Salles/chambre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+omni_range = 150.0
+
+[node name="radiator" parent="Salles/chambre" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.5454928, 0.4165268, -4.755803)
+
+[node name="plant" parent="Salles/chambre" instance=ExtResource("27_r0xgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6520057, 1.1621412, -4.0653915)
+
 [node name="laboratoire" type="Node3D" parent="Salles"]
 visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/laboratoire"]
 transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
 shadow_normal_bias = 0.5
 shadow_reverse_cull_face = true
 shadow_blur = 0.57
@@ -484,10 +800,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/laboratoire/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/laboratoire/Salle/Sol/MeshInstance3D"]
@@ -501,6 +819,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/laboratoire/Salle/Mur_droit"]
@@ -512,6 +831,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/laboratoire/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/laboratoire/Salle/Mur_gauche"]
@@ -527,14 +847,17 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -2.9406738, 0.10346794, -4.09
 [node name="Desks" parent="Salles/laboratoire" instance=ExtResource("11_7ewk0")]
 transform = Transform3D(4.5, 0, 0, 0, 4.5, 0, 0, 0, 4.5, 0, 0, 1)
 
+[node name="room_light" type="OmniLight3D" parent="Salles/laboratoire"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+light_cull_mask = 4294967294
+omni_range = 150.0
+
+[node name="monstera_plant" parent="Salles/laboratoire" instance=ExtResource("18_urcnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8488979, 4.391653, -4.545472)
+
 [node name="stockage" type="Node3D" parent="Salles"]
 visible = false
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Salles/stockage"]
-transform = Transform3D(0.41918242, -0.6798369, 0.60175395, 0.5700946, 0.7129323, 0.40831327, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
-shadow_normal_bias = 0.5
-shadow_reverse_cull_face = true
-shadow_blur = 0.57
 
 [node name="PlacedObjects" type="Node3D" parent="Salles/stockage"]
 
@@ -546,10 +869,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9956758, 0.72103035,
 navigation_mesh = SubResource("NavigationMesh_x6ack")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/NavigationRegion3D"]
+layers = 2
 
 [node name="Sol" type="StaticBody3D" parent="Salles/stockage/Salle"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Sol"]
+layers = 2
 mesh = SubResource("BoxMesh_iacmt")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="Salles/stockage/Salle/Sol/MeshInstance3D"]
@@ -563,6 +888,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Mur_droit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5)
+layers = 2
 mesh = SubResource("BoxMesh_maf8m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/stockage/Salle/Mur_droit"]
@@ -574,6 +900,7 @@ script = ExtResource("3_7ewk0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Salles/stockage/Salle/Mur_gauche"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, 0)
+layers = 2
 mesh = SubResource("BoxMesh_m1efj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Salles/stockage/Salle/Mur_gauche"]
@@ -583,13 +910,31 @@ shape = SubResource("BoxShape3D_mai8y")
 [node name="cardbox" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -4.040039, 0, -4.591675)
 
+[node name="room_light" type="OmniLight3D" parent="Salles/stockage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6897783, 0)
+layers = 2
+light_cull_mask = 4294966274
+omni_range = 150.0
+
+[node name="radiator" parent="Salles/stockage" instance=ExtResource("12_b00ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.77515125, 0.6390414, -4.7431755)
+
+[node name="cardbox2" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.121005, 0.3699615, -4.24124)
+
+[node name="cardbox3" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.189069, -0.054327607, -3.030559)
+
+[node name="cardbox4" parent="Salles/stockage" instance=ExtResource("15_jvnna")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.342744, 0.92529094, -3.9260542)
+
 [node name="Camera3D" type="Camera3D" parent="Salles"]
-transform = Transform3D(0.73674, -0.27506402, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750595, 0.67838573, 5.741697, 6.6839657, 6.4637423)
+transform = Transform3D(0.73674, -0.275064, 0.6177006, 0.009006894, 0.9174313, 0.39779234, -0.6761162, -0.28750598, 0.67838573, 13.224647, 10.952124, 13.990914)
 attributes = SubResource("CameraAttributesPractical_7ewk0")
 projection = 1
 current = true
 size = 16.175995
-script = ExtResource("1_ioaeq")
+script = ExtResource("17_8edxt")
 
 [node name="Snow" parent="." instance=ExtResource("16_jvnna")]
 transform = Transform3D(0.9955798, -0.038022064, -0.0858791, 0.039071035, 0.9991805, 0.0105662625, 0.085407, -0.013874945, 0.9962493, -26.87265, 0.7567229, -23.121498)
@@ -600,29 +945,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.160435, -22.346388, -21.1
 [node name="Iceberg" parent="." instance=ExtResource("17_2ebs2")]
 transform = Transform3D(7.653859, -2.3277547, -1.0174939e-07, 0, -3.496911e-07, 8, -2.3277547, -7.653859, -3.345608e-07, -36.023117, -20.278185, -28.342133)
 
-<<<<<<< HEAD
-[node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
-transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
+[node name="Ugandan_Knuckles" parent="." instance=ExtResource("19_oyb3p")]
+transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -27.287, -17.151, -49.14)
+script = ExtResource("22_5oxhp")
 
 [node name="Mini_iceberg" parent="." instance=ExtResource("21_b48ew")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -44.34211, -23.974077, -60.12489)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -39.924, -23.974, -56.216)
 
-=======
-[node name="Iceberg_fond" parent="." instance=ExtResource("12_drdnd")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -42.88293, -23.23826, -60.209503)
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[node name="Ugandan Knuckles" parent="." instance=ExtResource("19_oyb3p")]
-transform = Transform3D(0.18606043, 0, 0.35409254, 0, 0.4, 0, -0.35409254, 0, 0.18606043, -37.212, -20.60181, -59.334396)
+node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.41918242, -0.6798369, 0.601754, 0.5700946, 0.7129323, 0.4083132, -0.70659626, 0.17189895, 0.6864201, 4.707531, 2.7378685, 5.2616353)
+light_cull_mask = 4294966273
+shadow_normal_bias = 0.5
+shadow_reverse_cull_face = true
+shadow_blur = 0.57
 
+[node name="main_game_song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_5bov3")
+autoplay = true
+parameters/looping = true
+
+[node name="KTE_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("27_xle81")
+
+[connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light _intensity" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light__intensity_drag_ended"]
+[connection signal="drag_ended" from="Salles/salon/ui_Salon/ui_color_selection/HSlider_light_heat" to="Salles/salon/ui_Salon/ui_color_selection" method="_on_h_slider_light_heat_drag_ended"]
+[connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/yes" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_yes_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/no" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_no_pressed"]
->>>>>>> f651a3e2402bbacb744b217d3f0f04d9ed38216f
+[connection signal="text_changed" from="Salles/salon/ui_Salon/ui_confirmation_end/Panel/username_prompt" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_username_prompt_text_changed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/PanelMenu2/buttonInventory" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_inventory_pressed"]
 [connection signal="item_selected" from="Salles/salon/ui_Salon/ui_inventory/Panel/ItemList" to="Salles/salon/ui_Salon" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/ui_inventory/Panel/Button" to="Salles/salon/ui_Salon/ui_inventory" method="_on_button_pressed"]
 [connection signal="pressed" from="Salles/salon/ui_Salon/button_end_mission" to="Salles/salon/ui_Salon/ui_confirmation_end" method="_on_button_end_mission_pressed"]
 
 [editable path="Salles/salon/ui_Salon"]
+[editable path="Salles/salon/ui_Salon/ui_color_selection"]
 [editable path="Salles/salon/ui_Salon/ui_order_furniture"]
 [editable path="Salles/salon/ui_Salon/ui_charging_bar"]
 [editable path="Salles/salon/ui_Salon/ui_inventory"]

@@ -14,6 +14,23 @@ Nous les remercions chaleureusement pour leur travail.
 * **Source :** [laravel.com](https://laravel.com)
 * **Licence :** [MIT](https://opensource.org/licenses/MIT)
 
+## Ressources Audio
+
+### Musique "SANTA" (Tyga Type Beat)
+* **Créateur :** Call Me G (Prod. Call Me G)
+* **Source :** [Beatstars](https://bsta.rs/903d86ebe)
+* **Licence :** Libre pour usage non-commercial / non-profit (Crédit obligatoire)
+
+### Effet sonore "Button"
+* **Créateur :** SonixFXSounds
+* **Source :** [Pixabay](https://pixabay.com/sound-effects/search/button/)
+* **Licence :** Pixabay Content License
+
+### Effet sonore "Thud Sound Effect"
+* **Créateur :** DRAGON-STUDIO
+* **Source :** [Pixabay](https://pixabay.com/sound-effects/search/thud/)
+* **Licence :** Pixabay Content License
+
 ## Assets et Ressources
 
 ### Pack d'assets "Furniture Set"
