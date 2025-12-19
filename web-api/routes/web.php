@@ -9,3 +9,10 @@ Route::prefix('admin')->group(function () {
     Route::get('users', [AdminController::class, 'users']);
 });
 */
+
+use App\Http\Controllers\PlayerViewController;
+
+Route::get('/', fn () => redirect('/leaderboard'));
+
+Route::get('/leaderboard', [PlayerViewController::class, 'leaderboard']);
+Route::get('/podium', [PlayerViewController::class, 'podium']);
