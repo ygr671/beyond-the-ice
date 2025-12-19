@@ -141,10 +141,7 @@ func _ready():
 	for i in range(furniture_list.size()):
 		var info = furniture_list[i]
 		order_list.add_item("", info.image)
-		if info.stock == 0:
-			item_list.add_item("") # Affiche vide si pas de stock
-		else:
-			item_list.add_item(str(info.stock), info.image)
+		item_list.add_item(str(info.stock), info.image)
 	# Connexion au signal d'environnement (si besoin d'actions specifiques ici)
 	connect("environment_changed", Callable(self, "_on_environment_changed"))
 	await get_tree().create_timer(0.2).timeout
