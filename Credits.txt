@@ -59,6 +59,21 @@
 [b]Source :[/b] [url=https://fonts.google.com/specimen/Roboto]https://fonts.google.com/specimen/Roboto[/url]
 [b]Licence :[/b] SIL Open Font Licence, v1.1
 
+[b]Musique :[/b] "SANTA" (Tyga Type Beat) [b]Fichier :[/b] normal_SANTA_song.mp3 
+[b]Créateur :[/b] Call Me G (Prod. Call Me G) 
+[b]Source :[/b] [url=https://www.beatstars.com/callmeg]https://www.beatstars.com/callmeg[/url] 
+[b]Licence :[/b] Libre pour usage non-commercial (Usage académique/Open Source)
+
+[b]Effets sonores :[/b] “Button” 
+[b]Créateur :[/b] SonixFXSounds 
+[b]Source :[/b] [url=https://pixabay.com/users/sonixfxsounds-35804369/]Pixabay[/url] 
+[b]Licence :[/b] Pixabay Content License (Gratuit, sans attribution requise)
+
+[b]Effets sonores :[/b] “Thud Sound Effect” 
+[b]Créateur :[/b] DRAGON-STUDIO 
+[b]Source :[/b] [url=https://pixabay.com/users/dragon-studio-41135400/]Pixabay[/url] 
+[b]Licence :[/b] Pixabay Content License (Gratuit, usage commercial et personnel)
+
 [b]Beyond The Ice[/b]
 [b]Licence :[/b] EULA
 
