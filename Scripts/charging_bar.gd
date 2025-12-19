@@ -145,11 +145,9 @@ func _on_furniture_ordered(index: int):
 
 	# Logique de probabilite de succes basee sur l'heure (is_day) et la meteo (weather)
 	if player_controller.is_day && player_controller.weather:
-		rand = get_weighted_result(0.85) # Grande chance de succes (Jour + Bonne meteo)
+		rand = get_weighted_result(1) # Grande chance de succes (Jour + Bonne meteo)
 	elif player_controller.is_day && !player_controller.weather:
-		rand = get_weighted_result(0.50) # Chance moyenne (Jour + Mauvaise meteo)
-	else :
-		rand = get_weighted_result(0.0) # Echec garanti ou tres probable (Nuit)
+		rand = get_weighted_result(0.85) # Chance moyenne (Jour + Mauvaise meteo)
 
 	_on_timer_timeout(rand) # Gere l'affichage du resultat
 
