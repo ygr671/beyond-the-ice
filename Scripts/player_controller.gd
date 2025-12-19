@@ -37,6 +37,8 @@ var room_satisfaction: Array[int] = []
 
 var chrono: float = 0.0
 
+var score: int = -1
+
 ## @signal_doc
 ## @description Émis lorsqu'un changement susceptible d'affecter les PNJ ou l'environnement se produit.
 ## Connecté notamment par NavigationNPC pour la réaction à la couleur des murs ou aux meubles.

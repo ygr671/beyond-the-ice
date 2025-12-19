@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://c13m2blkyvfhu"]
+
+[ext_resource type="Script" uid="uid://qtiap75gc66l" path="res://Scripts/ui_end_game.gd" id="1_ly4u8"]
+[ext_resource type="FontFile" uid="uid://cbvm84gsbp808" path="res://Import/Fonts/Roboto-Bold.ttf" id="1_nu2o4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly4u8"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.972549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.42745098, 0.5294118, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="UI_end_game" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ly4u8")
+
+[node name="basePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -394.0
+offset_top = -237.0
+offset_right = 399.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ly4u8")
+
+[node name="Label" type="Label" parent="basePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.5
+offset_top = 20.999998
+offset_right = 196.5
+offset_bottom = 129.0
+grow_horizontal = 2
+scale = Vector2(0.99745595, 1)
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 70
+text = "Fin de partie"
+
+[node name="btnQuit" type="Button" parent="basePanel"]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 444.0
+offset_right = 712.0
+offset_bottom = 492.0
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 28
+text = "Fermer le jeu"
+
+[node name="Button" type="Button" parent="basePanel"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 444.0
+offset_right = 373.0
+offset_bottom = 492.0
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 28
+text = "Rejouer"
+
+[node name="panelTime" type="Panel" parent="basePanel"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 142.0
+offset_right = 728.0
+offset_bottom = 212.0
+
+[node name="LabelTemps" type="Label" parent="basePanel/panelTime"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -23.5
+offset_right = 279.0
+offset_bottom = 23.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 39
+text = "Temps écoulé :"
+
+[node name="tempsEcoule" type="Label" parent="basePanel/panelTime"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 12.0
+offset_right = 344.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 39
+text = "16:16"
+
+[node name="panelScore" type="Panel" parent="basePanel"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 231.0
+offset_right = 728.0
+offset_bottom = 301.0
+
+[node name="labelScore" type="Label" parent="basePanel/panelScore"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -23.5
+offset_right = 145.0
+offset_bottom = 23.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.44313726, 0.5529412, 1)
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 39
+text = "Score : "
+
+[node name="score" type="Label" parent="basePanel/panelScore"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 12.0
+offset_right = 344.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("1_nu2o4")
+theme_override_font_sizes/font_size = 39
+text = "99999"
+
+[connection signal="pressed" from="basePanel/btnQuit" to="." method="_on_btn_quit_pressed"]
+[connection signal="pressed" from="basePanel/Button" to="." method="_on_button_pressed"]
