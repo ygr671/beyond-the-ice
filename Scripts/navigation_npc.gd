@@ -212,154 +212,222 @@ func _on_environment_changed(change_type, data):
 			change_satisfaction(points)
 
 		"furniture_placed":
+			# Gestion de l'ajout d'un meuble
 			match data:
 				"bunk_bed":
-					if room_index == 3: #salle chambre
+					# Lit superposé
+					if room_index == 3: # Chambre
 						nblits += 1
+						# Bonus tant qu'on a moins de 4 lits
 						if nblits < 4:
 							change_satisfaction(15)
 						else:
+							# Trop de lits dans la chambre
 							change_satisfaction(-15)
 					else:
+						# Lit placé dans une mauvaise pièce
 						change_satisfaction(-15)
+
 				"closet":
+					# Placard
 					nb_closet += 1
-					if nb_closet <4:
+					# Bonus jusqu'à 3 placards
+					if nb_closet < 4:
 						change_satisfaction(8)
 					else:
+						# Trop de placards
 						change_satisfaction(-8)
+
 				"gym":
-					nb_gym+=1
+					# Équipement de sport
+					nb_gym += 1
+					# Bonus uniquement si c'est le premier gym et dans la bonne pièce
 					if room_index == 5 && nb_gym == 1:
 						change_satisfaction(25)
 					else:
+						# Mauvaise pièce ou trop d'équipements
 						change_satisfaction(-25)
+
 				"wheel_chair", "chair":
-					nb_chair+=1
-					if(nb_chair < 15):
+					# Chaises et fauteuils roulants
+					nb_chair += 1
+					# Bonus tant qu'il n'y a pas trop de chaises
+					if nb_chair < 15:
 						change_satisfaction(2)
-					if(nb_chair>=25):
+					# Malus si surcharge de chaises
+					if nb_chair >= 25:
 						change_satisfaction(-2)
-						#si on a + de 15 chaise c'est pas derangeant mais pas specialement bien non plus mais plus de 25 c'est derangeant
+						# Entre 15 et 25 : neutre
+
 				"table":
-					nb_table+=1
+					# Tables
+					nb_table += 1
+					# Tables acceptées seulement dans certaines pièces
 					if room_index == 0 || room_index == 2:
-						if(nb_table < 3):
+						if nb_table < 3:
 							change_satisfaction(4)
 						else:
-							change_satisfaction(-4)	
+							# Trop de tables
+							change_satisfaction(-4)
 					else:
-						change_satisfaction(-4)		
+						# Table dans une mauvaise pièce
+						change_satisfaction(-4)
+
 				"sofa":
-					nb_sofa+=1
+					# Canapé
+					nb_sofa += 1
+					# Bonus uniquement pour le premier canapé dans le salon
 					if room_index == 0 && nb_sofa == 1:
 						change_satisfaction(15)
 					else:
-						change_satisfaction(-20)	
+						# Canapé en trop ou mal placé
+						change_satisfaction(-20)
+
 				"washing_machine":
-					nb_washing+=1
-					if room_index == 1 && nb_washing <4:
+					# Machine à laver
+					nb_washing += 1
+					# Bonus dans la buanderie tant qu'il n'y en a pas trop
+					if room_index == 1 && nb_washing < 4:
 						change_satisfaction(9)
 					else:
 						change_satisfaction(-9)
+
 				"pc_setup":
-					nb_pc +=1
-					if ((room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6):
+					# Poste informatique
+					nb_pc += 1
+					# Accepté dans certaines pièces et en quantité limitée
+					if (room_index == 3 || room_index == 5 || room_index == 4) && nb_pc < 6:
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
+
 				"sink":
-					nb_sink+=1
+					# Évier
+					nb_sink += 1
+					# Bonus dans salle de bain ou cuisine, quantité limitée
 					if (room_index == 1 || room_index == 2) && nb_sink < 3:
 						change_satisfaction(7)
 					else:
 						change_satisfaction(-7)
+
 				"toilet":
-					nb_toilet+=1
+					# Toilettes
+					nb_toilet += 1
+					# Bonus uniquement dans la salle de bain et en nombre raisonnable
 					if room_index == 1 && nb_toilet < 4:
 						change_satisfaction(15)
 					else:
 						change_satisfaction(-15)
+
 				"shower":
-					nb_shower+=1
+					# Douche
+					nb_shower += 1
+					# Bonus dans la salle de bain, limité à 2
 					if room_index == 1 && nb_shower < 3:
 						change_satisfaction(13)
 					else:
 						change_satisfaction(-13)
-		"furniture_removed": ##Lors de la supression d'un meuble
+
+		"furniture_removed": ## Lors de la suppression d'un meuble
 			match data:
 				"bunk_bed":
+					# Retrait d'un lit superposé
 					if player_controller.current_room == 3:
 						nblits -= 1
+						# Retirer un lit en trop redonne un bonus
 						if nblits >= 3:
 							change_satisfaction(15)
 						else:
-							change_satisfaction(-15) 
+							change_satisfaction(-15)
 					else:
+						# Retirer un lit mal placé est positif
 						change_satisfaction(15)
+
 				"gym":
-					nb_gym-=1
+					# Retrait d'un équipement de sport
+					nb_gym -= 1
+					# Retirer le seul gym de la bonne pièce est négatif
 					if room_index == 5 && nb_gym == 0:
 						change_satisfaction(-25)
 					else:
 						change_satisfaction(25)
+
 				"closet":
+					# Retrait d'un placard
 					nb_closet -= 1
-					if nb_closet >=3:
+					if nb_closet >= 3:
 						change_satisfaction(8)
 					else:
 						change_satisfaction(-8)
+
 				"wheel_chair", "chair":
-					nb_chair-=1
-					if(nb_chair < 14):
+					# Retrait d'une chaise
+					nb_chair -= 1
+					# Passer sous le seuil utile est négatif
+					if nb_chair < 14:
 						change_satisfaction(-2)
-					if(nb_chair >= 25):
+					# Retirer une chaise en surcharge est positif
+					if nb_chair >= 25:
 						change_satisfaction(2)
-					
+
 				"table":
-					nb_table-=1
+					# Retrait d'une table
+					nb_table -= 1
 					if room_index == 0 || room_index == 2:
-						if(nb_table >= 2):
+						if nb_table >= 2:
 							change_satisfaction(4)
 						else:
-							change_satisfaction(-4)	
+							change_satisfaction(-4)
 					else:
-						change_satisfaction(4)		
+						# Retirer une table mal placée est positif
+						change_satisfaction(4)
+
 				"sofa":
-					nb_sofa-=1
+					# Retrait d'un canapé
+					nb_sofa -= 1
+					# Retirer un canapé inutile est positif
 					if room_index != 0 || nb_sofa > 0:
 						change_satisfaction(15)
 					else:
-						change_satisfaction(-20)	
+						# Supprimer l'unique canapé du salon est négatif
+						change_satisfaction(-20)
+
 				"washing_machine":
-					nb_washing-=1
-					if room_index != 1 || nb_washing >=3:
+					# Retrait d'une machine à laver
+					nb_washing -= 1
+					if room_index != 1 || nb_washing >= 3:
 						change_satisfaction(9)
 					else:
 						change_satisfaction(-9)
+
 				"pc_setup":
-					nb_pc -=1
+					# Retrait d'un PC
+					nb_pc -= 1
+					# Retirer un PC mal placé ou en surplus est positif
 					if room_index == 0 || room_index == 1 || room_index == 2 || nb_pc >= 5:
 						change_satisfaction(10)
 					else:
 						change_satisfaction(-10)
+
 				"sink":
+					# Retrait d'un évier
 					nb_sink -= 1
-					# Si bien placé ET qu'on en a encore assez (2 ou plus restants) 
-					# OU si c'était mal placé à la base -> On redonne des points
+					# Bonus si on en a encore assez ou s'il était mal placé
 					if ((room_index == 1 || room_index == 2) && nb_sink >= 2) || (room_index != 1 && room_index != 2):
 						change_satisfaction(7)
 					else:
 						change_satisfaction(-7)
-						
+
 				"toilet":
+					# Retrait de toilettes
 					nb_toilet -= 1
 					if (room_index == 1 && nb_toilet >= 3) || room_index != 1:
 						change_satisfaction(15)
 					else:
 						change_satisfaction(-15)
-						
+
 				"shower":
+					# Retrait d'une douche
 					nb_shower -= 1
 					if (room_index == 1 && nb_shower >= 2) || room_index != 1:
 						change_satisfaction(13)
