@@ -14,7 +14,7 @@ Ce guide décrit toutes les étapes nécessaires pour installer le jeu et l'exé
 ### 1. Télécharger le jeu 
 Télécharger la dernière version de l'installateur via le lien officiel ci-dessous : 
 
-[Lien de téléchargement ](klausnitzer.fr/BeyondTheIce) 
+[Lien de téléchargement ](https://klausnitzer.fr/BeyondTheIce) 
 
 ### 2. Lancer l'installation
 1. Une fois le téléchargement terminé, localisez le fichier **'BeyondTheIce-setup.exe'** dans votre dossier *Téléchargement*.
